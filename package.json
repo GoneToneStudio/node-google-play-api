@@ -1,5 +1,5 @@
 {
-  "name": "@gonetonestudio/google-play-api",
+  "name": "@gonetone/google-play-api",
   "version": "1.0.0",
   "description": "Access Google Play by logging in and making requests as an Android device!",
   "main": "index.js",

@@ -13,7 +13,7 @@ Please report any bugs you discover at <http://github.com/GoneToneStudio/node-go
 Node.js 14.0.0 or newer is required.
 
 ### With NPM
-    npm install @gonetonestudio/google-play-api
+    npm install @gonetone/google-play-api
 
 ## Obtain an OAuth2 Token
 - Navigate to <https://accounts.google.com/EmbeddedSetup>
