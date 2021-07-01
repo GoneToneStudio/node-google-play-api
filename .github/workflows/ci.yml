@@ -7,6 +7,8 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
 
     strategy:
+      fail-fast: false
+
       matrix:
         operating-system: [ ubuntu-latest ]
         node-version: [ 14.x, 15.x, 16.x ]
