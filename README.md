@@ -7,7 +7,7 @@ Access Google Play by logging in and making requests as an Android device!
 A version of this library for PHP is being developed.
 
 ## Report Issues
-Please report any bugs you discover at <http://github.com/GoneToneStudio/node-google-play-api/issues>
+Please report any bugs you discover at <https://github.com/GoneToneStudio/node-google-play-api/issues>
 
 ## Installation
 Node.js 14.0.0 or newer is required.
