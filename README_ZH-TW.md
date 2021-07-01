@@ -2,7 +2,7 @@
 
 [English](README.md) | 繁體中文
 
-偽裝成 Android 裝置登入帳號發送請求取得 Google Play 資料！
+偽裝成 Android 裝置登入帳號發送請求來訪問 Google Play！
 
 PHP 版本：開發中
 
