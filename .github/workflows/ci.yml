@@ -1,0 +1,35 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.operating-system }}
+
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-latest ]
+        node-version: [ 12.x, 14.x, 15.x, 16.x ]
+
+    name: Node.js ${{ matrix.node-version }} Test on ${{ matrix.operating-system }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Jest Tests
+        run: npm test
+        env:
+          GOOGLE_TEST_EMAIL: ${{ secrets.GOOGLE_TEST_EMAIL }}
+          GOOGLE_TEST_GFS_ID: ${{ secrets.GOOGLE_TEST_GFS_ID }}
+          GOOGLE_TEST_AUTH_TOKEN: ${{ secrets.GOOGLE_TEST_AUTH_TOKEN }}

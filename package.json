@@ -1,0 +1,55 @@
+{
+  "name": "@gonetonestudio/google-play-api",
+  "version": "1.0.0",
+  "description": "Access Google Play by logging in and making requests as an Android device!",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GoneToneStudio/node-google-play-api.git"
+  },
+  "keywords": [
+    "google play",
+    "play store",
+    "play",
+    "google play api",
+    "play store api",
+    "google play store api",
+    "api",
+    "google play crawler",
+    "play store crawler",
+    "google play store crawler",
+    "crawler",
+    "google"
+  ],
+  "author": {
+    "name": "張文相 Wenxiang Zhang (旋風之音 GoneTone)",
+    "email": "p29022716@gmail.com",
+    "url": "https://github.com/GoneTone"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GoneToneStudio/node-google-play-api/issues"
+  },
+  "homepage": "https://github.com/GoneToneStudio/node-google-play-api",
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "eslint": "^7.28.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "jest": "^27.0.5"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "ini": "^2.0.0",
+    "lodash": "^4.17.21",
+    "protobufjs": "^5.0.1",
+    "qs": "^6.10.1"
+  }
+}
