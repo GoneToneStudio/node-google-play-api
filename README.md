@@ -20,8 +20,11 @@ Node.js 14.0.0 or newer is required.
 - Sign in with your Google account
 - Select "I agree"
 - Navigate to "Cookie"
+  
   ![View Cookie](docs/images/view_cookie.png)
+  
 - Expand accounts.google.com > Cookie, find "oauth_token", and select the value beginning with `oauth2_4/`
+  
   ![Get your own OAuth2 Token](docs/images/get_oauth2_token.png)
 
 ## Obtain your GSF ID (Google Service Framework ID)

@@ -20,8 +20,11 @@ PHP 版本：開發中
 - 登入您的 Google 帳號
 - 按下我同意
 - 查看 Cookie
+  
   ![查看 Cookie](docs/images/view_cookie.png)
+  
 - 展開 accounts.google.com > Cookie，找到 "oauth_token" 點擊，複製 "oauth2_4/" 開頭的值
+  
   ![取得 OAuth2 Token](docs/images/get_oauth2_token.png)
 
 ## 取得 GSF ID (Google Service Framework ID)
