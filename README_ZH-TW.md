@@ -10,6 +10,8 @@ PHP 版本：開發中
 如果發現任何 BUG，請在此回報：<https://github.com/GoneToneStudio/node-google-play-api/issues>
 
 ## 安裝
+需要 Node.js 14.0.0 或更高版本。
+
 ### 使用 NPM
     npm install @gonetonestudio/google-play-api
 

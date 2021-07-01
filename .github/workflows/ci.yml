@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [ ubuntu-latest ]
-        node-version: [ 12.x, 14.x, 15.x, 16.x ]
+        node-version: [ 14.x, 15.x, 16.x ]
 
     name: Node.js ${{ matrix.node-version }} Test on ${{ matrix.operating-system }}
     steps:
