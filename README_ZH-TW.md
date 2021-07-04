@@ -7,15 +7,21 @@
 PHP 版本：開發中
 
 ## 問題
+
 如果發現任何 BUG，請在此回報：<https://github.com/GoneToneStudio/node-google-play-api/issues>
 
 ## 安裝
+
 需要 Node.js 14.0.0 或更高版本。
 
 ### 使用 NPM
-    npm install @gonetonestudio/google-play-api
+
+```sh-session
+npm install @gonetone/google-play-api
+```
 
 ## 取得 OAuth2 Token
+
 - 前往 <https://accounts.google.com/EmbeddedSetup>
 - 登入您的 Google 帳號
 - 按下我同意
@@ -28,40 +34,49 @@ PHP 版本：開發中
   ![取得 OAuth2 Token](docs/images/get_oauth2_token.png)
 
 ## 取得 GSF ID (Google Service Framework ID)
+
 您可以安裝此 App 取得 GSF ID：<https://play.google.com/store/apps/details?id=com.evozi.deviceid>
 
 ## 使用方法
+
 ### 使用 GooglePlayAPI 物件
+
 ```javascript
 const gpAPI = new GooglePlayAPI("Your_Google_Account@gmail.com", "您的裝置 GSF ID (Google Service Framework ID)");
 ```
 
 ### 設定 User-Agent
+
 ```javascript
 gpAPI.setUserAgent('User-Agent')
 ```
 
 ### 設定客戶端 ID
+
 ```javascript
 gpAPI.setClientID('am-android-asus')
 ```
 
 ### 設定 SDK 版本
+
 ```javascript
 gpAPI.setSdkVersion(28)
 ```
 
 ### 設定國家代碼
+
 ```javascript
 gpAPI.setCountryCode('tw')
 ```
 
 ### 設定語言代碼
+
 ```javascript
 gpAPI.setLanguageCode('zh-TW')
 ```
 
 ### 取得 App 詳細信息
+
 ```javascript
 gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -81,6 +96,7 @@ gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token)
 ```
 
 ### 取得批量 App 詳細信息
+
 ```javascript
 gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -91,6 +107,7 @@ gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token)
 ```
 
 ### App 搜尋
+
 ```javascript
 gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -101,6 +118,7 @@ gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token)
 ```
 
 ### 取得下載資訊
+
 ```javascript
 gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -111,6 +129,7 @@ gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token)
 ```
 
 ### 取得下載 Apk 網址
+
 ```javascript
 gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -121,6 +140,7 @@ gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token)
 ```
 
 ### 下載 Apk
+
 ```javascript
 gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -130,6 +150,7 @@ gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token)
 ```
 
 ### 取得附加文件資訊
+
 ```javascript
 gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -140,6 +161,7 @@ gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token)
 ```
 
 ### 取得下載附加文件網址
+
 ```javascript
 gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -150,6 +172,7 @@ gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token)
 ```
 
 ### 下載附加文件
+
 ```javascript
 gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -159,4 +182,5 @@ gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token)
 ```
 
 ## License
+
 [MIT](LICENSE)

@@ -7,15 +7,21 @@ Access Google Play by logging in and making requests as an Android device!
 A version of this library for PHP is being developed.
 
 ## Report Issues
+
 Please report any bugs you discover at <https://github.com/GoneToneStudio/node-google-play-api/issues>
 
 ## Installation
+
 Node.js 14.0.0 or newer is required.
 
 ### With NPM
-    npm install @gonetone/google-play-api
+
+```sh-session
+npm install @gonetone/google-play-api
+```
 
 ## Obtain an OAuth2 Token
+
 - Navigate to <https://accounts.google.com/EmbeddedSetup>
 - Sign in with your Google account
 - Select "I agree"
@@ -28,40 +34,49 @@ Node.js 14.0.0 or newer is required.
   ![Get your own OAuth2 Token](docs/images/get_oauth2_token.png)
 
 ## Obtain your GSF ID (Google Service Framework ID)
+
 You can obtain your GSF ID by installing this app: <https://play.google.com/store/apps/details?id=com.evozi.deviceid>
 
 ## Examples
+
 ### Using GooglePlayAPI
+
 ```javascript
 const gpAPI = new GooglePlayAPI("Your_Google_Account@gmail.com", "The GSF ID (Google Service Framework ID) of your device");
 ```
 
 ### Configuring User-Agent
+
 ```javascript
 gpAPI.setUserAgent('User-Agent')
 ```
 
 ### Configuring Client ID
+
 ```javascript
 gpAPI.setClientID('am-android-asus')
 ```
 
 ### Configuring SDK Version
+
 ```javascript
 gpAPI.setSdkVersion(28)
 ```
 
 ### Configuring Country Code
+
 ```javascript
 gpAPI.setCountryCode('tw')
 ```
 
 ### Configuring Language Code
+
 ```javascript
 gpAPI.setLanguageCode('zh-TW')
 ```
 
 ### Retrieving application details
+
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -81,6 +96,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 ```
 
 ### Retrieving application details in-bulk
+
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -91,6 +107,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 ```
 
 ### Searching for an app
+
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -101,6 +118,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 ```
 
 ### Retrieving download data for an app
+
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -111,6 +129,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 ```
 
 ### Retrieving the link to an app package
+
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -121,6 +140,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 ```
 
 ### Downloading an app package
+
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -130,6 +150,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 ```
 
 ### Retrieve additional files
+
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -140,6 +161,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 ```
 
 ### Retrieving links to additional files
+
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -150,6 +172,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 ```
 
 ### Downloading the additional files
+
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
@@ -159,4 +182,5 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 ```
 
 ## License
+
 [MIT](LICENSE)
