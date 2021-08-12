@@ -125,99 +125,111 @@ class GooglePlayAPI {
    * @returns {Promise<String>}
    */
   async getGoogleToken (oauth2Token, saveTokenFilePath = 'token.txt') {
-    const pathIsExists = await isExists(saveTokenFilePath)
-    if (pathIsExists) {
-      return await readToken(saveTokenFilePath)
-    }
+    if (oauth2Token.startsWith('oauth2_4/')) {
+      const pathIsExists = await isExists(saveTokenFilePath)
+      if (pathIsExists) {
+        return await readToken(saveTokenFilePath)
+      }
 
-    try {
-      const axiosData = await axios.post(`${this._apiEndpoint}${this._authPath}`, qs.stringify({
-        androidId: this._gfsID.toString(),
-        lang: this._languageCode.toString(),
-        google_play_services_version: this._googlePlayServiceVersion.toString(),
-        sdk_version: this._sdkVersion.toString(),
-        device_country: this._countryCode.toString(),
-        callerSig: this._callerSig.toString(),
-        client_sig: this._callerSig.toString(),
-        token_request_options: 'CAA4AQ==',
-        Email: this._email.toString(),
-        droidguardPeriodicUpdate: '1',
-        service: 'ac2dm',
-        system_partition: '1',
-        check_email: '1',
-        callerPkg: this._callerPkg.toString(),
-        get_accountid: '1',
-        ACCESS_TOKEN: '1',
-        add_account: '1',
-        Token: oauth2Token.toString()
-      }), this._axiosConfig)
+      try {
+        const axiosData = await axios.post(`${this._apiEndpoint}${this._authPath}`, qs.stringify({
+          androidId: this._gfsID.toString(),
+          lang: this._languageCode.toString(),
+          google_play_services_version: this._googlePlayServiceVersion.toString(),
+          sdk_version: this._sdkVersion.toString(),
+          device_country: this._countryCode.toString(),
+          callerSig: this._callerSig.toString(),
+          client_sig: this._callerSig.toString(),
+          token_request_options: 'CAA4AQ==',
+          Email: this._email.toString(),
+          droidguardPeriodicUpdate: '1',
+          service: 'ac2dm',
+          system_partition: '1',
+          check_email: '1',
+          callerPkg: this._callerPkg.toString(),
+          get_accountid: '1',
+          ACCESS_TOKEN: '1',
+          add_account: '1',
+          Token: oauth2Token.toString()
+        }), this._axiosConfig)
 
-      const parse = ini.parse(axiosData.data)
+        const parse = ini.parse(axiosData.data)
 
-      const token = parse.Token
-      await writeToken(saveTokenFilePath, token)
+        const token = parse.Token
+        await writeToken(saveTokenFilePath, token)
 
-      return token
-    } catch (e) {
-      throw Error(`Get Google Token Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
+        return token
+      } catch (e) {
+        throw Error(`Get Google Token Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
+      }
+    } else {
+      throw Error('Get Google Token Failed: OAuth2 Token must start with "oauth2_4/".')
     }
   }
 
   /**
    * Google Auth
    *
-   * @param token
+   * @param {String} token Token
    */
   async googleAuth (token) {
-    try {
-      const axiosData = await axios.post(`${this._apiEndpoint}${this._authPath}`, qs.stringify({
-        androidId: this._gfsID.toString(),
-        lang: this._languageCode.toString(),
-        google_play_services_version: this._googlePlayServiceVersion.toString(),
-        sdk_version: this._sdkVersion.toString(),
-        device_country: this._countryCode.toString(),
-        callerSig: this._callerSig.toString(),
-        client_sig: this._callerSig.toString(),
-        token_request_options: 'CAA4AVAB',
-        Email: this._email.toString(),
-        service: 'oauth2:https://www.googleapis.com/auth/googleplay',
-        system_partition: '1',
-        check_email: '1',
-        callerPkg: this._callerPkg.toString(),
-        Token: token.toString(),
-        oauth2_foreground: '1',
-        app: 'com.android.vending',
-        _opt_is_called_from_account_manager: '1',
-        is_called_from_account_manager: '1'
-      }), this._axiosConfig)
+    if (token.startsWith('aas_et/')) {
+      try {
+        const axiosData = await axios.post(`${this._apiEndpoint}${this._authPath}`, qs.stringify({
+          androidId: this._gfsID.toString(),
+          lang: this._languageCode.toString(),
+          google_play_services_version: this._googlePlayServiceVersion.toString(),
+          sdk_version: this._sdkVersion.toString(),
+          device_country: this._countryCode.toString(),
+          callerSig: this._callerSig.toString(),
+          client_sig: this._callerSig.toString(),
+          token_request_options: 'CAA4AVAB',
+          Email: this._email.toString(),
+          service: 'oauth2:https://www.googleapis.com/auth/googleplay',
+          system_partition: '1',
+          check_email: '1',
+          callerPkg: this._callerPkg.toString(),
+          Token: token.toString(),
+          oauth2_foreground: '1',
+          app: 'com.android.vending',
+          _opt_is_called_from_account_manager: '1',
+          is_called_from_account_manager: '1'
+        }), this._axiosConfig)
 
-      const parse = ini.parse(axiosData.data)
-      // noinspection JSUnresolvedVariable
-      const auth = parse.Auth
+        const parse = ini.parse(axiosData.data)
+        // noinspection JSUnresolvedVariable
+        const auth = parse.Auth
 
-      this._axiosConfigForGooglePlay = {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-          Host: 'android.clients.google.com',
-          'User-Agent': this._userAgent,
-          'Accept-Language': this._languageCode,
-          Authorization: `Bearer ${auth}`,
-          'X-DFE-Device-Id': this._gfsID,
-          'X-DFE-Client-Id': this._clientID,
-          'X-DFE-Userlanguages': this._languageCode.replace('-', '_'),
-          'X-DFE-Enabled-Experiments': this._enabledExperiments.join(','),
-          'X-DFE-Unsupported-Experiments': this._unsupportedExperiments.join(','),
-          'X-DFE-SmallestScreenWidthDp': '320',
-          'X-DFE-Filter-Level': '3'
-        },
-        decompress: false,
-        responseType: 'arraybuffer',
-        responseEncoding: null
+        this._axiosConfigForGooglePlay = {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+            Host: 'android.clients.google.com',
+            'User-Agent': this._userAgent,
+            'Accept-Language': this._languageCode,
+            Authorization: `Bearer ${auth}`,
+            'X-DFE-Device-Id': this._gfsID,
+            'X-DFE-Client-Id': this._clientID,
+            'X-DFE-Userlanguages': this._languageCode.replace('-', '_'),
+            'X-DFE-Enabled-Experiments': this._enabledExperiments.join(','),
+            'X-DFE-Unsupported-Experiments': this._unsupportedExperiments.join(','),
+            'X-DFE-SmallestScreenWidthDp': '320',
+            'X-DFE-Filter-Level': '3'
+          },
+          decompress: false,
+          responseType: 'arraybuffer',
+          responseEncoding: null
+        }
+        this._axiosConfigForGooglePlay_Protobuf = JSON.parse(JSON.stringify(this._axiosConfigForGooglePlay))
+        this._axiosConfigForGooglePlay_Protobuf.headers['Content-Type'] = 'application/x-protobuf'
+      } catch (e) {
+        throw Error(`Google Auth Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
       }
-      this._axiosConfigForGooglePlay_Protobuf = JSON.parse(JSON.stringify(this._axiosConfigForGooglePlay))
-      this._axiosConfigForGooglePlay_Protobuf.headers['Content-Type'] = 'application/x-protobuf'
-    } catch (e) {
-      throw Error(`Google Auth Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
+    } else {
+      if (token.startsWith('oauth2_4/')) {
+        throw Error('Google Auth Failed: Token must start with "aas_et/", please use gpAPI.getGoogleToken() to get Token.')
+      }
+
+      throw Error('Google Auth Failed: Token must start with "aas_et/".')
     }
   }
 
