@@ -45,31 +45,31 @@ npm install @gonetone/google-play-api
 const gpAPI = new GooglePlayAPI("Your_Google_Account@gmail.com", "您的裝置 GSF ID (Google Service Framework ID)");
 ```
 
-### 設定 User-Agent
+### 設定 User-Agent (可選)
 
 ```javascript
 gpAPI.setUserAgent('User-Agent')
 ```
 
-### 設定客戶端 ID
+### 設定客戶端 ID (可選)
 
 ```javascript
 gpAPI.setClientID('am-android-asus')
 ```
 
-### 設定 SDK 版本
+### 設定 SDK 版本 (可選)
 
 ```javascript
 gpAPI.setSdkVersion(28)
 ```
 
-### 設定國家代碼
+### 設定國家代碼 (可選)
 
 ```javascript
 gpAPI.setCountryCode('tw')
 ```
 
-### 設定語言代碼
+### 設定語言代碼 (可選)
 
 ```javascript
 gpAPI.setLanguageCode('zh-TW')

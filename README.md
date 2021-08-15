@@ -45,31 +45,31 @@ You can obtain your GSF ID by installing this app: <https://play.google.com/stor
 const gpAPI = new GooglePlayAPI("Your_Google_Account@gmail.com", "The GSF ID (Google Service Framework ID) of your device");
 ```
 
-### Configuring User-Agent
+### Configuring User-Agent (Optional)
 
 ```javascript
 gpAPI.setUserAgent('User-Agent')
 ```
 
-### Configuring Client ID
+### Configuring Client ID (Optional)
 
 ```javascript
 gpAPI.setClientID('am-android-asus')
 ```
 
-### Configuring SDK Version
+### Configuring SDK Version (Optional)
 
 ```javascript
 gpAPI.setSdkVersion(28)
 ```
 
-### Configuring Country Code
+### Configuring Country Code (Optional)
 
 ```javascript
 gpAPI.setCountryCode('tw')
 ```
 
-### Configuring Language Code
+### Configuring Language Code (Optional)
 
 ```javascript
 gpAPI.setLanguageCode('zh-TW')
