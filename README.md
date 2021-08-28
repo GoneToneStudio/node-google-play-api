@@ -39,10 +39,14 @@ You can obtain your GSF ID by installing this app: <https://play.google.com/stor
 
 ## Examples
 
+```javascript
+const GooglePlayAPI = require('@gonetone/google-play-api')
+```
+
 ### Using GooglePlayAPI
 
 ```javascript
-const gpAPI = new GooglePlayAPI("Your_Google_Account@gmail.com", "The GSF ID (Google Service Framework ID) of your device");
+const gpAPI = new GooglePlayAPI("Your_Google_Account@gmail.com", "The GSF ID (Google Service Framework ID) of your device")
 ```
 
 ### Configuring User-Agent (Optional)

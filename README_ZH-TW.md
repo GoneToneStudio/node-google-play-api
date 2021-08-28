@@ -39,10 +39,14 @@ npm install @gonetone/google-play-api
 
 ## 使用方法
 
+```javascript
+const GooglePlayAPI = require('@gonetone/google-play-api')
+```
+
 ### 使用 GooglePlayAPI 物件
 
 ```javascript
-const gpAPI = new GooglePlayAPI("Your_Google_Account@gmail.com", "您的裝置 GSF ID (Google Service Framework ID)");
+const gpAPI = new GooglePlayAPI("Your_Google_Account@gmail.com", "您的裝置 GSF ID (Google Service Framework ID)")
 ```
 
 ### 設定 User-Agent (可選)
