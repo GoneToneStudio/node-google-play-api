@@ -33,9 +33,14 @@ npm install @gonetone/google-play-api
   
   ![Get your own OAuth2 Token](docs/images/get_oauth2_token.png)
 
-## Obtain your GSF ID (Google Service Framework ID)
+## Obtain the GSF ID of your device (Google Service Framework ID)
 
-You can obtain your GSF ID by installing this app: <https://play.google.com/store/apps/details?id=com.evozi.deviceid>
+You can install the "Device ID" APP on Google Play to obtain the GSF ID of your device: <https://play.google.com/store/apps/details?id=com.evozi.deviceid>
+
+Please note:
+
+- The device which you get the GSF ID from will affect the subsequent data of the application. If the application which you want to get data from doesn’t support the device you get the GSF ID from, the data will return null. Thus, make sure whether the application supports your device.
+- Android TV cannot download the "Device ID" APP directly from Google Play. Nevertheless, you can download it on other devices and backup as .APK file, then, transfer the .APK file to Android TV to complete your installation.
 
 ## Examples
 

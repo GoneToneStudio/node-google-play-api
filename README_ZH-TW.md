@@ -33,9 +33,14 @@ npm install @gonetone/google-play-api
   
   ![取得 OAuth2 Token](docs/images/get_oauth2_token.png)
 
-## 取得 GSF ID (Google Service Framework ID)
+## 取得您裝置的 GSF ID (Google Service Framework ID)
 
-您可以安裝此 App 取得 GSF ID：<https://play.google.com/store/apps/details?id=com.evozi.deviceid>
+您可以至 Google Play 安裝 "Device ID" APP 取得您裝置的 GSF ID：<https://play.google.com/store/apps/details?id=com.evozi.deviceid>
+
+請注意：
+
+- 您取得 GSF ID 的裝置會影響後續取得 APP 資料，如果您想取得資料的 APP 不支援您取得 GSF ID 的裝置，資料會是 null，所以請先確認 APP 是否支援您的裝置。
+- Android TV 無法直接從 Google Play 下載安裝 "Device ID" APP，不過您可以使用其他裝置安裝，然後將 APP 備份為 APK，最後將 APK 傳送到 Android TV 安裝。
 
 ## 使用方法
 

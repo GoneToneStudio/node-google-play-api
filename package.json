@@ -1,6 +1,6 @@
 {
   "name": "@gonetone/google-play-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Access Google Play by logging in and making requests as an Android device!",
   "main": "index.js",
   "scripts": {
