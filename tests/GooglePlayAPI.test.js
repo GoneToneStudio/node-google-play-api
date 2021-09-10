@@ -85,6 +85,16 @@ test('Get Download Apk Url', async () => {
   expect(typeof downloadApkUrl).toBe('string')
 }, 100000)
 
+test('Get Split Delivery Data Info', async () => {
+  const splitDeliveryDataInfo = await gpAPI.splitDeliveryDataInfo('com.supercell.clashofclans')
+  expect(typeof splitDeliveryDataInfo).toBe('object')
+}, 100000)
+
+test('Get Download Split Apks Name And Url', async () => {
+  const downloadSplitApksNameAndUrl = await gpAPI.downloadSplitApksNameAndUrl('com.supercell.clashofclans')
+  expect(typeof downloadSplitApksNameAndUrl).toBe('object')
+}, 100000)
+
 test('Get Additional File Info', async () => {
   const additionalFileInfo = await gpAPI.additionalFileInfo('com.github.android')
   expect(typeof additionalFileInfo).toBe('object')

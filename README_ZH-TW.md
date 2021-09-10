@@ -137,7 +137,7 @@ gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token)
 })
 ```
 
-### 取得下載 Apk 網址
+### 取得下載 Apk 的網址
 
 ```javascript
 gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
@@ -158,6 +158,43 @@ gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token)
 })
 ```
 
+### 取得拆分交付資料資訊
+
+```javascript
+gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
+  await gpAPI.googleAuth(token)
+
+  const splitDeliveryDataInfo = await gpAPI.splitDeliveryDataInfo('com.supercell.clashofclans')
+  console.log(splitDeliveryDataInfo)
+})
+```
+
+### 取得下載拆分 Apk 的名稱和網址
+
+```javascript
+gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
+  await gpAPI.googleAuth(token)
+
+  const downloadSplitApksNameAndUrl = await gpAPI.downloadSplitApksNameAndUrl('com.supercell.clashofclans')
+  console.log(downloadSplitApksNameAndUrl)
+})
+```
+
+### 下載拆分 Apks
+
+```javascript
+gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
+  await gpAPI.googleAuth(token)
+
+  await gpAPI.downloadSplitApks('com.supercell.clashofclans', 'save_folder')
+})
+```
+
+PS：
+
+- 您可以使用 [Split APKs Installer (SAI)](https://play.google.com/store/apps/details?id=com.aefyr.sai) 這個 App 來安裝拆分的 Apks。
+- 別忘了使用 `gpAPI.downloadApk()` 下載主 Apk，再一同安裝。
+
 ### 取得附加文件資訊
 
 ```javascript
@@ -169,7 +206,7 @@ gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token)
 })
 ```
 
-### 取得下載附加文件網址
+### 取得下載附加文件的網址
 
 ```javascript
 gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {

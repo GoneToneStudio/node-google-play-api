@@ -84,7 +84,7 @@ gpAPI.setCountryCode('tw')
 gpAPI.setLanguageCode('zh-TW')
 ```
 
-### Retrieving application details
+### Get App Details
 
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
@@ -104,7 +104,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 })
 ```
 
-### Retrieving application details in-bulk
+### Get Bulk Details
 
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
@@ -115,7 +115,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 })
 ```
 
-### Searching for an app
+### App Search
 
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
@@ -126,7 +126,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 })
 ```
 
-### Retrieving download data for an app
+### Get Download Info
 
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
@@ -137,7 +137,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 })
 ```
 
-### Retrieving the link to an app package
+### Get Download Apk Url
 
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
@@ -148,7 +148,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 })
 ```
 
-### Downloading an app package
+### Download Apk
 
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
@@ -158,7 +158,44 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 })
 ```
 
-### Retrieve additional files
+### Get Split Delivery Data Info
+
+```javascript
+gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
+  await gpAPI.googleAuth(token)
+
+  const splitDeliveryDataInfo = await gpAPI.splitDeliveryDataInfo('com.supercell.clashofclans')
+  console.log(splitDeliveryDataInfo)
+})
+```
+
+### Get Download Split Apks Name And Url
+
+```javascript
+gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
+  await gpAPI.googleAuth(token)
+
+  const downloadSplitApksNameAndUrl = await gpAPI.downloadSplitApksNameAndUrl('com.supercell.clashofclans')
+  console.log(downloadSplitApksNameAndUrl)
+})
+```
+
+### Download Split Apks
+
+```javascript
+gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
+  await gpAPI.googleAuth(token)
+
+  await gpAPI.downloadSplitApks('com.supercell.clashofclans', 'save_folder')
+})
+```
+
+PS:
+
+- You can use [Split APKs Installer (SAI)](https://play.google.com/store/apps/details?id=com.aefyr.sai) this app to install split apks.
+- Don’t forget to use `gpAPI.downloadApk()` to download the main apk, then install together.
+
+### Get Additional File Info
 
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
@@ -169,7 +206,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 })
 ```
 
-### Retrieving links to additional files
+### Get Download Additional File Urls
 
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
@@ -180,7 +217,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 })
 ```
 
-### Downloading the additional files
+### Download Additional Files
 
 ```javascript
 gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {

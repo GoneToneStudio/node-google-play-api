@@ -419,6 +419,69 @@ class GooglePlayAPI {
   }
 
   /**
+   * Get Split Delivery Data Info
+   *
+   * @param {String} packageName App Package Name
+   *
+   * @returns {Promise<Object>}
+   */
+  async splitDeliveryDataInfo (packageName) {
+    try {
+      const downloadInfo = await this.downloadInfo(packageName)
+
+      // noinspection JSUnresolvedVariable
+      return downloadInfo.splitDeliveryData
+    } catch (e) {
+      throw Error(`Get "${packageName}" Split Delivery Data Info Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
+    }
+  }
+
+  /**
+   * Get Download Split Apks Name And Url
+   *
+   * @param {String} packageName App Package Name
+   *
+   * @returns {Promise<Object>}
+   */
+  async downloadSplitApksNameAndUrl (packageName) {
+    try {
+      const splitDeliveryData = await this.splitDeliveryDataInfo(packageName)
+
+      return map(splitDeliveryData, data => {
+        return {
+          name: data.name,
+          downloadUrl: data.downloadUrl
+        }
+      })
+    } catch (e) {
+      throw Error(`Get "${packageName}" Download Split Apks Name And Url Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
+    }
+  }
+
+  /**
+   * Download Split Apks
+   *
+   * @param {String} packageName App Package Name
+   * @param {String} outputPath Output Save Path
+   * @param {String|null} outputFileNamePrefixe Output File Save Name Prefixe (Default App Package Name)
+   *
+   * @returns {Promise<void>}
+   */
+  async downloadSplitApks (packageName, outputPath, outputFileNamePrefixe = null) {
+    try {
+      const fileName = outputFileNamePrefixe ?? packageName
+
+      const downloadSplitApksNameAndUrl = await this.downloadSplitApksNameAndUrl(packageName)
+      for (const data of downloadSplitApksNameAndUrl) {
+        // noinspection JSUnresolvedVariable
+        await downloadFile(data.downloadUrl, outputPath, `${fileName}-${data.name}.apk`)
+      }
+    } catch (e) {
+      throw Error(`Download "${packageName}" Split Apks Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
+    }
+  }
+
+  /**
    * Get Additional File Info
    *
    * @param {String} packageName App Package Name
@@ -447,7 +510,6 @@ class GooglePlayAPI {
     try {
       const additionalFileInfo = await this.additionalFileInfo(packageName)
 
-      // noinspection JSUnresolvedVariable
       return map(additionalFileInfo, 'downloadUrl')
     } catch (e) {
       throw Error(`Get "${packageName}" Download Additional File Urls Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
