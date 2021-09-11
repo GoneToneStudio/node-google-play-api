@@ -161,7 +161,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
 ### Get Split Delivery Data Info
 
 ```javascript
-gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
+gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
 
   const splitDeliveryDataInfo = await gpAPI.splitDeliveryDataInfo('com.supercell.clashofclans')
@@ -172,7 +172,7 @@ gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token)
 ### Get Download Split Apks Name And Url
 
 ```javascript
-gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
+gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
 
   const downloadSplitApksNameAndUrl = await gpAPI.downloadSplitApksNameAndUrl('com.supercell.clashofclans')
@@ -183,7 +183,7 @@ gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token)
 ### Download Split Apks
 
 ```javascript
-gpAPI.getGoogleToken('您的 OAuth2 Token', 'save/token.txt').then(async (token) => {
+gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) => {
   await gpAPI.googleAuth(token)
 
   await gpAPI.downloadSplitApks('com.supercell.clashofclans', 'save_folder')
