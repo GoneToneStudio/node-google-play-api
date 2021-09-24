@@ -362,19 +362,21 @@ class GooglePlayAPI {
       // noinspection JSUnresolvedVariable
       const versionCode = appDetails.details.appDetails.versionCode
 
-      await this.purchase(packageName, offerType, versionCode)
-      const appDelivery = await this.appDelivery(packageName, offerType, versionCode)
+      if (versionCode) {
+        await this.purchase(packageName, offerType, versionCode)
+        const appDelivery = await this.appDelivery(packageName, offerType, versionCode)
 
-      // noinspection JSUnresolvedVariable
-      if (appDelivery.appDeliveryData === null) {
-        return false
+        // noinspection JSUnresolvedVariable
+        if (appDelivery.appDeliveryData !== null) {
+          // noinspection JSUnresolvedVariable
+          return appDelivery.appDeliveryData
+        }
       }
-
-      // noinspection JSUnresolvedVariable
-      return appDelivery.appDeliveryData
     } catch (e) {
       throw Error(`Get "${packageName}" Download Info Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
     }
+
+    throw Error(`Get "${packageName}" download info failed, may be the device does not support.`)
   }
 
   /**
