@@ -133,6 +133,8 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
   await gpAPI.googleAuth(token)
 
   const downloadInfo = await gpAPI.downloadInfo('com.github.android')
+  //const downloadInfo = await gpAPI.downloadInfo('com.github.android', 613) // Specify Version Code
+
   console.log(downloadInfo)
 })
 ```
@@ -144,6 +146,8 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
   await gpAPI.googleAuth(token)
 
   const downloadApkUrl = await gpAPI.downloadApkUrl('com.github.android')
+  //const downloadApkUrl = await gpAPI.downloadApkUrl('com.github.android', 613) // Specify Version Code
+
   console.log(downloadApkUrl)
 })
 ```
@@ -155,6 +159,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
   await gpAPI.googleAuth(token)
 
   await gpAPI.downloadApk('com.github.android', 'save_folder')
+  //await gpAPI.downloadApk('com.github.android', 'save_folder', 613) // Specify Version Code
 })
 ```
 
@@ -165,6 +170,8 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
   await gpAPI.googleAuth(token)
 
   const splitDeliveryDataInfo = await gpAPI.splitDeliveryDataInfo('com.supercell.clashofclans')
+  //const splitDeliveryDataInfo = await gpAPI.splitDeliveryDataInfo('com.supercell.clashofclans', 1383) // Specify Version Code
+
   console.log(splitDeliveryDataInfo)
 })
 ```
@@ -176,6 +183,8 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
   await gpAPI.googleAuth(token)
 
   const downloadSplitApksNameAndUrl = await gpAPI.downloadSplitApksNameAndUrl('com.supercell.clashofclans')
+  //const downloadSplitApksNameAndUrl = await gpAPI.downloadSplitApksNameAndUrl('com.supercell.clashofclans', 1383) // Specify Version Code
+
   console.log(downloadSplitApksNameAndUrl)
 })
 ```
@@ -187,6 +196,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
   await gpAPI.googleAuth(token)
 
   await gpAPI.downloadSplitApks('com.supercell.clashofclans', 'save_folder')
+  //await gpAPI.downloadSplitApks('com.supercell.clashofclans', 'save_folder', 1383) // Specify Version Code
 })
 ```
 
@@ -202,6 +212,8 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
   await gpAPI.googleAuth(token)
 
   const additionalFileInfo = await gpAPI.additionalFileInfo('com.github.android')
+  //const additionalFileInfo = await gpAPI.additionalFileInfo('com.github.android', 613) // Specify Version Code
+
   console.log(additionalFileInfo)
 })
 ```
@@ -213,6 +225,8 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
   await gpAPI.googleAuth(token)
 
   const downloadAdditionalFileUrls = await gpAPI.downloadAdditionalFileUrls('com.github.android')
+  //const downloadAdditionalFileUrls = await gpAPI.downloadAdditionalFileUrls('com.github.android', 613) // Specify Version Code
+
   console.log(downloadAdditionalFileUrls)
 })
 ```
@@ -224,6 +238,7 @@ gpAPI.getGoogleToken('Your OAuth2 Token', 'save/token.txt').then(async (token) =
   await gpAPI.googleAuth(token)
 
   await gpAPI.downloadAdditionalFiles('com.github.android', 'save_folder')
+  //await gpAPI.downloadAdditionalFiles('com.github.android', 'save_folder', 613) // Specify Version Code
 })
 ```
 

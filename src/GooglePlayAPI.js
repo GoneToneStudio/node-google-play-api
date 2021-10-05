@@ -16,7 +16,13 @@ const ini = require('ini')
 const { map } = require('lodash')
 
 const ProtoBuf = require('./ProtoBuf')
-const { readToken, writeToken, isExists, isExtMatch, downloadFile } = require('./FileControl')
+const {
+  readToken,
+  writeToken,
+  isExists,
+  isExtMatch,
+  downloadFile
+} = require('./FileControl')
 
 class GooglePlayAPI {
   /**
@@ -351,16 +357,17 @@ class GooglePlayAPI {
    * Get Download Info
    *
    * @param {String} packageName App Package Name
+   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
    *
    * @returns {Promise<Object|Boolean>}
    */
-  async downloadInfo (packageName) {
+  async downloadInfo (packageName, versionCode = null) {
     try {
       const appDetails = await this.appDetails(packageName)
       // noinspection JSUnresolvedVariable
       const offerType = appDetails.offer[0].offerType
       // noinspection JSUnresolvedVariable
-      const versionCode = appDetails.details.appDetails.versionCode
+      versionCode = versionCode ?? appDetails.details.appDetails.versionCode
 
       if (versionCode) {
         await this.purchase(packageName, offerType, versionCode)
@@ -383,12 +390,13 @@ class GooglePlayAPI {
    * Get Download Apk Url
    *
    * @param {String} packageName App Package Name
+   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
    *
    * @returns {Promise<String>}
    */
-  async downloadApkUrl (packageName) {
+  async downloadApkUrl (packageName, versionCode = null) {
     try {
-      const downloadInfo = await this.downloadInfo(packageName)
+      const downloadInfo = await this.downloadInfo(packageName, versionCode)
 
       // noinspection JSUnresolvedVariable
       return downloadInfo.downloadUrl
@@ -402,18 +410,19 @@ class GooglePlayAPI {
    *
    * @param {String} packageName App Package Name
    * @param {String} outputPath Output Save Path
+   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
    * @param {String|null} outputFileName Output File Save Name (Default App Package Name)
    *
    * @returns {Promise<void>}
    */
-  async downloadApk (packageName, outputPath, outputFileName = null) {
+  async downloadApk (packageName, outputPath, versionCode = null, outputFileName = null) {
     try {
       let fileName = outputFileName ?? packageName
       if (!isExtMatch(fileName, 'apk')) {
         fileName += '.apk'
       }
 
-      const downloadApkUrl = await this.downloadApkUrl(packageName)
+      const downloadApkUrl = await this.downloadApkUrl(packageName, versionCode)
       await downloadFile(downloadApkUrl, outputPath, fileName)
     } catch (e) {
       throw Error(`Download "${packageName}" Apk Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
@@ -424,12 +433,13 @@ class GooglePlayAPI {
    * Get Split Delivery Data Info
    *
    * @param {String} packageName App Package Name
+   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
    *
    * @returns {Promise<Object>}
    */
-  async splitDeliveryDataInfo (packageName) {
+  async splitDeliveryDataInfo (packageName, versionCode = null) {
     try {
-      const downloadInfo = await this.downloadInfo(packageName)
+      const downloadInfo = await this.downloadInfo(packageName, versionCode)
 
       // noinspection JSUnresolvedVariable
       return downloadInfo.splitDeliveryData
@@ -442,12 +452,13 @@ class GooglePlayAPI {
    * Get Download Split Apks Name And Url
    *
    * @param {String} packageName App Package Name
+   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
    *
    * @returns {Promise<Object>}
    */
-  async downloadSplitApksNameAndUrl (packageName) {
+  async downloadSplitApksNameAndUrl (packageName, versionCode = null) {
     try {
-      const splitDeliveryData = await this.splitDeliveryDataInfo(packageName)
+      const splitDeliveryData = await this.splitDeliveryDataInfo(packageName, versionCode)
 
       return map(splitDeliveryData, data => {
         return {
@@ -465,15 +476,16 @@ class GooglePlayAPI {
    *
    * @param {String} packageName App Package Name
    * @param {String} outputPath Output Save Path
+   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
    * @param {String|null} outputFileNamePrefixe Output File Save Name Prefixe (Default App Package Name)
    *
    * @returns {Promise<void>}
    */
-  async downloadSplitApks (packageName, outputPath, outputFileNamePrefixe = null) {
+  async downloadSplitApks (packageName, outputPath, versionCode = null, outputFileNamePrefixe = null) {
     try {
       const fileName = outputFileNamePrefixe ?? packageName
 
-      const downloadSplitApksNameAndUrl = await this.downloadSplitApksNameAndUrl(packageName)
+      const downloadSplitApksNameAndUrl = await this.downloadSplitApksNameAndUrl(packageName, versionCode)
       for (const data of downloadSplitApksNameAndUrl) {
         // noinspection JSUnresolvedVariable
         await downloadFile(data.downloadUrl, outputPath, `${fileName}-${data.name}.apk`)
@@ -487,12 +499,13 @@ class GooglePlayAPI {
    * Get Additional File Info
    *
    * @param {String} packageName App Package Name
+   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
    *
    * @returns {Promise<Object>}
    */
-  async additionalFileInfo (packageName) {
+  async additionalFileInfo (packageName, versionCode = null) {
     try {
-      const downloadInfo = await this.downloadInfo(packageName)
+      const downloadInfo = await this.downloadInfo(packageName, versionCode)
 
       // noinspection JSUnresolvedVariable
       return downloadInfo.additionalFile
@@ -505,12 +518,13 @@ class GooglePlayAPI {
    * Get Download Additional File Urls
    *
    * @param {String} packageName App Package Name
+   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
    *
    * @returns {Promise<Object>}
    */
-  async downloadAdditionalFileUrls (packageName) {
+  async downloadAdditionalFileUrls (packageName, versionCode = null) {
     try {
-      const additionalFileInfo = await this.additionalFileInfo(packageName)
+      const additionalFileInfo = await this.additionalFileInfo(packageName, versionCode)
 
       return map(additionalFileInfo, 'downloadUrl')
     } catch (e) {
@@ -523,15 +537,16 @@ class GooglePlayAPI {
    *
    * @param {String} packageName App Package Name
    * @param {String} outputPath Output Save Path
+   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
    * @param {String|null} outputFileName Output File Save Name (Default App Package Name)
    *
    * @returns {Promise<void>}
    */
-  async downloadAdditionalFiles (packageName, outputPath, outputFileName = null) {
+  async downloadAdditionalFiles (packageName, outputPath, versionCode = null, outputFileName = null) {
     try {
       const fileName = outputFileName ?? packageName
 
-      const downloadAdditionalFileUrls = await this.downloadAdditionalFileUrls(packageName)
+      const downloadAdditionalFileUrls = await this.downloadAdditionalFileUrls(packageName, versionCode)
       for (const [key, url] of downloadAdditionalFileUrls.entries()) {
         await downloadFile(url, outputPath, `${fileName}_${(key + 1)}`)
       }
