@@ -29,11 +29,11 @@ class GooglePlayAPI {
    * GooglePlayAPI constructor.
    *
    * @param {string} email Google Mail
-   * @param {string} gfsID GSF ID (Google Service Framework ID)
+   * @param {string} gsfID GSF ID (Google Service Framework ID)
    */
-  constructor (email, gfsID) {
+  constructor (email, gsfID) {
     this._email = email
-    this._gfsID = gfsID
+    this._gsfID = gsfID
 
     this._apiEndpoint = 'https://android.clients.google.com'
     this._authPath = '/auth'
@@ -139,7 +139,7 @@ class GooglePlayAPI {
 
       try {
         const axiosData = await axios.post(`${this._apiEndpoint}${this._authPath}`, qs.stringify({
-          androidId: this._gfsID.toString(),
+          androidId: this._gsfID.toString(),
           lang: this._languageCode.toString(),
           google_play_services_version: this._googlePlayServiceVersion.toString(),
           sdk_version: this._sdkVersion.toString(),
@@ -182,7 +182,7 @@ class GooglePlayAPI {
     if (token.startsWith('aas_et/')) {
       try {
         const axiosData = await axios.post(`${this._apiEndpoint}${this._authPath}`, qs.stringify({
-          androidId: this._gfsID.toString(),
+          androidId: this._gsfID.toString(),
           lang: this._languageCode.toString(),
           google_play_services_version: this._googlePlayServiceVersion.toString(),
           sdk_version: this._sdkVersion.toString(),
@@ -213,7 +213,7 @@ class GooglePlayAPI {
             'User-Agent': this._userAgent,
             'Accept-Language': this._languageCode,
             Authorization: `Bearer ${auth}`,
-            'X-DFE-Device-Id': this._gfsID,
+            'X-DFE-Device-Id': this._gsfID,
             'X-DFE-Client-Id': this._clientID,
             'X-DFE-Userlanguages': this._languageCode.replace('-', '_'),
             'X-DFE-Enabled-Experiments': this._enabledExperiments.join(','),
