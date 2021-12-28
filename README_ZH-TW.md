@@ -35,7 +35,7 @@ npm install @gonetone/google-play-api
 
 ## 取得您裝置的 GSF ID (Google Service Framework ID)
 
-您可以至 Google Play 安裝 "Device ID" APP 取得您裝置的 GSF ID：<https://play.google.com/store/apps/details?id=com.evozi.deviceid>
+您可以至 Google Play 安裝 "裝置 ID" APP 取得您裝置的 GSF ID：<https://play.google.com/store/apps/details?id=tw.reh.deviceid>
 
 請注意：
 

@@ -35,7 +35,7 @@ npm install @gonetone/google-play-api
 
 ## Obtain the GSF ID of your device (Google Service Framework ID)
 
-You can install the "Device ID" APP on Google Play to obtain the GSF ID of your device: <https://play.google.com/store/apps/details?id=com.evozi.deviceid>
+You can install the "Device ID" APP on Google Play to obtain the GSF ID of your device: <https://play.google.com/store/apps/details?id=tw.reh.deviceid>
 
 Please note:
 
