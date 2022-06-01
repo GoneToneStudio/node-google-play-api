@@ -45,7 +45,7 @@ Please note:
 ## Examples
 
 ```javascript
-const GooglePlayAPI = require('@gonetone/google-play-api')
+const { GooglePlayAPI } = require('@gonetone/google-play-api')
 ```
 
 ### Using GooglePlayAPI

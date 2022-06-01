@@ -5,7 +5,7 @@ on:
     types: [ published ]
 
 jobs:
-  test:
+  npm-publish:
     runs-on: ${{ matrix.operating-system }}
 
     strategy:
@@ -13,7 +13,7 @@ jobs:
 
       matrix:
         operating-system: [ ubuntu-latest ]
-        node-version: [ 16.x ]
+        node-version: [ 14.x ]
 
     name: NPM Publish
     steps:
@@ -28,6 +28,9 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+
+      - name: TypeScript Compiler
+        run: npm run build
 
       - name: Publish
         run: npm publish --access public

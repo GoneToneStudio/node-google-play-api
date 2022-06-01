@@ -45,7 +45,7 @@ npm install @gonetone/google-play-api
 ## 使用方法
 
 ```javascript
-const GooglePlayAPI = require('@gonetone/google-play-api')
+const { GooglePlayAPI } = require('@gonetone/google-play-api')
 ```
 
 ### 使用 GooglePlayAPI 物件

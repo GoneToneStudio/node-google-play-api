@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 GoneTone
+ * Copyright 2022 GoneTone
  *
  * Google Play API (Unofficial Node.js Library)
  * https://github.com/GoneToneStudio/node-google-play-api
@@ -10,22 +10,21 @@
  * GooglePlayAPI Test
  */
 
-'use strict'
+import dotenv from 'dotenv'
+import { GooglePlayAPI } from '../src'
 
-require('dotenv').config()
+dotenv.config()
 
-const GooglePlayAPI = require('..')
-
-let gpAPI
+let gpAPI: GooglePlayAPI
 test('Init', () => {
-  gpAPI = new GooglePlayAPI(process.env.GOOGLE_TEST_EMAIL, process.env.GOOGLE_TEST_GFS_ID)
+  gpAPI = new GooglePlayAPI(process.env.GOOGLE_TEST_EMAIL as string, process.env.GOOGLE_TEST_GFS_ID as string)
 })
 
 test('Google Auth', async () => {
-  await gpAPI.googleAuth(process.env.GOOGLE_TEST_AUTH_TOKEN)
+  await gpAPI.googleAuth(process.env.GOOGLE_TEST_AUTH_TOKEN as string)
 })
 
-let details
+let details: any
 test('Get App Details', async () => {
   details = await gpAPI.appDetails('com.github.android')
   expect(typeof details).toBe('object')

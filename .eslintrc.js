@@ -1,6 +1,6 @@
 module.exports = {
   env: {
-    commonjs: true,
+    browser: true,
     es2021: true,
     node: true,
     jest: true
@@ -8,9 +8,17 @@ module.exports = {
   extends: [
     'standard'
   ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 12
+    ecmaVersion: 13,
+    sourceType: 'module'
   },
-  rules: {
-  }
+  ignorePatterns: [
+    '**/dist/*',
+    '**/proto/*'
+  ],
+  plugins: [
+    '@typescript-eslint'
+  ],
+  rules: {}
 }

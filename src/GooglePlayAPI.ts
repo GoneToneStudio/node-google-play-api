@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 GoneTone
+ * Copyright 2022 GoneTone
  *
  * Google Play API (Unofficial Node.js Library)
  * https://github.com/GoneToneStudio/node-google-play-api
@@ -8,30 +8,68 @@
  * @license  MIT <https://github.com/GoneToneStudio/node-google-play-api/blob/master/LICENSE>
  */
 
-'use strict'
+import type {
+  IAndroidAppDeliveryData,
+  IAppFileMetadata,
+  IBuyResponse,
+  IDeliveryResponse,
+  IItem,
+  ISplitDeliveryData
+} from '../proto/google_play'
 
-const axios = require('axios')
-const qs = require('qs')
-const ini = require('ini')
-const { map } = require('lodash')
+import axios from 'axios'
+import qs from 'qs'
+import ini from 'ini'
+import { map } from 'lodash'
 
-const ProtoBuf = require('./ProtoBuf')
-const {
+import * as protoBuf from './ProtoBuf'
+import {
   readToken,
   writeToken,
   isExists,
   isExtMatch,
   downloadFile
-} = require('./FileControl')
+} from './FileControl'
 
-class GooglePlayAPI {
+interface AxiosConfig {
+  headers: {
+    'Content-Type': string
+  }
+}
+
+export class GooglePlayAPI {
+  private readonly _email: string
+  private readonly _gsfID: string
+
+  private readonly _apiEndpoint: string
+  private readonly _authPath: string
+  private readonly _playApiPath: string
+
+  private _userAgent: string
+  private _clientID: string
+  private readonly _googlePlayServiceVersion: string
+  private _sdkVersion: string
+  private readonly _callerSig: string
+  private readonly _callerPkg: string
+
+  private _countryCode: string
+  private _languageCode: string
+
+  private readonly _enabledExperiments: string[]
+  private readonly _unsupportedExperiments: string[]
+
+  private _axiosConfigForGooglePlay: any
+  private _axiosConfigForGooglePlay_Protobuf: any
+
+  private readonly _axiosConfig: AxiosConfig
+
   /**
    * GooglePlayAPI constructor.
    *
    * @param {string} email Google Mail
    * @param {string} gsfID GSF ID (Google Service Framework ID)
    */
-  constructor (email, gsfID) {
+  public constructor (email: string, gsfID: string) {
     this._email = email
     this._gsfID = gsfID
 
@@ -73,64 +111,62 @@ class GooglePlayAPI {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
       }
     }
-
-    this._protoBuf = new ProtoBuf()
   }
 
   /**
    * Set User-Agent
    *
-   * @param {String} userAgent User-Agent
+   * @param {string} userAgent User-Agent
    */
-  setUserAgent (userAgent) {
+  public setUserAgent (userAgent: string): void {
     this._userAgent = userAgent
   }
 
   /**
    * Set Client ID
    *
-   * @param {String} clientID Client ID
+   * @param {string} clientID Client ID
    */
-  setClientID (clientID) {
+  public setClientID (clientID: string): void {
     this._clientID = clientID
   }
 
   /**
    * Set SDK Version
    *
-   * @param {Number} sdkVersion SDK Version
+   * @param {number} sdkVersion SDK Version
    */
-  setSdkVersion (sdkVersion) {
+  public setSdkVersion (sdkVersion: number): void {
     this._sdkVersion = sdkVersion.toString()
   }
 
   /**
    * Set Country Code
    *
-   * @param {String} countryCode Country Code
+   * @param {string} countryCode Country Code
    */
-  setCountryCode (countryCode) {
+  public setCountryCode (countryCode: string): void {
     this._countryCode = countryCode
   }
 
   /**
    * Set Language Code
    *
-   * @param {String} languageCode Language Code
+   * @param {string} languageCode Language Code
    */
-  setLanguageCode (languageCode) {
+  public setLanguageCode (languageCode: string): void {
     this._languageCode = languageCode.replace('_', '-')
   }
 
   /**
    * Get Google Token
    *
-   * @param {String} oauth2Token OAuth2 Token
-   * @param {String} saveTokenFilePath Save OAuth2 Token Path (default token.txt)
+   * @param {string} oauth2Token OAuth2 Token
+   * @param {string} saveTokenFilePath Save OAuth2 Token Path (default token.txt)
    *
-   * @returns {Promise<String>}
+   * @returns {Promise<string>}
    */
-  async getGoogleToken (oauth2Token, saveTokenFilePath = 'token.txt') {
+  public async getGoogleToken (oauth2Token: string, saveTokenFilePath = 'token.txt'): Promise<string> {
     if (oauth2Token.startsWith('oauth2_4/')) {
       const pathIsExists = await isExists(saveTokenFilePath)
       if (pathIsExists) {
@@ -164,8 +200,8 @@ class GooglePlayAPI {
         const token = parse.Token
         await writeToken(saveTokenFilePath, token)
 
-        return token
-      } catch (e) {
+        return token as string
+      } catch (e: any) {
         throw Error(`Get Google Token Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
       }
     } else {
@@ -176,9 +212,9 @@ class GooglePlayAPI {
   /**
    * Google Auth
    *
-   * @param {String} token Token
+   * @param {string} token Token
    */
-  async googleAuth (token) {
+  public async googleAuth (token: string): Promise<void> {
     if (token.startsWith('aas_et/')) {
       try {
         const axiosData = await axios.post(`${this._apiEndpoint}${this._authPath}`, qs.stringify({
@@ -203,7 +239,6 @@ class GooglePlayAPI {
         }), this._axiosConfig)
 
         const parse = ini.parse(axiosData.data)
-        // noinspection JSUnresolvedVariable
         const auth = parse.Auth
 
         this._axiosConfigForGooglePlay = {
@@ -227,7 +262,7 @@ class GooglePlayAPI {
         }
         this._axiosConfigForGooglePlay_Protobuf = JSON.parse(JSON.stringify(this._axiosConfigForGooglePlay))
         this._axiosConfigForGooglePlay_Protobuf.headers['Content-Type'] = 'application/x-protobuf'
-      } catch (e) {
+      } catch (e: any) {
         throw Error(`Google Auth Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
       }
     } else {
@@ -242,11 +277,11 @@ class GooglePlayAPI {
   /**
    * Get App Details
    *
-   * @param {String} packageName App Package Name
+   * @param {string} packageName App Package Name
    *
-   * @returns {Promise<Object>}
+   * @returns {Promise<IItem | null | undefined>}
    */
-  async appDetails (packageName) {
+  public async appDetails (packageName: string): Promise<IItem | null | undefined> {
     try {
       const apiUrlAppend = new URL(`${this._apiEndpoint}${this._playApiPath}/details`)
       apiUrlAppend.searchParams.append('doc', packageName.toString())
@@ -254,9 +289,8 @@ class GooglePlayAPI {
       const apiUrl = apiUrlAppend.href
       const axiosData = await axios.get(apiUrl, this._axiosConfigForGooglePlay)
 
-      // noinspection JSUnresolvedVariable
-      return this._protoBuf.decode(axiosData.data).payload.detailsResponse.item
-    } catch (e) {
+      return protoBuf.decode(axiosData.data).payload?.detailsResponse?.item
+    } catch (e: any) {
       throw Error(`Get "${packageName}" App Detail Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
     }
   }
@@ -264,18 +298,18 @@ class GooglePlayAPI {
   /**
    * Get Bulk Details
    *
-   * @param {String} packages App Packages
+   * @param {string[]} packages App Packages
    *
-   * @returns {Promise<Object>}
+   * @returns {Promise<IItem[] | null | undefined>}
    */
-  async bulkDetails (...packages) {
+  public async bulkDetails (...packages: string[]): Promise<IItem[] | null | undefined> {
     try {
-      const data = this._protoBuf.bulkDetailsRequest(...packages)
+      const data = protoBuf.bulkDetailsRequest(...packages)
 
       const axiosData = await axios.post(`${this._apiEndpoint}${this._playApiPath}/bulkDetails`, data, this._axiosConfigForGooglePlay_Protobuf)
-      // noinspection JSUnresolvedVariable
-      return map(this._protoBuf.decode(axiosData.data).payload.bulkDetailsResponse.entry, 'item')
-    } catch (e) {
+
+      return map(protoBuf.decode(axiosData.data).payload?.bulkDetailsResponse?.entry, 'item') as IItem[] | null | undefined
+    } catch (e: any) {
       throw Error(`Get Bulk Details Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
     }
   }
@@ -283,11 +317,11 @@ class GooglePlayAPI {
   /**
    * App Search
    *
-   * @param {String} keyword Search Keyword
+   * @param {string} keyword Search Keyword
    *
-   * @returns {Promise<Object>}
+   * @returns {Promise<IItem[] | null | undefined>}
    */
-  async search (keyword) {
+  public async search (keyword: string): Promise<IItem[] | null | undefined> {
     try {
       const apiUrlAppend = new URL(`${this._apiEndpoint}${this._playApiPath}/search`)
       apiUrlAppend.searchParams.append('q', keyword.toString())
@@ -296,9 +330,8 @@ class GooglePlayAPI {
       const apiUrl = apiUrlAppend.href
       const axiosData = await axios.get(apiUrl, this._axiosConfigForGooglePlay)
 
-      // noinspection JSUnresolvedVariable
-      return this._protoBuf.decode(axiosData.data).preFetch[0].response.payload.listResponse.item[0].subItem
-    } catch (e) {
+      return protoBuf.decode(axiosData.data).preFetch?.[0]?.response?.payload?.listResponse?.item?.[0]?.subItem
+    } catch (e: any) {
       throw Error(`App Search Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
     }
   }
@@ -306,13 +339,13 @@ class GooglePlayAPI {
   /**
    * Get App Delivery
    *
-   * @param {String} packageName App Package Name
-   * @param {Number} offerType Offer Type
-   * @param {Number} versionCode App Version Code
+   * @param {string} packageName App Package Name
+   * @param {number} offerType Offer Type
+   * @param {number} versionCode App Version Code
    *
-   * @returns {Promise<Object>}
+   * @returns {Promise<IDeliveryResponse | null | undefined>}
    */
-  async appDelivery (packageName, offerType, versionCode) {
+  public async appDelivery (packageName: string, offerType: number, versionCode: number): Promise<IDeliveryResponse | null | undefined> {
     try {
       const apiUrlAppend = new URL(`${this._apiEndpoint}${this._playApiPath}/delivery`)
       apiUrlAppend.searchParams.append('doc', packageName.toString())
@@ -322,9 +355,8 @@ class GooglePlayAPI {
       const apiUrl = apiUrlAppend.href
       const axiosData = await axios.get(apiUrl, this._axiosConfigForGooglePlay)
 
-      // noinspection JSUnresolvedVariable
-      return this._protoBuf.decode(axiosData.data).payload.deliveryResponse
-    } catch (e) {
+      return protoBuf.decode(axiosData.data).payload?.deliveryResponse
+    } catch (e: any) {
       throw Error(`Get "${packageName}" App Delivery Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
     }
   }
@@ -332,13 +364,13 @@ class GooglePlayAPI {
   /**
    * Make Purchase Request
    *
-   * @param {String} packageName App Package Name
-   * @param {Number} offerType Offer Type
-   * @param {Number} versionCode App Version Code
+   * @param {string} packageName App Package Name
+   * @param {number} offerType Offer Type
+   * @param {number} versionCode App Version Code
    *
-   * @returns {Promise<Object>}
+   * @returns {Promise<IBuyResponse | null | undefined>}
    */
-  async purchase (packageName, offerType, versionCode) {
+  public async purchase (packageName: string, offerType: number, versionCode: number): Promise<IBuyResponse | null | undefined> {
     try {
       const axiosData = await axios.post(`${this._apiEndpoint}${this._playApiPath}/purchase`, qs.stringify({
         doc: packageName.toString(),
@@ -346,40 +378,35 @@ class GooglePlayAPI {
         vc: versionCode.toString()
       }), this._axiosConfigForGooglePlay)
 
-      // noinspection JSUnresolvedVariable
-      return this._protoBuf.decode(axiosData.data).payload.buyResponse
-    } catch (e) {
-      throw Error(`Make "${packageName}" Purchase Request Failed: ${(typeof e.response !== 'undefined') ? this._protoBuf.decode(e.response.data).commands.displayErrorMessage : e.message}`)
+      return protoBuf.decode(axiosData.data).payload?.buyResponse
+    } catch (e: any) {
+      throw Error(`Make "${packageName}" Purchase Request Failed: ${(typeof e.response !== 'undefined') ? protoBuf.decode(e.response.data).commands?.displayErrorMessage : e.message}`)
     }
   }
 
   /**
    * Get Download Info
    *
-   * @param {String} packageName App Package Name
-   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
+   * @param {string} packageName App Package Name
+   * @param {number | null} versionCode App Version Code (Default Latest Version Code)
    *
-   * @returns {Promise<Object|Boolean>}
+   * @returns {Promise<IAndroidAppDeliveryData | null>}
    */
-  async downloadInfo (packageName, versionCode = null) {
+  public async downloadInfo (packageName: string, versionCode: number | null | undefined = null): Promise<IAndroidAppDeliveryData | null> {
     try {
       const appDetails = await this.appDetails(packageName)
-      // noinspection JSUnresolvedVariable
-      const offerType = appDetails.offer[0].offerType
-      // noinspection JSUnresolvedVariable
-      versionCode = versionCode ?? appDetails.details.appDetails.versionCode
+      const offerType = appDetails?.offer?.[0]?.offerType
+      versionCode = versionCode ?? appDetails?.details?.appDetails?.versionCode
 
-      if (versionCode) {
+      if (offerType && versionCode) {
         await this.purchase(packageName, offerType, versionCode)
         const appDelivery = await this.appDelivery(packageName, offerType, versionCode)
 
-        // noinspection JSUnresolvedVariable
-        if (appDelivery.appDeliveryData !== null) {
-          // noinspection JSUnresolvedVariable
+        if (appDelivery?.appDeliveryData) {
           return appDelivery.appDeliveryData
         }
       }
-    } catch (e) {
+    } catch (e: any) {
       throw Error(`Get "${packageName}" Download Info Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
     }
 
@@ -389,18 +416,17 @@ class GooglePlayAPI {
   /**
    * Get Download Apk Url
    *
-   * @param {String} packageName App Package Name
-   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
+   * @param {string} packageName App Package Name
+   * @param {number | null} versionCode App Version Code (Default Latest Version Code)
    *
-   * @returns {Promise<String>}
+   * @returns {Promise<string | null | undefined>}
    */
-  async downloadApkUrl (packageName, versionCode = null) {
+  public async downloadApkUrl (packageName: string, versionCode: number | null = null): Promise<string | null | undefined> {
     try {
       const downloadInfo = await this.downloadInfo(packageName, versionCode)
 
-      // noinspection JSUnresolvedVariable
-      return downloadInfo.downloadUrl
-    } catch (e) {
+      return downloadInfo?.downloadUrl
+    } catch (e: any) {
       throw Error(`Get "${packageName}" Download Apk Url Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
     }
   }
@@ -408,14 +434,14 @@ class GooglePlayAPI {
   /**
    * Download Apk
    *
-   * @param {String} packageName App Package Name
-   * @param {String} outputPath Output Save Path
-   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
-   * @param {String|null} outputFileName Output File Save Name (Default App Package Name)
+   * @param {string} packageName App Package Name
+   * @param {string} outputPath Output Save Path
+   * @param {number | null} versionCode App Version Code (Default Latest Version Code)
+   * @param {string | null} outputFileName Output File Save Name (Default App Package Name)
    *
-   * @returns {Promise<void>}
+   * @returns {Promise<boolean>}
    */
-  async downloadApk (packageName, outputPath, versionCode = null, outputFileName = null) {
+  public async downloadApk (packageName: string, outputPath: string, versionCode: number | null = null, outputFileName: string | null = null): Promise<boolean> {
     try {
       let fileName = outputFileName ?? packageName
       if (!isExtMatch(fileName, 'apk')) {
@@ -423,27 +449,28 @@ class GooglePlayAPI {
       }
 
       const downloadApkUrl = await this.downloadApkUrl(packageName, versionCode)
-      await downloadFile(downloadApkUrl, outputPath, fileName)
-    } catch (e) {
+      if (downloadApkUrl) return await downloadFile(downloadApkUrl, outputPath, fileName)
+    } catch (e: any) {
       throw Error(`Download "${packageName}" Apk Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
     }
+
+    throw Error(`Download "${packageName}" Apk Failed.`)
   }
 
   /**
    * Get Split Delivery Data Info
    *
-   * @param {String} packageName App Package Name
-   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
+   * @param {string} packageName App Package Name
+   * @param {number | null} versionCode App Version Code (Default Latest Version Code)
    *
-   * @returns {Promise<Object>}
+   * @returns {Promise<ISplitDeliveryData[] | null | undefined>}
    */
-  async splitDeliveryDataInfo (packageName, versionCode = null) {
+  public async splitDeliveryDataInfo (packageName: string, versionCode: number | null = null): Promise<ISplitDeliveryData[] | null | undefined> {
     try {
       const downloadInfo = await this.downloadInfo(packageName, versionCode)
 
-      // noinspection JSUnresolvedVariable
-      return downloadInfo.splitDeliveryData
-    } catch (e) {
+      return downloadInfo?.splitDeliveryData
+    } catch (e: any) {
       throw Error(`Get "${packageName}" Split Delivery Data Info Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
     }
   }
@@ -451,12 +478,12 @@ class GooglePlayAPI {
   /**
    * Get Download Split Apks Name And Url
    *
-   * @param {String} packageName App Package Name
-   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
+   * @param {string} packageName App Package Name
+   * @param {number | null} versionCode App Version Code (Default Latest Version Code)
    *
-   * @returns {Promise<Object>}
+   * @returns {Promise<{name: string | null | undefined, downloadUrl: string | null | undefined}[]>}
    */
-  async downloadSplitApksNameAndUrl (packageName, versionCode = null) {
+  public async downloadSplitApksNameAndUrl (packageName: string, versionCode: number | null = null): Promise<{ name: string | null | undefined, downloadUrl: string | null | undefined }[]> {
     try {
       const splitDeliveryData = await this.splitDeliveryDataInfo(packageName, versionCode)
 
@@ -466,7 +493,7 @@ class GooglePlayAPI {
           downloadUrl: data.downloadUrl
         }
       })
-    } catch (e) {
+    } catch (e: any) {
       throw Error(`Get "${packageName}" Download Split Apks Name And Url Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
     }
   }
@@ -474,42 +501,42 @@ class GooglePlayAPI {
   /**
    * Download Split Apks
    *
-   * @param {String} packageName App Package Name
-   * @param {String} outputPath Output Save Path
-   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
-   * @param {String|null} outputFileNamePrefixe Output File Save Name Prefixe (Default App Package Name)
+   * @param {string} packageName App Package Name
+   * @param {string} outputPath Output Save Path
+   * @param {number | null} versionCode App Version Code (Default Latest Version Code)
+   * @param {string | null} outputFileNamePrefixe Output File Save Name Prefixe (Default App Package Name)
    *
-   * @returns {Promise<void>}
+   * @returns {Promise<boolean>}
    */
-  async downloadSplitApks (packageName, outputPath, versionCode = null, outputFileNamePrefixe = null) {
+  public async downloadSplitApks (packageName: string, outputPath: string, versionCode: number | null = null, outputFileNamePrefixe: string | null = null): Promise<boolean> {
     try {
       const fileName = outputFileNamePrefixe ?? packageName
 
       const downloadSplitApksNameAndUrl = await this.downloadSplitApksNameAndUrl(packageName, versionCode)
       for (const data of downloadSplitApksNameAndUrl) {
-        // noinspection JSUnresolvedVariable
-        await downloadFile(data.downloadUrl, outputPath, `${fileName}-${data.name}.apk`)
+        if (data.downloadUrl) return await downloadFile(data.downloadUrl, outputPath, `${fileName}-${data.name}.apk`)
       }
-    } catch (e) {
+    } catch (e: any) {
       throw Error(`Download "${packageName}" Split Apks Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
     }
+
+    throw Error(`Download "${packageName}" Split Apks Failed.`)
   }
 
   /**
    * Get Additional File Info
    *
-   * @param {String} packageName App Package Name
-   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
+   * @param {string} packageName App Package Name
+   * @param {number | null} versionCode App Version Code (Default Latest Version Code)
    *
-   * @returns {Promise<Object>}
+   * @returns {Promise<IAppFileMetadata[] | null | undefined>}
    */
-  async additionalFileInfo (packageName, versionCode = null) {
+  public async additionalFileInfo (packageName: string, versionCode: number | null = null): Promise<IAppFileMetadata[] | null | undefined> {
     try {
       const downloadInfo = await this.downloadInfo(packageName, versionCode)
 
-      // noinspection JSUnresolvedVariable
-      return downloadInfo.additionalFile
-    } catch (e) {
+      return downloadInfo?.additionalFile
+    } catch (e: any) {
       throw Error(`Get "${packageName}" Additional File Info Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
     }
   }
@@ -517,17 +544,17 @@ class GooglePlayAPI {
   /**
    * Get Download Additional File Urls
    *
-   * @param {String} packageName App Package Name
-   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
+   * @param {string} packageName App Package Name
+   * @param {number | null} versionCode App Version Code (Default Latest Version Code)
    *
-   * @returns {Promise<Object>}
+   * @returns {Promise<string[] | null | undefined>}
    */
-  async downloadAdditionalFileUrls (packageName, versionCode = null) {
+  public async downloadAdditionalFileUrls (packageName: string, versionCode: number | null = null): Promise<string[] | null | undefined> {
     try {
       const additionalFileInfo = await this.additionalFileInfo(packageName, versionCode)
 
-      return map(additionalFileInfo, 'downloadUrl')
-    } catch (e) {
+      return map(additionalFileInfo, 'downloadUrl') as string[] | null | undefined
+    } catch (e: any) {
       throw Error(`Get "${packageName}" Download Additional File Urls Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
     }
   }
@@ -535,25 +562,29 @@ class GooglePlayAPI {
   /**
    * Download Additional Files
    *
-   * @param {String} packageName App Package Name
-   * @param {String} outputPath Output Save Path
-   * @param {Number|null} versionCode App Version Code (Default Latest Version Code)
-   * @param {String|null} outputFileName Output File Save Name (Default App Package Name)
+   * @param {string} packageName App Package Name
+   * @param {string} outputPath Output Save Path
+   * @param {number | null} versionCode App Version Code (Default Latest Version Code)
+   * @param {string | null} outputFileName Output File Save Name (Default App Package Name)
    *
-   * @returns {Promise<void>}
+   * @returns {Promise<boolean>}
    */
-  async downloadAdditionalFiles (packageName, outputPath, versionCode = null, outputFileName = null) {
+  public async downloadAdditionalFiles (packageName: string, outputPath: string, versionCode: number | null = null, outputFileName: string | null = null): Promise<boolean> {
     try {
       const fileName = outputFileName ?? packageName
 
       const downloadAdditionalFileUrls = await this.downloadAdditionalFileUrls(packageName, versionCode)
-      for (const [key, url] of downloadAdditionalFileUrls.entries()) {
-        await downloadFile(url, outputPath, `${fileName}_${(key + 1)}`)
+      if (downloadAdditionalFileUrls) {
+        for (const [key, url] of downloadAdditionalFileUrls.entries()) {
+          await downloadFile(url, outputPath, `${fileName}_${(key + 1)}`)
+        }
+
+        return true
       }
-    } catch (e) {
+    } catch (e: any) {
       throw Error(`Download "${packageName}" Additional Files Failed: ${(typeof e.response !== 'undefined') ? e.response.data : e.message}`)
     }
+
+    throw Error(`Download "${packageName}" Additional Files Failed.`)
   }
 }
-
-module.exports = GooglePlayAPI
