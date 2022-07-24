@@ -305,69 +305,88 @@ $root.AndroidAppDeliveryData = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.downloadSize = reader.int64();
-                break;
-            case 2:
-                message.sha1 = reader.string();
-                break;
-            case 3:
-                message.downloadUrl = reader.string();
-                break;
-            case 4:
-                if (!(message.additionalFile && message.additionalFile.length))
-                    message.additionalFile = [];
-                message.additionalFile.push($root.AppFileMetadata.decode(reader, reader.uint32()));
-                break;
-            case 5:
-                if (!(message.downloadAuthCookie && message.downloadAuthCookie.length))
-                    message.downloadAuthCookie = [];
-                message.downloadAuthCookie.push($root.HttpCookie.decode(reader, reader.uint32()));
-                break;
-            case 6:
-                message.forwardLocked = reader.bool();
-                break;
-            case 7:
-                message.refundTimeout = reader.int64();
-                break;
-            case 8:
-                message.serverInitiated = reader.bool();
-                break;
-            case 9:
-                message.postInstallRefundWindowMillis = reader.int64();
-                break;
-            case 10:
-                message.immediateStartNeeded = reader.bool();
-                break;
-            case 11:
-                message.patchData = $root.AndroidAppPatchData.decode(reader, reader.uint32());
-                break;
-            case 12:
-                message.encryptionParams = $root.EncryptionParams.decode(reader, reader.uint32());
-                break;
-            case 13:
-                message.compressedDownloadUrl = reader.string();
-                break;
-            case 14:
-                message.compressedSize = reader.int64();
-                break;
-            case 15:
-                if (!(message.splitDeliveryData && message.splitDeliveryData.length))
-                    message.splitDeliveryData = [];
-                message.splitDeliveryData.push($root.SplitDeliveryData.decode(reader, reader.uint32()));
-                break;
-            case 16:
-                message.installLocation = reader.int32();
-                break;
-            case 17:
-                message.type = reader.int64();
-                break;
-            case 18:
-                message.compressedAppData = $root.CompressedAppData.decode(reader, reader.uint32());
-                break;
-            case 19:
-                message.sha256 = reader.string();
-                break;
+            case 1: {
+                    message.downloadSize = reader.int64();
+                    break;
+                }
+            case 2: {
+                    message.sha1 = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.downloadUrl = reader.string();
+                    break;
+                }
+            case 4: {
+                    if (!(message.additionalFile && message.additionalFile.length))
+                        message.additionalFile = [];
+                    message.additionalFile.push($root.AppFileMetadata.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 5: {
+                    if (!(message.downloadAuthCookie && message.downloadAuthCookie.length))
+                        message.downloadAuthCookie = [];
+                    message.downloadAuthCookie.push($root.HttpCookie.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 6: {
+                    message.forwardLocked = reader.bool();
+                    break;
+                }
+            case 7: {
+                    message.refundTimeout = reader.int64();
+                    break;
+                }
+            case 8: {
+                    message.serverInitiated = reader.bool();
+                    break;
+                }
+            case 9: {
+                    message.postInstallRefundWindowMillis = reader.int64();
+                    break;
+                }
+            case 10: {
+                    message.immediateStartNeeded = reader.bool();
+                    break;
+                }
+            case 11: {
+                    message.patchData = $root.AndroidAppPatchData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 12: {
+                    message.encryptionParams = $root.EncryptionParams.decode(reader, reader.uint32());
+                    break;
+                }
+            case 13: {
+                    message.compressedDownloadUrl = reader.string();
+                    break;
+                }
+            case 14: {
+                    message.compressedSize = reader.int64();
+                    break;
+                }
+            case 15: {
+                    if (!(message.splitDeliveryData && message.splitDeliveryData.length))
+                        message.splitDeliveryData = [];
+                    message.splitDeliveryData.push($root.SplitDeliveryData.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 16: {
+                    message.installLocation = reader.int32();
+                    break;
+                }
+            case 17: {
+                    message.type = reader.int64();
+                    break;
+                }
+            case 18: {
+                    message.compressedAppData = $root.CompressedAppData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 19: {
+                    message.sha256 = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -740,6 +759,21 @@ $root.AndroidAppDeliveryData = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AndroidAppDeliveryData
+     * @function getTypeUrl
+     * @memberof AndroidAppDeliveryData
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AndroidAppDeliveryData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AndroidAppDeliveryData";
+    };
+
     return AndroidAppDeliveryData;
 })();
 
@@ -923,33 +957,42 @@ $root.SplitDeliveryData = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.name = reader.string();
-                break;
-            case 2:
-                message.downloadSize = reader.int64();
-                break;
-            case 3:
-                message.compressedSize = reader.int64();
-                break;
-            case 4:
-                message.sha1 = reader.string();
-                break;
-            case 5:
-                message.downloadUrl = reader.string();
-                break;
-            case 6:
-                message.compressedDownloadUrl = reader.string();
-                break;
-            case 7:
-                message.patchData = $root.AndroidAppPatchData.decode(reader, reader.uint32());
-                break;
-            case 8:
-                message.compressedAppData = $root.CompressedAppData.decode(reader, reader.uint32());
-                break;
-            case 9:
-                message.sha256 = reader.string();
-                break;
+            case 1: {
+                    message.name = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.downloadSize = reader.int64();
+                    break;
+                }
+            case 3: {
+                    message.compressedSize = reader.int64();
+                    break;
+                }
+            case 4: {
+                    message.sha1 = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.downloadUrl = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.compressedDownloadUrl = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.patchData = $root.AndroidAppPatchData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 8: {
+                    message.compressedAppData = $root.CompressedAppData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 9: {
+                    message.sha256 = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -1142,6 +1185,21 @@ $root.SplitDeliveryData = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for SplitDeliveryData
+     * @function getTypeUrl
+     * @memberof SplitDeliveryData
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SplitDeliveryData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SplitDeliveryData";
+    };
+
     return SplitDeliveryData;
 })();
 
@@ -1281,21 +1339,26 @@ $root.AndroidAppPatchData = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.baseVersionCode = reader.int32();
-                break;
-            case 2:
-                message.baseSha1 = reader.string();
-                break;
-            case 3:
-                message.downloadUrl = reader.string();
-                break;
-            case 4:
-                message.patchFormat = reader.int32();
-                break;
-            case 5:
-                message.maxPatchSize = reader.int64();
-                break;
+            case 1: {
+                    message.baseVersionCode = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.baseSha1 = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.downloadUrl = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.patchFormat = reader.int32();
+                    break;
+                }
+            case 5: {
+                    message.maxPatchSize = reader.int64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -1432,6 +1495,21 @@ $root.AndroidAppPatchData = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AndroidAppPatchData
+     * @function getTypeUrl
+     * @memberof AndroidAppPatchData
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AndroidAppPatchData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AndroidAppPatchData";
+    };
+
     return AndroidAppPatchData;
 })();
 
@@ -1549,15 +1627,18 @@ $root.CompressedAppData = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.type = reader.int64();
-                break;
-            case 2:
-                message.size = reader.int64();
-                break;
-            case 3:
-                message.downloadUrl = reader.string();
-                break;
+            case 1: {
+                    message.type = reader.int64();
+                    break;
+                }
+            case 2: {
+                    message.size = reader.int64();
+                    break;
+                }
+            case 3: {
+                    message.downloadUrl = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -1690,6 +1771,21 @@ $root.CompressedAppData = (function() {
      */
     CompressedAppData.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for CompressedAppData
+     * @function getTypeUrl
+     * @memberof CompressedAppData
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CompressedAppData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CompressedAppData";
     };
 
     return CompressedAppData;
@@ -1864,30 +1960,38 @@ $root.AppFileMetadata = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.fileType = reader.int32();
-                break;
-            case 2:
-                message.versionCode = reader.int32();
-                break;
-            case 3:
-                message.size = reader.int64();
-                break;
-            case 4:
-                message.downloadUrl = reader.string();
-                break;
-            case 5:
-                message.patchData = $root.AndroidAppPatchData.decode(reader, reader.uint32());
-                break;
-            case 6:
-                message.compressedSize = reader.int64();
-                break;
-            case 7:
-                message.compressedDownloadUrl = reader.string();
-                break;
-            case 8:
-                message.sha1 = reader.string();
-                break;
+            case 1: {
+                    message.fileType = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.versionCode = reader.int32();
+                    break;
+                }
+            case 3: {
+                    message.size = reader.int64();
+                    break;
+                }
+            case 4: {
+                    message.downloadUrl = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.patchData = $root.AndroidAppPatchData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 6: {
+                    message.compressedSize = reader.int64();
+                    break;
+                }
+            case 7: {
+                    message.compressedDownloadUrl = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.sha1 = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -2067,6 +2171,21 @@ $root.AppFileMetadata = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AppFileMetadata
+     * @function getTypeUrl
+     * @memberof AppFileMetadata
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AppFileMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AppFileMetadata";
+    };
+
     return AppFileMetadata;
 })();
 
@@ -2184,15 +2303,18 @@ $root.EncryptionParams = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.version = reader.int32();
-                break;
-            case 2:
-                message.encryptionKey = reader.string();
-                break;
-            case 3:
-                message.hMacKey = reader.string();
-                break;
+            case 1: {
+                    message.version = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.encryptionKey = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.hMacKey = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -2297,6 +2419,21 @@ $root.EncryptionParams = (function() {
      */
     EncryptionParams.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for EncryptionParams
+     * @function getTypeUrl
+     * @memberof EncryptionParams
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    EncryptionParams.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/EncryptionParams";
     };
 
     return EncryptionParams;
@@ -2405,12 +2542,14 @@ $root.HttpCookie = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.name = reader.string();
-                break;
-            case 2:
-                message.value = reader.string();
-                break;
+            case 1: {
+                    message.name = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.value = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -2507,6 +2646,21 @@ $root.HttpCookie = (function() {
      */
     HttpCookie.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for HttpCookie
+     * @function getTypeUrl
+     * @memberof HttpCookie
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    HttpCookie.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/HttpCookie";
     };
 
     return HttpCookie;
@@ -2758,51 +2912,66 @@ $root.Address = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.name = reader.string();
-                break;
-            case 2:
-                message.addressLine1 = reader.string();
-                break;
-            case 3:
-                message.addressLine2 = reader.string();
-                break;
-            case 4:
-                message.city = reader.string();
-                break;
-            case 5:
-                message.state = reader.string();
-                break;
-            case 6:
-                message.postalCode = reader.string();
-                break;
-            case 7:
-                message.postalCountry = reader.string();
-                break;
-            case 8:
-                message.dependentLocality = reader.string();
-                break;
-            case 9:
-                message.sortingCode = reader.string();
-                break;
-            case 10:
-                message.languageCode = reader.string();
-                break;
-            case 11:
-                message.phoneNumber = reader.string();
-                break;
-            case 12:
-                message.deprecatedIsReduced = reader.bool();
-                break;
-            case 13:
-                message.firstName = reader.string();
-                break;
-            case 14:
-                message.lastName = reader.string();
-                break;
-            case 15:
-                message.email = reader.string();
-                break;
+            case 1: {
+                    message.name = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.addressLine1 = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.addressLine2 = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.city = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.state = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.postalCode = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.postalCountry = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.dependentLocality = reader.string();
+                    break;
+                }
+            case 9: {
+                    message.sortingCode = reader.string();
+                    break;
+                }
+            case 10: {
+                    message.languageCode = reader.string();
+                    break;
+                }
+            case 11: {
+                    message.phoneNumber = reader.string();
+                    break;
+                }
+            case 12: {
+                    message.deprecatedIsReduced = reader.bool();
+                    break;
+                }
+            case 13: {
+                    message.firstName = reader.string();
+                    break;
+                }
+            case 14: {
+                    message.lastName = reader.string();
+                    break;
+                }
+            case 15: {
+                    message.email = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -3005,6 +3174,21 @@ $root.Address = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Address
+     * @function getTypeUrl
+     * @memberof Address
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Address.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Address";
+    };
+
     return Address;
 })();
 
@@ -3133,18 +3317,22 @@ $root.BrowseLink = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.name = reader.string();
-                break;
-            case 3:
-                message.dataUrl = reader.string();
-                break;
-            case 4:
-                message.serverLogsCookie = reader.bytes();
-                break;
-            case 5:
-                message.icon = $root.Image.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.name = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.dataUrl = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.serverLogsCookie = reader.bytes();
+                    break;
+                }
+            case 5: {
+                    message.icon = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -3216,7 +3404,7 @@ $root.BrowseLink = (function() {
         if (object.serverLogsCookie != null)
             if (typeof object.serverLogsCookie === "string")
                 $util.base64.decode(object.serverLogsCookie, message.serverLogsCookie = $util.newBuffer($util.base64.length(object.serverLogsCookie)), 0);
-            else if (object.serverLogsCookie.length)
+            else if (object.serverLogsCookie.length >= 0)
                 message.serverLogsCookie = object.serverLogsCookie;
         if (object.icon != null) {
             if (typeof object.icon !== "object")
@@ -3271,6 +3459,21 @@ $root.BrowseLink = (function() {
      */
     BrowseLink.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for BrowseLink
+     * @function getTypeUrl
+     * @memberof BrowseLink
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    BrowseLink.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/BrowseLink";
     };
 
     return BrowseLink;
@@ -3517,54 +3720,68 @@ $root.BrowseResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.contentsUrl = reader.string();
-                break;
-            case 2:
-                message.promoUrl = reader.string();
-                break;
-            case 3:
-                if (!(message.category && message.category.length))
-                    message.category = [];
-                message.category.push($root.BrowseLink.decode(reader, reader.uint32()));
-                break;
-            case 4:
-                if (!(message.breadcrumb && message.breadcrumb.length))
-                    message.breadcrumb = [];
-                message.breadcrumb.push($root.BrowseLink.decode(reader, reader.uint32()));
-                break;
-            case 5:
-                if (!(message.quickLink && message.quickLink.length))
-                    message.quickLink = [];
-                message.quickLink.push($root.QuickLink.decode(reader, reader.uint32()));
-                break;
-            case 6:
-                message.serverLogsCookie = reader.bytes();
-                break;
-            case 7:
-                message.title = reader.string();
-                break;
-            case 8:
-                message.backendId = reader.int32();
-                break;
-            case 9:
-                message.browseTab = $root.BrowseTab.decode(reader, reader.uint32());
-                break;
-            case 10:
-                message.landingTabIndex = reader.int32();
-                break;
-            case 11:
-                message.quickLinkTabIndex = reader.int32();
-                break;
-            case 12:
-                message.quickLinkFallbackTabIndex = reader.int32();
-                break;
-            case 14:
-                message.isFamilySafe = reader.bool();
-                break;
-            case 18:
-                message.shareUrl = reader.string();
-                break;
+            case 1: {
+                    message.contentsUrl = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.promoUrl = reader.string();
+                    break;
+                }
+            case 3: {
+                    if (!(message.category && message.category.length))
+                        message.category = [];
+                    message.category.push($root.BrowseLink.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 4: {
+                    if (!(message.breadcrumb && message.breadcrumb.length))
+                        message.breadcrumb = [];
+                    message.breadcrumb.push($root.BrowseLink.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 5: {
+                    if (!(message.quickLink && message.quickLink.length))
+                        message.quickLink = [];
+                    message.quickLink.push($root.QuickLink.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 6: {
+                    message.serverLogsCookie = reader.bytes();
+                    break;
+                }
+            case 7: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.backendId = reader.int32();
+                    break;
+                }
+            case 9: {
+                    message.browseTab = $root.BrowseTab.decode(reader, reader.uint32());
+                    break;
+                }
+            case 10: {
+                    message.landingTabIndex = reader.int32();
+                    break;
+                }
+            case 11: {
+                    message.quickLinkTabIndex = reader.int32();
+                    break;
+                }
+            case 12: {
+                    message.quickLinkFallbackTabIndex = reader.int32();
+                    break;
+                }
+            case 14: {
+                    message.isFamilySafe = reader.bool();
+                    break;
+                }
+            case 18: {
+                    message.shareUrl = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -3714,7 +3931,7 @@ $root.BrowseResponse = (function() {
         if (object.serverLogsCookie != null)
             if (typeof object.serverLogsCookie === "string")
                 $util.base64.decode(object.serverLogsCookie, message.serverLogsCookie = $util.newBuffer($util.base64.length(object.serverLogsCookie)), 0);
-            else if (object.serverLogsCookie.length)
+            else if (object.serverLogsCookie.length >= 0)
                 message.serverLogsCookie = object.serverLogsCookie;
         if (object.title != null)
             message.title = String(object.title);
@@ -3824,6 +4041,21 @@ $root.BrowseResponse = (function() {
      */
     BrowseResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for BrowseResponse
+     * @function getTypeUrl
+     * @memberof BrowseResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    BrowseResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/BrowseResponse";
     };
 
     return BrowseResponse;
@@ -3954,18 +4186,22 @@ $root.DirectPurchase = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.detailsUrl = reader.string();
-                break;
-            case 2:
-                message.purchaseItemId = reader.string();
-                break;
-            case 3:
-                message.parentItemId = reader.string();
-                break;
-            case 4:
-                message.offerType = reader.int32();
-                break;
+            case 1: {
+                    message.detailsUrl = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.purchaseItemId = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.parentItemId = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.offerType = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -4080,6 +4316,21 @@ $root.DirectPurchase = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for DirectPurchase
+     * @function getTypeUrl
+     * @memberof DirectPurchase
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DirectPurchase.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DirectPurchase";
+    };
+
     return DirectPurchase;
 })();
 
@@ -4186,12 +4437,14 @@ $root.RedeemGiftCard = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.prefillCode = reader.string();
-                break;
-            case 2:
-                message.partnerPayload = reader.string();
-                break;
+            case 1: {
+                    message.prefillCode = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.partnerPayload = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -4288,6 +4541,21 @@ $root.RedeemGiftCard = (function() {
      */
     RedeemGiftCard.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for RedeemGiftCard
+     * @function getTypeUrl
+     * @memberof RedeemGiftCard
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    RedeemGiftCard.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/RedeemGiftCard";
     };
 
     return RedeemGiftCard;
@@ -4517,45 +4785,58 @@ $root.ResolvedLink = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.detailsUrl = reader.string();
-                break;
-            case 2:
-                message.browseUrl = reader.string();
-                break;
-            case 3:
-                message.searchUrl = reader.string();
-                break;
-            case 4:
-                message.directPurchase = $root.DirectPurchase.decode(reader, reader.uint32());
-                break;
-            case 5:
-                message.homeUrl = reader.string();
-                break;
-            case 6:
-                message.redeemGiftCard = $root.RedeemGiftCard.decode(reader, reader.uint32());
-                break;
-            case 7:
-                message.serverLogsCookie = reader.bytes();
-                break;
-            case 8:
-                message.DocId = $root.DocId.decode(reader, reader.uint32());
-                break;
-            case 9:
-                message.wishlistUrl = reader.string();
-                break;
-            case 10:
-                message.backend = reader.int32();
-                break;
-            case 11:
-                message.query = reader.string();
-                break;
-            case 12:
-                message.myAccountUrl = reader.string();
-                break;
-            case 13:
-                message.helpCenter = $root.HelpCenter.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.detailsUrl = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.browseUrl = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.searchUrl = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.directPurchase = $root.DirectPurchase.decode(reader, reader.uint32());
+                    break;
+                }
+            case 5: {
+                    message.homeUrl = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.redeemGiftCard = $root.RedeemGiftCard.decode(reader, reader.uint32());
+                    break;
+                }
+            case 7: {
+                    message.serverLogsCookie = reader.bytes();
+                    break;
+                }
+            case 8: {
+                    message.DocId = $root.DocId.decode(reader, reader.uint32());
+                    break;
+                }
+            case 9: {
+                    message.wishlistUrl = reader.string();
+                    break;
+                }
+            case 10: {
+                    message.backend = reader.int32();
+                    break;
+                }
+            case 11: {
+                    message.query = reader.string();
+                    break;
+                }
+            case 12: {
+                    message.myAccountUrl = reader.string();
+                    break;
+                }
+            case 13: {
+                    message.helpCenter = $root.HelpCenter.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -4674,7 +4955,7 @@ $root.ResolvedLink = (function() {
         if (object.serverLogsCookie != null)
             if (typeof object.serverLogsCookie === "string")
                 $util.base64.decode(object.serverLogsCookie, message.serverLogsCookie = $util.newBuffer($util.base64.length(object.serverLogsCookie)), 0);
-            else if (object.serverLogsCookie.length)
+            else if (object.serverLogsCookie.length >= 0)
                 message.serverLogsCookie = object.serverLogsCookie;
         if (object.DocId != null) {
             if (typeof object.DocId !== "object")
@@ -4769,6 +5050,21 @@ $root.ResolvedLink = (function() {
      */
     ResolvedLink.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ResolvedLink
+     * @function getTypeUrl
+     * @memberof ResolvedLink
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ResolvedLink.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ResolvedLink";
     };
 
     return ResolvedLink;
@@ -4866,9 +5162,10 @@ $root.HelpCenter = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.contextId = reader.string();
-                break;
+            case 1: {
+                    message.contextId = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -4956,6 +5253,21 @@ $root.HelpCenter = (function() {
      */
     HelpCenter.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for HelpCenter
+     * @function getTypeUrl
+     * @memberof HelpCenter
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    HelpCenter.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/HelpCenter";
     };
 
     return HelpCenter;
@@ -5119,27 +5431,34 @@ $root.QuickLink = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.name = reader.string();
-                break;
-            case 2:
-                message.image = $root.Image.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.link = $root.ResolvedLink.decode(reader, reader.uint32());
-                break;
-            case 4:
-                message.displayRequired = reader.bool();
-                break;
-            case 5:
-                message.serverLogsCookie = reader.bytes();
-                break;
-            case 6:
-                message.backendId = reader.int32();
-                break;
-            case 7:
-                message.prismStyle = reader.bool();
-                break;
+            case 1: {
+                    message.name = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.image = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.link = $root.ResolvedLink.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    message.displayRequired = reader.bool();
+                    break;
+                }
+            case 5: {
+                    message.serverLogsCookie = reader.bytes();
+                    break;
+                }
+            case 6: {
+                    message.backendId = reader.int32();
+                    break;
+                }
+            case 7: {
+                    message.prismStyle = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -5232,7 +5551,7 @@ $root.QuickLink = (function() {
         if (object.serverLogsCookie != null)
             if (typeof object.serverLogsCookie === "string")
                 $util.base64.decode(object.serverLogsCookie, message.serverLogsCookie = $util.newBuffer($util.base64.length(object.serverLogsCookie)), 0);
-            else if (object.serverLogsCookie.length)
+            else if (object.serverLogsCookie.length >= 0)
                 message.serverLogsCookie = object.serverLogsCookie;
         if (object.backendId != null)
             message.backendId = object.backendId | 0;
@@ -5295,6 +5614,21 @@ $root.QuickLink = (function() {
      */
     QuickLink.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for QuickLink
+     * @function getTypeUrl
+     * @memberof QuickLink
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    QuickLink.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/QuickLink";
     };
 
     return QuickLink;
@@ -5484,37 +5818,46 @@ $root.BrowseTab = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.title = reader.string();
-                break;
-            case 2:
-                message.serverLogsCookie = reader.bytes();
-                break;
-            case 3:
-                message.listUrl = reader.string();
-                break;
-            case 4:
-                if (!(message.browseLink && message.browseLink.length))
-                    message.browseLink = [];
-                message.browseLink.push($root.BrowseLink.decode(reader, reader.uint32()));
-                break;
-            case 5:
-                if (!(message.quickLink && message.quickLink.length))
-                    message.quickLink = [];
-                message.quickLink.push($root.QuickLink.decode(reader, reader.uint32()));
-                break;
-            case 6:
-                message.quickLinkTitle = reader.string();
-                break;
-            case 7:
-                message.categoriesTitle = reader.string();
-                break;
-            case 8:
-                message.backendId = reader.int32();
-                break;
-            case 9:
-                message.highlightsBannerUrl = reader.string();
-                break;
+            case 1: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.serverLogsCookie = reader.bytes();
+                    break;
+                }
+            case 3: {
+                    message.listUrl = reader.string();
+                    break;
+                }
+            case 4: {
+                    if (!(message.browseLink && message.browseLink.length))
+                        message.browseLink = [];
+                    message.browseLink.push($root.BrowseLink.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 5: {
+                    if (!(message.quickLink && message.quickLink.length))
+                        message.quickLink = [];
+                    message.quickLink.push($root.QuickLink.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 6: {
+                    message.quickLinkTitle = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.categoriesTitle = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.backendId = reader.int32();
+                    break;
+                }
+            case 9: {
+                    message.highlightsBannerUrl = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -5609,7 +5952,7 @@ $root.BrowseTab = (function() {
         if (object.serverLogsCookie != null)
             if (typeof object.serverLogsCookie === "string")
                 $util.base64.decode(object.serverLogsCookie, message.serverLogsCookie = $util.newBuffer($util.base64.length(object.serverLogsCookie)), 0);
-            else if (object.serverLogsCookie.length)
+            else if (object.serverLogsCookie.length >= 0)
                 message.serverLogsCookie = object.serverLogsCookie;
         if (object.listUrl != null)
             message.listUrl = String(object.listUrl);
@@ -5712,6 +6055,21 @@ $root.BrowseTab = (function() {
      */
     BrowseTab.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for BrowseTab
+     * @function getTypeUrl
+     * @memberof BrowseTab
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    BrowseTab.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/BrowseTab";
     };
 
     return BrowseTab;
@@ -6009,65 +6367,84 @@ $root.BuyResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.purchaseResponse = $root.PurchaseNotificationResponse.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.checkoutInfo = $root.BuyResponse.CheckoutInfo.decode(reader);
-                break;
-            case 8:
-                message.continueViaUrl = reader.string();
-                break;
-            case 9:
-                message.purchaseStatusUrl = reader.string();
-                break;
-            case 12:
-                message.checkoutServiceId = reader.string();
-                break;
-            case 13:
-                message.checkoutTokenRequired = reader.bool();
-                break;
-            case 14:
-                message.baseCheckoutUrl = reader.string();
-                break;
-            case 37:
-                if (!(message.tosCheckboxHtml && message.tosCheckboxHtml.length))
-                    message.tosCheckboxHtml = [];
-                message.tosCheckboxHtml.push(reader.string());
-                break;
-            case 38:
-                message.iabPermissionError = reader.int32();
-                break;
-            case 39:
-                message.purchaseStatusResponse = $root.PurchaseStatusResponse.decode(reader, reader.uint32());
-                break;
-            case 46:
-                message.purchaseCookie = reader.string();
-                break;
-            case 49:
-                message.challenge = $root.Challenge.decode(reader, reader.uint32());
-                break;
-            case 50:
-                message.addInstrumentPromptHtml = reader.string();
-                break;
-            case 51:
-                message.confirmButtonText = reader.string();
-                break;
-            case 52:
-                message.permissionErrorTitleText = reader.string();
-                break;
-            case 53:
-                message.permissionErrorMessageText = reader.string();
-                break;
-            case 54:
-                message.serverLogsCookie = reader.bytes();
-                break;
-            case 55:
-                message.encodedDeliveryToken = reader.string();
-                break;
-            case 56:
-                message.unknownToken = reader.string();
-                break;
+            case 1: {
+                    message.purchaseResponse = $root.PurchaseNotificationResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.checkoutInfo = $root.BuyResponse.CheckoutInfo.decode(reader);
+                    break;
+                }
+            case 8: {
+                    message.continueViaUrl = reader.string();
+                    break;
+                }
+            case 9: {
+                    message.purchaseStatusUrl = reader.string();
+                    break;
+                }
+            case 12: {
+                    message.checkoutServiceId = reader.string();
+                    break;
+                }
+            case 13: {
+                    message.checkoutTokenRequired = reader.bool();
+                    break;
+                }
+            case 14: {
+                    message.baseCheckoutUrl = reader.string();
+                    break;
+                }
+            case 37: {
+                    if (!(message.tosCheckboxHtml && message.tosCheckboxHtml.length))
+                        message.tosCheckboxHtml = [];
+                    message.tosCheckboxHtml.push(reader.string());
+                    break;
+                }
+            case 38: {
+                    message.iabPermissionError = reader.int32();
+                    break;
+                }
+            case 39: {
+                    message.purchaseStatusResponse = $root.PurchaseStatusResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 46: {
+                    message.purchaseCookie = reader.string();
+                    break;
+                }
+            case 49: {
+                    message.challenge = $root.Challenge.decode(reader, reader.uint32());
+                    break;
+                }
+            case 50: {
+                    message.addInstrumentPromptHtml = reader.string();
+                    break;
+                }
+            case 51: {
+                    message.confirmButtonText = reader.string();
+                    break;
+                }
+            case 52: {
+                    message.permissionErrorTitleText = reader.string();
+                    break;
+                }
+            case 53: {
+                    message.permissionErrorMessageText = reader.string();
+                    break;
+                }
+            case 54: {
+                    message.serverLogsCookie = reader.bytes();
+                    break;
+                }
+            case 55: {
+                    message.encodedDeliveryToken = reader.string();
+                    break;
+                }
+            case 56: {
+                    message.unknownToken = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -6239,7 +6616,7 @@ $root.BuyResponse = (function() {
         if (object.serverLogsCookie != null)
             if (typeof object.serverLogsCookie === "string")
                 $util.base64.decode(object.serverLogsCookie, message.serverLogsCookie = $util.newBuffer($util.base64.length(object.serverLogsCookie)), 0);
-            else if (object.serverLogsCookie.length)
+            else if (object.serverLogsCookie.length >= 0)
                 message.serverLogsCookie = object.serverLogsCookie;
         if (object.encodedDeliveryToken != null)
             message.encodedDeliveryToken = String(object.encodedDeliveryToken);
@@ -6342,6 +6719,21 @@ $root.BuyResponse = (function() {
      */
     BuyResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for BuyResponse
+     * @function getTypeUrl
+     * @memberof BuyResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    BuyResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/BuyResponse";
     };
 
     BuyResponse.CheckoutInfo = (function() {
@@ -6538,50 +6930,59 @@ $root.BuyResponse = (function() {
                 if ((tag & 7) === 4)
                     break;
                 switch (tag >>> 3) {
-                case 3:
-                    message.item = $root.LineItem.decode(reader, reader.uint32());
-                    break;
-                case 4:
-                    if (!(message.subItem && message.subItem.length))
-                        message.subItem = [];
-                    message.subItem.push($root.LineItem.decode(reader, reader.uint32()));
-                    break;
-                case 5:
-                    if (!(message.checkoutOption && message.checkoutOption.length))
-                        message.checkoutOption = [];
-                    message.checkoutOption.push($root.BuyResponse.CheckoutInfo.CheckoutOption.decode(reader));
-                    break;
-                case 10:
-                    message.deprecatedCheckoutUrl = reader.string();
-                    break;
-                case 11:
-                    message.addInstrumentUrl = reader.string();
-                    break;
-                case 20:
-                    if (!(message.footerHtml && message.footerHtml.length))
-                        message.footerHtml = [];
-                    message.footerHtml.push(reader.string());
-                    break;
-                case 31:
-                    if (!(message.eligibleInstrumentFamily && message.eligibleInstrumentFamily.length))
-                        message.eligibleInstrumentFamily = [];
-                    if ((tag & 7) === 2) {
-                        var end2 = reader.uint32() + reader.pos;
-                        while (reader.pos < end2)
+                case 3: {
+                        message.item = $root.LineItem.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 4: {
+                        if (!(message.subItem && message.subItem.length))
+                            message.subItem = [];
+                        message.subItem.push($root.LineItem.decode(reader, reader.uint32()));
+                        break;
+                    }
+                case 5: {
+                        if (!(message.checkoutOption && message.checkoutOption.length))
+                            message.checkoutOption = [];
+                        message.checkoutOption.push($root.BuyResponse.CheckoutInfo.CheckoutOption.decode(reader));
+                        break;
+                    }
+                case 10: {
+                        message.deprecatedCheckoutUrl = reader.string();
+                        break;
+                    }
+                case 11: {
+                        message.addInstrumentUrl = reader.string();
+                        break;
+                    }
+                case 20: {
+                        if (!(message.footerHtml && message.footerHtml.length))
+                            message.footerHtml = [];
+                        message.footerHtml.push(reader.string());
+                        break;
+                    }
+                case 31: {
+                        if (!(message.eligibleInstrumentFamily && message.eligibleInstrumentFamily.length))
+                            message.eligibleInstrumentFamily = [];
+                        if ((tag & 7) === 2) {
+                            var end2 = reader.uint32() + reader.pos;
+                            while (reader.pos < end2)
+                                message.eligibleInstrumentFamily.push(reader.int32());
+                        } else
                             message.eligibleInstrumentFamily.push(reader.int32());
-                    } else
-                        message.eligibleInstrumentFamily.push(reader.int32());
-                    break;
-                case 36:
-                    if (!(message.footnoteHtml && message.footnoteHtml.length))
-                        message.footnoteHtml = [];
-                    message.footnoteHtml.push(reader.string());
-                    break;
-                case 44:
-                    if (!(message.eligibleInstrument && message.eligibleInstrument.length))
-                        message.eligibleInstrument = [];
-                    message.eligibleInstrument.push($root.Instrument.decode(reader, reader.uint32()));
-                    break;
+                        break;
+                    }
+                case 36: {
+                        if (!(message.footnoteHtml && message.footnoteHtml.length))
+                            message.footnoteHtml = [];
+                        message.footnoteHtml.push(reader.string());
+                        break;
+                    }
+                case 44: {
+                        if (!(message.eligibleInstrument && message.eligibleInstrument.length))
+                            message.eligibleInstrument = [];
+                        message.eligibleInstrument.push($root.Instrument.decode(reader, reader.uint32()));
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -6828,6 +7229,21 @@ $root.BuyResponse = (function() {
          */
         CheckoutInfo.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for CheckoutInfo
+         * @function getTypeUrl
+         * @memberof BuyResponse.CheckoutInfo
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        CheckoutInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/BuyResponse.CheckoutInfo";
         };
 
         CheckoutInfo.CheckoutOption = (function() {
@@ -7090,68 +7506,83 @@ $root.BuyResponse = (function() {
                     if ((tag & 7) === 4)
                         break;
                     switch (tag >>> 3) {
-                    case 6:
-                        message.formOfPayment = reader.string();
-                        break;
-                    case 7:
-                        message.encodedAdjustedCart = reader.string();
-                        break;
-                    case 15:
-                        message.instrumentId = reader.string();
-                        break;
-                    case 16:
-                        if (!(message.item && message.item.length))
-                            message.item = [];
-                        message.item.push($root.LineItem.decode(reader, reader.uint32()));
-                        break;
-                    case 17:
-                        if (!(message.subItem && message.subItem.length))
-                            message.subItem = [];
-                        message.subItem.push($root.LineItem.decode(reader, reader.uint32()));
-                        break;
-                    case 18:
-                        message.total = $root.LineItem.decode(reader, reader.uint32());
-                        break;
-                    case 19:
-                        if (!(message.footerHtml && message.footerHtml.length))
-                            message.footerHtml = [];
-                        message.footerHtml.push(reader.string());
-                        break;
-                    case 29:
-                        message.instrumentFamily = reader.int32();
-                        break;
-                    case 30:
-                        if (!(message.deprecatedInstrumentInapplicableReason && message.deprecatedInstrumentInapplicableReason.length))
-                            message.deprecatedInstrumentInapplicableReason = [];
-                        if ((tag & 7) === 2) {
-                            var end2 = reader.uint32() + reader.pos;
-                            while (reader.pos < end2)
+                    case 6: {
+                            message.formOfPayment = reader.string();
+                            break;
+                        }
+                    case 7: {
+                            message.encodedAdjustedCart = reader.string();
+                            break;
+                        }
+                    case 15: {
+                            message.instrumentId = reader.string();
+                            break;
+                        }
+                    case 16: {
+                            if (!(message.item && message.item.length))
+                                message.item = [];
+                            message.item.push($root.LineItem.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    case 17: {
+                            if (!(message.subItem && message.subItem.length))
+                                message.subItem = [];
+                            message.subItem.push($root.LineItem.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    case 18: {
+                            message.total = $root.LineItem.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 19: {
+                            if (!(message.footerHtml && message.footerHtml.length))
+                                message.footerHtml = [];
+                            message.footerHtml.push(reader.string());
+                            break;
+                        }
+                    case 29: {
+                            message.instrumentFamily = reader.int32();
+                            break;
+                        }
+                    case 30: {
+                            if (!(message.deprecatedInstrumentInapplicableReason && message.deprecatedInstrumentInapplicableReason.length))
+                                message.deprecatedInstrumentInapplicableReason = [];
+                            if ((tag & 7) === 2) {
+                                var end2 = reader.uint32() + reader.pos;
+                                while (reader.pos < end2)
+                                    message.deprecatedInstrumentInapplicableReason.push(reader.int32());
+                            } else
                                 message.deprecatedInstrumentInapplicableReason.push(reader.int32());
-                        } else
-                            message.deprecatedInstrumentInapplicableReason.push(reader.int32());
-                        break;
-                    case 32:
-                        message.selectedInstrument = reader.bool();
-                        break;
-                    case 33:
-                        message.summary = $root.LineItem.decode(reader, reader.uint32());
-                        break;
-                    case 35:
-                        if (!(message.footnoteHtml && message.footnoteHtml.length))
-                            message.footnoteHtml = [];
-                        message.footnoteHtml.push(reader.string());
-                        break;
-                    case 43:
-                        message.instrument = $root.Instrument.decode(reader, reader.uint32());
-                        break;
-                    case 45:
-                        message.purchaseCookie = reader.string();
-                        break;
-                    case 48:
-                        if (!(message.disabledReason && message.disabledReason.length))
-                            message.disabledReason = [];
-                        message.disabledReason.push(reader.string());
-                        break;
+                            break;
+                        }
+                    case 32: {
+                            message.selectedInstrument = reader.bool();
+                            break;
+                        }
+                    case 33: {
+                            message.summary = $root.LineItem.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 35: {
+                            if (!(message.footnoteHtml && message.footnoteHtml.length))
+                                message.footnoteHtml = [];
+                            message.footnoteHtml.push(reader.string());
+                            break;
+                        }
+                    case 43: {
+                            message.instrument = $root.Instrument.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 45: {
+                            message.purchaseCookie = reader.string();
+                            break;
+                        }
+                    case 48: {
+                            if (!(message.disabledReason && message.disabledReason.length))
+                                message.disabledReason = [];
+                            message.disabledReason.push(reader.string());
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -7453,6 +7884,21 @@ $root.BuyResponse = (function() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
+            /**
+             * Gets the default type url for CheckoutOption
+             * @function getTypeUrl
+             * @memberof BuyResponse.CheckoutInfo.CheckoutOption
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            CheckoutOption.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/BuyResponse.CheckoutInfo.CheckoutOption";
+            };
+
             return CheckoutOption;
         })();
 
@@ -7587,18 +8033,22 @@ $root.LineItem = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.name = reader.string();
-                break;
-            case 2:
-                message.description = reader.string();
-                break;
-            case 3:
-                message.offer = $root.Offer.decode(reader, reader.uint32());
-                break;
-            case 4:
-                message.amount = $root.Money.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.name = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.description = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.offer = $root.Offer.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    message.amount = $root.Money.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -7723,6 +8173,21 @@ $root.LineItem = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for LineItem
+     * @function getTypeUrl
+     * @memberof LineItem
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    LineItem.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/LineItem";
+    };
+
     return LineItem;
 })();
 
@@ -7840,15 +8305,18 @@ $root.Money = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.micros = reader.int64();
-                break;
-            case 2:
-                message.currencyCode = reader.string();
-                break;
-            case 3:
-                message.formattedAmount = reader.string();
-                break;
+            case 1: {
+                    message.micros = reader.int64();
+                    break;
+                }
+            case 2: {
+                    message.currencyCode = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.formattedAmount = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -7967,6 +8435,21 @@ $root.Money = (function() {
      */
     Money.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for Money
+     * @function getTypeUrl
+     * @memberof Money
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Money.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Money";
     };
 
     return Money;
@@ -8097,18 +8580,22 @@ $root.PurchaseNotificationResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.status = reader.int32();
-                break;
-            case 2:
-                message.debugInfo = $root.DebugInfo.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.localizedErrorMessage = reader.string();
-                break;
-            case 4:
-                message.purchaseId = reader.string();
-                break;
+            case 1: {
+                    message.status = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.debugInfo = $root.DebugInfo.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.localizedErrorMessage = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.purchaseId = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -8226,6 +8713,21 @@ $root.PurchaseNotificationResponse = (function() {
      */
     PurchaseNotificationResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PurchaseNotificationResponse
+     * @function getTypeUrl
+     * @memberof PurchaseNotificationResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PurchaseNotificationResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PurchaseNotificationResponse";
     };
 
     return PurchaseNotificationResponse;
@@ -8400,30 +8902,38 @@ $root.PurchaseStatusResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.status = reader.int32();
-                break;
-            case 2:
-                message.statusMsg = reader.string();
-                break;
-            case 3:
-                message.statusTitle = reader.string();
-                break;
-            case 4:
-                message.briefMessage = reader.string();
-                break;
-            case 5:
-                message.infoUrl = reader.string();
-                break;
-            case 6:
-                message.libraryUpdate = $root.LibraryUpdate.decode(reader, reader.uint32());
-                break;
-            case 7:
-                message.rejectedInstrument = $root.Instrument.decode(reader, reader.uint32());
-                break;
-            case 8:
-                message.appDeliveryData = $root.AndroidAppDeliveryData.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.status = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.statusMsg = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.statusTitle = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.briefMessage = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.infoUrl = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.libraryUpdate = $root.LibraryUpdate.decode(reader, reader.uint32());
+                    break;
+                }
+            case 7: {
+                    message.rejectedInstrument = $root.Instrument.decode(reader, reader.uint32());
+                    break;
+                }
+            case 8: {
+                    message.appDeliveryData = $root.AndroidAppDeliveryData.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -8583,6 +9093,21 @@ $root.PurchaseStatusResponse = (function() {
      */
     PurchaseStatusResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PurchaseStatusResponse
+     * @function getTypeUrl
+     * @memberof PurchaseStatusResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PurchaseStatusResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PurchaseStatusResponse";
     };
 
     return PurchaseStatusResponse;
@@ -8746,27 +9271,34 @@ $root.PurchaseHistoryDetails = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 2:
-                message.purchaseTimestampMillis = reader.int64();
-                break;
-            case 3:
-                message.purchaseDetailsHtml = reader.string();
-                break;
-            case 5:
-                message.offer = $root.Offer.decode(reader, reader.uint32());
-                break;
-            case 6:
-                message.purchaseStatus = reader.string();
-                break;
-            case 7:
-                message.titleBylineHtml = reader.string();
-                break;
-            case 8:
-                message.clientRefundContext = reader.bytes();
-                break;
-            case 9:
-                message.purchaseDetailsImage = $root.Image.decode(reader, reader.uint32());
-                break;
+            case 2: {
+                    message.purchaseTimestampMillis = reader.int64();
+                    break;
+                }
+            case 3: {
+                    message.purchaseDetailsHtml = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.offer = $root.Offer.decode(reader, reader.uint32());
+                    break;
+                }
+            case 6: {
+                    message.purchaseStatus = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.titleBylineHtml = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.clientRefundContext = reader.bytes();
+                    break;
+                }
+            case 9: {
+                    message.purchaseDetailsImage = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -8865,7 +9397,7 @@ $root.PurchaseHistoryDetails = (function() {
         if (object.clientRefundContext != null)
             if (typeof object.clientRefundContext === "string")
                 $util.base64.decode(object.clientRefundContext, message.clientRefundContext = $util.newBuffer($util.base64.length(object.clientRefundContext)), 0);
-            else if (object.clientRefundContext.length)
+            else if (object.clientRefundContext.length >= 0)
                 message.clientRefundContext = object.clientRefundContext;
         if (object.purchaseDetailsImage != null) {
             if (typeof object.purchaseDetailsImage !== "object")
@@ -8936,6 +9468,21 @@ $root.PurchaseHistoryDetails = (function() {
      */
     PurchaseHistoryDetails.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PurchaseHistoryDetails
+     * @function getTypeUrl
+     * @memberof PurchaseHistoryDetails
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PurchaseHistoryDetails.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PurchaseHistoryDetails";
     };
 
     return PurchaseHistoryDetails;
@@ -9055,15 +9602,18 @@ $root.BillingProfileResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.result = reader.int32();
-                break;
-            case 2:
-                message.billingProfile = $root.BillingProfile.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.userMessageHtml = reader.string();
-                break;
+            case 1: {
+                    message.result = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.billingProfile = $root.BillingProfile.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.userMessageHtml = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -9173,6 +9723,21 @@ $root.BillingProfileResponse = (function() {
      */
     BillingProfileResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for BillingProfileResponse
+     * @function getTypeUrl
+     * @memberof BillingProfileResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    BillingProfileResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/BillingProfileResponse";
     };
 
     return BillingProfileResponse;
@@ -9307,22 +9872,26 @@ $root.CheckInstrumentResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.userHasValidInstrument = reader.bool();
-                break;
-            case 2:
-                message.checkoutTokenRequired = reader.bool();
-                break;
-            case 4:
-                if (!(message.instrument && message.instrument.length))
-                    message.instrument = [];
-                message.instrument.push($root.Instrument.decode(reader, reader.uint32()));
-                break;
-            case 5:
-                if (!(message.eligibleInstrument && message.eligibleInstrument.length))
-                    message.eligibleInstrument = [];
-                message.eligibleInstrument.push($root.Instrument.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.userHasValidInstrument = reader.bool();
+                    break;
+                }
+            case 2: {
+                    message.checkoutTokenRequired = reader.bool();
+                    break;
+                }
+            case 4: {
+                    if (!(message.instrument && message.instrument.length))
+                        message.instrument = [];
+                    message.instrument.push($root.Instrument.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 5: {
+                    if (!(message.eligibleInstrument && message.eligibleInstrument.length))
+                        message.eligibleInstrument = [];
+                    message.eligibleInstrument.push($root.Instrument.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -9473,6 +10042,21 @@ $root.CheckInstrumentResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for CheckInstrumentResponse
+     * @function getTypeUrl
+     * @memberof CheckInstrumentResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CheckInstrumentResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CheckInstrumentResponse";
+    };
+
     return CheckInstrumentResponse;
 })();
 
@@ -9581,14 +10165,16 @@ $root.InstrumentSetupInfoResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.setupInfo && message.setupInfo.length))
-                    message.setupInfo = [];
-                message.setupInfo.push($root.InstrumentSetupInfo.decode(reader, reader.uint32()));
-                break;
-            case 2:
-                message.checkoutTokenRequired = reader.bool();
-                break;
+            case 1: {
+                    if (!(message.setupInfo && message.setupInfo.length))
+                        message.setupInfo = [];
+                    message.setupInfo.push($root.InstrumentSetupInfo.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 2: {
+                    message.checkoutTokenRequired = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -9702,6 +10288,21 @@ $root.InstrumentSetupInfoResponse = (function() {
      */
     InstrumentSetupInfoResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for InstrumentSetupInfoResponse
+     * @function getTypeUrl
+     * @memberof InstrumentSetupInfoResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    InstrumentSetupInfoResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/InstrumentSetupInfoResponse";
     };
 
     return InstrumentSetupInfoResponse;
@@ -9834,20 +10435,24 @@ $root.RedeemGiftCardRequest = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.giftCardPin = reader.string();
-                break;
-            case 2:
-                message.address = $root.Address.decode(reader, reader.uint32());
-                break;
-            case 3:
-                if (!(message.acceptedLegalDocumentId && message.acceptedLegalDocumentId.length))
-                    message.acceptedLegalDocumentId = [];
-                message.acceptedLegalDocumentId.push(reader.string());
-                break;
-            case 4:
-                message.checkoutToken = reader.string();
-                break;
+            case 1: {
+                    message.giftCardPin = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.address = $root.Address.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    if (!(message.acceptedLegalDocumentId && message.acceptedLegalDocumentId.length))
+                        message.acceptedLegalDocumentId = [];
+                    message.acceptedLegalDocumentId.push(reader.string());
+                    break;
+                }
+            case 4: {
+                    message.checkoutToken = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -9978,6 +10583,21 @@ $root.RedeemGiftCardRequest = (function() {
      */
     RedeemGiftCardRequest.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for RedeemGiftCardRequest
+     * @function getTypeUrl
+     * @memberof RedeemGiftCardRequest
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    RedeemGiftCardRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/RedeemGiftCardRequest";
     };
 
     return RedeemGiftCardRequest;
@@ -10119,21 +10739,26 @@ $root.RedeemGiftCardResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.result = reader.int32();
-                break;
-            case 2:
-                message.userMessageHtml = reader.string();
-                break;
-            case 3:
-                message.balanceHtml = reader.string();
-                break;
-            case 4:
-                message.addressChallenge = $root.AddressChallenge.decode(reader, reader.uint32());
-                break;
-            case 5:
-                message.checkoutTokenRequired = reader.bool();
-                break;
+            case 1: {
+                    message.result = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.userMessageHtml = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.balanceHtml = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.addressChallenge = $root.AddressChallenge.decode(reader, reader.uint32());
+                    break;
+                }
+            case 5: {
+                    message.checkoutTokenRequired = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -10261,6 +10886,21 @@ $root.RedeemGiftCardResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for RedeemGiftCardResponse
+     * @function getTypeUrl
+     * @memberof RedeemGiftCardResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    RedeemGiftCardResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/RedeemGiftCardResponse";
+    };
+
     return RedeemGiftCardResponse;
 })();
 
@@ -10367,12 +11007,14 @@ $root.UpdateInstrumentRequest = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.instrument = $root.Instrument.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.checkoutToken = reader.string();
-                break;
+            case 1: {
+                    message.instrument = $root.Instrument.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.checkoutToken = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -10474,6 +11116,21 @@ $root.UpdateInstrumentRequest = (function() {
      */
     UpdateInstrumentRequest.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for UpdateInstrumentRequest
+     * @function getTypeUrl
+     * @memberof UpdateInstrumentRequest
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    UpdateInstrumentRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/UpdateInstrumentRequest";
     };
 
     return UpdateInstrumentRequest;
@@ -10628,26 +11285,32 @@ $root.UpdateInstrumentResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.result = reader.int32();
-                break;
-            case 2:
-                message.instrumentId = reader.string();
-                break;
-            case 3:
-                message.userMessageHtml = reader.string();
-                break;
-            case 4:
-                if (!(message.errorInputField && message.errorInputField.length))
-                    message.errorInputField = [];
-                message.errorInputField.push($root.InputValidationError.decode(reader, reader.uint32()));
-                break;
-            case 5:
-                message.checkoutTokenRequired = reader.bool();
-                break;
-            case 6:
-                message.redeemedOffer = $root.RedeemedPromoOffer.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.result = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.instrumentId = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.userMessageHtml = reader.string();
+                    break;
+                }
+            case 4: {
+                    if (!(message.errorInputField && message.errorInputField.length))
+                        message.errorInputField = [];
+                    message.errorInputField.push($root.InputValidationError.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 5: {
+                    message.checkoutTokenRequired = reader.bool();
+                    break;
+                }
+            case 6: {
+                    message.redeemedOffer = $root.RedeemedPromoOffer.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -10801,6 +11464,21 @@ $root.UpdateInstrumentResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for UpdateInstrumentResponse
+     * @function getTypeUrl
+     * @memberof UpdateInstrumentResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    UpdateInstrumentResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/UpdateInstrumentResponse";
+    };
+
     return UpdateInstrumentResponse;
 })();
 
@@ -10896,9 +11574,10 @@ $root.InitiateAssociationResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.userToken = reader.string();
-                break;
+            case 1: {
+                    message.userToken = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -10986,6 +11665,21 @@ $root.InitiateAssociationResponse = (function() {
      */
     InitiateAssociationResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for InitiateAssociationResponse
+     * @function getTypeUrl
+     * @memberof InitiateAssociationResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    InitiateAssociationResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/InitiateAssociationResponse";
     };
 
     return InitiateAssociationResponse;
@@ -11116,18 +11810,22 @@ $root.VerifyAssociationResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.status = reader.int32();
-                break;
-            case 2:
-                message.billingAddress = $root.Address.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.carrierTos = $root.CarrierTos.decode(reader, reader.uint32());
-                break;
-            case 4:
-                message.carrierErrorMessage = reader.string();
-                break;
+            case 1: {
+                    message.status = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.billingAddress = $root.Address.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.carrierTos = $root.CarrierTos.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    message.carrierErrorMessage = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -11250,6 +11948,21 @@ $root.VerifyAssociationResponse = (function() {
      */
     VerifyAssociationResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for VerifyAssociationResponse
+     * @function getTypeUrl
+     * @memberof VerifyAssociationResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    VerifyAssociationResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/VerifyAssociationResponse";
     };
 
     return VerifyAssociationResponse;
@@ -11454,49 +12167,59 @@ $root.AddressChallenge = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.responseAddressParam = reader.string();
-                break;
-            case 2:
-                message.responseCheckboxesParam = reader.string();
-                break;
-            case 3:
-                message.title = reader.string();
-                break;
-            case 4:
-                message.descriptionHtml = reader.string();
-                break;
-            case 5:
-                if (!(message.checkbox && message.checkbox.length))
-                    message.checkbox = [];
-                message.checkbox.push($root.FormCheckbox.decode(reader, reader.uint32()));
-                break;
-            case 6:
-                message.address = $root.Address.decode(reader, reader.uint32());
-                break;
-            case 7:
-                if (!(message.errorInputField && message.errorInputField.length))
-                    message.errorInputField = [];
-                message.errorInputField.push($root.InputValidationError.decode(reader, reader.uint32()));
-                break;
-            case 8:
-                message.errorHtml = reader.string();
-                break;
-            case 9:
-                if (!(message.requiredField && message.requiredField.length))
-                    message.requiredField = [];
-                if ((tag & 7) === 2) {
-                    var end2 = reader.uint32() + reader.pos;
-                    while (reader.pos < end2)
+            case 1: {
+                    message.responseAddressParam = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.responseCheckboxesParam = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.descriptionHtml = reader.string();
+                    break;
+                }
+            case 5: {
+                    if (!(message.checkbox && message.checkbox.length))
+                        message.checkbox = [];
+                    message.checkbox.push($root.FormCheckbox.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 6: {
+                    message.address = $root.Address.decode(reader, reader.uint32());
+                    break;
+                }
+            case 7: {
+                    if (!(message.errorInputField && message.errorInputField.length))
+                        message.errorInputField = [];
+                    message.errorInputField.push($root.InputValidationError.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 8: {
+                    message.errorHtml = reader.string();
+                    break;
+                }
+            case 9: {
+                    if (!(message.requiredField && message.requiredField.length))
+                        message.requiredField = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.requiredField.push(reader.int32());
+                    } else
                         message.requiredField.push(reader.int32());
-                } else
-                    message.requiredField.push(reader.int32());
-                break;
-            case 10:
-                if (!(message.supportedCountry && message.supportedCountry.length))
-                    message.supportedCountry = [];
-                message.supportedCountry.push($root.Country.decode(reader, reader.uint32()));
-                break;
+                    break;
+                }
+            case 10: {
+                    if (!(message.supportedCountry && message.supportedCountry.length))
+                        message.supportedCountry = [];
+                    message.supportedCountry.push($root.Country.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -11729,6 +12452,21 @@ $root.AddressChallenge = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AddressChallenge
+     * @function getTypeUrl
+     * @memberof AddressChallenge
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AddressChallenge.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AddressChallenge";
+    };
+
     return AddressChallenge;
 })();
 
@@ -11923,36 +12661,46 @@ $root.AuthenticationChallenge = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.authenticationType = reader.int32();
-                break;
-            case 2:
-                message.responseAuthenticationTypeParam = reader.string();
-                break;
-            case 3:
-                message.responseRetryCountParam = reader.string();
-                break;
-            case 4:
-                message.pinHeaderText = reader.string();
-                break;
-            case 5:
-                message.pinDescriptionTextHtml = reader.string();
-                break;
-            case 6:
-                message.gaiaHeaderText = reader.string();
-                break;
-            case 7:
-                message.gaiaDescriptionTextHtml = reader.string();
-                break;
-            case 8:
-                message.gaiaFooterTextHtml = reader.string();
-                break;
-            case 9:
-                message.gaiaOptOutCheckbox = $root.FormCheckbox.decode(reader, reader.uint32());
-                break;
-            case 10:
-                message.gaiaOptOutDescriptionTextHtml = reader.string();
-                break;
+            case 1: {
+                    message.authenticationType = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.responseAuthenticationTypeParam = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.responseRetryCountParam = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.pinHeaderText = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.pinDescriptionTextHtml = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.gaiaHeaderText = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.gaiaDescriptionTextHtml = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.gaiaFooterTextHtml = reader.string();
+                    break;
+                }
+            case 9: {
+                    message.gaiaOptOutCheckbox = $root.FormCheckbox.decode(reader, reader.uint32());
+                    break;
+                }
+            case 10: {
+                    message.gaiaOptOutDescriptionTextHtml = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -12120,6 +12868,21 @@ $root.AuthenticationChallenge = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AuthenticationChallenge
+     * @function getTypeUrl
+     * @memberof AuthenticationChallenge
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AuthenticationChallenge.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AuthenticationChallenge";
+    };
+
     return AuthenticationChallenge;
 })();
 
@@ -12237,15 +13000,18 @@ $root.Challenge = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.addressChallenge = $root.AddressChallenge.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.authenticationChallenge = $root.AuthenticationChallenge.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.webViewChallenge = $root.WebViewChallenge.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.addressChallenge = $root.AddressChallenge.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.authenticationChallenge = $root.AuthenticationChallenge.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.webViewChallenge = $root.WebViewChallenge.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -12367,6 +13133,21 @@ $root.Challenge = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Challenge
+     * @function getTypeUrl
+     * @memberof Challenge
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Challenge.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Challenge";
+    };
+
     return Challenge;
 })();
 
@@ -12473,12 +13254,14 @@ $root.Country = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.regionCode = reader.string();
-                break;
-            case 2:
-                message.displayName = reader.string();
-                break;
+            case 1: {
+                    message.regionCode = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.displayName = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -12575,6 +13358,21 @@ $root.Country = (function() {
      */
     Country.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for Country
+     * @function getTypeUrl
+     * @memberof Country
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Country.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Country";
     };
 
     return Country;
@@ -12705,18 +13503,22 @@ $root.FormCheckbox = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.description = reader.string();
-                break;
-            case 2:
-                message.checked = reader.bool();
-                break;
-            case 3:
-                message.required = reader.bool();
-                break;
-            case 4:
-                message.id = reader.string();
-                break;
+            case 1: {
+                    message.description = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.checked = reader.bool();
+                    break;
+                }
+            case 3: {
+                    message.required = reader.bool();
+                    break;
+                }
+            case 4: {
+                    message.id = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -12831,6 +13633,21 @@ $root.FormCheckbox = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for FormCheckbox
+     * @function getTypeUrl
+     * @memberof FormCheckbox
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    FormCheckbox.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/FormCheckbox";
+    };
+
     return FormCheckbox;
 })();
 
@@ -12937,12 +13754,14 @@ $root.InputValidationError = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.inputField = reader.int32();
-                break;
-            case 2:
-                message.errorMessage = reader.string();
-                break;
+            case 1: {
+                    message.inputField = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.errorMessage = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -13039,6 +13858,21 @@ $root.InputValidationError = (function() {
      */
     InputValidationError.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for InputValidationError
+     * @function getTypeUrl
+     * @memberof InputValidationError
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    InputValidationError.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/InputValidationError";
     };
 
     return InputValidationError;
@@ -13191,24 +14025,30 @@ $root.WebViewChallenge = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.startUrl = reader.string();
-                break;
-            case 2:
-                message.targetUrlRegexp = reader.string();
-                break;
-            case 3:
-                message.cancelButtonDisplayLabel = reader.string();
-                break;
-            case 4:
-                message.responseTargetUrlParam = reader.string();
-                break;
-            case 5:
-                message.cancelUrlRegexp = reader.string();
-                break;
-            case 6:
-                message.title = reader.string();
-                break;
+            case 1: {
+                    message.startUrl = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.targetUrlRegexp = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.cancelButtonDisplayLabel = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.responseTargetUrlParam = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.cancelUrlRegexp = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.title = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -13337,6 +14177,21 @@ $root.WebViewChallenge = (function() {
      */
     WebViewChallenge.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for WebViewChallenge
+     * @function getTypeUrl
+     * @memberof WebViewChallenge
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    WebViewChallenge.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/WebViewChallenge";
     };
 
     return WebViewChallenge;
@@ -13500,27 +14355,34 @@ $root.AddCreditCardPromoOffer = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.headerText = reader.string();
-                break;
-            case 2:
-                message.descriptionHtml = reader.string();
-                break;
-            case 3:
-                message.image = $root.Image.decode(reader, reader.uint32());
-                break;
-            case 4:
-                message.introductoryTextHtml = reader.string();
-                break;
-            case 5:
-                message.offerTitle = reader.string();
-                break;
-            case 6:
-                message.noActionDescription = reader.string();
-                break;
-            case 7:
-                message.termsAndConditionsHtml = reader.string();
-                break;
+            case 1: {
+                    message.headerText = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.descriptionHtml = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.image = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    message.introductoryTextHtml = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.offerTitle = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.noActionDescription = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.termsAndConditionsHtml = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -13664,6 +14526,21 @@ $root.AddCreditCardPromoOffer = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AddCreditCardPromoOffer
+     * @function getTypeUrl
+     * @memberof AddCreditCardPromoOffer
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AddCreditCardPromoOffer.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AddCreditCardPromoOffer";
+    };
+
     return AddCreditCardPromoOffer;
 })();
 
@@ -13759,9 +14636,10 @@ $root.AvailablePromoOffer = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.addCreditCardOffer = $root.AddCreditCardPromoOffer.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.addCreditCardOffer = $root.AddCreditCardPromoOffer.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -13854,6 +14732,21 @@ $root.AvailablePromoOffer = (function() {
      */
     AvailablePromoOffer.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for AvailablePromoOffer
+     * @function getTypeUrl
+     * @memberof AvailablePromoOffer
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AvailablePromoOffer.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AvailablePromoOffer";
     };
 
     return AvailablePromoOffer;
@@ -13975,17 +14868,20 @@ $root.CheckPromoOfferResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.availableOffer && message.availableOffer.length))
-                    message.availableOffer = [];
-                message.availableOffer.push($root.AvailablePromoOffer.decode(reader, reader.uint32()));
-                break;
-            case 2:
-                message.redeemedOffer = $root.RedeemedPromoOffer.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.checkoutTokenRequired = reader.bool();
-                break;
+            case 1: {
+                    if (!(message.availableOffer && message.availableOffer.length))
+                        message.availableOffer = [];
+                    message.availableOffer.push($root.AvailablePromoOffer.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 2: {
+                    message.redeemedOffer = $root.RedeemedPromoOffer.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.checkoutTokenRequired = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -14115,6 +15011,21 @@ $root.CheckPromoOfferResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for CheckPromoOfferResponse
+     * @function getTypeUrl
+     * @memberof CheckPromoOfferResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CheckPromoOfferResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CheckPromoOfferResponse";
+    };
+
     return CheckPromoOfferResponse;
 })();
 
@@ -14232,15 +15143,18 @@ $root.RedeemedPromoOffer = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.headerText = reader.string();
-                break;
-            case 2:
-                message.descriptionHtml = reader.string();
-                break;
-            case 3:
-                message.image = $root.Image.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.headerText = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.descriptionHtml = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.image = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -14350,6 +15264,21 @@ $root.RedeemedPromoOffer = (function() {
      */
     RedeemedPromoOffer.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for RedeemedPromoOffer
+     * @function getTypeUrl
+     * @memberof RedeemedPromoOffer
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    RedeemedPromoOffer.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/RedeemedPromoOffer";
     };
 
     return RedeemedPromoOffer;
@@ -14469,15 +15398,18 @@ $root.DocId = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.backendDocId = reader.string();
-                break;
-            case 2:
-                message.type = reader.int32();
-                break;
-            case 3:
-                message.backend = reader.int32();
-                break;
+            case 1: {
+                    message.backendDocId = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.type = reader.int32();
+                    break;
+                }
+            case 3: {
+                    message.backend = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -14582,6 +15514,21 @@ $root.DocId = (function() {
      */
     DocId.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for DocId
+     * @function getTypeUrl
+     * @memberof DocId
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DocId.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DocId";
     };
 
     return DocId;
@@ -14723,21 +15670,26 @@ $root.Install = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.androidId = reader.fixed64();
-                break;
-            case 2:
-                message.version = reader.int32();
-                break;
-            case 3:
-                message.bundled = reader.bool();
-                break;
-            case 4:
-                message.pending = reader.bool();
-                break;
-            case 5:
-                message.lastUpdated = reader.int64();
-                break;
+            case 1: {
+                    message.androidId = reader.fixed64();
+                    break;
+                }
+            case 2: {
+                    message.version = reader.int32();
+                    break;
+                }
+            case 3: {
+                    message.bundled = reader.bool();
+                    break;
+                }
+            case 4: {
+                    message.pending = reader.bool();
+                    break;
+                }
+            case 5: {
+                    message.lastUpdated = reader.int64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -14888,6 +15840,21 @@ $root.Install = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Install
+     * @function getTypeUrl
+     * @memberof Install
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Install.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Install";
+    };
+
     return Install;
 })();
 
@@ -15027,21 +15994,26 @@ $root.GroupLicenseKey = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.dasherCustomerId = reader.fixed64();
-                break;
-            case 2:
-                message.docId = $root.DocId.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.licensedOfferType = reader.int32();
-                break;
-            case 4:
-                message.type = reader.int32();
-                break;
-            case 5:
-                message.rentalPeriodDays = reader.int32();
-                break;
+            case 1: {
+                    message.dasherCustomerId = reader.fixed64();
+                    break;
+                }
+            case 2: {
+                    message.docId = $root.DocId.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.licensedOfferType = reader.int32();
+                    break;
+                }
+            case 4: {
+                    message.type = reader.int32();
+                    break;
+                }
+            case 5: {
+                    message.rentalPeriodDays = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -15183,6 +16155,21 @@ $root.GroupLicenseKey = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for GroupLicenseKey
+     * @function getTypeUrl
+     * @memberof GroupLicenseKey
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    GroupLicenseKey.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/GroupLicenseKey";
+    };
+
     return GroupLicenseKey;
 })();
 
@@ -15278,9 +16265,10 @@ $root.LicenseTerms = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.groupLicenseKey = $root.GroupLicenseKey.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.groupLicenseKey = $root.GroupLicenseKey.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -15373,6 +16361,21 @@ $root.LicenseTerms = (function() {
      */
     LicenseTerms.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for LicenseTerms
+     * @function getTypeUrl
+     * @memberof LicenseTerms
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    LicenseTerms.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/LicenseTerms";
     };
 
     return LicenseTerms;
@@ -15784,99 +16787,128 @@ $root.Offer = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.micros = reader.int64();
-                break;
-            case 2:
-                message.currencyCode = reader.string();
-                break;
-            case 3:
-                message.formattedAmount = reader.string();
-                break;
-            case 4:
-                if (!(message.convertedPrice && message.convertedPrice.length))
-                    message.convertedPrice = [];
-                message.convertedPrice.push($root.Offer.decode(reader, reader.uint32()));
-                break;
-            case 5:
-                message.checkoutFlowRequired = reader.bool();
-                break;
-            case 6:
-                message.fullPriceMicros = reader.int64();
-                break;
-            case 7:
-                message.formattedFullAmount = reader.string();
-                break;
-            case 8:
-                message.offerType = reader.int32();
-                break;
-            case 9:
-                message.rentalTerms = $root.RentalTerms.decode(reader, reader.uint32());
-                break;
-            case 10:
-                message.onSaleDate = reader.int64();
-                break;
-            case 11:
-                if (!(message.promotionLabel && message.promotionLabel.length))
-                    message.promotionLabel = [];
-                message.promotionLabel.push(reader.string());
-                break;
-            case 12:
-                message.subscriptionTerms = $root.SubscriptionTerms.decode(reader, reader.uint32());
-                break;
-            case 13:
-                message.formattedName = reader.string();
-                break;
-            case 14:
-                message.formattedDescription = reader.string();
-                break;
-            case 15:
-                message.preorder = reader.bool();
-                break;
-            case 16:
-                message.onSaleDateDisplayTimeZoneOffsetMillis = reader.int32();
-                break;
-            case 17:
-                message.licensedOfferType = reader.int32();
-                break;
-            case 18:
-                message.subscriptionContentTerms = $root.SubscriptionContentTerms.decode(reader, reader.uint32());
-                break;
-            case 19:
-                message.offerId = reader.string();
-                break;
-            case 20:
-                message.preorderFulfillmentDisplayDate = reader.int64();
-                break;
-            case 21:
-                message.licenseTerms = $root.LicenseTerms.decode(reader, reader.uint32());
-                break;
-            case 22:
-                message.sale = reader.bool();
-                break;
-            case 23:
-                message.voucherTerms = $root.VoucherTerms.decode(reader, reader.uint32());
-                break;
-            case 24:
-                if (!(message.offerPayment && message.offerPayment.length))
-                    message.offerPayment = [];
-                message.offerPayment.push($root.OfferPayment.decode(reader, reader.uint32()));
-                break;
-            case 25:
-                message.repeatLastPayment = reader.bool();
-                break;
-            case 26:
-                message.buyButtonLabel = reader.string();
-                break;
-            case 27:
-                message.instantPurchaseEnabled = reader.bool();
-                break;
-            case 30:
-                message.saleEndTimestamp = reader.int64();
-                break;
-            case 31:
-                message.saleMessage = reader.string();
-                break;
+            case 1: {
+                    message.micros = reader.int64();
+                    break;
+                }
+            case 2: {
+                    message.currencyCode = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.formattedAmount = reader.string();
+                    break;
+                }
+            case 4: {
+                    if (!(message.convertedPrice && message.convertedPrice.length))
+                        message.convertedPrice = [];
+                    message.convertedPrice.push($root.Offer.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 5: {
+                    message.checkoutFlowRequired = reader.bool();
+                    break;
+                }
+            case 6: {
+                    message.fullPriceMicros = reader.int64();
+                    break;
+                }
+            case 7: {
+                    message.formattedFullAmount = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.offerType = reader.int32();
+                    break;
+                }
+            case 9: {
+                    message.rentalTerms = $root.RentalTerms.decode(reader, reader.uint32());
+                    break;
+                }
+            case 10: {
+                    message.onSaleDate = reader.int64();
+                    break;
+                }
+            case 11: {
+                    if (!(message.promotionLabel && message.promotionLabel.length))
+                        message.promotionLabel = [];
+                    message.promotionLabel.push(reader.string());
+                    break;
+                }
+            case 12: {
+                    message.subscriptionTerms = $root.SubscriptionTerms.decode(reader, reader.uint32());
+                    break;
+                }
+            case 13: {
+                    message.formattedName = reader.string();
+                    break;
+                }
+            case 14: {
+                    message.formattedDescription = reader.string();
+                    break;
+                }
+            case 15: {
+                    message.preorder = reader.bool();
+                    break;
+                }
+            case 16: {
+                    message.onSaleDateDisplayTimeZoneOffsetMillis = reader.int32();
+                    break;
+                }
+            case 17: {
+                    message.licensedOfferType = reader.int32();
+                    break;
+                }
+            case 18: {
+                    message.subscriptionContentTerms = $root.SubscriptionContentTerms.decode(reader, reader.uint32());
+                    break;
+                }
+            case 19: {
+                    message.offerId = reader.string();
+                    break;
+                }
+            case 20: {
+                    message.preorderFulfillmentDisplayDate = reader.int64();
+                    break;
+                }
+            case 21: {
+                    message.licenseTerms = $root.LicenseTerms.decode(reader, reader.uint32());
+                    break;
+                }
+            case 22: {
+                    message.sale = reader.bool();
+                    break;
+                }
+            case 23: {
+                    message.voucherTerms = $root.VoucherTerms.decode(reader, reader.uint32());
+                    break;
+                }
+            case 24: {
+                    if (!(message.offerPayment && message.offerPayment.length))
+                        message.offerPayment = [];
+                    message.offerPayment.push($root.OfferPayment.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 25: {
+                    message.repeatLastPayment = reader.bool();
+                    break;
+                }
+            case 26: {
+                    message.buyButtonLabel = reader.string();
+                    break;
+                }
+            case 27: {
+                    message.instantPurchaseEnabled = reader.bool();
+                    break;
+                }
+            case 30: {
+                    message.saleEndTimestamp = reader.int64();
+                    break;
+                }
+            case 31: {
+                    message.saleMessage = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -16334,6 +17366,21 @@ $root.Offer = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Offer
+     * @function getTypeUrl
+     * @memberof Offer
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Offer.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Offer";
+    };
+
     return Offer;
 })();
 
@@ -16440,12 +17487,14 @@ $root.MonthAndDay = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.month = reader.uint32();
-                break;
-            case 2:
-                message.day = reader.uint32();
-                break;
+            case 1: {
+                    message.month = reader.uint32();
+                    break;
+                }
+            case 2: {
+                    message.day = reader.uint32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -16542,6 +17591,21 @@ $root.MonthAndDay = (function() {
      */
     MonthAndDay.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for MonthAndDay
+     * @function getTypeUrl
+     * @memberof MonthAndDay
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    MonthAndDay.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/MonthAndDay";
     };
 
     return MonthAndDay;
@@ -16661,15 +17725,18 @@ $root.OfferPaymentPeriod = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.duration = $root.TimePeriod.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.start = $root.MonthAndDay.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.end = $root.MonthAndDay.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.duration = $root.TimePeriod.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.start = $root.MonthAndDay.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.end = $root.MonthAndDay.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -16791,6 +17858,21 @@ $root.OfferPaymentPeriod = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for OfferPaymentPeriod
+     * @function getTypeUrl
+     * @memberof OfferPaymentPeriod
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    OfferPaymentPeriod.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/OfferPaymentPeriod";
+    };
+
     return OfferPaymentPeriod;
 })();
 
@@ -16908,15 +17990,18 @@ $root.OfferPaymentOverride = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.micros = reader.int64();
-                break;
-            case 2:
-                message.start = $root.MonthAndDay.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.end = $root.MonthAndDay.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.micros = reader.int64();
+                    break;
+                }
+            case 2: {
+                    message.start = $root.MonthAndDay.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.end = $root.MonthAndDay.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -17045,6 +18130,21 @@ $root.OfferPaymentOverride = (function() {
      */
     OfferPaymentOverride.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for OfferPaymentOverride
+     * @function getTypeUrl
+     * @memberof OfferPaymentOverride
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    OfferPaymentOverride.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/OfferPaymentOverride";
     };
 
     return OfferPaymentOverride;
@@ -17177,20 +18277,24 @@ $root.OfferPayment = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.micros = reader.int64();
-                break;
-            case 2:
-                message.currencyCode = reader.string();
-                break;
-            case 3:
-                message.offerPaymentPeriod = $root.OfferPaymentPeriod.decode(reader, reader.uint32());
-                break;
-            case 4:
-                if (!(message.offerPaymentOverride && message.offerPaymentOverride.length))
-                    message.offerPaymentOverride = [];
-                message.offerPaymentOverride.push($root.OfferPaymentOverride.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.micros = reader.int64();
+                    break;
+                }
+            case 2: {
+                    message.currencyCode = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.offerPaymentPeriod = $root.OfferPaymentPeriod.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    if (!(message.offerPaymentOverride && message.offerPaymentOverride.length))
+                        message.offerPaymentOverride = [];
+                    message.offerPaymentOverride.push($root.OfferPaymentOverride.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -17340,6 +18444,21 @@ $root.OfferPayment = (function() {
      */
     OfferPayment.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for OfferPayment
+     * @function getTypeUrl
+     * @memberof OfferPayment
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    OfferPayment.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/OfferPayment";
     };
 
     return OfferPayment;
@@ -17502,6 +18621,21 @@ $root.VoucherTerms = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for VoucherTerms
+     * @function getTypeUrl
+     * @memberof VoucherTerms
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    VoucherTerms.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/VoucherTerms";
+    };
+
     return VoucherTerms;
 })();
 
@@ -17630,18 +18764,22 @@ $root.RentalTerms = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.dEPRECATEDGrantPeriodSeconds = reader.int32();
-                break;
-            case 2:
-                message.dEPRECATEDActivatePeriodSeconds = reader.int32();
-                break;
-            case 3:
-                message.grantPeriod = $root.TimePeriod.decode(reader, reader.uint32());
-                break;
-            case 4:
-                message.activatePeriod = $root.TimePeriod.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.dEPRECATEDGrantPeriodSeconds = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.dEPRECATEDActivatePeriodSeconds = reader.int32();
+                    break;
+                }
+            case 3: {
+                    message.grantPeriod = $root.TimePeriod.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    message.activatePeriod = $root.TimePeriod.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -17766,6 +18904,21 @@ $root.RentalTerms = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for RentalTerms
+     * @function getTypeUrl
+     * @memberof RentalTerms
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    RentalTerms.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/RentalTerms";
+    };
+
     return RentalTerms;
 })();
 
@@ -17872,12 +19025,14 @@ $root.SignedData = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.signedData = reader.string();
-                break;
-            case 2:
-                message.signature = reader.string();
-                break;
+            case 1: {
+                    message.signedData = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.signature = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -17976,6 +19131,21 @@ $root.SignedData = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for SignedData
+     * @function getTypeUrl
+     * @memberof SignedData
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SignedData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SignedData";
+    };
+
     return SignedData;
 })();
 
@@ -18071,9 +19241,10 @@ $root.SubscriptionContentTerms = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.requiredSubscription = $root.DocId.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.requiredSubscription = $root.DocId.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -18166,6 +19337,21 @@ $root.SubscriptionContentTerms = (function() {
      */
     SubscriptionContentTerms.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for SubscriptionContentTerms
+     * @function getTypeUrl
+     * @memberof SubscriptionContentTerms
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SubscriptionContentTerms.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SubscriptionContentTerms";
     };
 
     return SubscriptionContentTerms;
@@ -18274,12 +19460,14 @@ $root.GroupLicenseInfo = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.licensedOfferType = reader.int32();
-                break;
-            case 2:
-                message.gaiaGroupId = reader.fixed64();
-                break;
+            case 1: {
+                    message.licensedOfferType = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.gaiaGroupId = reader.fixed64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -18392,6 +19580,21 @@ $root.GroupLicenseInfo = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for GroupLicenseInfo
+     * @function getTypeUrl
+     * @memberof GroupLicenseInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    GroupLicenseInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/GroupLicenseInfo";
+    };
+
     return GroupLicenseInfo;
 })();
 
@@ -18489,16 +19692,17 @@ $root.LicensedDocumentInfo = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.gaiaGroupId && message.gaiaGroupId.length))
-                    message.gaiaGroupId = [];
-                if ((tag & 7) === 2) {
-                    var end2 = reader.uint32() + reader.pos;
-                    while (reader.pos < end2)
+            case 1: {
+                    if (!(message.gaiaGroupId && message.gaiaGroupId.length))
+                        message.gaiaGroupId = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.gaiaGroupId.push(reader.fixed64());
+                    } else
                         message.gaiaGroupId.push(reader.fixed64());
-                } else
-                    message.gaiaGroupId.push(reader.fixed64());
-                break;
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -18608,6 +19812,21 @@ $root.LicensedDocumentInfo = (function() {
      */
     LicensedDocumentInfo.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for LicensedDocumentInfo
+     * @function getTypeUrl
+     * @memberof LicensedDocumentInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    LicensedDocumentInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/LicensedDocumentInfo";
     };
 
     return LicensedDocumentInfo;
@@ -18837,45 +20056,58 @@ $root.OwnershipInfo = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.initiationTimestamp = reader.int64();
-                break;
-            case 2:
-                message.validUntilTimestamp = reader.int64();
-                break;
-            case 3:
-                message.autoRenewing = reader.bool();
-                break;
-            case 4:
-                message.refundTimeoutTimestamp = reader.int64();
-                break;
-            case 5:
-                message.postDeliveryRefundWindowMillis = reader.int64();
-                break;
-            case 6:
-                message.developerPurchaseInfo = $root.SignedData.decode(reader, reader.uint32());
-                break;
-            case 7:
-                message.preOrdered = reader.bool();
-                break;
-            case 8:
-                message.hidden = reader.bool();
-                break;
-            case 9:
-                message.rentalTerms = $root.RentalTerms.decode(reader, reader.uint32());
-                break;
-            case 10:
-                message.groupLicenseInfo = $root.GroupLicenseInfo.decode(reader, reader.uint32());
-                break;
-            case 11:
-                message.licensedDocumentInfo = $root.LicensedDocumentInfo.decode(reader, reader.uint32());
-                break;
-            case 12:
-                message.quantity = reader.int32();
-                break;
-            case 14:
-                message.libraryExpirationTimestamp = reader.int64();
-                break;
+            case 1: {
+                    message.initiationTimestamp = reader.int64();
+                    break;
+                }
+            case 2: {
+                    message.validUntilTimestamp = reader.int64();
+                    break;
+                }
+            case 3: {
+                    message.autoRenewing = reader.bool();
+                    break;
+                }
+            case 4: {
+                    message.refundTimeoutTimestamp = reader.int64();
+                    break;
+                }
+            case 5: {
+                    message.postDeliveryRefundWindowMillis = reader.int64();
+                    break;
+                }
+            case 6: {
+                    message.developerPurchaseInfo = $root.SignedData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 7: {
+                    message.preOrdered = reader.bool();
+                    break;
+                }
+            case 8: {
+                    message.hidden = reader.bool();
+                    break;
+                }
+            case 9: {
+                    message.rentalTerms = $root.RentalTerms.decode(reader, reader.uint32());
+                    break;
+                }
+            case 10: {
+                    message.groupLicenseInfo = $root.GroupLicenseInfo.decode(reader, reader.uint32());
+                    break;
+                }
+            case 11: {
+                    message.licensedDocumentInfo = $root.LicensedDocumentInfo.decode(reader, reader.uint32());
+                    break;
+                }
+            case 12: {
+                    message.quantity = reader.int32();
+                    break;
+                }
+            case 14: {
+                    message.libraryExpirationTimestamp = reader.int64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -19152,6 +20384,21 @@ $root.OwnershipInfo = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for OwnershipInfo
+     * @function getTypeUrl
+     * @memberof OwnershipInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    OwnershipInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/OwnershipInfo";
+    };
+
     return OwnershipInfo;
 })();
 
@@ -19258,12 +20505,14 @@ $root.SubscriptionTerms = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.recurringPeriod = $root.TimePeriod.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.trialPeriod = $root.TimePeriod.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.recurringPeriod = $root.TimePeriod.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.trialPeriod = $root.TimePeriod.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -19372,6 +20621,21 @@ $root.SubscriptionTerms = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for SubscriptionTerms
+     * @function getTypeUrl
+     * @memberof SubscriptionTerms
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SubscriptionTerms.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SubscriptionTerms";
+    };
+
     return SubscriptionTerms;
 })();
 
@@ -19478,12 +20742,14 @@ $root.TimePeriod = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.unit = reader.int32();
-                break;
-            case 2:
-                message.count = reader.int32();
-                break;
+            case 1: {
+                    message.unit = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.count = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -19580,6 +20846,21 @@ $root.TimePeriod = (function() {
      */
     TimePeriod.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for TimePeriod
+     * @function getTypeUrl
+     * @memberof TimePeriod
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    TimePeriod.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/TimePeriod";
     };
 
     return TimePeriod;
@@ -19690,19 +20971,21 @@ $root.BillingAddressSpec = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.billingAddressType = reader.int32();
-                break;
-            case 2:
-                if (!(message.requiredField && message.requiredField.length))
-                    message.requiredField = [];
-                if ((tag & 7) === 2) {
-                    var end2 = reader.uint32() + reader.pos;
-                    while (reader.pos < end2)
+            case 1: {
+                    message.billingAddressType = reader.int32();
+                    break;
+                }
+            case 2: {
+                    if (!(message.requiredField && message.requiredField.length))
+                        message.requiredField = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.requiredField.push(reader.int32());
+                    } else
                         message.requiredField.push(reader.int32());
-                } else
-                    message.requiredField.push(reader.int32());
-                break;
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -19811,6 +21094,21 @@ $root.BillingAddressSpec = (function() {
      */
     BillingAddressSpec.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for BillingAddressSpec
+     * @function getTypeUrl
+     * @memberof BillingAddressSpec
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    BillingAddressSpec.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/BillingAddressSpec";
     };
 
     return BillingAddressSpec;
@@ -19934,19 +21232,22 @@ $root.BillingProfile = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.instrument && message.instrument.length))
-                    message.instrument = [];
-                message.instrument.push($root.Instrument.decode(reader, reader.uint32()));
-                break;
-            case 2:
-                message.selectedExternalInstrumentId = reader.string();
-                break;
-            case 3:
-                if (!(message.billingProfileOption && message.billingProfileOption.length))
-                    message.billingProfileOption = [];
-                message.billingProfileOption.push($root.BillingProfileOption.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    if (!(message.instrument && message.instrument.length))
+                        message.instrument = [];
+                    message.instrument.push($root.Instrument.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 2: {
+                    message.selectedExternalInstrumentId = reader.string();
+                    break;
+                }
+            case 3: {
+                    if (!(message.billingProfileOption && message.billingProfileOption.length))
+                        message.billingProfileOption = [];
+                    message.billingProfileOption.push($root.BillingProfileOption.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -20088,6 +21389,21 @@ $root.BillingProfile = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for BillingProfile
+     * @function getTypeUrl
+     * @memberof BillingProfile
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    BillingProfile.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/BillingProfile";
+    };
+
     return BillingProfile;
 })();
 
@@ -20227,21 +21543,26 @@ $root.BillingProfileOption = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.type = reader.int32();
-                break;
-            case 2:
-                message.displayTitle = reader.string();
-                break;
-            case 3:
-                message.externalInstrumentId = reader.string();
-                break;
-            case 4:
-                message.topupInfo = $root.TopupInfo.decode(reader, reader.uint32());
-                break;
-            case 5:
-                message.carrierBillingInstrumentStatus = $root.CarrierBillingInstrumentStatus.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.type = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.displayTitle = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.externalInstrumentId = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.topupInfo = $root.TopupInfo.decode(reader, reader.uint32());
+                    break;
+                }
+            case 5: {
+                    message.carrierBillingInstrumentStatus = $root.CarrierBillingInstrumentStatus.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -20374,6 +21695,21 @@ $root.BillingProfileOption = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for BillingProfileOption
+     * @function getTypeUrl
+     * @memberof BillingProfileOption
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    BillingProfileOption.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/BillingProfileOption";
+    };
+
     return BillingProfileOption;
 })();
 
@@ -20480,12 +21816,14 @@ $root.CarrierBillingCredentials = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.value = reader.string();
-                break;
-            case 2:
-                message.expiration = reader.int64();
-                break;
+            case 1: {
+                    message.value = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.expiration = reader.int64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -20596,6 +21934,21 @@ $root.CarrierBillingCredentials = (function() {
      */
     CarrierBillingCredentials.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for CarrierBillingCredentials
+     * @function getTypeUrl
+     * @memberof CarrierBillingCredentials
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CarrierBillingCredentials.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CarrierBillingCredentials";
     };
 
     return CarrierBillingCredentials;
@@ -20770,30 +22123,38 @@ $root.CarrierBillingInstrument = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.instrumentKey = reader.string();
-                break;
-            case 2:
-                message.accountType = reader.string();
-                break;
-            case 3:
-                message.currencyCode = reader.string();
-                break;
-            case 4:
-                message.transactionLimit = reader.int64();
-                break;
-            case 5:
-                message.subscriberIdentifier = reader.string();
-                break;
-            case 6:
-                message.encryptedSubscriberInfo = $root.EncryptedSubscriberInfo.decode(reader, reader.uint32());
-                break;
-            case 7:
-                message.credentials = $root.CarrierBillingCredentials.decode(reader, reader.uint32());
-                break;
-            case 8:
-                message.acceptedCarrierTos = $root.CarrierTos.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.instrumentKey = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.accountType = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.currencyCode = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.transactionLimit = reader.int64();
+                    break;
+                }
+            case 5: {
+                    message.subscriberIdentifier = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.encryptedSubscriberInfo = $root.EncryptedSubscriberInfo.decode(reader, reader.uint32());
+                    break;
+                }
+            case 7: {
+                    message.credentials = $root.CarrierBillingCredentials.decode(reader, reader.uint32());
+                    break;
+                }
+            case 8: {
+                    message.acceptedCarrierTos = $root.CarrierTos.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -20969,6 +22330,21 @@ $root.CarrierBillingInstrument = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for CarrierBillingInstrument
+     * @function getTypeUrl
+     * @memberof CarrierBillingInstrument
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CarrierBillingInstrument.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CarrierBillingInstrument";
+    };
+
     return CarrierBillingInstrument;
 })();
 
@@ -21141,30 +22517,38 @@ $root.CarrierBillingInstrumentStatus = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.carrierTos = $root.CarrierTos.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.associationRequired = reader.bool();
-                break;
-            case 3:
-                message.passwordRequired = reader.bool();
-                break;
-            case 4:
-                message.carrierPasswordPrompt = $root.PasswordPrompt.decode(reader, reader.uint32());
-                break;
-            case 5:
-                message.apiVersion = reader.int32();
-                break;
-            case 6:
-                message.name = reader.string();
-                break;
-            case 7:
-                message.deviceAssociation = $root.DeviceAssociation.decode(reader, reader.uint32());
-                break;
-            case 8:
-                message.carrierSupportPhoneNumber = reader.string();
-                break;
+            case 1: {
+                    message.carrierTos = $root.CarrierTos.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.associationRequired = reader.bool();
+                    break;
+                }
+            case 3: {
+                    message.passwordRequired = reader.bool();
+                    break;
+                }
+            case 4: {
+                    message.carrierPasswordPrompt = $root.PasswordPrompt.decode(reader, reader.uint32());
+                    break;
+                }
+            case 5: {
+                    message.apiVersion = reader.int32();
+                    break;
+                }
+            case 6: {
+                    message.name = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.deviceAssociation = $root.DeviceAssociation.decode(reader, reader.uint32());
+                    break;
+                }
+            case 8: {
+                    message.carrierSupportPhoneNumber = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -21326,6 +22710,21 @@ $root.CarrierBillingInstrumentStatus = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for CarrierBillingInstrumentStatus
+     * @function getTypeUrl
+     * @memberof CarrierBillingInstrumentStatus
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CarrierBillingInstrumentStatus.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CarrierBillingInstrumentStatus";
+    };
+
     return CarrierBillingInstrumentStatus;
 })();
 
@@ -21454,18 +22853,22 @@ $root.CarrierTos = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.dcbTos = $root.CarrierTosEntry.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.piiTos = $root.CarrierTosEntry.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.needsDcbTosAcceptance = reader.bool();
-                break;
-            case 4:
-                message.needsPiiTosAcceptance = reader.bool();
-                break;
+            case 1: {
+                    message.dcbTos = $root.CarrierTosEntry.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.piiTos = $root.CarrierTosEntry.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.needsDcbTosAcceptance = reader.bool();
+                    break;
+                }
+            case 4: {
+                    message.needsPiiTosAcceptance = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -21590,6 +22993,21 @@ $root.CarrierTos = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for CarrierTos
+     * @function getTypeUrl
+     * @memberof CarrierTos
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CarrierTos.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CarrierTos";
+    };
+
     return CarrierTos;
 })();
 
@@ -21696,12 +23114,14 @@ $root.CarrierTosEntry = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.url = reader.string();
-                break;
-            case 2:
-                message.version = reader.string();
-                break;
+            case 1: {
+                    message.url = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.version = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -21798,6 +23218,21 @@ $root.CarrierTosEntry = (function() {
      */
     CarrierTosEntry.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for CarrierTosEntry
+     * @function getTypeUrl
+     * @memberof CarrierTosEntry
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CarrierTosEntry.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CarrierTosEntry";
     };
 
     return CarrierTosEntry;
@@ -21952,26 +23387,32 @@ $root.CreditCardInstrument = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.type = reader.int32();
-                break;
-            case 2:
-                message.escrowHandle = reader.string();
-                break;
-            case 3:
-                message.lastDigits = reader.string();
-                break;
-            case 4:
-                message.expirationMonth = reader.int32();
-                break;
-            case 5:
-                message.expirationYear = reader.int32();
-                break;
-            case 6:
-                if (!(message.escrowEfeParam && message.escrowEfeParam.length))
-                    message.escrowEfeParam = [];
-                message.escrowEfeParam.push($root.EfeParam.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.type = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.escrowHandle = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.lastDigits = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.expirationMonth = reader.int32();
+                    break;
+                }
+            case 5: {
+                    message.expirationYear = reader.int32();
+                    break;
+                }
+            case 6: {
+                    if (!(message.escrowEfeParam && message.escrowEfeParam.length))
+                        message.escrowEfeParam = [];
+                    message.escrowEfeParam.push($root.EfeParam.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -22120,6 +23561,21 @@ $root.CreditCardInstrument = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for CreditCardInstrument
+     * @function getTypeUrl
+     * @memberof CreditCardInstrument
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CreditCardInstrument.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CreditCardInstrument";
+    };
+
     return CreditCardInstrument;
 })();
 
@@ -22226,12 +23682,14 @@ $root.DeviceAssociation = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.userTokenRequestMessage = reader.string();
-                break;
-            case 2:
-                message.userTokenRequestAddress = reader.string();
-                break;
+            case 1: {
+                    message.userTokenRequestMessage = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.userTokenRequestAddress = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -22328,6 +23786,21 @@ $root.DeviceAssociation = (function() {
      */
     DeviceAssociation.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for DeviceAssociation
+     * @function getTypeUrl
+     * @memberof DeviceAssociation
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DeviceAssociation.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DeviceAssociation";
     };
 
     return DeviceAssociation;
@@ -22447,15 +23920,18 @@ $root.DisabledInfo = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.disabledReason = reader.int32();
-                break;
-            case 2:
-                message.disabledMessageHtml = reader.string();
-                break;
-            case 3:
-                message.errorMessage = reader.string();
-                break;
+            case 1: {
+                    message.disabledReason = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.disabledMessageHtml = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.errorMessage = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -22560,6 +24036,21 @@ $root.DisabledInfo = (function() {
      */
     DisabledInfo.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for DisabledInfo
+     * @function getTypeUrl
+     * @memberof DisabledInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DisabledInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DisabledInfo";
     };
 
     return DisabledInfo;
@@ -22668,12 +24159,14 @@ $root.EfeParam = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.key = reader.int32();
-                break;
-            case 2:
-                message.value = reader.string();
-                break;
+            case 1: {
+                    message.key = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.value = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -22770,6 +24263,21 @@ $root.EfeParam = (function() {
      */
     EfeParam.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for EfeParam
+     * @function getTypeUrl
+     * @memberof EfeParam
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    EfeParam.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/EfeParam";
     };
 
     return EfeParam;
@@ -22990,44 +24498,56 @@ $root.Instrument = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.instrumentId = reader.string();
-                break;
-            case 2:
-                message.billingAddress = $root.Address.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.creditCard = $root.CreditCardInstrument.decode(reader, reader.uint32());
-                break;
-            case 4:
-                message.carrierBilling = $root.CarrierBillingInstrument.decode(reader, reader.uint32());
-                break;
-            case 5:
-                message.billingAddressSpec = $root.BillingAddressSpec.decode(reader, reader.uint32());
-                break;
-            case 6:
-                message.instrumentFamily = reader.int32();
-                break;
-            case 7:
-                message.carrierBillingStatus = $root.CarrierBillingInstrumentStatus.decode(reader, reader.uint32());
-                break;
-            case 8:
-                message.displayTitle = reader.string();
-                break;
-            case 9:
-                message.topupInfoDeprecated = $root.TopupInfo.decode(reader, reader.uint32());
-                break;
-            case 10:
-                message.version = reader.int32();
-                break;
-            case 11:
-                message.storedValue = $root.StoredValueInstrument.decode(reader, reader.uint32());
-                break;
-            case 12:
-                if (!(message.disabledInfo && message.disabledInfo.length))
-                    message.disabledInfo = [];
-                message.disabledInfo.push($root.DisabledInfo.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.instrumentId = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.billingAddress = $root.Address.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.creditCard = $root.CreditCardInstrument.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    message.carrierBilling = $root.CarrierBillingInstrument.decode(reader, reader.uint32());
+                    break;
+                }
+            case 5: {
+                    message.billingAddressSpec = $root.BillingAddressSpec.decode(reader, reader.uint32());
+                    break;
+                }
+            case 6: {
+                    message.instrumentFamily = reader.int32();
+                    break;
+                }
+            case 7: {
+                    message.carrierBillingStatus = $root.CarrierBillingInstrumentStatus.decode(reader, reader.uint32());
+                    break;
+                }
+            case 8: {
+                    message.displayTitle = reader.string();
+                    break;
+                }
+            case 9: {
+                    message.topupInfoDeprecated = $root.TopupInfo.decode(reader, reader.uint32());
+                    break;
+                }
+            case 10: {
+                    message.version = reader.int32();
+                    break;
+                }
+            case 11: {
+                    message.storedValue = $root.StoredValueInstrument.decode(reader, reader.uint32());
+                    break;
+                }
+            case 12: {
+                    if (!(message.disabledInfo && message.disabledInfo.length))
+                        message.disabledInfo = [];
+                    message.disabledInfo.push($root.DisabledInfo.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -23259,6 +24779,21 @@ $root.Instrument = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Instrument
+     * @function getTypeUrl
+     * @memberof Instrument
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Instrument.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Instrument";
+    };
+
     return Instrument;
 })();
 
@@ -23400,23 +24935,28 @@ $root.InstrumentSetupInfo = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.instrumentFamily = reader.int32();
-                break;
-            case 2:
-                message.supported = reader.bool();
-                break;
-            case 3:
-                message.addressChallenge = $root.AddressChallenge.decode(reader, reader.uint32());
-                break;
-            case 4:
-                message.balance = $root.Money.decode(reader, reader.uint32());
-                break;
-            case 5:
-                if (!(message.footerHtml && message.footerHtml.length))
-                    message.footerHtml = [];
-                message.footerHtml.push(reader.string());
-                break;
+            case 1: {
+                    message.instrumentFamily = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.supported = reader.bool();
+                    break;
+                }
+            case 3: {
+                    message.addressChallenge = $root.AddressChallenge.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    message.balance = $root.Money.decode(reader, reader.uint32());
+                    break;
+                }
+            case 5: {
+                    if (!(message.footerHtml && message.footerHtml.length))
+                        message.footerHtml = [];
+                    message.footerHtml.push(reader.string());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -23562,6 +25102,21 @@ $root.InstrumentSetupInfo = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for InstrumentSetupInfo
+     * @function getTypeUrl
+     * @memberof InstrumentSetupInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    InstrumentSetupInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/InstrumentSetupInfo";
+    };
+
     return InstrumentSetupInfo;
 })();
 
@@ -23668,12 +25223,14 @@ $root.PasswordPrompt = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.prompt = reader.string();
-                break;
-            case 2:
-                message.forgotPasswordUrl = reader.string();
-                break;
+            case 1: {
+                    message.prompt = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.forgotPasswordUrl = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -23770,6 +25327,21 @@ $root.PasswordPrompt = (function() {
      */
     PasswordPrompt.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PasswordPrompt
+     * @function getTypeUrl
+     * @memberof PasswordPrompt
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PasswordPrompt.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PasswordPrompt";
     };
 
     return PasswordPrompt;
@@ -23889,15 +25461,18 @@ $root.StoredValueInstrument = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.type = reader.int32();
-                break;
-            case 2:
-                message.balance = $root.Money.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.topupInfo = $root.TopupInfo.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.type = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.balance = $root.Money.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.topupInfo = $root.TopupInfo.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -24012,6 +25587,21 @@ $root.StoredValueInstrument = (function() {
      */
     StoredValueInstrument.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for StoredValueInstrument
+     * @function getTypeUrl
+     * @memberof StoredValueInstrument
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    StoredValueInstrument.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/StoredValueInstrument";
     };
 
     return StoredValueInstrument;
@@ -24142,18 +25732,22 @@ $root.TopupInfo = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.optionsContainerDocIdDeprecated = reader.string();
-                break;
-            case 2:
-                message.optionsListUrl = reader.string();
-                break;
-            case 3:
-                message.subtitle = reader.string();
-                break;
-            case 4:
-                message.optionsContainerDocId = $root.DocId.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.optionsContainerDocIdDeprecated = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.optionsListUrl = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.subtitle = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.optionsContainerDocId = $root.DocId.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -24273,6 +25867,21 @@ $root.TopupInfo = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for TopupInfo
+     * @function getTypeUrl
+     * @memberof TopupInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    TopupInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/TopupInfo";
+    };
+
     return TopupInfo;
 })();
 
@@ -24379,12 +25988,14 @@ $root.ConsumePurchaseResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.libraryUpdate = $root.LibraryUpdate.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.status = reader.int32();
-                break;
+            case 1: {
+                    message.libraryUpdate = $root.LibraryUpdate.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.status = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -24486,6 +26097,21 @@ $root.ConsumePurchaseResponse = (function() {
      */
     ConsumePurchaseResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ConsumePurchaseResponse
+     * @function getTypeUrl
+     * @memberof ConsumePurchaseResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ConsumePurchaseResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ConsumePurchaseResponse";
     };
 
     return ConsumePurchaseResponse;
@@ -24662,32 +26288,40 @@ $root.ContainerMetadata = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.browseUrl = reader.string();
-                break;
-            case 2:
-                message.nextPageUrl = reader.string();
-                break;
-            case 3:
-                message.relevance = reader.double();
-                break;
-            case 4:
-                message.estimatedResults = reader.int64();
-                break;
-            case 5:
-                message.analyticsCookie = reader.string();
-                break;
-            case 6:
-                message.ordered = reader.bool();
-                break;
-            case 7:
-                if (!(message.containerView && message.containerView.length))
-                    message.containerView = [];
-                message.containerView.push($root.ContainerView.decode(reader, reader.uint32()));
-                break;
-            case 8:
-                message.leftIcon = $root.Image.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.browseUrl = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.nextPageUrl = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.relevance = reader.double();
+                    break;
+                }
+            case 4: {
+                    message.estimatedResults = reader.int64();
+                    break;
+                }
+            case 5: {
+                    message.analyticsCookie = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.ordered = reader.bool();
+                    break;
+                }
+            case 7: {
+                    if (!(message.containerView && message.containerView.length))
+                        message.containerView = [];
+                    message.containerView.push($root.ContainerView.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 8: {
+                    message.leftIcon = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -24871,6 +26505,21 @@ $root.ContainerMetadata = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for ContainerMetadata
+     * @function getTypeUrl
+     * @memberof ContainerMetadata
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ContainerMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ContainerMetadata";
+    };
+
     return ContainerMetadata;
 })();
 
@@ -24999,18 +26648,22 @@ $root.ContainerView = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.selected = reader.bool();
-                break;
-            case 2:
-                message.title = reader.string();
-                break;
-            case 3:
-                message.listUrl = reader.string();
-                break;
-            case 4:
-                message.serverLogsCookie = reader.bytes();
-                break;
+            case 1: {
+                    message.selected = reader.bool();
+                    break;
+                }
+            case 2: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.listUrl = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.serverLogsCookie = reader.bytes();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -25082,7 +26735,7 @@ $root.ContainerView = (function() {
         if (object.serverLogsCookie != null)
             if (typeof object.serverLogsCookie === "string")
                 $util.base64.decode(object.serverLogsCookie, message.serverLogsCookie = $util.newBuffer($util.base64.length(object.serverLogsCookie)), 0);
-            else if (object.serverLogsCookie.length)
+            else if (object.serverLogsCookie.length >= 0)
                 message.serverLogsCookie = object.serverLogsCookie;
         return message;
     };
@@ -25132,6 +26785,21 @@ $root.ContainerView = (function() {
      */
     ContainerView.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ContainerView
+     * @function getTypeUrl
+     * @memberof ContainerView
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ContainerView.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ContainerView";
     };
 
     return ContainerView;
@@ -25292,6 +26960,21 @@ $root.FlagContentResponse = (function() {
      */
     FlagContentResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for FlagContentResponse
+     * @function getTypeUrl
+     * @memberof FlagContentResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    FlagContentResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/FlagContentResponse";
     };
 
     return FlagContentResponse;
@@ -25538,54 +27221,68 @@ $root.ClientDownloadRequest = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.url = reader.string();
-                break;
-            case 2:
-                message.digests = $root.ClientDownloadRequest.Digests.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.length = reader.int64();
-                break;
-            case 4:
-                if (!(message.resources && message.resources.length))
-                    message.resources = [];
-                message.resources.push($root.ClientDownloadRequest.Resource.decode(reader, reader.uint32()));
-                break;
-            case 5:
-                message.signature = $root.ClientDownloadRequest.SignatureInfo.decode(reader, reader.uint32());
-                break;
-            case 6:
-                message.userInitiated = reader.bool();
-                break;
-            case 8:
-                if (!(message.clientAsn && message.clientAsn.length))
-                    message.clientAsn = [];
-                message.clientAsn.push(reader.string());
-                break;
-            case 9:
-                message.fileBasename = reader.string();
-                break;
-            case 10:
-                message.downloadType = reader.int32();
-                break;
-            case 11:
-                message.locale = reader.string();
-                break;
-            case 12:
-                message.apkInfo = $root.ClientDownloadRequest.ApkInfo.decode(reader, reader.uint32());
-                break;
-            case 13:
-                message.androidId = reader.fixed64();
-                break;
-            case 15:
-                if (!(message.originatingPackages && message.originatingPackages.length))
-                    message.originatingPackages = [];
-                message.originatingPackages.push(reader.string());
-                break;
-            case 17:
-                message.originatingSignature = $root.ClientDownloadRequest.SignatureInfo.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.url = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.digests = $root.ClientDownloadRequest.Digests.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.length = reader.int64();
+                    break;
+                }
+            case 4: {
+                    if (!(message.resources && message.resources.length))
+                        message.resources = [];
+                    message.resources.push($root.ClientDownloadRequest.Resource.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 5: {
+                    message.signature = $root.ClientDownloadRequest.SignatureInfo.decode(reader, reader.uint32());
+                    break;
+                }
+            case 6: {
+                    message.userInitiated = reader.bool();
+                    break;
+                }
+            case 8: {
+                    if (!(message.clientAsn && message.clientAsn.length))
+                        message.clientAsn = [];
+                    message.clientAsn.push(reader.string());
+                    break;
+                }
+            case 9: {
+                    message.fileBasename = reader.string();
+                    break;
+                }
+            case 10: {
+                    message.downloadType = reader.int32();
+                    break;
+                }
+            case 11: {
+                    message.locale = reader.string();
+                    break;
+                }
+            case 12: {
+                    message.apkInfo = $root.ClientDownloadRequest.ApkInfo.decode(reader, reader.uint32());
+                    break;
+                }
+            case 13: {
+                    message.androidId = reader.fixed64();
+                    break;
+                }
+            case 15: {
+                    if (!(message.originatingPackages && message.originatingPackages.length))
+                        message.originatingPackages = [];
+                    message.originatingPackages.push(reader.string());
+                    break;
+                }
+            case 17: {
+                    message.originatingSignature = $root.ClientDownloadRequest.SignatureInfo.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -25871,6 +27568,21 @@ $root.ClientDownloadRequest = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for ClientDownloadRequest
+     * @function getTypeUrl
+     * @memberof ClientDownloadRequest
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ClientDownloadRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ClientDownloadRequest";
+    };
+
     ClientDownloadRequest.ApkInfo = (function() {
 
         /**
@@ -25974,12 +27686,14 @@ $root.ClientDownloadRequest = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.packageName = reader.string();
-                    break;
-                case 2:
-                    message.versionCode = reader.int32();
-                    break;
+                case 1: {
+                        message.packageName = reader.string();
+                        break;
+                    }
+                case 2: {
+                        message.versionCode = reader.int32();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -26076,6 +27790,21 @@ $root.ClientDownloadRequest = (function() {
          */
         ApkInfo.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for ApkInfo
+         * @function getTypeUrl
+         * @memberof ClientDownloadRequest.ApkInfo
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        ApkInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/ClientDownloadRequest.ApkInfo";
         };
 
         return ApkInfo;
@@ -26175,11 +27904,12 @@ $root.ClientDownloadRequest = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    if (!(message.element && message.element.length))
-                        message.element = [];
-                    message.element.push($root.ClientDownloadRequest.CertificateChain.Element.decode(reader, reader.uint32()));
-                    break;
+                case 1: {
+                        if (!(message.element && message.element.length))
+                            message.element = [];
+                        message.element.push($root.ClientDownloadRequest.CertificateChain.Element.decode(reader, reader.uint32()));
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -26284,6 +28014,21 @@ $root.ClientDownloadRequest = (function() {
          */
         CertificateChain.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for CertificateChain
+         * @function getTypeUrl
+         * @memberof ClientDownloadRequest.CertificateChain
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        CertificateChain.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/ClientDownloadRequest.CertificateChain";
         };
 
         CertificateChain.Element = (function() {
@@ -26444,27 +28189,34 @@ $root.ClientDownloadRequest = (function() {
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 1:
-                        message.certificate = reader.bytes();
-                        break;
-                    case 2:
-                        message.parsedSuccessfully = reader.bool();
-                        break;
-                    case 3:
-                        message.subject = reader.bytes();
-                        break;
-                    case 4:
-                        message.issuer = reader.bytes();
-                        break;
-                    case 5:
-                        message.fingerprint = reader.bytes();
-                        break;
-                    case 6:
-                        message.expiryTime = reader.int64();
-                        break;
-                    case 7:
-                        message.startTime = reader.int64();
-                        break;
+                    case 1: {
+                            message.certificate = reader.bytes();
+                            break;
+                        }
+                    case 2: {
+                            message.parsedSuccessfully = reader.bool();
+                            break;
+                        }
+                    case 3: {
+                            message.subject = reader.bytes();
+                            break;
+                        }
+                    case 4: {
+                            message.issuer = reader.bytes();
+                            break;
+                        }
+                    case 5: {
+                            message.fingerprint = reader.bytes();
+                            break;
+                        }
+                    case 6: {
+                            message.expiryTime = reader.int64();
+                            break;
+                        }
+                    case 7: {
+                            message.startTime = reader.int64();
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -26539,24 +28291,24 @@ $root.ClientDownloadRequest = (function() {
                 if (object.certificate != null)
                     if (typeof object.certificate === "string")
                         $util.base64.decode(object.certificate, message.certificate = $util.newBuffer($util.base64.length(object.certificate)), 0);
-                    else if (object.certificate.length)
+                    else if (object.certificate.length >= 0)
                         message.certificate = object.certificate;
                 if (object.parsedSuccessfully != null)
                     message.parsedSuccessfully = Boolean(object.parsedSuccessfully);
                 if (object.subject != null)
                     if (typeof object.subject === "string")
                         $util.base64.decode(object.subject, message.subject = $util.newBuffer($util.base64.length(object.subject)), 0);
-                    else if (object.subject.length)
+                    else if (object.subject.length >= 0)
                         message.subject = object.subject;
                 if (object.issuer != null)
                     if (typeof object.issuer === "string")
                         $util.base64.decode(object.issuer, message.issuer = $util.newBuffer($util.base64.length(object.issuer)), 0);
-                    else if (object.issuer.length)
+                    else if (object.issuer.length >= 0)
                         message.issuer = object.issuer;
                 if (object.fingerprint != null)
                     if (typeof object.fingerprint === "string")
                         $util.base64.decode(object.fingerprint, message.fingerprint = $util.newBuffer($util.base64.length(object.fingerprint)), 0);
-                    else if (object.fingerprint.length)
+                    else if (object.fingerprint.length >= 0)
                         message.fingerprint = object.fingerprint;
                 if (object.expiryTime != null)
                     if ($util.Long)
@@ -26665,6 +28417,21 @@ $root.ClientDownloadRequest = (function() {
              */
             Element.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for Element
+             * @function getTypeUrl
+             * @memberof ClientDownloadRequest.CertificateChain.Element
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            Element.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/ClientDownloadRequest.CertificateChain.Element";
             };
 
             return Element;
@@ -26787,15 +28554,18 @@ $root.ClientDownloadRequest = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.sha256 = reader.bytes();
-                    break;
-                case 2:
-                    message.sha1 = reader.bytes();
-                    break;
-                case 3:
-                    message.md5 = reader.bytes();
-                    break;
+                case 1: {
+                        message.sha256 = reader.bytes();
+                        break;
+                    }
+                case 2: {
+                        message.sha1 = reader.bytes();
+                        break;
+                    }
+                case 3: {
+                        message.md5 = reader.bytes();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -26858,17 +28628,17 @@ $root.ClientDownloadRequest = (function() {
             if (object.sha256 != null)
                 if (typeof object.sha256 === "string")
                     $util.base64.decode(object.sha256, message.sha256 = $util.newBuffer($util.base64.length(object.sha256)), 0);
-                else if (object.sha256.length)
+                else if (object.sha256.length >= 0)
                     message.sha256 = object.sha256;
             if (object.sha1 != null)
                 if (typeof object.sha1 === "string")
                     $util.base64.decode(object.sha1, message.sha1 = $util.newBuffer($util.base64.length(object.sha1)), 0);
-                else if (object.sha1.length)
+                else if (object.sha1.length >= 0)
                     message.sha1 = object.sha1;
             if (object.md5 != null)
                 if (typeof object.md5 === "string")
                     $util.base64.decode(object.md5, message.md5 = $util.newBuffer($util.base64.length(object.md5)), 0);
-                else if (object.md5.length)
+                else if (object.md5.length >= 0)
                     message.md5 = object.md5;
             return message;
         };
@@ -26927,6 +28697,21 @@ $root.ClientDownloadRequest = (function() {
          */
         Digests.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for Digests
+         * @function getTypeUrl
+         * @memberof ClientDownloadRequest.Digests
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        Digests.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/ClientDownloadRequest.Digests";
         };
 
         return Digests;
@@ -27057,18 +28842,22 @@ $root.ClientDownloadRequest = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.url = reader.string();
-                    break;
-                case 2:
-                    message.type = reader.int32();
-                    break;
-                case 3:
-                    message.remoteIp = reader.bytes();
-                    break;
-                case 4:
-                    message.referrer = reader.string();
-                    break;
+                case 1: {
+                        message.url = reader.string();
+                        break;
+                    }
+                case 2: {
+                        message.type = reader.int32();
+                        break;
+                    }
+                case 3: {
+                        message.remoteIp = reader.bytes();
+                        break;
+                    }
+                case 4: {
+                        message.referrer = reader.string();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -27138,7 +28927,7 @@ $root.ClientDownloadRequest = (function() {
             if (object.remoteIp != null)
                 if (typeof object.remoteIp === "string")
                     $util.base64.decode(object.remoteIp, message.remoteIp = $util.newBuffer($util.base64.length(object.remoteIp)), 0);
-                else if (object.remoteIp.length)
+                else if (object.remoteIp.length >= 0)
                     message.remoteIp = object.remoteIp;
             if (object.referrer != null)
                 message.referrer = String(object.referrer);
@@ -27190,6 +28979,21 @@ $root.ClientDownloadRequest = (function() {
          */
         Resource.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for Resource
+         * @function getTypeUrl
+         * @memberof ClientDownloadRequest.Resource
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        Resource.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/ClientDownloadRequest.Resource";
         };
 
         return Resource;
@@ -27300,14 +29104,16 @@ $root.ClientDownloadRequest = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    if (!(message.certificateChain && message.certificateChain.length))
-                        message.certificateChain = [];
-                    message.certificateChain.push($root.ClientDownloadRequest.CertificateChain.decode(reader, reader.uint32()));
-                    break;
-                case 2:
-                    message.trusted = reader.bool();
-                    break;
+                case 1: {
+                        if (!(message.certificateChain && message.certificateChain.length))
+                            message.certificateChain = [];
+                        message.certificateChain.push($root.ClientDownloadRequest.CertificateChain.decode(reader, reader.uint32()));
+                        break;
+                    }
+                case 2: {
+                        message.trusted = reader.bool();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -27421,6 +29227,21 @@ $root.ClientDownloadRequest = (function() {
          */
         SignatureInfo.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for SignatureInfo
+         * @function getTypeUrl
+         * @memberof ClientDownloadRequest.SignatureInfo
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        SignatureInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/ClientDownloadRequest.SignatureInfo";
         };
 
         return SignatureInfo;
@@ -27543,15 +29364,18 @@ $root.ClientDownloadResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.verdict = reader.int32();
-                break;
-            case 2:
-                message.moreInfo = $root.ClientDownloadResponse.MoreInfo.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.token = reader.bytes();
-                break;
+            case 1: {
+                    message.verdict = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.moreInfo = $root.ClientDownloadResponse.MoreInfo.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.token = reader.bytes();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -27623,7 +29447,7 @@ $root.ClientDownloadResponse = (function() {
         if (object.token != null)
             if (typeof object.token === "string")
                 $util.base64.decode(object.token, message.token = $util.newBuffer($util.base64.length(object.token)), 0);
-            else if (object.token.length)
+            else if (object.token.length >= 0)
                 message.token = object.token;
         return message;
     };
@@ -27670,6 +29494,21 @@ $root.ClientDownloadResponse = (function() {
      */
     ClientDownloadResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ClientDownloadResponse
+     * @function getTypeUrl
+     * @memberof ClientDownloadResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ClientDownloadResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ClientDownloadResponse";
     };
 
     ClientDownloadResponse.MoreInfo = (function() {
@@ -27775,12 +29614,14 @@ $root.ClientDownloadResponse = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.description = reader.string();
-                    break;
-                case 2:
-                    message.url = reader.string();
-                    break;
+                case 1: {
+                        message.description = reader.string();
+                        break;
+                    }
+                case 2: {
+                        message.url = reader.string();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -27877,6 +29718,21 @@ $root.ClientDownloadResponse = (function() {
          */
         MoreInfo.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for MoreInfo
+         * @function getTypeUrl
+         * @memberof ClientDownloadResponse.MoreInfo
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        MoreInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/ClientDownloadResponse.MoreInfo";
         };
 
         return MoreInfo;
@@ -27988,12 +29844,14 @@ $root.ClientDownloadStatsRequest = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.userDecision = reader.int32();
-                break;
-            case 2:
-                message.token = reader.bytes();
-                break;
+            case 1: {
+                    message.userDecision = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.token = reader.bytes();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -28055,7 +29913,7 @@ $root.ClientDownloadStatsRequest = (function() {
         if (object.token != null)
             if (typeof object.token === "string")
                 $util.base64.decode(object.token, message.token = $util.newBuffer($util.base64.length(object.token)), 0);
-            else if (object.token.length)
+            else if (object.token.length >= 0)
                 message.token = object.token;
         return message;
     };
@@ -28099,6 +29957,21 @@ $root.ClientDownloadStatsRequest = (function() {
      */
     ClientDownloadStatsRequest.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ClientDownloadStatsRequest
+     * @function getTypeUrl
+     * @memberof ClientDownloadStatsRequest
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ClientDownloadStatsRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ClientDownloadStatsRequest";
     };
 
     return ClientDownloadStatsRequest;
@@ -28211,16 +30084,18 @@ $root.DebugInfo = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.message && message.message.length))
-                    message.message = [];
-                message.message.push(reader.string());
-                break;
-            case 2:
-                if (!(message.timing && message.timing.length))
-                    message.timing = [];
-                message.timing.push($root.DebugInfo.Timing.decode(reader));
-                break;
+            case 1: {
+                    if (!(message.message && message.message.length))
+                        message.message = [];
+                    message.message.push(reader.string());
+                    break;
+                }
+            case 2: {
+                    if (!(message.timing && message.timing.length))
+                        message.timing = [];
+                    message.timing.push($root.DebugInfo.Timing.decode(reader));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -28348,6 +30223,21 @@ $root.DebugInfo = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for DebugInfo
+     * @function getTypeUrl
+     * @memberof DebugInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DebugInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DebugInfo";
+    };
+
     DebugInfo.Timing = (function() {
 
         /**
@@ -28453,12 +30343,14 @@ $root.DebugInfo = (function() {
                 if ((tag & 7) === 4)
                     break;
                 switch (tag >>> 3) {
-                case 3:
-                    message.name = reader.string();
-                    break;
-                case 4:
-                    message.timeInMs = reader.double();
-                    break;
+                case 3: {
+                        message.name = reader.string();
+                        break;
+                    }
+                case 4: {
+                        message.timeInMs = reader.double();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -28555,6 +30447,21 @@ $root.DebugInfo = (function() {
          */
         Timing.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for Timing
+         * @function getTypeUrl
+         * @memberof DebugInfo.Timing
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        Timing.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/DebugInfo.Timing";
         };
 
         return Timing;
@@ -28666,12 +30573,14 @@ $root.DebugSettingsResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.playCountryOverride = reader.string();
-                break;
-            case 2:
-                message.playCountryDebugInfo = reader.string();
-                break;
+            case 1: {
+                    message.playCountryOverride = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.playCountryDebugInfo = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -28768,6 +30677,21 @@ $root.DebugSettingsResponse = (function() {
      */
     DebugSettingsResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for DebugSettingsResponse
+     * @function getTypeUrl
+     * @memberof DebugSettingsResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DebugSettingsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DebugSettingsResponse";
     };
 
     return DebugSettingsResponse;
@@ -28876,12 +30800,14 @@ $root.DeliveryResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.status = reader.int32();
-                break;
-            case 2:
-                message.appDeliveryData = $root.AndroidAppDeliveryData.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.status = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.appDeliveryData = $root.AndroidAppDeliveryData.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -28985,6 +30911,21 @@ $root.DeliveryResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for DeliveryResponse
+     * @function getTypeUrl
+     * @memberof DeliveryResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DeliveryResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DeliveryResponse";
+    };
+
     return DeliveryResponse;
 })();
 
@@ -29080,9 +31021,10 @@ $root.BulkDetailsEntry = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.item = $root.Item.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.item = $root.Item.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -29175,6 +31117,21 @@ $root.BulkDetailsEntry = (function() {
      */
     BulkDetailsEntry.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for BulkDetailsEntry
+     * @function getTypeUrl
+     * @memberof BulkDetailsEntry
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    BulkDetailsEntry.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/BulkDetailsEntry";
     };
 
     return BulkDetailsEntry;
@@ -29320,30 +31277,35 @@ $root.BulkDetailsRequest = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.DocId && message.DocId.length))
-                    message.DocId = [];
-                message.DocId.push(reader.string());
-                break;
-            case 2:
-                message.includeChildDocs = reader.bool();
-                break;
-            case 3:
-                message.includeDetails = reader.bool();
-                break;
-            case 4:
-                message.sourcePackageName = reader.string();
-                break;
-            case 7:
-                if (!(message.installedVersionCode && message.installedVersionCode.length))
-                    message.installedVersionCode = [];
-                if ((tag & 7) === 2) {
-                    var end2 = reader.uint32() + reader.pos;
-                    while (reader.pos < end2)
+            case 1: {
+                    if (!(message.DocId && message.DocId.length))
+                        message.DocId = [];
+                    message.DocId.push(reader.string());
+                    break;
+                }
+            case 2: {
+                    message.includeChildDocs = reader.bool();
+                    break;
+                }
+            case 3: {
+                    message.includeDetails = reader.bool();
+                    break;
+                }
+            case 4: {
+                    message.sourcePackageName = reader.string();
+                    break;
+                }
+            case 7: {
+                    if (!(message.installedVersionCode && message.installedVersionCode.length))
+                        message.installedVersionCode = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.installedVersionCode.push(reader.int32());
+                    } else
                         message.installedVersionCode.push(reader.int32());
-                } else
-                    message.installedVersionCode.push(reader.int32());
-                break;
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -29492,6 +31454,21 @@ $root.BulkDetailsRequest = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for BulkDetailsRequest
+     * @function getTypeUrl
+     * @memberof BulkDetailsRequest
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    BulkDetailsRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/BulkDetailsRequest";
+    };
+
     return BulkDetailsRequest;
 })();
 
@@ -29589,11 +31566,12 @@ $root.BulkDetailsResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.entry && message.entry.length))
-                    message.entry = [];
-                message.entry.push($root.BulkDetailsEntry.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    if (!(message.entry && message.entry.length))
+                        message.entry = [];
+                    message.entry.push($root.BulkDetailsEntry.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -29698,6 +31676,21 @@ $root.BulkDetailsResponse = (function() {
      */
     BulkDetailsResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for BulkDetailsResponse
+     * @function getTypeUrl
+     * @memberof BulkDetailsResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    BulkDetailsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/BulkDetailsResponse";
     };
 
     return BulkDetailsResponse;
@@ -29907,41 +31900,52 @@ $root.DetailsResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 2:
-                message.analyticsCookie = reader.string();
-                break;
-            case 3:
-                message.userReview = $root.Review.decode(reader, reader.uint32());
-                break;
-            case 4:
-                message.item = $root.Item.decode(reader, reader.uint32());
-                break;
-            case 5:
-                message.footerHtml = reader.string();
-                break;
-            case 6:
-                message.serverLogsCookie = reader.bytes();
-                break;
-            case 7:
-                if (!(message.discoveryBadge && message.discoveryBadge.length))
-                    message.discoveryBadge = [];
-                message.discoveryBadge.push($root.DiscoveryBadge.decode(reader, reader.uint32()));
-                break;
-            case 8:
-                message.enableReviews = reader.bool();
-                break;
-            case 12:
-                message.features = $root.Features.decode(reader, reader.uint32());
-                break;
-            case 13:
-                message.detailsStreamUrl = reader.string();
-                break;
-            case 14:
-                message.userReviewUrl = reader.string();
-                break;
-            case 17:
-                message.postAcquireDetailsStreamUrl = reader.string();
-                break;
+            case 2: {
+                    message.analyticsCookie = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.userReview = $root.Review.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    message.item = $root.Item.decode(reader, reader.uint32());
+                    break;
+                }
+            case 5: {
+                    message.footerHtml = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.serverLogsCookie = reader.bytes();
+                    break;
+                }
+            case 7: {
+                    if (!(message.discoveryBadge && message.discoveryBadge.length))
+                        message.discoveryBadge = [];
+                    message.discoveryBadge.push($root.DiscoveryBadge.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 8: {
+                    message.enableReviews = reader.bool();
+                    break;
+                }
+            case 12: {
+                    message.features = $root.Features.decode(reader, reader.uint32());
+                    break;
+                }
+            case 13: {
+                    message.detailsStreamUrl = reader.string();
+                    break;
+                }
+            case 14: {
+                    message.userReviewUrl = reader.string();
+                    break;
+                }
+            case 17: {
+                    message.postAcquireDetailsStreamUrl = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -30054,7 +32058,7 @@ $root.DetailsResponse = (function() {
         if (object.serverLogsCookie != null)
             if (typeof object.serverLogsCookie === "string")
                 $util.base64.decode(object.serverLogsCookie, message.serverLogsCookie = $util.newBuffer($util.base64.length(object.serverLogsCookie)), 0);
-            else if (object.serverLogsCookie.length)
+            else if (object.serverLogsCookie.length >= 0)
                 message.serverLogsCookie = object.serverLogsCookie;
         if (object.discoveryBadge) {
             if (!Array.isArray(object.discoveryBadge))
@@ -30152,6 +32156,21 @@ $root.DetailsResponse = (function() {
      */
     DetailsResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for DetailsResponse
+     * @function getTypeUrl
+     * @memberof DetailsResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DetailsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DetailsResponse";
     };
 
     return DetailsResponse;
@@ -30392,48 +32411,62 @@ $root.DiscoveryBadge = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.label = reader.string();
-                break;
-            case 2:
-                message.image = $root.Image.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.backgroundColor = reader.int32();
-                break;
-            case 4:
-                message.badgeContainer1 = $root.DiscoveryBadgeLink.decode(reader, reader.uint32());
-                break;
-            case 5:
-                message.serverLogsCookie = reader.bytes();
-                break;
-            case 6:
-                message.isPlusOne = reader.bool();
-                break;
-            case 7:
-                message.aggregateRating = reader.float();
-                break;
-            case 8:
-                message.userStarRating = reader.int32();
-                break;
-            case 9:
-                message.downloadCount = reader.string();
-                break;
-            case 10:
-                message.downloadUnits = reader.string();
-                break;
-            case 11:
-                message.contentDescription = reader.string();
-                break;
-            case 12:
-                message.playerBadge = $root.PlayerBadge.decode(reader, reader.uint32());
-                break;
-            case 13:
-                message.familyAgeRangeBadge = reader.bytes();
-                break;
-            case 14:
-                message.familyCategoryBadge = reader.bytes();
-                break;
+            case 1: {
+                    message.label = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.image = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.backgroundColor = reader.int32();
+                    break;
+                }
+            case 4: {
+                    message.badgeContainer1 = $root.DiscoveryBadgeLink.decode(reader, reader.uint32());
+                    break;
+                }
+            case 5: {
+                    message.serverLogsCookie = reader.bytes();
+                    break;
+                }
+            case 6: {
+                    message.isPlusOne = reader.bool();
+                    break;
+                }
+            case 7: {
+                    message.aggregateRating = reader.float();
+                    break;
+                }
+            case 8: {
+                    message.userStarRating = reader.int32();
+                    break;
+                }
+            case 9: {
+                    message.downloadCount = reader.string();
+                    break;
+                }
+            case 10: {
+                    message.downloadUnits = reader.string();
+                    break;
+                }
+            case 11: {
+                    message.contentDescription = reader.string();
+                    break;
+                }
+            case 12: {
+                    message.playerBadge = $root.PlayerBadge.decode(reader, reader.uint32());
+                    break;
+                }
+            case 13: {
+                    message.familyAgeRangeBadge = reader.bytes();
+                    break;
+                }
+            case 14: {
+                    message.familyCategoryBadge = reader.bytes();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -30549,7 +32582,7 @@ $root.DiscoveryBadge = (function() {
         if (object.serverLogsCookie != null)
             if (typeof object.serverLogsCookie === "string")
                 $util.base64.decode(object.serverLogsCookie, message.serverLogsCookie = $util.newBuffer($util.base64.length(object.serverLogsCookie)), 0);
-            else if (object.serverLogsCookie.length)
+            else if (object.serverLogsCookie.length >= 0)
                 message.serverLogsCookie = object.serverLogsCookie;
         if (object.isPlusOne != null)
             message.isPlusOne = Boolean(object.isPlusOne);
@@ -30571,12 +32604,12 @@ $root.DiscoveryBadge = (function() {
         if (object.familyAgeRangeBadge != null)
             if (typeof object.familyAgeRangeBadge === "string")
                 $util.base64.decode(object.familyAgeRangeBadge, message.familyAgeRangeBadge = $util.newBuffer($util.base64.length(object.familyAgeRangeBadge)), 0);
-            else if (object.familyAgeRangeBadge.length)
+            else if (object.familyAgeRangeBadge.length >= 0)
                 message.familyAgeRangeBadge = object.familyAgeRangeBadge;
         if (object.familyCategoryBadge != null)
             if (typeof object.familyCategoryBadge === "string")
                 $util.base64.decode(object.familyCategoryBadge, message.familyCategoryBadge = $util.newBuffer($util.base64.length(object.familyCategoryBadge)), 0);
-            else if (object.familyCategoryBadge.length)
+            else if (object.familyCategoryBadge.length >= 0)
                 message.familyCategoryBadge = object.familyCategoryBadge;
         return message;
     };
@@ -30668,6 +32701,21 @@ $root.DiscoveryBadge = (function() {
      */
     DiscoveryBadge.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for DiscoveryBadge
+     * @function getTypeUrl
+     * @memberof DiscoveryBadge
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DiscoveryBadge.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DiscoveryBadge";
     };
 
     return DiscoveryBadge;
@@ -30765,9 +32813,10 @@ $root.PlayerBadge = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.overlayIcon = $root.Image.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.overlayIcon = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -30860,6 +32909,21 @@ $root.PlayerBadge = (function() {
      */
     PlayerBadge.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PlayerBadge
+     * @function getTypeUrl
+     * @memberof PlayerBadge
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PlayerBadge.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PlayerBadge";
     };
 
     return PlayerBadge;
@@ -30979,15 +33043,18 @@ $root.DiscoveryBadgeLink = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.link = $root.Link.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.userReviewsUrl = reader.string();
-                break;
-            case 3:
-                message.criticReviewsUrl = reader.string();
-                break;
+            case 1: {
+                    message.link = $root.Link.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.userReviewsUrl = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.criticReviewsUrl = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -31097,6 +33164,21 @@ $root.DiscoveryBadgeLink = (function() {
      */
     DiscoveryBadgeLink.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for DiscoveryBadgeLink
+     * @function getTypeUrl
+     * @memberof DiscoveryBadgeLink
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DiscoveryBadgeLink.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DiscoveryBadgeLink";
     };
 
     return DiscoveryBadgeLink;
@@ -31209,16 +33291,18 @@ $root.Features = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.featurePresence && message.featurePresence.length))
-                    message.featurePresence = [];
-                message.featurePresence.push($root.Feature.decode(reader, reader.uint32()));
-                break;
-            case 2:
-                if (!(message.featureRating && message.featureRating.length))
-                    message.featureRating = [];
-                message.featureRating.push($root.Feature.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    if (!(message.featurePresence && message.featurePresence.length))
+                        message.featurePresence = [];
+                    message.featurePresence.push($root.Feature.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 2: {
+                    if (!(message.featureRating && message.featureRating.length))
+                        message.featureRating = [];
+                    message.featureRating.push($root.Feature.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -31351,6 +33435,21 @@ $root.Features = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Features
+     * @function getTypeUrl
+     * @memberof Features
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Features.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Features";
+    };
+
     return Features;
 })();
 
@@ -31457,12 +33556,14 @@ $root.Feature = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.label = reader.string();
-                break;
-            case 3:
-                message.value = reader.string();
-                break;
+            case 1: {
+                    message.label = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.value = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -31559,6 +33660,21 @@ $root.Feature = (function() {
      */
     Feature.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for Feature
+     * @function getTypeUrl
+     * @memberof Feature
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Feature.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Feature";
     };
 
     return Feature;
@@ -31921,90 +34037,114 @@ $root.DeviceConfigurationProto = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.touchScreen = reader.int32();
-                break;
-            case 2:
-                message.keyboard = reader.int32();
-                break;
-            case 3:
-                message.navigation = reader.int32();
-                break;
-            case 4:
-                message.screenLayout = reader.int32();
-                break;
-            case 5:
-                message.hasHardKeyboard = reader.bool();
-                break;
-            case 6:
-                message.hasFiveWayNavigation = reader.bool();
-                break;
-            case 7:
-                message.screenDensity = reader.int32();
-                break;
-            case 8:
-                message.glEsVersion = reader.int32();
-                break;
-            case 9:
-                if (!(message.systemSharedLibrary && message.systemSharedLibrary.length))
-                    message.systemSharedLibrary = [];
-                message.systemSharedLibrary.push(reader.string());
-                break;
-            case 10:
-                if (!(message.systemAvailableFeature && message.systemAvailableFeature.length))
-                    message.systemAvailableFeature = [];
-                message.systemAvailableFeature.push(reader.string());
-                break;
-            case 11:
-                if (!(message.nativePlatform && message.nativePlatform.length))
-                    message.nativePlatform = [];
-                message.nativePlatform.push(reader.string());
-                break;
-            case 12:
-                message.screenWidth = reader.int32();
-                break;
-            case 13:
-                message.screenHeight = reader.int32();
-                break;
-            case 14:
-                if (!(message.systemSupportedLocale && message.systemSupportedLocale.length))
-                    message.systemSupportedLocale = [];
-                message.systemSupportedLocale.push(reader.string());
-                break;
-            case 15:
-                if (!(message.glExtension && message.glExtension.length))
-                    message.glExtension = [];
-                message.glExtension.push(reader.string());
-                break;
-            case 16:
-                message.deviceClass = reader.int32();
-                break;
-            case 17:
-                message.maxApkDownloadSizeMb = reader.int32();
-                break;
-            case 18:
-                message.smallestScreenWidthDP = reader.int32();
-                break;
-            case 19:
-                message.lowRamDevice = reader.int32();
-                break;
-            case 20:
-                message.totalMemoryBytes = reader.int64();
-                break;
-            case 21:
-                message.maxNumOf_CPUCores = reader.int32();
-                break;
-            case 26:
-                if (!(message.deviceFeature && message.deviceFeature.length))
-                    message.deviceFeature = [];
-                message.deviceFeature.push($root.DeviceFeature.decode(reader, reader.uint32()));
-                break;
-            case 28:
-                message.unknown28 = reader.int32();
-                break;
-            case 30:
-                message.unknown30 = reader.int32();
-                break;
+            case 1: {
+                    message.touchScreen = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.keyboard = reader.int32();
+                    break;
+                }
+            case 3: {
+                    message.navigation = reader.int32();
+                    break;
+                }
+            case 4: {
+                    message.screenLayout = reader.int32();
+                    break;
+                }
+            case 5: {
+                    message.hasHardKeyboard = reader.bool();
+                    break;
+                }
+            case 6: {
+                    message.hasFiveWayNavigation = reader.bool();
+                    break;
+                }
+            case 7: {
+                    message.screenDensity = reader.int32();
+                    break;
+                }
+            case 8: {
+                    message.glEsVersion = reader.int32();
+                    break;
+                }
+            case 9: {
+                    if (!(message.systemSharedLibrary && message.systemSharedLibrary.length))
+                        message.systemSharedLibrary = [];
+                    message.systemSharedLibrary.push(reader.string());
+                    break;
+                }
+            case 10: {
+                    if (!(message.systemAvailableFeature && message.systemAvailableFeature.length))
+                        message.systemAvailableFeature = [];
+                    message.systemAvailableFeature.push(reader.string());
+                    break;
+                }
+            case 11: {
+                    if (!(message.nativePlatform && message.nativePlatform.length))
+                        message.nativePlatform = [];
+                    message.nativePlatform.push(reader.string());
+                    break;
+                }
+            case 12: {
+                    message.screenWidth = reader.int32();
+                    break;
+                }
+            case 13: {
+                    message.screenHeight = reader.int32();
+                    break;
+                }
+            case 14: {
+                    if (!(message.systemSupportedLocale && message.systemSupportedLocale.length))
+                        message.systemSupportedLocale = [];
+                    message.systemSupportedLocale.push(reader.string());
+                    break;
+                }
+            case 15: {
+                    if (!(message.glExtension && message.glExtension.length))
+                        message.glExtension = [];
+                    message.glExtension.push(reader.string());
+                    break;
+                }
+            case 16: {
+                    message.deviceClass = reader.int32();
+                    break;
+                }
+            case 17: {
+                    message.maxApkDownloadSizeMb = reader.int32();
+                    break;
+                }
+            case 18: {
+                    message.smallestScreenWidthDP = reader.int32();
+                    break;
+                }
+            case 19: {
+                    message.lowRamDevice = reader.int32();
+                    break;
+                }
+            case 20: {
+                    message.totalMemoryBytes = reader.int64();
+                    break;
+                }
+            case 21: {
+                    message.maxNumOf_CPUCores = reader.int32();
+                    break;
+                }
+            case 26: {
+                    if (!(message.deviceFeature && message.deviceFeature.length))
+                        message.deviceFeature = [];
+                    message.deviceFeature.push($root.DeviceFeature.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 28: {
+                    message.unknown28 = reader.int32();
+                    break;
+                }
+            case 30: {
+                    message.unknown30 = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -32372,6 +34512,21 @@ $root.DeviceConfigurationProto = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for DeviceConfigurationProto
+     * @function getTypeUrl
+     * @memberof DeviceConfigurationProto
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DeviceConfigurationProto.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DeviceConfigurationProto";
+    };
+
     return DeviceConfigurationProto;
 })();
 
@@ -32478,12 +34633,14 @@ $root.DeviceFeature = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.name = reader.string();
-                break;
-            case 2:
-                message.value = reader.int32();
-                break;
+            case 1: {
+                    message.name = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.value = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -32580,6 +34737,21 @@ $root.DeviceFeature = (function() {
      */
     DeviceFeature.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for DeviceFeature
+     * @function getTypeUrl
+     * @memberof DeviceFeature
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DeviceFeature.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DeviceFeature";
     };
 
     return DeviceFeature;
@@ -32915,87 +35087,108 @@ $root.Document = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.DocId = $root.DocId.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.fetchDocId = $root.DocId.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.sampleDocId = $root.DocId.decode(reader, reader.uint32());
-                break;
-            case 4:
-                message.title = reader.string();
-                break;
-            case 5:
-                message.url = reader.string();
-                break;
-            case 6:
-                if (!(message.snippet && message.snippet.length))
-                    message.snippet = [];
-                message.snippet.push(reader.string());
-                break;
-            case 7:
-                message.priceDeprecated = $root.Offer.decode(reader, reader.uint32());
-                break;
-            case 9:
-                message.availability = $root.Availability.decode(reader, reader.uint32());
-                break;
-            case 10:
-                if (!(message.image && message.image.length))
-                    message.image = [];
-                message.image.push($root.Image.decode(reader, reader.uint32()));
-                break;
-            case 11:
-                if (!(message.child && message.child.length))
-                    message.child = [];
-                message.child.push($root.Document.decode(reader, reader.uint32()));
-                break;
-            case 13:
-                message.aggregateRating = $root.AggregateRating.decode(reader, reader.uint32());
-                break;
-            case 14:
-                if (!(message.offer && message.offer.length))
-                    message.offer = [];
-                message.offer.push($root.Offer.decode(reader, reader.uint32()));
-                break;
-            case 15:
-                if (!(message.translatedSnippet && message.translatedSnippet.length))
-                    message.translatedSnippet = [];
-                message.translatedSnippet.push($root.TranslatedText.decode(reader, reader.uint32()));
-                break;
-            case 16:
-                if (!(message.documentVariant && message.documentVariant.length))
-                    message.documentVariant = [];
-                message.documentVariant.push($root.DocumentVariant.decode(reader, reader.uint32()));
-                break;
-            case 17:
-                if (!(message.categoryId && message.categoryId.length))
-                    message.categoryId = [];
-                message.categoryId.push(reader.string());
-                break;
-            case 18:
-                if (!(message.decoration && message.decoration.length))
-                    message.decoration = [];
-                message.decoration.push($root.Document.decode(reader, reader.uint32()));
-                break;
-            case 19:
-                if (!(message.parent && message.parent.length))
-                    message.parent = [];
-                message.parent.push($root.Document.decode(reader, reader.uint32()));
-                break;
-            case 20:
-                message.privacyPolicyUrl = reader.string();
-                break;
-            case 21:
-                message.consumptionUrl = reader.string();
-                break;
-            case 22:
-                message.estimatedNumChildren = reader.int32();
-                break;
-            case 23:
-                message.subtitle = reader.string();
-                break;
+            case 1: {
+                    message.DocId = $root.DocId.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.fetchDocId = $root.DocId.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.sampleDocId = $root.DocId.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.url = reader.string();
+                    break;
+                }
+            case 6: {
+                    if (!(message.snippet && message.snippet.length))
+                        message.snippet = [];
+                    message.snippet.push(reader.string());
+                    break;
+                }
+            case 7: {
+                    message.priceDeprecated = $root.Offer.decode(reader, reader.uint32());
+                    break;
+                }
+            case 9: {
+                    message.availability = $root.Availability.decode(reader, reader.uint32());
+                    break;
+                }
+            case 10: {
+                    if (!(message.image && message.image.length))
+                        message.image = [];
+                    message.image.push($root.Image.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 11: {
+                    if (!(message.child && message.child.length))
+                        message.child = [];
+                    message.child.push($root.Document.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 13: {
+                    message.aggregateRating = $root.AggregateRating.decode(reader, reader.uint32());
+                    break;
+                }
+            case 14: {
+                    if (!(message.offer && message.offer.length))
+                        message.offer = [];
+                    message.offer.push($root.Offer.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 15: {
+                    if (!(message.translatedSnippet && message.translatedSnippet.length))
+                        message.translatedSnippet = [];
+                    message.translatedSnippet.push($root.TranslatedText.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 16: {
+                    if (!(message.documentVariant && message.documentVariant.length))
+                        message.documentVariant = [];
+                    message.documentVariant.push($root.DocumentVariant.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 17: {
+                    if (!(message.categoryId && message.categoryId.length))
+                        message.categoryId = [];
+                    message.categoryId.push(reader.string());
+                    break;
+                }
+            case 18: {
+                    if (!(message.decoration && message.decoration.length))
+                        message.decoration = [];
+                    message.decoration.push($root.Document.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 19: {
+                    if (!(message.parent && message.parent.length))
+                        message.parent = [];
+                    message.parent.push($root.Document.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 20: {
+                    message.privacyPolicyUrl = reader.string();
+                    break;
+                }
+            case 21: {
+                    message.consumptionUrl = reader.string();
+                    break;
+                }
+            case 22: {
+                    message.estimatedNumChildren = reader.int32();
+                    break;
+                }
+            case 23: {
+                    message.subtitle = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -33421,6 +35614,21 @@ $root.Document = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Document
+     * @function getTypeUrl
+     * @memberof Document
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Document.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Document";
+    };
+
     return Document;
 })();
 
@@ -33662,59 +35870,72 @@ $root.DocumentVariant = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.variationType = reader.int32();
-                break;
-            case 2:
-                message.rule = $root.Rule.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.title = reader.string();
-                break;
-            case 4:
-                if (!(message.snippet && message.snippet.length))
-                    message.snippet = [];
-                message.snippet.push(reader.string());
-                break;
-            case 5:
-                message.recentChanges = reader.string();
-                break;
-            case 6:
-                if (!(message.autoTranslation && message.autoTranslation.length))
-                    message.autoTranslation = [];
-                message.autoTranslation.push($root.TranslatedText.decode(reader, reader.uint32()));
-                break;
-            case 7:
-                if (!(message.offer && message.offer.length))
-                    message.offer = [];
-                message.offer.push($root.Offer.decode(reader, reader.uint32()));
-                break;
-            case 9:
-                message.channelId = reader.int64();
-                break;
-            case 10:
-                if (!(message.child && message.child.length))
-                    message.child = [];
-                message.child.push($root.Document.decode(reader, reader.uint32()));
-                break;
-            case 11:
-                if (!(message.decoration && message.decoration.length))
-                    message.decoration = [];
-                message.decoration.push($root.Document.decode(reader, reader.uint32()));
-                break;
-            case 12:
-                if (!(message.image && message.image.length))
-                    message.image = [];
-                message.image.push($root.Image.decode(reader, reader.uint32()));
-                break;
-            case 13:
-                if (!(message.categoryId && message.categoryId.length))
-                    message.categoryId = [];
-                message.categoryId.push(reader.string());
-                break;
-            case 14:
-                message.subtitle = reader.string();
-                break;
+            case 1: {
+                    message.variationType = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.rule = $root.Rule.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 4: {
+                    if (!(message.snippet && message.snippet.length))
+                        message.snippet = [];
+                    message.snippet.push(reader.string());
+                    break;
+                }
+            case 5: {
+                    message.recentChanges = reader.string();
+                    break;
+                }
+            case 6: {
+                    if (!(message.autoTranslation && message.autoTranslation.length))
+                        message.autoTranslation = [];
+                    message.autoTranslation.push($root.TranslatedText.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 7: {
+                    if (!(message.offer && message.offer.length))
+                        message.offer = [];
+                    message.offer.push($root.Offer.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 9: {
+                    message.channelId = reader.int64();
+                    break;
+                }
+            case 10: {
+                    if (!(message.child && message.child.length))
+                        message.child = [];
+                    message.child.push($root.Document.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 11: {
+                    if (!(message.decoration && message.decoration.length))
+                        message.decoration = [];
+                    message.decoration.push($root.Document.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 12: {
+                    if (!(message.image && message.image.length))
+                        message.image = [];
+                    message.image.push($root.Image.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 13: {
+                    if (!(message.categoryId && message.categoryId.length))
+                        message.categoryId = [];
+                    message.categoryId.push(reader.string());
+                    break;
+                }
+            case 14: {
+                    message.subtitle = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -34031,6 +36252,21 @@ $root.DocumentVariant = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for DocumentVariant
+     * @function getTypeUrl
+     * @memberof DocumentVariant
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DocumentVariant.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DocumentVariant";
+    };
+
     return DocumentVariant;
 })();
 
@@ -34128,11 +36364,12 @@ $root.SectionImage = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.imageContainer && message.imageContainer.length))
-                    message.imageContainer = [];
-                message.imageContainer.push($root.ImageContainer.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    if (!(message.imageContainer && message.imageContainer.length))
+                        message.imageContainer = [];
+                    message.imageContainer.push($root.ImageContainer.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -34239,6 +36476,21 @@ $root.SectionImage = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for SectionImage
+     * @function getTypeUrl
+     * @memberof SectionImage
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SectionImage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SectionImage";
+    };
+
     return SectionImage;
 })();
 
@@ -34334,9 +36586,10 @@ $root.ImageContainer = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 4:
-                message.image = $root.Image.decode(reader, reader.uint32());
-                break;
+            case 4: {
+                    message.image = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -34429,6 +36682,21 @@ $root.ImageContainer = (function() {
      */
     ImageContainer.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ImageContainer
+     * @function getTypeUrl
+     * @memberof ImageContainer
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ImageContainer.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ImageContainer";
     };
 
     return ImageContainer;
@@ -34702,57 +36970,74 @@ $root.Image = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.imageType = reader.int32();
-                break;
-            case 2:
-                message.dimension = $root.Image.Dimension.decode(reader);
-                break;
-            case 5:
-                message.imageUrl = reader.string();
-                break;
-            case 6:
-                message.altTextLocalized = reader.string();
-                break;
-            case 7:
-                message.secureUrl = reader.string();
-                break;
-            case 8:
-                message.positionInSequence = reader.int32();
-                break;
-            case 9:
-                message.supportsFifeUrlOptions = reader.bool();
-                break;
-            case 10:
-                message.citation = $root.Image.Citation.decode(reader);
-                break;
-            case 14:
-                message.durationSeconds = reader.int32();
-                break;
-            case 15:
-                message.fillColorRGB = reader.string();
-                break;
-            case 16:
-                message.autogen = reader.bool();
-                break;
-            case 17:
-                message.attribution = $root.Attribution.decode(reader, reader.uint32());
-                break;
-            case 19:
-                message.backgroundColorRgb = reader.string();
-                break;
-            case 20:
-                message.palette = $root.ImagePalette.decode(reader, reader.uint32());
-                break;
-            case 21:
-                message.deviceClass = reader.int32();
-                break;
-            case 22:
-                message.supportsFifeMonogramOption = reader.bool();
-                break;
-            case 28:
-                message.imageUrlAlt = reader.string();
-                break;
+            case 1: {
+                    message.imageType = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.dimension = $root.Image.Dimension.decode(reader);
+                    break;
+                }
+            case 5: {
+                    message.imageUrl = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.altTextLocalized = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.secureUrl = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.positionInSequence = reader.int32();
+                    break;
+                }
+            case 9: {
+                    message.supportsFifeUrlOptions = reader.bool();
+                    break;
+                }
+            case 10: {
+                    message.citation = $root.Image.Citation.decode(reader);
+                    break;
+                }
+            case 14: {
+                    message.durationSeconds = reader.int32();
+                    break;
+                }
+            case 15: {
+                    message.fillColorRGB = reader.string();
+                    break;
+                }
+            case 16: {
+                    message.autogen = reader.bool();
+                    break;
+                }
+            case 17: {
+                    message.attribution = $root.Attribution.decode(reader, reader.uint32());
+                    break;
+                }
+            case 19: {
+                    message.backgroundColorRgb = reader.string();
+                    break;
+                }
+            case 20: {
+                    message.palette = $root.ImagePalette.decode(reader, reader.uint32());
+                    break;
+                }
+            case 21: {
+                    message.deviceClass = reader.int32();
+                    break;
+                }
+            case 22: {
+                    message.supportsFifeMonogramOption = reader.bool();
+                    break;
+                }
+            case 28: {
+                    message.imageUrlAlt = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -34991,6 +37276,21 @@ $root.Image = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Image
+     * @function getTypeUrl
+     * @memberof Image
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Image.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Image";
+    };
+
     Image.Dimension = (function() {
 
         /**
@@ -35107,15 +37407,18 @@ $root.Image = (function() {
                 if ((tag & 7) === 4)
                     break;
                 switch (tag >>> 3) {
-                case 3:
-                    message.width = reader.int32();
-                    break;
-                case 4:
-                    message.height = reader.int32();
-                    break;
-                case 18:
-                    message.aspectRatio = reader.int32();
-                    break;
+                case 3: {
+                        message.width = reader.int32();
+                        break;
+                    }
+                case 4: {
+                        message.height = reader.int32();
+                        break;
+                    }
+                case 18: {
+                        message.aspectRatio = reader.int32();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -35220,6 +37523,21 @@ $root.Image = (function() {
          */
         Dimension.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for Dimension
+         * @function getTypeUrl
+         * @memberof Image.Dimension
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        Dimension.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/Image.Dimension";
         };
 
         return Dimension;
@@ -35330,12 +37648,14 @@ $root.Image = (function() {
                 if ((tag & 7) === 4)
                     break;
                 switch (tag >>> 3) {
-                case 11:
-                    message.titleLocalized = reader.string();
-                    break;
-                case 12:
-                    message.url = reader.string();
-                    break;
+                case 11: {
+                        message.titleLocalized = reader.string();
+                        break;
+                    }
+                case 12: {
+                        message.url = reader.string();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -35432,6 +37752,21 @@ $root.Image = (function() {
          */
         Citation.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for Citation
+         * @function getTypeUrl
+         * @memberof Image.Citation
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        Citation.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/Image.Citation";
         };
 
         return Citation;
@@ -35565,18 +37900,22 @@ $root.Attribution = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.sourceTitle = reader.string();
-                break;
-            case 2:
-                message.sourceUrl = reader.string();
-                break;
-            case 3:
-                message.licenseTitle = reader.string();
-                break;
-            case 4:
-                message.licenseUrl = reader.string();
-                break;
+            case 1: {
+                    message.sourceTitle = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.sourceUrl = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.licenseTitle = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.licenseUrl = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -35689,6 +38028,21 @@ $root.Attribution = (function() {
      */
     Attribution.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for Attribution
+     * @function getTypeUrl
+     * @memberof Attribution
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Attribution.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Attribution";
     };
 
     return Attribution;
@@ -35841,24 +38195,30 @@ $root.ImagePalette = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.lightVibrantRGB = reader.string();
-                break;
-            case 2:
-                message.vibrantRGB = reader.string();
-                break;
-            case 3:
-                message.darkVibrantRGB = reader.string();
-                break;
-            case 4:
-                message.lightMutedRGB = reader.string();
-                break;
-            case 5:
-                message.mutedRGB = reader.string();
-                break;
-            case 6:
-                message.darkMutedRGB = reader.string();
-                break;
+            case 1: {
+                    message.lightVibrantRGB = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.vibrantRGB = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.darkVibrantRGB = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.lightMutedRGB = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.mutedRGB = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.darkMutedRGB = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -35989,6 +38349,21 @@ $root.ImagePalette = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for ImagePalette
+     * @function getTypeUrl
+     * @memberof ImagePalette
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ImagePalette.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ImagePalette";
+    };
+
     return ImagePalette;
 })();
 
@@ -36106,15 +38481,18 @@ $root.TranslatedText = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.text = reader.string();
-                break;
-            case 2:
-                message.sourceLocale = reader.string();
-                break;
-            case 3:
-                message.targetLocale = reader.string();
-                break;
+            case 1: {
+                    message.text = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.sourceLocale = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.targetLocale = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -36219,6 +38597,21 @@ $root.TranslatedText = (function() {
      */
     TranslatedText.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for TranslatedText
+     * @function getTypeUrl
+     * @memberof TranslatedText
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    TranslatedText.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/TranslatedText";
     };
 
     return TranslatedText;
@@ -36351,20 +38744,24 @@ $root.PlusOneData = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.setByUser = reader.bool();
-                break;
-            case 2:
-                message.total = reader.int64();
-                break;
-            case 3:
-                message.circlesTotal = reader.int64();
-                break;
-            case 4:
-                if (!(message.circlesPeople && message.circlesPeople.length))
-                    message.circlesPeople = [];
-                message.circlesPeople.push($root.PlusPerson.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.setByUser = reader.bool();
+                    break;
+                }
+            case 2: {
+                    message.total = reader.int64();
+                    break;
+                }
+            case 3: {
+                    message.circlesTotal = reader.int64();
+                    break;
+                }
+            case 4: {
+                    if (!(message.circlesPeople && message.circlesPeople.length))
+                        message.circlesPeople = [];
+                    message.circlesPeople.push($root.PlusPerson.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -36525,6 +38922,21 @@ $root.PlusOneData = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for PlusOneData
+     * @function getTypeUrl
+     * @memberof PlusOneData
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PlusOneData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PlusOneData";
+    };
+
     return PlusOneData;
 })();
 
@@ -36631,12 +39043,14 @@ $root.PlusPerson = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 2:
-                message.displayName = reader.string();
-                break;
-            case 4:
-                message.profileImageUrl = reader.string();
-                break;
+            case 2: {
+                    message.displayName = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.profileImageUrl = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -36733,6 +39147,21 @@ $root.PlusPerson = (function() {
      */
     PlusPerson.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PlusPerson
+     * @function getTypeUrl
+     * @memberof PlusPerson
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PlusPerson.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PlusPerson";
     };
 
     return PlusPerson;
@@ -37306,149 +39735,192 @@ $root.AppDetails = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.developerName = reader.string();
-                break;
-            case 2:
-                message.majorVersionNumber = reader.int32();
-                break;
-            case 3:
-                message.versionCode = reader.int32();
-                break;
-            case 4:
-                message.versionString = reader.string();
-                break;
-            case 5:
-                message.title = reader.string();
-                break;
-            case 7:
-                if (!(message.appCategory && message.appCategory.length))
-                    message.appCategory = [];
-                message.appCategory.push(reader.string());
-                break;
-            case 8:
-                message.contentRating = reader.int32();
-                break;
-            case 9:
-                message.infoDownloadSize = reader.int64();
-                break;
-            case 10:
-                if (!(message.permission && message.permission.length))
-                    message.permission = [];
-                message.permission.push(reader.string());
-                break;
-            case 11:
-                message.developerEmail = reader.string();
-                break;
-            case 12:
-                message.developerWebsite = reader.string();
-                break;
-            case 13:
-                message.infoDownload = reader.string();
-                break;
-            case 14:
-                message.packageName = reader.string();
-                break;
-            case 15:
-                message.recentChangesHtml = reader.string();
-                break;
-            case 16:
-                message.infoUpdatedOn = reader.string();
-                break;
-            case 17:
-                if (!(message.file && message.file.length))
-                    message.file = [];
-                message.file.push($root.FileMetadata.decode(reader, reader.uint32()));
-                break;
-            case 18:
-                message.appType = reader.string();
-                break;
-            case 19:
-                if (!(message.certificateHash && message.certificateHash.length))
-                    message.certificateHash = [];
-                message.certificateHash.push(reader.string());
-                break;
-            case 21:
-                message.variesWithDevice = reader.bool();
-                break;
-            case 22:
-                if (!(message.certificateSet && message.certificateSet.length))
-                    message.certificateSet = [];
-                message.certificateSet.push($root.CertificateSet.decode(reader, reader.uint32()));
-                break;
-            case 23:
-                if (!(message.autoAcquireFreeAppIfHigherVersionAvailableTag && message.autoAcquireFreeAppIfHigherVersionAvailableTag.length))
-                    message.autoAcquireFreeAppIfHigherVersionAvailableTag = [];
-                message.autoAcquireFreeAppIfHigherVersionAvailableTag.push(reader.string());
-                break;
-            case 24:
-                message.hasInstantLink2 = reader.bool();
-                break;
-            case 25:
-                if (!(message.splitId && message.splitId.length))
-                    message.splitId = [];
-                message.splitId.push(reader.string());
-                break;
-            case 26:
-                message.gamepadRequired = reader.bool();
-                break;
-            case 27:
-                message.externallyHosted = reader.bool();
-                break;
-            case 28:
-                message.everExternallyHosted = reader.bool();
-                break;
-            case 30:
-                message.installNotes = reader.string();
-                break;
-            case 31:
-                message.installLocation = reader.int32();
-                break;
-            case 32:
-                message.targetSdkVersion = reader.int32();
-                break;
-            case 33:
-                message.hasPreregistrationPromoCode = reader.string();
-                break;
-            case 34:
-                message.dependencies = $root.Dependencies.decode(reader, reader.uint32());
-                break;
-            case 35:
-                message.testingProgramInfo = $root.TestingProgramInfo.decode(reader, reader.uint32());
-                break;
-            case 36:
-                message.earlyAccessInfo = $root.EarlyAccessInfo.decode(reader, reader.uint32());
-                break;
-            case 41:
-                message.editorChoice = $root.EditorChoice.decode(reader, reader.uint32());
-                break;
-            case 43:
-                message.instantLink = reader.string();
-                break;
-            case 45:
-                message.developerAddress = reader.string();
-                break;
-            case 46:
-                message.publisher = $root.Publisher.decode(reader, reader.uint32());
-                break;
-            case 48:
-                message.categoryName = reader.string();
-                break;
-            case 53:
-                message.downloadCount = reader.int64();
-                break;
-            case 61:
-                message.downloadLabelDisplay = reader.string();
-                break;
-            case 67:
-                message.inAppProduct = reader.string();
-                break;
-            case 77:
-                message.downloadLabelAbbreviated = reader.string();
-                break;
-            case 78:
-                message.downloadLabel = reader.string();
-                break;
+            case 1: {
+                    message.developerName = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.majorVersionNumber = reader.int32();
+                    break;
+                }
+            case 3: {
+                    message.versionCode = reader.int32();
+                    break;
+                }
+            case 4: {
+                    message.versionString = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 7: {
+                    if (!(message.appCategory && message.appCategory.length))
+                        message.appCategory = [];
+                    message.appCategory.push(reader.string());
+                    break;
+                }
+            case 8: {
+                    message.contentRating = reader.int32();
+                    break;
+                }
+            case 9: {
+                    message.infoDownloadSize = reader.int64();
+                    break;
+                }
+            case 10: {
+                    if (!(message.permission && message.permission.length))
+                        message.permission = [];
+                    message.permission.push(reader.string());
+                    break;
+                }
+            case 11: {
+                    message.developerEmail = reader.string();
+                    break;
+                }
+            case 12: {
+                    message.developerWebsite = reader.string();
+                    break;
+                }
+            case 13: {
+                    message.infoDownload = reader.string();
+                    break;
+                }
+            case 14: {
+                    message.packageName = reader.string();
+                    break;
+                }
+            case 15: {
+                    message.recentChangesHtml = reader.string();
+                    break;
+                }
+            case 16: {
+                    message.infoUpdatedOn = reader.string();
+                    break;
+                }
+            case 17: {
+                    if (!(message.file && message.file.length))
+                        message.file = [];
+                    message.file.push($root.FileMetadata.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 18: {
+                    message.appType = reader.string();
+                    break;
+                }
+            case 19: {
+                    if (!(message.certificateHash && message.certificateHash.length))
+                        message.certificateHash = [];
+                    message.certificateHash.push(reader.string());
+                    break;
+                }
+            case 21: {
+                    message.variesWithDevice = reader.bool();
+                    break;
+                }
+            case 22: {
+                    if (!(message.certificateSet && message.certificateSet.length))
+                        message.certificateSet = [];
+                    message.certificateSet.push($root.CertificateSet.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 23: {
+                    if (!(message.autoAcquireFreeAppIfHigherVersionAvailableTag && message.autoAcquireFreeAppIfHigherVersionAvailableTag.length))
+                        message.autoAcquireFreeAppIfHigherVersionAvailableTag = [];
+                    message.autoAcquireFreeAppIfHigherVersionAvailableTag.push(reader.string());
+                    break;
+                }
+            case 24: {
+                    message.hasInstantLink2 = reader.bool();
+                    break;
+                }
+            case 25: {
+                    if (!(message.splitId && message.splitId.length))
+                        message.splitId = [];
+                    message.splitId.push(reader.string());
+                    break;
+                }
+            case 26: {
+                    message.gamepadRequired = reader.bool();
+                    break;
+                }
+            case 27: {
+                    message.externallyHosted = reader.bool();
+                    break;
+                }
+            case 28: {
+                    message.everExternallyHosted = reader.bool();
+                    break;
+                }
+            case 30: {
+                    message.installNotes = reader.string();
+                    break;
+                }
+            case 31: {
+                    message.installLocation = reader.int32();
+                    break;
+                }
+            case 32: {
+                    message.targetSdkVersion = reader.int32();
+                    break;
+                }
+            case 33: {
+                    message.hasPreregistrationPromoCode = reader.string();
+                    break;
+                }
+            case 34: {
+                    message.dependencies = $root.Dependencies.decode(reader, reader.uint32());
+                    break;
+                }
+            case 35: {
+                    message.testingProgramInfo = $root.TestingProgramInfo.decode(reader, reader.uint32());
+                    break;
+                }
+            case 36: {
+                    message.earlyAccessInfo = $root.EarlyAccessInfo.decode(reader, reader.uint32());
+                    break;
+                }
+            case 41: {
+                    message.editorChoice = $root.EditorChoice.decode(reader, reader.uint32());
+                    break;
+                }
+            case 43: {
+                    message.instantLink = reader.string();
+                    break;
+                }
+            case 45: {
+                    message.developerAddress = reader.string();
+                    break;
+                }
+            case 46: {
+                    message.publisher = $root.Publisher.decode(reader, reader.uint32());
+                    break;
+                }
+            case 48: {
+                    message.categoryName = reader.string();
+                    break;
+                }
+            case 53: {
+                    message.downloadCount = reader.int64();
+                    break;
+                }
+            case 61: {
+                    message.downloadLabelDisplay = reader.string();
+                    break;
+                }
+            case 67: {
+                    message.inAppProduct = reader.string();
+                    break;
+                }
+            case 77: {
+                    message.downloadLabelAbbreviated = reader.string();
+                    break;
+                }
+            case 78: {
+                    message.downloadLabel = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -38024,6 +40496,21 @@ $root.AppDetails = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AppDetails
+     * @function getTypeUrl
+     * @memberof AppDetails
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AppDetails.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AppDetails";
+    };
+
     return AppDetails;
 })();
 
@@ -38141,15 +40628,18 @@ $root.ModifyLibrary = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.id = reader.string();
-                break;
-            case 2:
-                message.packageToAdd = reader.string();
-                break;
-            case 3:
-                message.packageToRemove = reader.string();
-                break;
+            case 1: {
+                    message.id = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.packageToAdd = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.packageToRemove = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -38256,6 +40746,21 @@ $root.ModifyLibrary = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for ModifyLibrary
+     * @function getTypeUrl
+     * @memberof ModifyLibrary
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ModifyLibrary.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ModifyLibrary";
+    };
+
     return ModifyLibrary;
 })();
 
@@ -38351,9 +40856,10 @@ $root.Publisher = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 2:
-                message.publisherStream = $root.PublisherStream.decode(reader, reader.uint32());
-                break;
+            case 2: {
+                    message.publisherStream = $root.PublisherStream.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -38446,6 +40952,21 @@ $root.Publisher = (function() {
      */
     Publisher.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for Publisher
+     * @function getTypeUrl
+     * @memberof Publisher
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Publisher.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Publisher";
     };
 
     return Publisher;
@@ -38554,12 +41075,14 @@ $root.PublisherStream = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 3:
-                message.moreUrl = reader.string();
-                break;
-            case 11:
-                message.query = reader.string();
-                break;
+            case 3: {
+                    message.moreUrl = reader.string();
+                    break;
+                }
+            case 11: {
+                    message.query = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -38656,6 +41179,21 @@ $root.PublisherStream = (function() {
      */
     PublisherStream.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublisherStream
+     * @function getTypeUrl
+     * @memberof PublisherStream
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublisherStream.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublisherStream";
     };
 
     return PublisherStream;
@@ -38799,23 +41337,28 @@ $root.EditorChoice = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.bulletins && message.bulletins.length))
-                    message.bulletins = [];
-                message.bulletins.push(reader.string());
-                break;
-            case 2:
-                message.description = reader.string();
-                break;
-            case 3:
-                message.stream = $root.SubStream.decode(reader, reader.uint32());
-                break;
-            case 4:
-                message.title = reader.string();
-                break;
-            case 5:
-                message.subtitle = reader.string();
-                break;
+            case 1: {
+                    if (!(message.bulletins && message.bulletins.length))
+                        message.bulletins = [];
+                    message.bulletins.push(reader.string());
+                    break;
+                }
+            case 2: {
+                    message.description = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.stream = $root.SubStream.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.subtitle = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -38956,6 +41499,21 @@ $root.EditorChoice = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for EditorChoice
+     * @function getTypeUrl
+     * @memberof EditorChoice
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    EditorChoice.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/EditorChoice";
+    };
+
     return EditorChoice;
 })();
 
@@ -39066,16 +41624,18 @@ $root.CertificateSet = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.certificateHash && message.certificateHash.length))
-                    message.certificateHash = [];
-                message.certificateHash.push(reader.string());
-                break;
-            case 2:
-                if (!(message.sha256 && message.sha256.length))
-                    message.sha256 = [];
-                message.sha256.push(reader.string());
-                break;
+            case 1: {
+                    if (!(message.certificateHash && message.certificateHash.length))
+                        message.certificateHash = [];
+                    message.certificateHash.push(reader.string());
+                    break;
+                }
+            case 2: {
+                    if (!(message.sha256 && message.sha256.length))
+                        message.sha256 = [];
+                    message.sha256.push(reader.string());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -39196,6 +41756,21 @@ $root.CertificateSet = (function() {
      */
     CertificateSet.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for CertificateSet
+     * @function getTypeUrl
+     * @memberof CertificateSet
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CertificateSet.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CertificateSet";
     };
 
     return CertificateSet;
@@ -39352,28 +41927,34 @@ $root.Dependencies = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.unknown = reader.int32();
-                break;
-            case 2:
-                message.size = reader.int64();
-                break;
-            case 3:
-                if (!(message.dependency && message.dependency.length))
-                    message.dependency = [];
-                message.dependency.push($root.Dependency.decode(reader, reader.uint32()));
-                break;
-            case 4:
-                message.targetSdk = reader.int32();
-                break;
-            case 5:
-                message.unknown2 = reader.int32();
-                break;
-            case 11:
-                if (!(message.splitApks && message.splitApks.length))
-                    message.splitApks = [];
-                message.splitApks.push(reader.string());
-                break;
+            case 1: {
+                    message.unknown = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.size = reader.int64();
+                    break;
+                }
+            case 3: {
+                    if (!(message.dependency && message.dependency.length))
+                        message.dependency = [];
+                    message.dependency.push($root.Dependency.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 4: {
+                    message.targetSdk = reader.int32();
+                    break;
+                }
+            case 5: {
+                    message.unknown2 = reader.int32();
+                    break;
+                }
+            case 11: {
+                    if (!(message.splitApks && message.splitApks.length))
+                        message.splitApks = [];
+                    message.splitApks.push(reader.string());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -39549,6 +42130,21 @@ $root.Dependencies = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Dependencies
+     * @function getTypeUrl
+     * @memberof Dependencies
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Dependencies.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Dependencies";
+    };
+
     return Dependencies;
 })();
 
@@ -39666,15 +42262,18 @@ $root.Dependency = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.packageName = reader.string();
-                break;
-            case 2:
-                message.version = reader.int32();
-                break;
-            case 4:
-                message.unknown4 = reader.int32();
-                break;
+            case 1: {
+                    message.packageName = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.version = reader.int32();
+                    break;
+                }
+            case 4: {
+                    message.unknown4 = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -39779,6 +42378,21 @@ $root.Dependency = (function() {
      */
     Dependency.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for Dependency
+     * @function getTypeUrl
+     * @memberof Dependency
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Dependency.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Dependency";
     };
 
     return Dependency;
@@ -39920,21 +42534,26 @@ $root.TestingProgramInfo = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 2:
-                message.subscribed = reader.bool();
-                break;
-            case 3:
-                message.subscribedAndInstalled = reader.bool();
-                break;
-            case 5:
-                message.email = reader.string();
-                break;
-            case 7:
-                message.displayName = reader.string();
-                break;
-            case 6:
-                message.image = $root.Image.decode(reader, reader.uint32());
-                break;
+            case 2: {
+                    message.subscribed = reader.bool();
+                    break;
+                }
+            case 3: {
+                    message.subscribedAndInstalled = reader.bool();
+                    break;
+                }
+            case 5: {
+                    message.email = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.displayName = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.image = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -40062,6 +42681,21 @@ $root.TestingProgramInfo = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for TestingProgramInfo
+     * @function getTypeUrl
+     * @memberof TestingProgramInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    TestingProgramInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/TestingProgramInfo";
+    };
+
     return TestingProgramInfo;
 })();
 
@@ -40157,9 +42791,10 @@ $root.EarlyAccessInfo = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 3:
-                message.email = reader.string();
-                break;
+            case 3: {
+                    message.email = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -40247,6 +42882,21 @@ $root.EarlyAccessInfo = (function() {
      */
     EarlyAccessInfo.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for EarlyAccessInfo
+     * @function getTypeUrl
+     * @memberof EarlyAccessInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    EarlyAccessInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/EarlyAccessInfo";
     };
 
     return EarlyAccessInfo;
@@ -40355,12 +43005,14 @@ $root.DocumentDetails = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.appDetails = $root.AppDetails.decode(reader, reader.uint32());
-                break;
-            case 7:
-                message.subscriptionDetails = $root.SubscriptionDetails.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.appDetails = $root.AppDetails.decode(reader, reader.uint32());
+                    break;
+                }
+            case 7: {
+                    message.subscriptionDetails = $root.SubscriptionDetails.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -40469,6 +43121,21 @@ $root.DocumentDetails = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for DocumentDetails
+     * @function getTypeUrl
+     * @memberof DocumentDetails
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DocumentDetails.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DocumentDetails";
+    };
+
     return DocumentDetails;
 })();
 
@@ -40575,12 +43242,14 @@ $root.PatchDetails = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.baseVersionCode = reader.int32();
-                break;
-            case 2:
-                message.size = reader.int64();
-                break;
+            case 1: {
+                    message.baseVersionCode = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.size = reader.int64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -40691,6 +43360,21 @@ $root.PatchDetails = (function() {
      */
     PatchDetails.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PatchDetails
+     * @function getTypeUrl
+     * @memberof PatchDetails
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PatchDetails.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PatchDetails";
     };
 
     return PatchDetails;
@@ -40845,26 +43529,32 @@ $root.FileMetadata = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.fileType = reader.int32();
-                break;
-            case 2:
-                message.versionCode = reader.int32();
-                break;
-            case 3:
-                message.size = reader.int64();
-                break;
-            case 4:
-                message.splitId = reader.string();
-                break;
-            case 5:
-                message.compressedSize = reader.int64();
-                break;
-            case 6:
-                if (!(message.patchDetails && message.patchDetails.length))
-                    message.patchDetails = [];
-                message.patchDetails.push($root.PatchDetails.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.fileType = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.versionCode = reader.int32();
+                    break;
+                }
+            case 3: {
+                    message.size = reader.int64();
+                    break;
+                }
+            case 4: {
+                    message.splitId = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.compressedSize = reader.int64();
+                    break;
+                }
+            case 6: {
+                    if (!(message.patchDetails && message.patchDetails.length))
+                        message.patchDetails = [];
+                    message.patchDetails.push($root.PatchDetails.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -41041,6 +43731,21 @@ $root.FileMetadata = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for FileMetadata
+     * @function getTypeUrl
+     * @memberof FileMetadata
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    FileMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/FileMetadata";
+    };
+
     return FileMetadata;
 })();
 
@@ -41136,9 +43841,10 @@ $root.SubscriptionDetails = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.subscriptionPeriod = reader.int32();
-                break;
+            case 1: {
+                    message.subscriptionPeriod = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -41226,6 +43932,21 @@ $root.SubscriptionDetails = (function() {
      */
     SubscriptionDetails.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for SubscriptionDetails
+     * @function getTypeUrl
+     * @memberof SubscriptionDetails
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SubscriptionDetails.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SubscriptionDetails";
     };
 
     return SubscriptionDetails;
@@ -41422,36 +44143,46 @@ $root.Bucket = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 2:
-                message.multiCorpus = reader.bool();
-                break;
-            case 3:
-                message.title = reader.string();
-                break;
-            case 4:
-                message.iconUrl = reader.string();
-                break;
-            case 5:
-                message.fullContentsUrl = reader.string();
-                break;
-            case 6:
-                message.relevance = reader.double();
-                break;
-            case 7:
-                message.estimatedResults = reader.int64();
-                break;
-            case 8:
-                message.analyticsCookie = reader.string();
-                break;
-            case 9:
-                message.fullContentsListUrl = reader.string();
-                break;
-            case 10:
-                message.nextPageUrl = reader.string();
-                break;
-            case 11:
-                message.ordered = reader.bool();
-                break;
+            case 2: {
+                    message.multiCorpus = reader.bool();
+                    break;
+                }
+            case 3: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.iconUrl = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.fullContentsUrl = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.relevance = reader.double();
+                    break;
+                }
+            case 7: {
+                    message.estimatedResults = reader.int64();
+                    break;
+                }
+            case 8: {
+                    message.analyticsCookie = reader.string();
+                    break;
+                }
+            case 9: {
+                    message.fullContentsListUrl = reader.string();
+                    break;
+                }
+            case 10: {
+                    message.nextPageUrl = reader.string();
+                    break;
+                }
+            case 11: {
+                    message.ordered = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -41628,6 +44359,21 @@ $root.Bucket = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Bucket
+     * @function getTypeUrl
+     * @memberof Bucket
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Bucket.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Bucket";
+    };
+
     return Bucket;
 })();
 
@@ -41738,16 +44484,18 @@ $root.ListResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.bucket && message.bucket.length))
-                    message.bucket = [];
-                message.bucket.push($root.Bucket.decode(reader, reader.uint32()));
-                break;
-            case 2:
-                if (!(message.item && message.item.length))
-                    message.item = [];
-                message.item.push($root.Item.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    if (!(message.bucket && message.bucket.length))
+                        message.bucket = [];
+                    message.bucket.push($root.Bucket.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 2: {
+                    if (!(message.item && message.item.length))
+                        message.item = [];
+                    message.item.push($root.Item.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -41878,6 +44626,21 @@ $root.ListResponse = (function() {
      */
     ListResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ListResponse
+     * @function getTypeUrl
+     * @memberof ListResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ListResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ListResponse";
     };
 
     return ListResponse;
@@ -42346,116 +45109,150 @@ $root.Item = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.id = reader.string();
-                break;
-            case 2:
-                message.subId = reader.string();
-                break;
-            case 3:
-                message.type = reader.int32();
-                break;
-            case 4:
-                message.categoryId = reader.int32();
-                break;
-            case 5:
-                message.title = reader.string();
-                break;
-            case 6:
-                message.creator = reader.string();
-                break;
-            case 7:
-                message.descriptionHtml = reader.string();
-                break;
-            case 8:
-                if (!(message.offer && message.offer.length))
-                    message.offer = [];
-                message.offer.push($root.Offer.decode(reader, reader.uint32()));
-                break;
-            case 9:
-                message.availability = $root.Availability.decode(reader, reader.uint32());
-                break;
-            case 10:
-                if (!(message.image && message.image.length))
-                    message.image = [];
-                message.image.push($root.Image.decode(reader, reader.uint32()));
-                break;
-            case 11:
-                if (!(message.subItem && message.subItem.length))
-                    message.subItem = [];
-                message.subItem.push($root.Item.decode(reader, reader.uint32()));
-                break;
-            case 12:
-                message.containerMetadata = $root.ContainerMetadata.decode(reader, reader.uint32());
-                break;
-            case 13:
-                message.details = $root.DocumentDetails.decode(reader, reader.uint32());
-                break;
-            case 14:
-                message.aggregateRating = $root.AggregateRating.decode(reader, reader.uint32());
-                break;
-            case 15:
-                message.annotations = $root.Annotations.decode(reader, reader.uint32());
-                break;
-            case 16:
-                message.detailsUrl = reader.string();
-                break;
-            case 17:
-                message.shareUrl = reader.string();
-                break;
-            case 18:
-                message.reviewsUrl = reader.string();
-                break;
-            case 19:
-                message.backendUrl = reader.string();
-                break;
-            case 20:
-                message.purchaseDetailsUrl = reader.string();
-                break;
-            case 21:
-                message.detailsReusable = reader.bool();
-                break;
-            case 22:
-                message.subtitle = reader.string();
-                break;
-            case 23:
-                message.translatedDescriptionHtml = reader.string();
-                break;
-            case 24:
-                message.serverLogsCookie = reader.bytes();
-                break;
-            case 25:
-                message.appInfo = $root.AppInfo.decode(reader, reader.uint32());
-                break;
-            case 26:
-                message.mature = reader.bool();
-                break;
-            case 27:
-                message.promotionalDescription = reader.string();
-                break;
-            case 29:
-                message.availableForPreregistration = reader.bool();
-                break;
-            case 30:
-                if (!(message.tip && message.tip.length))
-                    message.tip = [];
-                message.tip.push($root.ReviewTip.decode(reader, reader.uint32()));
-                break;
-            case 31:
-                message.reviewSnippetsUrl = reader.string();
-                break;
-            case 32:
-                message.forceShareability = reader.bool();
-                break;
-            case 33:
-                message.useWishlistAsPrimaryAction = reader.bool();
-                break;
-            case 34:
-                message.reviewQuestionsUrl = reader.string();
-                break;
-            case 39:
-                message.reviewSummaryUrl = reader.string();
-                break;
+            case 1: {
+                    message.id = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.subId = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.type = reader.int32();
+                    break;
+                }
+            case 4: {
+                    message.categoryId = reader.int32();
+                    break;
+                }
+            case 5: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.creator = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.descriptionHtml = reader.string();
+                    break;
+                }
+            case 8: {
+                    if (!(message.offer && message.offer.length))
+                        message.offer = [];
+                    message.offer.push($root.Offer.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 9: {
+                    message.availability = $root.Availability.decode(reader, reader.uint32());
+                    break;
+                }
+            case 10: {
+                    if (!(message.image && message.image.length))
+                        message.image = [];
+                    message.image.push($root.Image.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 11: {
+                    if (!(message.subItem && message.subItem.length))
+                        message.subItem = [];
+                    message.subItem.push($root.Item.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 12: {
+                    message.containerMetadata = $root.ContainerMetadata.decode(reader, reader.uint32());
+                    break;
+                }
+            case 13: {
+                    message.details = $root.DocumentDetails.decode(reader, reader.uint32());
+                    break;
+                }
+            case 14: {
+                    message.aggregateRating = $root.AggregateRating.decode(reader, reader.uint32());
+                    break;
+                }
+            case 15: {
+                    message.annotations = $root.Annotations.decode(reader, reader.uint32());
+                    break;
+                }
+            case 16: {
+                    message.detailsUrl = reader.string();
+                    break;
+                }
+            case 17: {
+                    message.shareUrl = reader.string();
+                    break;
+                }
+            case 18: {
+                    message.reviewsUrl = reader.string();
+                    break;
+                }
+            case 19: {
+                    message.backendUrl = reader.string();
+                    break;
+                }
+            case 20: {
+                    message.purchaseDetailsUrl = reader.string();
+                    break;
+                }
+            case 21: {
+                    message.detailsReusable = reader.bool();
+                    break;
+                }
+            case 22: {
+                    message.subtitle = reader.string();
+                    break;
+                }
+            case 23: {
+                    message.translatedDescriptionHtml = reader.string();
+                    break;
+                }
+            case 24: {
+                    message.serverLogsCookie = reader.bytes();
+                    break;
+                }
+            case 25: {
+                    message.appInfo = $root.AppInfo.decode(reader, reader.uint32());
+                    break;
+                }
+            case 26: {
+                    message.mature = reader.bool();
+                    break;
+                }
+            case 27: {
+                    message.promotionalDescription = reader.string();
+                    break;
+                }
+            case 29: {
+                    message.availableForPreregistration = reader.bool();
+                    break;
+                }
+            case 30: {
+                    if (!(message.tip && message.tip.length))
+                        message.tip = [];
+                    message.tip.push($root.ReviewTip.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 31: {
+                    message.reviewSnippetsUrl = reader.string();
+                    break;
+                }
+            case 32: {
+                    message.forceShareability = reader.bool();
+                    break;
+                }
+            case 33: {
+                    message.useWishlistAsPrimaryAction = reader.bool();
+                    break;
+                }
+            case 34: {
+                    message.reviewQuestionsUrl = reader.string();
+                    break;
+                }
+            case 39: {
+                    message.reviewSummaryUrl = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -42732,7 +45529,7 @@ $root.Item = (function() {
         if (object.serverLogsCookie != null)
             if (typeof object.serverLogsCookie === "string")
                 $util.base64.decode(object.serverLogsCookie, message.serverLogsCookie = $util.newBuffer($util.base64.length(object.serverLogsCookie)), 0);
-            else if (object.serverLogsCookie.length)
+            else if (object.serverLogsCookie.length >= 0)
                 message.serverLogsCookie = object.serverLogsCookie;
         if (object.appInfo != null) {
             if (typeof object.appInfo !== "object")
@@ -42919,6 +45716,21 @@ $root.Item = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Item
+     * @function getTypeUrl
+     * @memberof Item
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Item.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Item";
+    };
+
     return Item;
 })();
 
@@ -43027,14 +45839,16 @@ $root.AppInfo = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.title = reader.string();
-                break;
-            case 2:
-                if (!(message.section && message.section.length))
-                    message.section = [];
-                message.section.push($root.AppInfoSection.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 2: {
+                    if (!(message.section && message.section.length))
+                        message.section = [];
+                    message.section.push($root.AppInfoSection.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -43150,6 +45964,21 @@ $root.AppInfo = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AppInfo
+     * @function getTypeUrl
+     * @memberof AppInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AppInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AppInfo";
+    };
+
     return AppInfo;
 })();
 
@@ -43256,12 +46085,14 @@ $root.AppInfoSection = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.label = reader.string();
-                break;
-            case 3:
-                message.container = $root.AppInfoContainer.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.label = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.container = $root.AppInfoContainer.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -43363,6 +46194,21 @@ $root.AppInfoSection = (function() {
      */
     AppInfoSection.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for AppInfoSection
+     * @function getTypeUrl
+     * @memberof AppInfoSection
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AppInfoSection.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AppInfoSection";
     };
 
     return AppInfoSection;
@@ -43471,12 +46317,14 @@ $root.AppInfoContainer = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.image = $root.Image.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.description = reader.string();
-                break;
+            case 1: {
+                    message.image = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.description = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -43578,6 +46426,21 @@ $root.AppInfoContainer = (function() {
      */
     AppInfoContainer.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for AppInfoContainer
+     * @function getTypeUrl
+     * @memberof AppInfoContainer
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AppInfoContainer.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AppInfoContainer";
     };
 
     return AppInfoContainer;
@@ -44181,163 +47044,208 @@ $root.Annotations = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.sectionRelated = $root.SectionMetaData.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.sectionMoreBy = $root.SectionMetaData.decode(reader, reader.uint32());
-                break;
-            case 4:
-                if (!(message.warning && message.warning.length))
-                    message.warning = [];
-                message.warning.push($root.Warning.decode(reader, reader.uint32()));
-                break;
-            case 5:
-                message.sectionBodyOfWork = $root.SectionMetaData.decode(reader, reader.uint32());
-                break;
-            case 6:
-                message.sectionCoreContent = $root.SectionMetaData.decode(reader, reader.uint32());
-                break;
-            case 7:
-                message.overlayMetaData = $root.OverlayMetaData.decode(reader, reader.uint32());
-                break;
-            case 8:
-                if (!(message.badgeForCreator && message.badgeForCreator.length))
-                    message.badgeForCreator = [];
-                message.badgeForCreator.push($root.Badge.decode(reader, reader.uint32()));
-                break;
-            case 9:
-                if (!(message.infoBadge && message.infoBadge.length))
-                    message.infoBadge = [];
-                message.infoBadge.push($root.Badge.decode(reader, reader.uint32()));
-                break;
-            case 10:
-                message.annotationLink = $root.AnnotationLink.decode(reader, reader.uint32());
-                break;
-            case 11:
-                message.sectionCrossSell = $root.SectionMetaData.decode(reader, reader.uint32());
-                break;
-            case 12:
-                message.sectionRelatedItemType = $root.SectionMetaData.decode(reader, reader.uint32());
-                break;
-            case 13:
-                if (!(message.promotedDoc && message.promotedDoc.length))
-                    message.promotedDoc = [];
-                message.promotedDoc.push($root.PromotedDoc.decode(reader, reader.uint32()));
-                break;
-            case 14:
-                message.offerNote = reader.string();
-                break;
-            case 18:
-                message.privacyPolicyUrl = reader.string();
-                break;
-            case 19:
-                message.suggestionReasons = $root.SuggestionReasons.decode(reader, reader.uint32());
-                break;
-            case 20:
-                message.optimalDeviceClassWarning = $root.Warning.decode(reader, reader.uint32());
-                break;
-            case 21:
-                if (!(message.badgeContainer && message.badgeContainer.length))
-                    message.badgeContainer = [];
-                message.badgeContainer.push($root.BadgeContainer.decode(reader, reader.uint32()));
-                break;
-            case 22:
-                message.sectionSuggestForRating = $root.SectionMetaData.decode(reader, reader.uint32());
-                break;
-            case 24:
-                message.sectionPurchaseCrossSell = $root.SectionMetaData.decode(reader, reader.uint32());
-                break;
-            case 25:
-                if (!(message.overflowLink && message.overflowLink.length))
-                    message.overflowLink = [];
-                message.overflowLink.push($root.OverflowLink.decode(reader, reader.uint32()));
-                break;
-            case 27:
-                message.attributionHtml = reader.string();
-                break;
-            case 28:
-                message.purchaseHistoryDetails = $root.PurchaseHistoryDetails.decode(reader, reader.uint32());
-                break;
-            case 29:
-                message.badgeForLegacyRating = $root.Badge.decode(reader, reader.uint32());
-                break;
-            case 30:
-                if (!(message.voucherInfo && message.voucherInfo.length))
-                    message.voucherInfo = [];
-                message.voucherInfo.push($root.VoucherInfo.decode(reader, reader.uint32()));
-                break;
-            case 32:
-                message.sectionFeaturedApps = $root.SectionMetaData.decode(reader, reader.uint32());
-                break;
-            case 34:
-                if (!(message.detailsPageCluster && message.detailsPageCluster.length))
-                    message.detailsPageCluster = [];
-                message.detailsPageCluster.push($root.SectionMetaData.decode(reader, reader.uint32()));
-                break;
-            case 35:
-                message.videoAnnotations = $root.VideoAnnotations.decode(reader, reader.uint32());
-                break;
-            case 36:
-                message.sectionPurchaseRelatedTopics = $root.SectionMetaData.decode(reader, reader.uint32());
-                break;
-            case 37:
-                message.mySubscriptionDetails = $root.MySubscriptionDetails.decode(reader, reader.uint32());
-                break;
-            case 38:
-                message.myRewardDetails = $root.MyRewardDetails.decode(reader, reader.uint32());
-                break;
-            case 39:
-                if (!(message.featureBadge && message.featureBadge.length))
-                    message.featureBadge = [];
-                message.featureBadge.push($root.Badge.decode(reader, reader.uint32()));
-                break;
-            case 42:
-                message.snippet = $root.Snippet.decode(reader, reader.uint32());
-                break;
-            case 48:
-                message.downloadsLabel = reader.string();
-                break;
-            case 50:
-                message.badgeForRating = $root.Badge.decode(reader, reader.uint32());
-                break;
-            case 53:
-                message.categoryInfo = $root.CategoryInfo.decode(reader, reader.uint32());
-                break;
-            case 60:
-                message.reasons = $root.EditorReason.decode(reader, reader.uint32());
-                break;
-            case 65:
-                message.topChartStream = $root.Stream.decode(reader, reader.uint32());
-                break;
-            case 66:
-                message.categoryName = reader.string();
-                break;
-            case 71:
-                if (!(message.chip && message.chip.length))
-                    message.chip = [];
-                message.chip.push($root.Chip.decode(reader, reader.uint32()));
-                break;
-            case 72:
-                if (!(message.displayBadge && message.displayBadge.length))
-                    message.displayBadge = [];
-                message.displayBadge.push($root.Badge.decode(reader, reader.uint32()));
-                break;
-            case 80:
-                message.liveStreamUrl = reader.string();
-                break;
-            case 85:
-                message.promotionStreamUrl = reader.string();
-                break;
-            case 91:
-                message.overlayMetaDataExtra = $root.OverlayMetaData.decode(reader, reader.uint32());
-                break;
-            case 94:
-                message.sectionImage = $root.SectionImage.decode(reader, reader.uint32());
-                break;
-            case 97:
-                message.categoryStream = $root.SubStream.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.sectionRelated = $root.SectionMetaData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.sectionMoreBy = $root.SectionMetaData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    if (!(message.warning && message.warning.length))
+                        message.warning = [];
+                    message.warning.push($root.Warning.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 5: {
+                    message.sectionBodyOfWork = $root.SectionMetaData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 6: {
+                    message.sectionCoreContent = $root.SectionMetaData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 7: {
+                    message.overlayMetaData = $root.OverlayMetaData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 8: {
+                    if (!(message.badgeForCreator && message.badgeForCreator.length))
+                        message.badgeForCreator = [];
+                    message.badgeForCreator.push($root.Badge.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 9: {
+                    if (!(message.infoBadge && message.infoBadge.length))
+                        message.infoBadge = [];
+                    message.infoBadge.push($root.Badge.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 10: {
+                    message.annotationLink = $root.AnnotationLink.decode(reader, reader.uint32());
+                    break;
+                }
+            case 11: {
+                    message.sectionCrossSell = $root.SectionMetaData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 12: {
+                    message.sectionRelatedItemType = $root.SectionMetaData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 13: {
+                    if (!(message.promotedDoc && message.promotedDoc.length))
+                        message.promotedDoc = [];
+                    message.promotedDoc.push($root.PromotedDoc.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 14: {
+                    message.offerNote = reader.string();
+                    break;
+                }
+            case 18: {
+                    message.privacyPolicyUrl = reader.string();
+                    break;
+                }
+            case 19: {
+                    message.suggestionReasons = $root.SuggestionReasons.decode(reader, reader.uint32());
+                    break;
+                }
+            case 20: {
+                    message.optimalDeviceClassWarning = $root.Warning.decode(reader, reader.uint32());
+                    break;
+                }
+            case 21: {
+                    if (!(message.badgeContainer && message.badgeContainer.length))
+                        message.badgeContainer = [];
+                    message.badgeContainer.push($root.BadgeContainer.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 22: {
+                    message.sectionSuggestForRating = $root.SectionMetaData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 24: {
+                    message.sectionPurchaseCrossSell = $root.SectionMetaData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 25: {
+                    if (!(message.overflowLink && message.overflowLink.length))
+                        message.overflowLink = [];
+                    message.overflowLink.push($root.OverflowLink.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 27: {
+                    message.attributionHtml = reader.string();
+                    break;
+                }
+            case 28: {
+                    message.purchaseHistoryDetails = $root.PurchaseHistoryDetails.decode(reader, reader.uint32());
+                    break;
+                }
+            case 29: {
+                    message.badgeForLegacyRating = $root.Badge.decode(reader, reader.uint32());
+                    break;
+                }
+            case 30: {
+                    if (!(message.voucherInfo && message.voucherInfo.length))
+                        message.voucherInfo = [];
+                    message.voucherInfo.push($root.VoucherInfo.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 32: {
+                    message.sectionFeaturedApps = $root.SectionMetaData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 34: {
+                    if (!(message.detailsPageCluster && message.detailsPageCluster.length))
+                        message.detailsPageCluster = [];
+                    message.detailsPageCluster.push($root.SectionMetaData.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 35: {
+                    message.videoAnnotations = $root.VideoAnnotations.decode(reader, reader.uint32());
+                    break;
+                }
+            case 36: {
+                    message.sectionPurchaseRelatedTopics = $root.SectionMetaData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 37: {
+                    message.mySubscriptionDetails = $root.MySubscriptionDetails.decode(reader, reader.uint32());
+                    break;
+                }
+            case 38: {
+                    message.myRewardDetails = $root.MyRewardDetails.decode(reader, reader.uint32());
+                    break;
+                }
+            case 39: {
+                    if (!(message.featureBadge && message.featureBadge.length))
+                        message.featureBadge = [];
+                    message.featureBadge.push($root.Badge.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 42: {
+                    message.snippet = $root.Snippet.decode(reader, reader.uint32());
+                    break;
+                }
+            case 48: {
+                    message.downloadsLabel = reader.string();
+                    break;
+                }
+            case 50: {
+                    message.badgeForRating = $root.Badge.decode(reader, reader.uint32());
+                    break;
+                }
+            case 53: {
+                    message.categoryInfo = $root.CategoryInfo.decode(reader, reader.uint32());
+                    break;
+                }
+            case 60: {
+                    message.reasons = $root.EditorReason.decode(reader, reader.uint32());
+                    break;
+                }
+            case 65: {
+                    message.topChartStream = $root.Stream.decode(reader, reader.uint32());
+                    break;
+                }
+            case 66: {
+                    message.categoryName = reader.string();
+                    break;
+                }
+            case 71: {
+                    if (!(message.chip && message.chip.length))
+                        message.chip = [];
+                    message.chip.push($root.Chip.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 72: {
+                    if (!(message.displayBadge && message.displayBadge.length))
+                        message.displayBadge = [];
+                    message.displayBadge.push($root.Badge.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 80: {
+                    message.liveStreamUrl = reader.string();
+                    break;
+                }
+            case 85: {
+                    message.promotionStreamUrl = reader.string();
+                    break;
+                }
+            case 91: {
+                    message.overlayMetaDataExtra = $root.OverlayMetaData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 94: {
+                    message.sectionImage = $root.SectionImage.decode(reader, reader.uint32());
+                    break;
+                }
+            case 97: {
+                    message.categoryStream = $root.SubStream.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -45104,6 +48012,21 @@ $root.Annotations = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Annotations
+     * @function getTypeUrl
+     * @memberof Annotations
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Annotations.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Annotations";
+    };
+
     return Annotations;
 })();
 
@@ -45212,14 +48135,16 @@ $root.EditorReason = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.bulletin && message.bulletin.length))
-                    message.bulletin = [];
-                message.bulletin.push(reader.string());
-                break;
-            case 2:
-                message.description = reader.string();
-                break;
+            case 1: {
+                    if (!(message.bulletin && message.bulletin.length))
+                        message.bulletin = [];
+                    message.bulletin.push(reader.string());
+                    break;
+                }
+            case 2: {
+                    message.description = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -45328,6 +48253,21 @@ $root.EditorReason = (function() {
      */
     EditorReason.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for EditorReason
+     * @function getTypeUrl
+     * @memberof EditorReason
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    EditorReason.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/EditorReason";
     };
 
     return EditorReason;
@@ -45458,18 +48398,22 @@ $root.SectionMetaData = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.header = reader.string();
-                break;
-            case 2:
-                message.listUrl = reader.string();
-                break;
-            case 3:
-                message.browseUrl = reader.string();
-                break;
-            case 4:
-                message.description = reader.string();
-                break;
+            case 1: {
+                    message.header = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.listUrl = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.browseUrl = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.description = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -45582,6 +48526,21 @@ $root.SectionMetaData = (function() {
      */
     SectionMetaData.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for SectionMetaData
+     * @function getTypeUrl
+     * @memberof SectionMetaData
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SectionMetaData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SectionMetaData";
     };
 
     return SectionMetaData;
@@ -45701,15 +48660,18 @@ $root.OverlayMetaData = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.overlayHeader = $root.OverlayHeader.decode(reader, reader.uint32());
-                break;
-            case 181:
-                message.overlayTitle = $root.OverlayTitle.decode(reader, reader.uint32());
-                break;
-            case 182:
-                message.overlayDescription = $root.OverlayDescription.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.overlayHeader = $root.OverlayHeader.decode(reader, reader.uint32());
+                    break;
+                }
+            case 181: {
+                    message.overlayTitle = $root.OverlayTitle.decode(reader, reader.uint32());
+                    break;
+                }
+            case 182: {
+                    message.overlayDescription = $root.OverlayDescription.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -45829,6 +48791,21 @@ $root.OverlayMetaData = (function() {
      */
     OverlayMetaData.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for OverlayMetaData
+     * @function getTypeUrl
+     * @memberof OverlayMetaData
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    OverlayMetaData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/OverlayMetaData";
     };
 
     return OverlayMetaData;
@@ -45991,6 +48968,21 @@ $root.OverlayHeader = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for OverlayHeader
+     * @function getTypeUrl
+     * @memberof OverlayHeader
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    OverlayHeader.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/OverlayHeader";
+    };
+
     return OverlayHeader;
 })();
 
@@ -46097,12 +49089,14 @@ $root.OverlayTitle = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.title = reader.string();
-                break;
-            case 3:
-                message.compositeImage = $root.CompositeImage.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.compositeImage = $root.CompositeImage.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -46204,6 +49198,21 @@ $root.OverlayTitle = (function() {
      */
     OverlayTitle.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for OverlayTitle
+     * @function getTypeUrl
+     * @memberof OverlayTitle
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    OverlayTitle.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/OverlayTitle";
     };
 
     return OverlayTitle;
@@ -46345,21 +49354,26 @@ $root.CompositeImage = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.type = reader.int32();
-                break;
-            case 5:
-                message.url = reader.string();
-                break;
-            case 9:
-                message.typeAlt = reader.int32();
-                break;
-            case 24:
-                message.title = reader.string();
-                break;
-            case 28:
-                message.urlAlt = reader.string();
-                break;
+            case 1: {
+                    message.type = reader.int32();
+                    break;
+                }
+            case 5: {
+                    message.url = reader.string();
+                    break;
+                }
+            case 9: {
+                    message.typeAlt = reader.int32();
+                    break;
+                }
+            case 24: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 28: {
+                    message.urlAlt = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -46482,6 +49496,21 @@ $root.CompositeImage = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for CompositeImage
+     * @function getTypeUrl
+     * @memberof CompositeImage
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CompositeImage.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CompositeImage";
+    };
+
     return CompositeImage;
 })();
 
@@ -46577,9 +49606,10 @@ $root.OverlayDescription = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 2:
-                message.description = reader.string();
-                break;
+            case 2: {
+                    message.description = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -46667,6 +49697,21 @@ $root.OverlayDescription = (function() {
      */
     OverlayDescription.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for OverlayDescription
+     * @function getTypeUrl
+     * @memberof OverlayDescription
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    OverlayDescription.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/OverlayDescription";
     };
 
     return OverlayDescription;
@@ -46788,17 +49833,20 @@ $root.SuggestionReasons = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 2:
-                if (!(message.reason && message.reason.length))
-                    message.reason = [];
-                message.reason.push($root.Reason.decode(reader, reader.uint32()));
-                break;
-            case 4:
-                message.neutralDismissal = $root.Dismissal.decode(reader, reader.uint32());
-                break;
-            case 5:
-                message.positiveDismissal = $root.Dismissal.decode(reader, reader.uint32());
-                break;
+            case 2: {
+                    if (!(message.reason && message.reason.length))
+                        message.reason = [];
+                    message.reason.push($root.Reason.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 4: {
+                    message.neutralDismissal = $root.Dismissal.decode(reader, reader.uint32());
+                    break;
+                }
+            case 5: {
+                    message.positiveDismissal = $root.Dismissal.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -46931,6 +49979,21 @@ $root.SuggestionReasons = (function() {
      */
     SuggestionReasons.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for SuggestionReasons
+     * @function getTypeUrl
+     * @memberof SuggestionReasons
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SuggestionReasons.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SuggestionReasons";
     };
 
     return SuggestionReasons;
@@ -47072,21 +50135,26 @@ $root.Reason = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 3:
-                message.descriptionHtml = reader.string();
-                break;
-            case 4:
-                message.reasonPlusOne = $root.ReasonPlusOne.decode(reader, reader.uint32());
-                break;
-            case 5:
-                message.reasonReview = $root.ReasonReview.decode(reader, reader.uint32());
-                break;
-            case 7:
-                message.dismissal = $root.Dismissal.decode(reader, reader.uint32());
-                break;
-            case 9:
-                message.reasonUserAction = $root.ReasonUserAction.decode(reader, reader.uint32());
-                break;
+            case 3: {
+                    message.descriptionHtml = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.reasonPlusOne = $root.ReasonPlusOne.decode(reader, reader.uint32());
+                    break;
+                }
+            case 5: {
+                    message.reasonReview = $root.ReasonReview.decode(reader, reader.uint32());
+                    break;
+                }
+            case 7: {
+                    message.dismissal = $root.Dismissal.decode(reader, reader.uint32());
+                    break;
+                }
+            case 9: {
+                    message.reasonUserAction = $root.ReasonUserAction.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -47229,6 +50297,21 @@ $root.Reason = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Reason
+     * @function getTypeUrl
+     * @memberof Reason
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Reason.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Reason";
+    };
+
     return Reason;
 })();
 
@@ -47337,14 +50420,16 @@ $root.ReasonPlusOne = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.localizedDescriptionHtml = reader.string();
-                break;
-            case 3:
-                if (!(message.userProfile && message.userProfile.length))
-                    message.userProfile = [];
-                message.userProfile.push($root.UserProfile.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.localizedDescriptionHtml = reader.string();
+                    break;
+                }
+            case 3: {
+                    if (!(message.userProfile && message.userProfile.length))
+                        message.userProfile = [];
+                    message.userProfile.push($root.UserProfile.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -47460,6 +50545,21 @@ $root.ReasonPlusOne = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for ReasonPlusOne
+     * @function getTypeUrl
+     * @memberof ReasonPlusOne
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReasonPlusOne.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReasonPlusOne";
+    };
+
     return ReasonPlusOne;
 })();
 
@@ -47555,9 +50655,10 @@ $root.ReasonReview = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.review = $root.Review.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.review = $root.Review.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -47650,6 +50751,21 @@ $root.ReasonReview = (function() {
      */
     ReasonReview.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ReasonReview
+     * @function getTypeUrl
+     * @memberof ReasonReview
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReasonReview.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReasonReview";
     };
 
     return ReasonReview;
@@ -47758,12 +50874,14 @@ $root.ReasonUserAction = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.userProfile = $root.UserProfile.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.localizedDescriptionHtml = reader.string();
-                break;
+            case 1: {
+                    message.userProfile = $root.UserProfile.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.localizedDescriptionHtml = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -47865,6 +50983,21 @@ $root.ReasonUserAction = (function() {
      */
     ReasonUserAction.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ReasonUserAction
+     * @function getTypeUrl
+     * @memberof ReasonUserAction
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReasonUserAction.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReasonUserAction";
     };
 
     return ReasonUserAction;
@@ -47973,12 +51106,14 @@ $root.Dismissal = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.url = reader.string();
-                break;
-            case 2:
-                message.descriptionHtml = reader.string();
-                break;
+            case 1: {
+                    message.url = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.descriptionHtml = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -48077,6 +51212,21 @@ $root.Dismissal = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Dismissal
+     * @function getTypeUrl
+     * @memberof Dismissal
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Dismissal.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Dismissal";
+    };
+
     return Dismissal;
 })();
 
@@ -48172,9 +51322,10 @@ $root.Snippet = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.snippetHtml = reader.string();
-                break;
+            case 1: {
+                    message.snippetHtml = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -48262,6 +51413,21 @@ $root.Snippet = (function() {
      */
     Snippet.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for Snippet
+     * @function getTypeUrl
+     * @memberof Snippet
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Snippet.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Snippet";
     };
 
     return Snippet;
@@ -48392,18 +51558,22 @@ $root.MyRewardDetails = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.expirationTimeMillis = reader.int64();
-                break;
-            case 2:
-                message.expirationDescription = reader.string();
-                break;
-            case 3:
-                message.buttonLabel = reader.string();
-                break;
-            case 4:
-                message.linkAction = $root.Link.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.expirationTimeMillis = reader.int64();
+                    break;
+                }
+            case 2: {
+                    message.expirationDescription = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.buttonLabel = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.linkAction = $root.Link.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -48535,6 +51705,21 @@ $root.MyRewardDetails = (function() {
      */
     MyRewardDetails.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for MyRewardDetails
+     * @function getTypeUrl
+     * @memberof MyRewardDetails
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    MyRewardDetails.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/MyRewardDetails";
     };
 
     return MyRewardDetails;
@@ -48720,33 +51905,42 @@ $root.MySubscriptionDetails = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.subscriptionStatusHtml = reader.string();
-                break;
-            case 2:
-                message.title = reader.string();
-                break;
-            case 3:
-                message.titleByLineHtml = reader.string();
-                break;
-            case 4:
-                message.formattedPrice = reader.string();
-                break;
-            case 5:
-                message.priceByLineHtml = reader.string();
-                break;
-            case 6:
-                message.cancelSubscription = reader.bool();
-                break;
-            case 7:
-                message.paymentDeclinedLearnMoreLink = $root.Link.decode(reader, reader.uint32());
-                break;
-            case 8:
-                message.inTrialPeriod = reader.bool();
-                break;
-            case 9:
-                message.titleByLineIcon = $root.Image.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.subscriptionStatusHtml = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.titleByLineHtml = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.formattedPrice = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.priceByLineHtml = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.cancelSubscription = reader.bool();
+                    break;
+                }
+            case 7: {
+                    message.paymentDeclinedLearnMoreLink = $root.Link.decode(reader, reader.uint32());
+                    break;
+                }
+            case 8: {
+                    message.inTrialPeriod = reader.bool();
+                    break;
+                }
+            case 9: {
+                    message.titleByLineIcon = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -48911,6 +52105,21 @@ $root.MySubscriptionDetails = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for MySubscriptionDetails
+     * @function getTypeUrl
+     * @memberof MySubscriptionDetails
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    MySubscriptionDetails.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/MySubscriptionDetails";
+    };
+
     return MySubscriptionDetails;
 })();
 
@@ -49052,23 +52261,28 @@ $root.VideoAnnotations = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.bundle = reader.bool();
-                break;
-            case 2:
-                message.bundleContentListUrl = reader.string();
-                break;
-            case 3:
-                message.extrasContentListUrl = reader.string();
-                break;
-            case 4:
-                message.alsoAvailableInListUrl = reader.string();
-                break;
-            case 5:
-                if (!(message.bundleDocId && message.bundleDocId.length))
-                    message.bundleDocId = [];
-                message.bundleDocId.push($root.DocId.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.bundle = reader.bool();
+                    break;
+                }
+            case 2: {
+                    message.bundleContentListUrl = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.extrasContentListUrl = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.alsoAvailableInListUrl = reader.string();
+                    break;
+                }
+            case 5: {
+                    if (!(message.bundleDocId && message.bundleDocId.length))
+                        message.bundleDocId = [];
+                    message.bundleDocId.push($root.DocId.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -49209,6 +52423,21 @@ $root.VideoAnnotations = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for VideoAnnotations
+     * @function getTypeUrl
+     * @memberof VideoAnnotations
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    VideoAnnotations.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/VideoAnnotations";
+    };
+
     return VideoAnnotations;
 })();
 
@@ -49317,14 +52546,16 @@ $root.VoucherInfo = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.item = $root.Item.decode(reader, reader.uint32());
-                break;
-            case 2:
-                if (!(message.offer && message.offer.length))
-                    message.offer = [];
-                message.offer.push($root.Offer.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.item = $root.Item.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    if (!(message.offer && message.offer.length))
+                        message.offer = [];
+                    message.offer.push($root.Offer.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -49443,6 +52674,21 @@ $root.VoucherInfo = (function() {
      */
     VoucherInfo.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for VoucherInfo
+     * @function getTypeUrl
+     * @memberof VoucherInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    VoucherInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/VoucherInfo";
     };
 
     return VoucherInfo;
@@ -49566,19 +52812,22 @@ $root.BadgeContainer = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.title = reader.string();
-                break;
-            case 2:
-                if (!(message.image && message.image.length))
-                    message.image = [];
-                message.image.push($root.Image.decode(reader, reader.uint32()));
-                break;
-            case 3:
-                if (!(message.badge && message.badge.length))
-                    message.badge = [];
-                message.badge.push($root.Badge.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 2: {
+                    if (!(message.image && message.image.length))
+                        message.image = [];
+                    message.image.push($root.Image.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 3: {
+                    if (!(message.badge && message.badge.length))
+                        message.badge = [];
+                    message.badge.push($root.Badge.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -49720,6 +52969,21 @@ $root.BadgeContainer = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for BadgeContainer
+     * @function getTypeUrl
+     * @memberof BadgeContainer
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    BadgeContainer.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/BadgeContainer";
+    };
+
     return BadgeContainer;
 })();
 
@@ -49826,12 +53090,14 @@ $root.OverflowLink = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.title = reader.string();
-                break;
-            case 2:
-                message.link = $root.Link.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.link = $root.Link.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -49933,6 +53199,21 @@ $root.OverflowLink = (function() {
      */
     OverflowLink.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for OverflowLink
+     * @function getTypeUrl
+     * @memberof OverflowLink
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    OverflowLink.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/OverflowLink";
     };
 
     return OverflowLink;
@@ -50076,23 +53357,28 @@ $root.PromotedDoc = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.title = reader.string();
-                break;
-            case 2:
-                message.subtitle = reader.string();
-                break;
-            case 3:
-                if (!(message.image && message.image.length))
-                    message.image = [];
-                message.image.push($root.Image.decode(reader, reader.uint32()));
-                break;
-            case 4:
-                message.description = reader.string();
-                break;
-            case 5:
-                message.detailsUrl = reader.string();
-                break;
+            case 1: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.subtitle = reader.string();
+                    break;
+                }
+            case 3: {
+                    if (!(message.image && message.image.length))
+                        message.image = [];
+                    message.image.push($root.Image.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 4: {
+                    message.description = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.detailsUrl = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -50233,6 +53519,21 @@ $root.PromotedDoc = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for PromotedDoc
+     * @function getTypeUrl
+     * @memberof PromotedDoc
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PromotedDoc.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PromotedDoc";
+    };
+
     return PromotedDoc;
 })();
 
@@ -50328,9 +53629,10 @@ $root.Warning = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.localizedMessage = reader.string();
-                break;
+            case 1: {
+                    message.localizedMessage = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -50418,6 +53720,21 @@ $root.Warning = (function() {
      */
     Warning.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for Warning
+     * @function getTypeUrl
+     * @memberof Warning
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Warning.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Warning";
     };
 
     return Warning;
@@ -50537,15 +53854,18 @@ $root.AnnotationLink = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.uri = reader.string();
-                break;
-            case 2:
-                message.resolvedLink = $root.ResolvedLink.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.uriBackend = reader.int32();
-                break;
+            case 1: {
+                    message.uri = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.resolvedLink = $root.ResolvedLink.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.uriBackend = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -50655,6 +53975,21 @@ $root.AnnotationLink = (function() {
      */
     AnnotationLink.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for AnnotationLink
+     * @function getTypeUrl
+     * @memberof AnnotationLink
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AnnotationLink.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AnnotationLink";
     };
 
     return AnnotationLink;
@@ -50774,15 +54109,18 @@ $root.Rated = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.label = reader.string();
-                break;
-            case 2:
-                message.image = $root.Image.decode(reader, reader.uint32());
-                break;
-            case 4:
-                message.learnMoreHtmlLink = reader.string();
-                break;
+            case 1: {
+                    message.label = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.image = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    message.learnMoreHtmlLink = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -50892,6 +54230,21 @@ $root.Rated = (function() {
      */
     Rated.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for Rated
+     * @function getTypeUrl
+     * @memberof Rated
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Rated.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Rated";
     };
 
     return Rated;
@@ -51066,30 +54419,38 @@ $root.Badge = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.major = reader.string();
-                break;
-            case 2:
-                message.image = $root.Image.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.minor = reader.string();
-                break;
-            case 4:
-                message.minorHtml = reader.string();
-                break;
-            case 6:
-                message.subBadge = $root.SubBadge.decode(reader, reader.uint32());
-                break;
-            case 7:
-                message.link = $root.StreamLink.decode(reader, reader.uint32());
-                break;
-            case 8:
-                message.description = reader.string();
-                break;
-            case 12:
-                message.stream = $root.SubStream.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.major = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.image = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.minor = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.minorHtml = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.subBadge = $root.SubBadge.decode(reader, reader.uint32());
+                    break;
+                }
+            case 7: {
+                    message.link = $root.StreamLink.decode(reader, reader.uint32());
+                    break;
+                }
+            case 8: {
+                    message.description = reader.string();
+                    break;
+                }
+            case 12: {
+                    message.stream = $root.SubStream.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -51256,6 +54617,21 @@ $root.Badge = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Badge
+     * @function getTypeUrl
+     * @memberof Badge
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Badge.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Badge";
+    };
+
     return Badge;
 })();
 
@@ -51373,15 +54749,18 @@ $root.SubBadge = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.image = $root.Image.decode(reader, reader.uint32());
-                break;
-            case 4:
-                message.description = reader.string();
-                break;
-            case 5:
-                message.link = $root.StreamLink.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.image = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    message.description = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.link = $root.StreamLink.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -51496,6 +54875,21 @@ $root.SubBadge = (function() {
      */
     SubBadge.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for SubBadge
+     * @function getTypeUrl
+     * @memberof SubBadge
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SubBadge.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SubBadge";
     };
 
     return SubBadge;
@@ -51615,15 +55009,18 @@ $root.Stream = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.title = reader.string();
-                break;
-            case 2:
-                message.stream = $root.SubStream.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.subtitle = reader.string();
-                break;
+            case 1: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.stream = $root.SubStream.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.subtitle = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -51735,6 +55132,21 @@ $root.Stream = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Stream
+     * @function getTypeUrl
+     * @memberof Stream
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Stream.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Stream";
+    };
+
     return Stream;
 })();
 
@@ -51830,9 +55242,10 @@ $root.SubStream = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 2:
-                message.link = $root.StreamLink.decode(reader, reader.uint32());
-                break;
+            case 2: {
+                    message.link = $root.StreamLink.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -51925,6 +55338,21 @@ $root.SubStream = (function() {
      */
     SubStream.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for SubStream
+     * @function getTypeUrl
+     * @memberof SubStream
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SubStream.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SubStream";
     };
 
     return SubStream;
@@ -52044,15 +55472,18 @@ $root.Link = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.uri = reader.string();
-                break;
-            case 2:
-                message.resolvedLink = $root.ResolvedLink.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.uriBackend = reader.int32();
-                break;
+            case 1: {
+                    message.uri = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.resolvedLink = $root.ResolvedLink.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.uriBackend = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -52162,6 +55593,21 @@ $root.Link = (function() {
      */
     Link.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for Link
+     * @function getTypeUrl
+     * @memberof Link
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Link.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Link";
     };
 
     return Link;
@@ -52303,21 +55749,26 @@ $root.StreamLink = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.url = reader.string();
-                break;
-            case 2:
-                message.streamUrl = reader.string();
-                break;
-            case 3:
-                message.searchUrl = reader.string();
-                break;
-            case 5:
-                message.subCategoryUrl = reader.string();
-                break;
-            case 11:
-                message.searchQuery = reader.string();
-                break;
+            case 1: {
+                    message.url = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.streamUrl = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.searchUrl = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.subCategoryUrl = reader.string();
+                    break;
+                }
+            case 11: {
+                    message.searchQuery = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -52440,6 +55891,21 @@ $root.StreamLink = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for StreamLink
+     * @function getTypeUrl
+     * @memberof StreamLink
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    StreamLink.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/StreamLink";
+    };
+
     return StreamLink;
 })();
 
@@ -52546,12 +56012,14 @@ $root.Chip = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.title = reader.string();
-                break;
-            case 2:
-                message.stream = $root.SubStream.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.stream = $root.SubStream.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -52653,6 +56121,21 @@ $root.Chip = (function() {
      */
     Chip.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for Chip
+     * @function getTypeUrl
+     * @memberof Chip
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Chip.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Chip";
     };
 
     return Chip;
@@ -52761,12 +56244,14 @@ $root.CategoryInfo = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.category = reader.string();
-                break;
-            case 2:
-                message.appCategory = reader.string();
-                break;
+            case 1: {
+                    message.category = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.appCategory = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -52863,6 +56348,21 @@ $root.CategoryInfo = (function() {
      */
     CategoryInfo.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for CategoryInfo
+     * @function getTypeUrl
+     * @memberof CategoryInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CategoryInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CategoryInfo";
     };
 
     return CategoryInfo;
@@ -53015,24 +56515,30 @@ $root.EncryptedSubscriberInfo = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.data = reader.string();
-                break;
-            case 2:
-                message.encryptedKey = reader.string();
-                break;
-            case 3:
-                message.signature = reader.string();
-                break;
-            case 4:
-                message.initVector = reader.string();
-                break;
-            case 5:
-                message.googleKeyVersion = reader.int32();
-                break;
-            case 6:
-                message.carrierKeyVersion = reader.int32();
-                break;
+            case 1: {
+                    message.data = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.encryptedKey = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.signature = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.initVector = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.googleKeyVersion = reader.int32();
+                    break;
+                }
+            case 6: {
+                    message.carrierKeyVersion = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -53161,6 +56667,21 @@ $root.EncryptedSubscriberInfo = (function() {
      */
     EncryptedSubscriberInfo.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for EncryptedSubscriberInfo
+     * @function getTypeUrl
+     * @memberof EncryptedSubscriberInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    EncryptedSubscriberInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/EncryptedSubscriberInfo";
     };
 
     return EncryptedSubscriberInfo;
@@ -53363,42 +56884,52 @@ $root.Availability = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 5:
-                message.restriction = reader.int32();
-                break;
-            case 6:
-                message.offerType = reader.int32();
-                break;
-            case 7:
-                message.rule = $root.Rule.decode(reader, reader.uint32());
-                break;
-            case 9:
-                if (!(message.perDeviceAvailabilityRestriction && message.perDeviceAvailabilityRestriction.length))
-                    message.perDeviceAvailabilityRestriction = [];
-                message.perDeviceAvailabilityRestriction.push($root.Availability.PerDeviceAvailabilityRestriction.decode(reader));
-                break;
-            case 13:
-                message.availableIfOwned = reader.bool();
-                break;
-            case 14:
-                if (!(message.install && message.install.length))
-                    message.install = [];
-                message.install.push($root.Install.decode(reader, reader.uint32()));
-                break;
-            case 16:
-                message.filterInfo = $root.FilterEvaluationInfo.decode(reader, reader.uint32());
-                break;
-            case 17:
-                message.ownershipInfo = $root.OwnershipInfo.decode(reader, reader.uint32());
-                break;
-            case 18:
-                if (!(message.availabilityProblem && message.availabilityProblem.length))
-                    message.availabilityProblem = [];
-                message.availabilityProblem.push($root.AvailabilityProblem.decode(reader, reader.uint32()));
-                break;
-            case 21:
-                message.hidden = reader.bool();
-                break;
+            case 5: {
+                    message.restriction = reader.int32();
+                    break;
+                }
+            case 6: {
+                    message.offerType = reader.int32();
+                    break;
+                }
+            case 7: {
+                    message.rule = $root.Rule.decode(reader, reader.uint32());
+                    break;
+                }
+            case 9: {
+                    if (!(message.perDeviceAvailabilityRestriction && message.perDeviceAvailabilityRestriction.length))
+                        message.perDeviceAvailabilityRestriction = [];
+                    message.perDeviceAvailabilityRestriction.push($root.Availability.PerDeviceAvailabilityRestriction.decode(reader));
+                    break;
+                }
+            case 13: {
+                    message.availableIfOwned = reader.bool();
+                    break;
+                }
+            case 14: {
+                    if (!(message.install && message.install.length))
+                        message.install = [];
+                    message.install.push($root.Install.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 16: {
+                    message.filterInfo = $root.FilterEvaluationInfo.decode(reader, reader.uint32());
+                    break;
+                }
+            case 17: {
+                    message.ownershipInfo = $root.OwnershipInfo.decode(reader, reader.uint32());
+                    break;
+                }
+            case 18: {
+                    if (!(message.availabilityProblem && message.availabilityProblem.length))
+                        message.availabilityProblem = [];
+                    message.availabilityProblem.push($root.AvailabilityProblem.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 21: {
+                    message.hidden = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -53629,6 +57160,21 @@ $root.Availability = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Availability
+     * @function getTypeUrl
+     * @memberof Availability
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Availability.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Availability";
+    };
+
     Availability.PerDeviceAvailabilityRestriction = (function() {
 
         /**
@@ -53756,18 +57302,22 @@ $root.Availability = (function() {
                 if ((tag & 7) === 4)
                     break;
                 switch (tag >>> 3) {
-                case 10:
-                    message.androidId = reader.fixed64();
-                    break;
-                case 11:
-                    message.deviceRestriction = reader.int32();
-                    break;
-                case 12:
-                    message.channelId = reader.int64();
-                    break;
-                case 15:
-                    message.filterInfo = $root.FilterEvaluationInfo.decode(reader, reader.uint32());
-                    break;
+                case 10: {
+                        message.androidId = reader.fixed64();
+                        break;
+                    }
+                case 11: {
+                        message.deviceRestriction = reader.int32();
+                        break;
+                    }
+                case 12: {
+                        message.channelId = reader.int64();
+                        break;
+                    }
+                case 15: {
+                        message.filterInfo = $root.FilterEvaluationInfo.decode(reader, reader.uint32());
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -53915,6 +57465,21 @@ $root.Availability = (function() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
+        /**
+         * Gets the default type url for PerDeviceAvailabilityRestriction
+         * @function getTypeUrl
+         * @memberof Availability.PerDeviceAvailabilityRestriction
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        PerDeviceAvailabilityRestriction.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/Availability.PerDeviceAvailabilityRestriction";
+        };
+
         return PerDeviceAvailabilityRestriction;
     })();
 
@@ -54026,14 +57591,16 @@ $root.AvailabilityProblem = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.problemType = reader.int32();
-                break;
-            case 2:
-                if (!(message.missingValue && message.missingValue.length))
-                    message.missingValue = [];
-                message.missingValue.push(reader.string());
-                break;
+            case 1: {
+                    message.problemType = reader.int32();
+                    break;
+                }
+            case 2: {
+                    if (!(message.missingValue && message.missingValue.length))
+                        message.missingValue = [];
+                    message.missingValue.push(reader.string());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -54144,6 +57711,21 @@ $root.AvailabilityProblem = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AvailabilityProblem
+     * @function getTypeUrl
+     * @memberof AvailabilityProblem
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AvailabilityProblem.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AvailabilityProblem";
+    };
+
     return AvailabilityProblem;
 })();
 
@@ -54241,11 +57823,12 @@ $root.FilterEvaluationInfo = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.ruleEvaluation && message.ruleEvaluation.length))
-                    message.ruleEvaluation = [];
-                message.ruleEvaluation.push($root.RuleEvaluation.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    if (!(message.ruleEvaluation && message.ruleEvaluation.length))
+                        message.ruleEvaluation = [];
+                    message.ruleEvaluation.push($root.RuleEvaluation.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -54350,6 +57933,21 @@ $root.FilterEvaluationInfo = (function() {
      */
     FilterEvaluationInfo.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for FilterEvaluationInfo
+     * @function getTypeUrl
+     * @memberof FilterEvaluationInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    FilterEvaluationInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/FilterEvaluationInfo";
     };
 
     return FilterEvaluationInfo;
@@ -54591,77 +58189,90 @@ $root.Rule = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.negate = reader.bool();
-                break;
-            case 2:
-                message.operator = reader.int32();
-                break;
-            case 3:
-                message.key = reader.int32();
-                break;
-            case 4:
-                if (!(message.stringArg && message.stringArg.length))
-                    message.stringArg = [];
-                message.stringArg.push(reader.string());
-                break;
-            case 5:
-                if (!(message.longArg && message.longArg.length))
-                    message.longArg = [];
-                if ((tag & 7) === 2) {
-                    var end2 = reader.uint32() + reader.pos;
-                    while (reader.pos < end2)
+            case 1: {
+                    message.negate = reader.bool();
+                    break;
+                }
+            case 2: {
+                    message.operator = reader.int32();
+                    break;
+                }
+            case 3: {
+                    message.key = reader.int32();
+                    break;
+                }
+            case 4: {
+                    if (!(message.stringArg && message.stringArg.length))
+                        message.stringArg = [];
+                    message.stringArg.push(reader.string());
+                    break;
+                }
+            case 5: {
+                    if (!(message.longArg && message.longArg.length))
+                        message.longArg = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.longArg.push(reader.int64());
+                    } else
                         message.longArg.push(reader.int64());
-                } else
-                    message.longArg.push(reader.int64());
-                break;
-            case 6:
-                if (!(message.doubleArg && message.doubleArg.length))
-                    message.doubleArg = [];
-                if ((tag & 7) === 2) {
-                    var end2 = reader.uint32() + reader.pos;
-                    while (reader.pos < end2)
+                    break;
+                }
+            case 6: {
+                    if (!(message.doubleArg && message.doubleArg.length))
+                        message.doubleArg = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.doubleArg.push(reader.double());
+                    } else
                         message.doubleArg.push(reader.double());
-                } else
-                    message.doubleArg.push(reader.double());
-                break;
-            case 7:
-                if (!(message.subRule && message.subRule.length))
-                    message.subRule = [];
-                message.subRule.push($root.Rule.decode(reader, reader.uint32()));
-                break;
-            case 8:
-                message.responseCode = reader.int32();
-                break;
-            case 9:
-                message.comment = reader.string();
-                break;
-            case 10:
-                if (!(message.stringArgHash && message.stringArgHash.length))
-                    message.stringArgHash = [];
-                if ((tag & 7) === 2) {
-                    var end2 = reader.uint32() + reader.pos;
-                    while (reader.pos < end2)
+                    break;
+                }
+            case 7: {
+                    if (!(message.subRule && message.subRule.length))
+                        message.subRule = [];
+                    message.subRule.push($root.Rule.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 8: {
+                    message.responseCode = reader.int32();
+                    break;
+                }
+            case 9: {
+                    message.comment = reader.string();
+                    break;
+                }
+            case 10: {
+                    if (!(message.stringArgHash && message.stringArgHash.length))
+                        message.stringArgHash = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.stringArgHash.push(reader.fixed64());
+                    } else
                         message.stringArgHash.push(reader.fixed64());
-                } else
-                    message.stringArgHash.push(reader.fixed64());
-                break;
-            case 11:
-                if (!(message.constArg && message.constArg.length))
-                    message.constArg = [];
-                if ((tag & 7) === 2) {
-                    var end2 = reader.uint32() + reader.pos;
-                    while (reader.pos < end2)
+                    break;
+                }
+            case 11: {
+                    if (!(message.constArg && message.constArg.length))
+                        message.constArg = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.constArg.push(reader.int32());
+                    } else
                         message.constArg.push(reader.int32());
-                } else
-                    message.constArg.push(reader.int32());
-                break;
-            case 12:
-                message.availabilityProblemType = reader.int32();
-                break;
-            case 13:
-                message.includeMissingValues = reader.bool();
-                break;
+                    break;
+                }
+            case 12: {
+                    message.availabilityProblemType = reader.int32();
+                    break;
+                }
+            case 13: {
+                    message.includeMissingValues = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -54947,6 +58558,21 @@ $root.Rule = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Rule
+     * @function getTypeUrl
+     * @memberof Rule
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Rule.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Rule";
+    };
+
     return Rule;
 })();
 
@@ -55094,44 +58720,49 @@ $root.RuleEvaluation = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.rule = $root.Rule.decode(reader, reader.uint32());
-                break;
-            case 2:
-                if (!(message.actualStringValue && message.actualStringValue.length))
-                    message.actualStringValue = [];
-                message.actualStringValue.push(reader.string());
-                break;
-            case 3:
-                if (!(message.actualLongValue && message.actualLongValue.length))
-                    message.actualLongValue = [];
-                if ((tag & 7) === 2) {
-                    var end2 = reader.uint32() + reader.pos;
-                    while (reader.pos < end2)
+            case 1: {
+                    message.rule = $root.Rule.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    if (!(message.actualStringValue && message.actualStringValue.length))
+                        message.actualStringValue = [];
+                    message.actualStringValue.push(reader.string());
+                    break;
+                }
+            case 3: {
+                    if (!(message.actualLongValue && message.actualLongValue.length))
+                        message.actualLongValue = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.actualLongValue.push(reader.int64());
+                    } else
                         message.actualLongValue.push(reader.int64());
-                } else
-                    message.actualLongValue.push(reader.int64());
-                break;
-            case 4:
-                if (!(message.actualBoolValue && message.actualBoolValue.length))
-                    message.actualBoolValue = [];
-                if ((tag & 7) === 2) {
-                    var end2 = reader.uint32() + reader.pos;
-                    while (reader.pos < end2)
+                    break;
+                }
+            case 4: {
+                    if (!(message.actualBoolValue && message.actualBoolValue.length))
+                        message.actualBoolValue = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.actualBoolValue.push(reader.bool());
+                    } else
                         message.actualBoolValue.push(reader.bool());
-                } else
-                    message.actualBoolValue.push(reader.bool());
-                break;
-            case 5:
-                if (!(message.actualDoubleValue && message.actualDoubleValue.length))
-                    message.actualDoubleValue = [];
-                if ((tag & 7) === 2) {
-                    var end2 = reader.uint32() + reader.pos;
-                    while (reader.pos < end2)
+                    break;
+                }
+            case 5: {
+                    if (!(message.actualDoubleValue && message.actualDoubleValue.length))
+                        message.actualDoubleValue = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.actualDoubleValue.push(reader.double());
+                    } else
                         message.actualDoubleValue.push(reader.double());
-                } else
-                    message.actualDoubleValue.push(reader.double());
-                break;
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -55318,6 +58949,21 @@ $root.RuleEvaluation = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for RuleEvaluation
+     * @function getTypeUrl
+     * @memberof RuleEvaluation
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    RuleEvaluation.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/RuleEvaluation";
+    };
+
     return RuleEvaluation;
 })();
 
@@ -55435,15 +59081,18 @@ $root.LibraryAppDetails = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 2:
-                message.certificateHash = reader.string();
-                break;
-            case 3:
-                message.refundTimeoutTimestamp = reader.int64();
-                break;
-            case 4:
-                message.postDeliveryRefundWindowMillis = reader.int64();
-                break;
+            case 2: {
+                    message.certificateHash = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.refundTimeoutTimestamp = reader.int64();
+                    break;
+                }
+            case 4: {
+                    message.postDeliveryRefundWindowMillis = reader.int64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -55578,6 +59227,21 @@ $root.LibraryAppDetails = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for LibraryAppDetails
+     * @function getTypeUrl
+     * @memberof LibraryAppDetails
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    LibraryAppDetails.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/LibraryAppDetails";
+    };
+
     return LibraryAppDetails;
 })();
 
@@ -55684,12 +59348,14 @@ $root.LibraryInAppDetails = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.signedPurchaseData = reader.string();
-                break;
-            case 2:
-                message.signature = reader.string();
-                break;
+            case 1: {
+                    message.signedPurchaseData = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.signature = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -55786,6 +59452,21 @@ $root.LibraryInAppDetails = (function() {
      */
     LibraryInAppDetails.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for LibraryInAppDetails
+     * @function getTypeUrl
+     * @memberof LibraryInAppDetails
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    LibraryInAppDetails.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/LibraryInAppDetails";
     };
 
     return LibraryInAppDetails;
@@ -55949,27 +59630,34 @@ $root.LibraryMutation = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.DocId = $root.DocId.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.offerType = reader.int32();
-                break;
-            case 3:
-                message.documentHash = reader.int64();
-                break;
-            case 4:
-                message.deleted = reader.bool();
-                break;
-            case 5:
-                message.appDetails = $root.LibraryAppDetails.decode(reader, reader.uint32());
-                break;
-            case 6:
-                message.subscriptionDetails = $root.LibrarySubscriptionDetails.decode(reader, reader.uint32());
-                break;
-            case 7:
-                message.inAppDetails = $root.LibraryInAppDetails.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.DocId = $root.DocId.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.offerType = reader.int32();
+                    break;
+                }
+            case 3: {
+                    message.documentHash = reader.int64();
+                    break;
+                }
+            case 4: {
+                    message.deleted = reader.bool();
+                    break;
+                }
+            case 5: {
+                    message.appDetails = $root.LibraryAppDetails.decode(reader, reader.uint32());
+                    break;
+                }
+            case 6: {
+                    message.subscriptionDetails = $root.LibrarySubscriptionDetails.decode(reader, reader.uint32());
+                    break;
+                }
+            case 7: {
+                    message.inAppDetails = $root.LibraryInAppDetails.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -56142,6 +59830,21 @@ $root.LibraryMutation = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for LibraryMutation
+     * @function getTypeUrl
+     * @memberof LibraryMutation
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    LibraryMutation.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/LibraryMutation";
+    };
+
     return LibraryMutation;
 })();
 
@@ -56292,24 +59995,30 @@ $root.LibrarySubscriptionDetails = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.initiationTimestamp = reader.int64();
-                break;
-            case 2:
-                message.validUntilTimestamp = reader.int64();
-                break;
-            case 3:
-                message.autoRenewing = reader.bool();
-                break;
-            case 4:
-                message.trialUntilTimestamp = reader.int64();
-                break;
-            case 5:
-                message.signedPurchaseData = reader.string();
-                break;
-            case 6:
-                message.signature = reader.string();
-                break;
+            case 1: {
+                    message.initiationTimestamp = reader.int64();
+                    break;
+                }
+            case 2: {
+                    message.validUntilTimestamp = reader.int64();
+                    break;
+                }
+            case 3: {
+                    message.autoRenewing = reader.bool();
+                    break;
+                }
+            case 4: {
+                    message.trialUntilTimestamp = reader.int64();
+                    break;
+                }
+            case 5: {
+                    message.signedPurchaseData = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.signature = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -56482,6 +60191,21 @@ $root.LibrarySubscriptionDetails = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for LibrarySubscriptionDetails
+     * @function getTypeUrl
+     * @memberof LibrarySubscriptionDetails
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    LibrarySubscriptionDetails.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/LibrarySubscriptionDetails";
+    };
+
     return LibrarySubscriptionDetails;
 })();
 
@@ -56634,26 +60358,32 @@ $root.LibraryUpdate = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.status = reader.int32();
-                break;
-            case 2:
-                message.corpus = reader.int32();
-                break;
-            case 3:
-                message.serverToken = reader.bytes();
-                break;
-            case 4:
-                if (!(message.mutation && message.mutation.length))
-                    message.mutation = [];
-                message.mutation.push($root.LibraryMutation.decode(reader, reader.uint32()));
-                break;
-            case 5:
-                message.hasMore = reader.bool();
-                break;
-            case 6:
-                message.libraryId = reader.string();
-                break;
+            case 1: {
+                    message.status = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.corpus = reader.int32();
+                    break;
+                }
+            case 3: {
+                    message.serverToken = reader.bytes();
+                    break;
+                }
+            case 4: {
+                    if (!(message.mutation && message.mutation.length))
+                        message.mutation = [];
+                    message.mutation.push($root.LibraryMutation.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 5: {
+                    message.hasMore = reader.bool();
+                    break;
+                }
+            case 6: {
+                    message.libraryId = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -56735,7 +60465,7 @@ $root.LibraryUpdate = (function() {
         if (object.serverToken != null)
             if (typeof object.serverToken === "string")
                 $util.base64.decode(object.serverToken, message.serverToken = $util.newBuffer($util.base64.length(object.serverToken)), 0);
-            else if (object.serverToken.length)
+            else if (object.serverToken.length >= 0)
                 message.serverToken = object.serverToken;
         if (object.mutation) {
             if (!Array.isArray(object.mutation))
@@ -56809,6 +60539,21 @@ $root.LibraryUpdate = (function() {
      */
     LibraryUpdate.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for LibraryUpdate
+     * @function getTypeUrl
+     * @memberof LibraryUpdate
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    LibraryUpdate.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/LibraryUpdate";
     };
 
     return LibraryUpdate;
@@ -56917,12 +60662,14 @@ $root.AndroidAppNotificationData = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.versionCode = reader.int32();
-                break;
-            case 2:
-                message.assetId = reader.string();
-                break;
+            case 1: {
+                    message.versionCode = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.assetId = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -57019,6 +60766,21 @@ $root.AndroidAppNotificationData = (function() {
      */
     AndroidAppNotificationData.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for AndroidAppNotificationData
+     * @function getTypeUrl
+     * @memberof AndroidAppNotificationData
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AndroidAppNotificationData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AndroidAppNotificationData";
     };
 
     return AndroidAppNotificationData;
@@ -57127,12 +60889,14 @@ $root.InAppNotificationData = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.checkoutOrderId = reader.string();
-                break;
-            case 2:
-                message.inAppNotificationId = reader.string();
-                break;
+            case 1: {
+                    message.checkoutOrderId = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.inAppNotificationId = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -57229,6 +60993,21 @@ $root.InAppNotificationData = (function() {
      */
     InAppNotificationData.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for InAppNotificationData
+     * @function getTypeUrl
+     * @memberof InAppNotificationData
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    InAppNotificationData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/InAppNotificationData";
     };
 
     return InAppNotificationData;
@@ -57337,12 +61116,14 @@ $root.LibraryDirtyData = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.backend = reader.int32();
-                break;
-            case 2:
-                message.libraryId = reader.string();
-                break;
+            case 1: {
+                    message.backend = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.libraryId = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -57439,6 +61220,21 @@ $root.LibraryDirtyData = (function() {
      */
     LibraryDirtyData.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for LibraryDirtyData
+     * @function getTypeUrl
+     * @memberof LibraryDirtyData
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    LibraryDirtyData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/LibraryDirtyData";
     };
 
     return LibraryDirtyData;
@@ -57679,48 +61475,62 @@ $root.Notification = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.notificationType = reader.int32();
-                break;
-            case 3:
-                message.timestamp = reader.int64();
-                break;
-            case 4:
-                message.DocId = $root.DocId.decode(reader, reader.uint32());
-                break;
-            case 5:
-                message.docTitle = reader.string();
-                break;
-            case 6:
-                message.userEmail = reader.string();
-                break;
-            case 7:
-                message.appData = $root.AndroidAppNotificationData.decode(reader, reader.uint32());
-                break;
-            case 8:
-                message.appDeliveryData = $root.AndroidAppDeliveryData.decode(reader, reader.uint32());
-                break;
-            case 9:
-                message.purchaseRemovalData = $root.PurchaseRemovalData.decode(reader, reader.uint32());
-                break;
-            case 10:
-                message.userNotificationData = $root.UserNotificationData.decode(reader, reader.uint32());
-                break;
-            case 11:
-                message.inAppNotificationData = $root.InAppNotificationData.decode(reader, reader.uint32());
-                break;
-            case 12:
-                message.purchaseDeclinedData = $root.PurchaseDeclinedData.decode(reader, reader.uint32());
-                break;
-            case 13:
-                message.notificationId = reader.string();
-                break;
-            case 14:
-                message.libraryUpdate = $root.LibraryUpdate.decode(reader, reader.uint32());
-                break;
-            case 15:
-                message.libraryDirtyData = $root.LibraryDirtyData.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.notificationType = reader.int32();
+                    break;
+                }
+            case 3: {
+                    message.timestamp = reader.int64();
+                    break;
+                }
+            case 4: {
+                    message.DocId = $root.DocId.decode(reader, reader.uint32());
+                    break;
+                }
+            case 5: {
+                    message.docTitle = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.userEmail = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.appData = $root.AndroidAppNotificationData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 8: {
+                    message.appDeliveryData = $root.AndroidAppDeliveryData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 9: {
+                    message.purchaseRemovalData = $root.PurchaseRemovalData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 10: {
+                    message.userNotificationData = $root.UserNotificationData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 11: {
+                    message.inAppNotificationData = $root.InAppNotificationData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 12: {
+                    message.purchaseDeclinedData = $root.PurchaseDeclinedData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 13: {
+                    message.notificationId = reader.string();
+                    break;
+                }
+            case 14: {
+                    message.libraryUpdate = $root.LibraryUpdate.decode(reader, reader.uint32());
+                    break;
+                }
+            case 15: {
+                    message.libraryDirtyData = $root.LibraryDirtyData.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -57974,6 +61784,21 @@ $root.Notification = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Notification
+     * @function getTypeUrl
+     * @memberof Notification
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Notification.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Notification";
+    };
+
     return Notification;
 })();
 
@@ -58080,12 +61905,14 @@ $root.PurchaseDeclinedData = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.reason = reader.int32();
-                break;
-            case 2:
-                message.showNotification = reader.bool();
-                break;
+            case 1: {
+                    message.reason = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.showNotification = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -58184,6 +62011,21 @@ $root.PurchaseDeclinedData = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for PurchaseDeclinedData
+     * @function getTypeUrl
+     * @memberof PurchaseDeclinedData
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PurchaseDeclinedData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PurchaseDeclinedData";
+    };
+
     return PurchaseDeclinedData;
 })();
 
@@ -58279,9 +62121,10 @@ $root.PurchaseRemovalData = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.malicious = reader.bool();
-                break;
+            case 1: {
+                    message.malicious = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -58369,6 +62212,21 @@ $root.PurchaseRemovalData = (function() {
      */
     PurchaseRemovalData.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PurchaseRemovalData
+     * @function getTypeUrl
+     * @memberof PurchaseRemovalData
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PurchaseRemovalData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PurchaseRemovalData";
     };
 
     return PurchaseRemovalData;
@@ -58510,21 +62368,26 @@ $root.UserNotificationData = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.notificationTitle = reader.string();
-                break;
-            case 2:
-                message.notificationText = reader.string();
-                break;
-            case 3:
-                message.tickerText = reader.string();
-                break;
-            case 4:
-                message.dialogTitle = reader.string();
-                break;
-            case 5:
-                message.dialogText = reader.string();
-                break;
+            case 1: {
+                    message.notificationTitle = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.notificationText = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.tickerText = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.dialogTitle = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.dialogText = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -58645,6 +62508,21 @@ $root.UserNotificationData = (function() {
      */
     UserNotificationData.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for UserNotificationData
+     * @function getTypeUrl
+     * @memberof UserNotificationData
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    UserNotificationData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/UserNotificationData";
     };
 
     return UserNotificationData;
@@ -58909,56 +62787,72 @@ $root.AggregateRating = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.type = reader.int32();
-                break;
-            case 2:
-                message.starRating = reader.float();
-                break;
-            case 3:
-                message.ratingsCount = reader.uint64();
-                break;
-            case 4:
-                message.oneStarRatings = reader.uint64();
-                break;
-            case 5:
-                message.twoStarRatings = reader.uint64();
-                break;
-            case 6:
-                message.threeStarRatings = reader.uint64();
-                break;
-            case 7:
-                message.fourStarRatings = reader.uint64();
-                break;
-            case 8:
-                message.fiveStarRatings = reader.uint64();
-                break;
-            case 9:
-                message.thumbsUpCount = reader.uint64();
-                break;
-            case 10:
-                message.thumbsDownCount = reader.uint64();
-                break;
-            case 11:
-                message.commentCount = reader.uint64();
-                break;
-            case 12:
-                message.bayesianMeanRating = reader.double();
-                break;
-            case 13:
-                if (!(message.tip && message.tip.length))
-                    message.tip = [];
-                message.tip.push($root.Tip.decode(reader, reader.uint32()));
-                break;
-            case 17:
-                message.ratingLabel = reader.string();
-                break;
-            case 18:
-                message.ratingCountLabelAbbreviated = reader.string();
-                break;
-            case 19:
-                message.ratingCountLabel = reader.string();
-                break;
+            case 1: {
+                    message.type = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.starRating = reader.float();
+                    break;
+                }
+            case 3: {
+                    message.ratingsCount = reader.uint64();
+                    break;
+                }
+            case 4: {
+                    message.oneStarRatings = reader.uint64();
+                    break;
+                }
+            case 5: {
+                    message.twoStarRatings = reader.uint64();
+                    break;
+                }
+            case 6: {
+                    message.threeStarRatings = reader.uint64();
+                    break;
+                }
+            case 7: {
+                    message.fourStarRatings = reader.uint64();
+                    break;
+                }
+            case 8: {
+                    message.fiveStarRatings = reader.uint64();
+                    break;
+                }
+            case 9: {
+                    message.thumbsUpCount = reader.uint64();
+                    break;
+                }
+            case 10: {
+                    message.thumbsDownCount = reader.uint64();
+                    break;
+                }
+            case 11: {
+                    message.commentCount = reader.uint64();
+                    break;
+                }
+            case 12: {
+                    message.bayesianMeanRating = reader.double();
+                    break;
+                }
+            case 13: {
+                    if (!(message.tip && message.tip.length))
+                        message.tip = [];
+                    message.tip.push($root.Tip.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 17: {
+                    message.ratingLabel = reader.string();
+                    break;
+                }
+            case 18: {
+                    message.ratingCountLabelAbbreviated = reader.string();
+                    break;
+                }
+            case 19: {
+                    message.ratingCountLabel = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -59313,6 +63207,21 @@ $root.AggregateRating = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AggregateRating
+     * @function getTypeUrl
+     * @memberof AggregateRating
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AggregateRating.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AggregateRating";
+    };
+
     return AggregateRating;
 })();
 
@@ -59465,26 +63374,32 @@ $root.Tip = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.tipId = reader.string();
-                break;
-            case 2:
-                message.text = reader.string();
-                break;
-            case 3:
-                message.polarity = reader.int32();
-                break;
-            case 4:
-                message.reviewCount = reader.int64();
-                break;
-            case 5:
-                message.language = reader.string();
-                break;
-            case 6:
-                if (!(message.snippetReviewId && message.snippetReviewId.length))
-                    message.snippetReviewId = [];
-                message.snippetReviewId.push(reader.string());
-                break;
+            case 1: {
+                    message.tipId = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.text = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.polarity = reader.int32();
+                    break;
+                }
+            case 4: {
+                    message.reviewCount = reader.int64();
+                    break;
+                }
+            case 5: {
+                    message.language = reader.string();
+                    break;
+                }
+            case 6: {
+                    if (!(message.snippetReviewId && message.snippetReviewId.length))
+                        message.snippetReviewId = [];
+                    message.snippetReviewId.push(reader.string());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -59642,6 +63557,21 @@ $root.Tip = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Tip
+     * @function getTypeUrl
+     * @memberof Tip
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Tip.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Tip";
+    };
+
     return Tip;
 })();
 
@@ -59770,18 +63700,22 @@ $root.ReviewTip = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.tipUrl = reader.string();
-                break;
-            case 2:
-                message.text = reader.string();
-                break;
-            case 3:
-                message.polarity = reader.int32();
-                break;
-            case 4:
-                message.reviewCount = reader.int64();
-                break;
+            case 1: {
+                    message.tipUrl = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.text = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.polarity = reader.int32();
+                    break;
+                }
+            case 4: {
+                    message.reviewCount = reader.int64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -59908,6 +63842,21 @@ $root.ReviewTip = (function() {
      */
     ReviewTip.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ReviewTip
+     * @function getTypeUrl
+     * @memberof ReviewTip
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReviewTip.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReviewTip";
     };
 
     return ReviewTip;
@@ -60068,6 +64017,21 @@ $root.AcceptTosResponse = (function() {
      */
     AcceptTosResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for AcceptTosResponse
+     * @function getTypeUrl
+     * @memberof AcceptTosResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AcceptTosResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AcceptTosResponse";
     };
 
     return AcceptTosResponse;
@@ -60242,30 +64206,38 @@ $root.CarrierBillingConfig = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.id = reader.string();
-                break;
-            case 2:
-                message.name = reader.string();
-                break;
-            case 3:
-                message.apiVersion = reader.int32();
-                break;
-            case 4:
-                message.provisioningUrl = reader.string();
-                break;
-            case 5:
-                message.credentialsUrl = reader.string();
-                break;
-            case 6:
-                message.tosRequired = reader.bool();
-                break;
-            case 7:
-                message.perTransactionCredentialsRequired = reader.bool();
-                break;
-            case 8:
-                message.sendSubscriberIdWithCarrierBillingRequests = reader.bool();
-                break;
+            case 1: {
+                    message.id = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.name = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.apiVersion = reader.int32();
+                    break;
+                }
+            case 4: {
+                    message.provisioningUrl = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.credentialsUrl = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.tosRequired = reader.bool();
+                    break;
+                }
+            case 7: {
+                    message.perTransactionCredentialsRequired = reader.bool();
+                    break;
+                }
+            case 8: {
+                    message.sendSubscriberIdWithCarrierBillingRequests = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -60412,6 +64384,21 @@ $root.CarrierBillingConfig = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for CarrierBillingConfig
+     * @function getTypeUrl
+     * @memberof CarrierBillingConfig
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CarrierBillingConfig.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CarrierBillingConfig";
+    };
+
     return CarrierBillingConfig;
 })();
 
@@ -60518,12 +64505,14 @@ $root.BillingConfig = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.carrierBillingConfig = $root.CarrierBillingConfig.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.maxIabApiVersion = reader.int32();
-                break;
+            case 1: {
+                    message.carrierBillingConfig = $root.CarrierBillingConfig.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.maxIabApiVersion = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -60625,6 +64614,21 @@ $root.BillingConfig = (function() {
      */
     BillingConfig.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for BillingConfig
+     * @function getTypeUrl
+     * @memberof BillingConfig
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    BillingConfig.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/BillingConfig";
     };
 
     return BillingConfig;
@@ -60777,24 +64781,30 @@ $root.CorpusMetadata = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.backend = reader.int32();
-                break;
-            case 2:
-                message.name = reader.string();
-                break;
-            case 3:
-                message.landingUrl = reader.string();
-                break;
-            case 4:
-                message.libraryName = reader.string();
-                break;
-            case 6:
-                message.recsWidgetUrl = reader.string();
-                break;
-            case 7:
-                message.shopName = reader.string();
-                break;
+            case 1: {
+                    message.backend = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.name = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.landingUrl = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.libraryName = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.recsWidgetUrl = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.shopName = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -60925,6 +64935,21 @@ $root.CorpusMetadata = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for CorpusMetadata
+     * @function getTypeUrl
+     * @memberof CorpusMetadata
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CorpusMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CorpusMetadata";
+    };
+
     return CorpusMetadata;
 })();
 
@@ -61022,11 +65047,12 @@ $root.Experiments = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.experimentId && message.experimentId.length))
-                    message.experimentId = [];
-                message.experimentId.push(reader.string());
-                break;
+            case 1: {
+                    if (!(message.experimentId && message.experimentId.length))
+                        message.experimentId = [];
+                    message.experimentId.push(reader.string());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -61128,6 +65154,21 @@ $root.Experiments = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Experiments
+     * @function getTypeUrl
+     * @memberof Experiments
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Experiments.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Experiments";
+    };
+
     return Experiments;
 })();
 
@@ -61223,9 +65264,10 @@ $root.SelfUpdateConfig = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.latestClientVersionCode = reader.int32();
-                break;
+            case 1: {
+                    message.latestClientVersionCode = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -61313,6 +65355,21 @@ $root.SelfUpdateConfig = (function() {
      */
     SelfUpdateConfig.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for SelfUpdateConfig
+     * @function getTypeUrl
+     * @memberof SelfUpdateConfig
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SelfUpdateConfig.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SelfUpdateConfig";
     };
 
     return SelfUpdateConfig;
@@ -61632,71 +65689,92 @@ $root.TocResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.corpus && message.corpus.length))
-                    message.corpus = [];
-                message.corpus.push($root.CorpusMetadata.decode(reader, reader.uint32()));
-                break;
-            case 2:
-                message.tosVersionDeprecated = reader.int32();
-                break;
-            case 3:
-                message.tosContent = reader.string();
-                break;
-            case 4:
-                message.homeUrl = reader.string();
-                break;
-            case 5:
-                message.experiments = $root.Experiments.decode(reader, reader.uint32());
-                break;
-            case 6:
-                message.tosCheckboxTextMarketingEmails = reader.string();
-                break;
-            case 7:
-                message.tosToken = reader.string();
-                break;
-            case 8:
-                message.userSettings = $root.UserSettings.decode(reader, reader.uint32());
-                break;
-            case 9:
-                message.iconOverrideUrl = reader.string();
-                break;
-            case 10:
-                message.selfUpdateConfig = $root.SelfUpdateConfig.decode(reader, reader.uint32());
-                break;
-            case 11:
-                message.requiresUploadDeviceConfig = reader.bool();
-                break;
-            case 12:
-                message.billingConfig = $root.BillingConfig.decode(reader, reader.uint32());
-                break;
-            case 13:
-                message.recsWidgetUrl = reader.string();
-                break;
-            case 15:
-                message.socialHomeUrl = reader.string();
-                break;
-            case 16:
-                message.ageVerificationRequired = reader.bool();
-                break;
-            case 17:
-                message.gPlusSignupEnabled = reader.bool();
-                break;
-            case 18:
-                message.redeemEnabled = reader.bool();
-                break;
-            case 19:
-                message.helpUrl = reader.string();
-                break;
-            case 20:
-                message.themeId = reader.int32();
-                break;
-            case 21:
-                message.entertainmentHomeUrl = reader.string();
-                break;
-            case 22:
-                message.cookie = reader.string();
-                break;
+            case 1: {
+                    if (!(message.corpus && message.corpus.length))
+                        message.corpus = [];
+                    message.corpus.push($root.CorpusMetadata.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 2: {
+                    message.tosVersionDeprecated = reader.int32();
+                    break;
+                }
+            case 3: {
+                    message.tosContent = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.homeUrl = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.experiments = $root.Experiments.decode(reader, reader.uint32());
+                    break;
+                }
+            case 6: {
+                    message.tosCheckboxTextMarketingEmails = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.tosToken = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.userSettings = $root.UserSettings.decode(reader, reader.uint32());
+                    break;
+                }
+            case 9: {
+                    message.iconOverrideUrl = reader.string();
+                    break;
+                }
+            case 10: {
+                    message.selfUpdateConfig = $root.SelfUpdateConfig.decode(reader, reader.uint32());
+                    break;
+                }
+            case 11: {
+                    message.requiresUploadDeviceConfig = reader.bool();
+                    break;
+                }
+            case 12: {
+                    message.billingConfig = $root.BillingConfig.decode(reader, reader.uint32());
+                    break;
+                }
+            case 13: {
+                    message.recsWidgetUrl = reader.string();
+                    break;
+                }
+            case 15: {
+                    message.socialHomeUrl = reader.string();
+                    break;
+                }
+            case 16: {
+                    message.ageVerificationRequired = reader.bool();
+                    break;
+                }
+            case 17: {
+                    message.gPlusSignupEnabled = reader.bool();
+                    break;
+                }
+            case 18: {
+                    message.redeemEnabled = reader.bool();
+                    break;
+                }
+            case 19: {
+                    message.helpUrl = reader.string();
+                    break;
+                }
+            case 20: {
+                    message.themeId = reader.int32();
+                    break;
+                }
+            case 21: {
+                    message.entertainmentHomeUrl = reader.string();
+                    break;
+                }
+            case 22: {
+                    message.cookie = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -61985,6 +66063,21 @@ $root.TocResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for TocResponse
+     * @function getTypeUrl
+     * @memberof TocResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    TocResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/TocResponse";
+    };
+
     return TocResponse;
 })();
 
@@ -62091,12 +66184,14 @@ $root.UserSettings = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.tosCheckboxMarketingEmailsOptedIn = reader.bool();
-                break;
-            case 2:
-                message.privacySetting = $root.PrivacySetting.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.tosCheckboxMarketingEmailsOptedIn = reader.bool();
+                    break;
+                }
+            case 2: {
+                    message.privacySetting = $root.PrivacySetting.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -62198,6 +66293,21 @@ $root.UserSettings = (function() {
      */
     UserSettings.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for UserSettings
+     * @function getTypeUrl
+     * @memberof UserSettings
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    UserSettings.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/UserSettings";
     };
 
     return UserSettings;
@@ -62317,15 +66427,18 @@ $root.PrivacySetting = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.type = reader.int32();
-                break;
-            case 2:
-                message.currentStatus = reader.int32();
-                break;
-            case 3:
-                message.enabledByDefault = reader.bool();
-                break;
+            case 1: {
+                    message.type = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.currentStatus = reader.int32();
+                    break;
+                }
+            case 3: {
+                    message.enabledByDefault = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -62430,6 +66543,21 @@ $root.PrivacySetting = (function() {
      */
     PrivacySetting.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PrivacySetting
+     * @function getTypeUrl
+     * @memberof PrivacySetting
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PrivacySetting.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PrivacySetting";
     };
 
     return PrivacySetting;
@@ -63033,147 +67161,194 @@ $root.Payload = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.listResponse = $root.ListResponse.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.detailsResponse = $root.DetailsResponse.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.reviewResponse = $root.ReviewResponse.decode(reader, reader.uint32());
-                break;
-            case 4:
-                message.buyResponse = $root.BuyResponse.decode(reader, reader.uint32());
-                break;
-            case 5:
-                message.searchResponse = $root.SearchResponse.decode(reader, reader.uint32());
-                break;
-            case 6:
-                message.tocResponse = $root.TocResponse.decode(reader, reader.uint32());
-                break;
-            case 7:
-                message.browseResponse = $root.BrowseResponse.decode(reader, reader.uint32());
-                break;
-            case 8:
-                message.purchaseStatusResponse = $root.PurchaseStatusResponse.decode(reader, reader.uint32());
-                break;
-            case 10:
-                message.logResponse = reader.string();
-                break;
-            case 13:
-                message.flagContentResponse = reader.string();
-                break;
-            case 19:
-                message.bulkDetailsResponse = $root.BulkDetailsResponse.decode(reader, reader.uint32());
-                break;
-            case 21:
-                message.deliveryResponse = $root.DeliveryResponse.decode(reader, reader.uint32());
-                break;
-            case 22:
-                message.acceptTosResponse = $root.AcceptTosResponse.decode(reader, reader.uint32());
-                break;
-            case 24:
-                message.checkPromoOfferResponse = $root.CheckPromoOfferResponse.decode(reader, reader.uint32());
-                break;
-            case 25:
-                message.instrumentSetupInfoResponse = $root.InstrumentSetupInfoResponse.decode(reader, reader.uint32());
-                break;
-            case 26:
-                message.androidCheckinResponse = $root.AndroidCheckinResponse.decode(reader, reader.uint32());
-                break;
-            case 28:
-                message.uploadDeviceConfigResponse = $root.UploadDeviceConfigResponse.decode(reader, reader.uint32());
-                break;
-            case 40:
-                message.searchSuggestResponse = $root.SearchSuggestResponse.decode(reader, reader.uint32());
-                break;
-            case 30:
-                message.consumePurchaseResponse = $root.ConsumePurchaseResponse.decode(reader, reader.uint32());
-                break;
-            case 31:
-                message.billingProfileResponse = $root.BillingProfileResponse.decode(reader, reader.uint32());
-                break;
-            case 34:
-                message.debugSettingsResponse = $root.DebugSettingsResponse.decode(reader, reader.uint32());
-                break;
-            case 35:
-                message.checkIabPromoResponse = $root.CheckIabPromoResponse.decode(reader, reader.uint32());
-                break;
-            case 36:
-                message.userActivitySettingsResponse = $root.UserActivitySettingsResponse.decode(reader, reader.uint32());
-                break;
-            case 37:
-                message.recordUserActivityResponse = $root.RecordUserActivityResponse.decode(reader, reader.uint32());
-                break;
-            case 38:
-                message.redeemCodeResponse = $root.RedeemCodeResponse.decode(reader, reader.uint32());
-                break;
-            case 39:
-                message.selfUpdateResponse = $root.SelfUpdateResponse.decode(reader, reader.uint32());
-                break;
-            case 41:
-                message.getInitialInstrumentFlowStateResponse = $root.GetInitialInstrumentFlowStateResponse.decode(reader, reader.uint32());
-                break;
-            case 42:
-                message.createInstrumentResponse = $root.CreateInstrumentResponse.decode(reader, reader.uint32());
-                break;
-            case 43:
-                message.challengeResponse = $root.ChallengeResponse.decode(reader, reader.uint32());
-                break;
-            case 44:
-                message.backupDeviceChoicesResponse = $root.BackDeviceChoicesResponse.decode(reader, reader.uint32());
-                break;
-            case 45:
-                message.backupDocumentChoicesResponse = $root.BackupDocumentChoicesResponse.decode(reader, reader.uint32());
-                break;
-            case 46:
-                message.earlyUpdateResponse = $root.EarlyUpdateResponse.decode(reader, reader.uint32());
-                break;
-            case 47:
-                message.preloadsResponse = $root.PreloadsResponse.decode(reader, reader.uint32());
-                break;
-            case 48:
-                message.myAccountsResponse = $root.MyAccountsResponse.decode(reader, reader.uint32());
-                break;
-            case 49:
-                message.contentFilterResponse = $root.ContentFilterResponse.decode(reader, reader.uint32());
-                break;
-            case 50:
-                message.experimentsResponse = $root.ExperimentsResponse.decode(reader, reader.uint32());
-                break;
-            case 51:
-                message.surveyResponse = $root.SurveyResponse.decode(reader, reader.uint32());
-                break;
-            case 52:
-                message.pingResponse = $root.PingResponse.decode(reader, reader.uint32());
-                break;
-            case 53:
-                message.updateUserSettingResponse = $root.UpdateUserSettingResponse.decode(reader, reader.uint32());
-                break;
-            case 54:
-                message.getUserSettingsResponse = $root.GetUserSettingsResponse.decode(reader, reader.uint32());
-                break;
-            case 56:
-                message.getSharingSettingsResponse = $root.GetSharingSettingsResponse.decode(reader, reader.uint32());
-                break;
-            case 57:
-                message.updateSharingSettingsResponse = $root.UpdateSharingSettingsResponse.decode(reader, reader.uint32());
-                break;
-            case 58:
-                message.reviewSnippetsResponse = $root.ReviewSnippetsResponse.decode(reader, reader.uint32());
-                break;
-            case 59:
-                message.documentSharingStateResponse = $root.DocumentSharingStateResponse.decode(reader, reader.uint32());
-                break;
-            case 70:
-                message.moduleDeliveryResponse = $root.ModuleDeliveryResponse.decode(reader, reader.uint32());
-                break;
-            case 80:
-                message.testingProgramResponse = $root.TestingProgramResponse.decode(reader, reader.uint32());
-                break;
-            case 129:
-                message.reviewSummaryResponse = $root.ReviewResponse.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.listResponse = $root.ListResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.detailsResponse = $root.DetailsResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.reviewResponse = $root.ReviewResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    message.buyResponse = $root.BuyResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 5: {
+                    message.searchResponse = $root.SearchResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 6: {
+                    message.tocResponse = $root.TocResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 7: {
+                    message.browseResponse = $root.BrowseResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 8: {
+                    message.purchaseStatusResponse = $root.PurchaseStatusResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 10: {
+                    message.logResponse = reader.string();
+                    break;
+                }
+            case 13: {
+                    message.flagContentResponse = reader.string();
+                    break;
+                }
+            case 19: {
+                    message.bulkDetailsResponse = $root.BulkDetailsResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 21: {
+                    message.deliveryResponse = $root.DeliveryResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 22: {
+                    message.acceptTosResponse = $root.AcceptTosResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 24: {
+                    message.checkPromoOfferResponse = $root.CheckPromoOfferResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 25: {
+                    message.instrumentSetupInfoResponse = $root.InstrumentSetupInfoResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 26: {
+                    message.androidCheckinResponse = $root.AndroidCheckinResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 28: {
+                    message.uploadDeviceConfigResponse = $root.UploadDeviceConfigResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 40: {
+                    message.searchSuggestResponse = $root.SearchSuggestResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 30: {
+                    message.consumePurchaseResponse = $root.ConsumePurchaseResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 31: {
+                    message.billingProfileResponse = $root.BillingProfileResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 34: {
+                    message.debugSettingsResponse = $root.DebugSettingsResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 35: {
+                    message.checkIabPromoResponse = $root.CheckIabPromoResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 36: {
+                    message.userActivitySettingsResponse = $root.UserActivitySettingsResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 37: {
+                    message.recordUserActivityResponse = $root.RecordUserActivityResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 38: {
+                    message.redeemCodeResponse = $root.RedeemCodeResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 39: {
+                    message.selfUpdateResponse = $root.SelfUpdateResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 41: {
+                    message.getInitialInstrumentFlowStateResponse = $root.GetInitialInstrumentFlowStateResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 42: {
+                    message.createInstrumentResponse = $root.CreateInstrumentResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 43: {
+                    message.challengeResponse = $root.ChallengeResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 44: {
+                    message.backupDeviceChoicesResponse = $root.BackDeviceChoicesResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 45: {
+                    message.backupDocumentChoicesResponse = $root.BackupDocumentChoicesResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 46: {
+                    message.earlyUpdateResponse = $root.EarlyUpdateResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 47: {
+                    message.preloadsResponse = $root.PreloadsResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 48: {
+                    message.myAccountsResponse = $root.MyAccountsResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 49: {
+                    message.contentFilterResponse = $root.ContentFilterResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 50: {
+                    message.experimentsResponse = $root.ExperimentsResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 51: {
+                    message.surveyResponse = $root.SurveyResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 52: {
+                    message.pingResponse = $root.PingResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 53: {
+                    message.updateUserSettingResponse = $root.UpdateUserSettingResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 54: {
+                    message.getUserSettingsResponse = $root.GetUserSettingsResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 56: {
+                    message.getSharingSettingsResponse = $root.GetSharingSettingsResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 57: {
+                    message.updateSharingSettingsResponse = $root.UpdateSharingSettingsResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 58: {
+                    message.reviewSnippetsResponse = $root.ReviewSnippetsResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 59: {
+                    message.documentSharingStateResponse = $root.DocumentSharingStateResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 70: {
+                    message.moduleDeliveryResponse = $root.ModuleDeliveryResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 80: {
+                    message.testingProgramResponse = $root.TestingProgramResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 129: {
+                    message.reviewSummaryResponse = $root.ReviewResponse.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -63857,6 +68032,21 @@ $root.Payload = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Payload
+     * @function getTypeUrl
+     * @memberof Payload
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Payload.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Payload";
+    };
+
     return Payload;
 })();
 
@@ -64015,6 +68205,21 @@ $root.CheckIabPromoResponse = (function() {
      */
     CheckIabPromoResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for CheckIabPromoResponse
+     * @function getTypeUrl
+     * @memberof CheckIabPromoResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CheckIabPromoResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CheckIabPromoResponse";
     };
 
     return CheckIabPromoResponse;
@@ -64177,6 +68382,21 @@ $root.UserActivitySettingsResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for UserActivitySettingsResponse
+     * @function getTypeUrl
+     * @memberof UserActivitySettingsResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    UserActivitySettingsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/UserActivitySettingsResponse";
+    };
+
     return UserActivitySettingsResponse;
 })();
 
@@ -64335,6 +68555,21 @@ $root.RecordUserActivityResponse = (function() {
      */
     RecordUserActivityResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for RecordUserActivityResponse
+     * @function getTypeUrl
+     * @memberof RecordUserActivityResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    RecordUserActivityResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/RecordUserActivityResponse";
     };
 
     return RecordUserActivityResponse;
@@ -64497,6 +68732,21 @@ $root.RedeemCodeResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for RedeemCodeResponse
+     * @function getTypeUrl
+     * @memberof RedeemCodeResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    RedeemCodeResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/RedeemCodeResponse";
+    };
+
     return RedeemCodeResponse;
 })();
 
@@ -64655,6 +68905,21 @@ $root.SelfUpdateResponse = (function() {
      */
     SelfUpdateResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for SelfUpdateResponse
+     * @function getTypeUrl
+     * @memberof SelfUpdateResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SelfUpdateResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SelfUpdateResponse";
     };
 
     return SelfUpdateResponse;
@@ -64817,6 +69082,21 @@ $root.GetInitialInstrumentFlowStateResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for GetInitialInstrumentFlowStateResponse
+     * @function getTypeUrl
+     * @memberof GetInitialInstrumentFlowStateResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    GetInitialInstrumentFlowStateResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/GetInitialInstrumentFlowStateResponse";
+    };
+
     return GetInitialInstrumentFlowStateResponse;
 })();
 
@@ -64975,6 +69255,21 @@ $root.CreateInstrumentResponse = (function() {
      */
     CreateInstrumentResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for CreateInstrumentResponse
+     * @function getTypeUrl
+     * @memberof CreateInstrumentResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CreateInstrumentResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CreateInstrumentResponse";
     };
 
     return CreateInstrumentResponse;
@@ -65137,6 +69432,21 @@ $root.ChallengeResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for ChallengeResponse
+     * @function getTypeUrl
+     * @memberof ChallengeResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ChallengeResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ChallengeResponse";
+    };
+
     return ChallengeResponse;
 })();
 
@@ -65295,6 +69605,21 @@ $root.BackDeviceChoicesResponse = (function() {
      */
     BackDeviceChoicesResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for BackDeviceChoicesResponse
+     * @function getTypeUrl
+     * @memberof BackDeviceChoicesResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    BackDeviceChoicesResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/BackDeviceChoicesResponse";
     };
 
     return BackDeviceChoicesResponse;
@@ -65457,6 +69782,21 @@ $root.BackupDocumentChoicesResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for BackupDocumentChoicesResponse
+     * @function getTypeUrl
+     * @memberof BackupDocumentChoicesResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    BackupDocumentChoicesResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/BackupDocumentChoicesResponse";
+    };
+
     return BackupDocumentChoicesResponse;
 })();
 
@@ -65617,6 +69957,21 @@ $root.EarlyUpdateResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for EarlyUpdateResponse
+     * @function getTypeUrl
+     * @memberof EarlyUpdateResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    EarlyUpdateResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/EarlyUpdateResponse";
+    };
+
     return EarlyUpdateResponse;
 })();
 
@@ -65725,14 +70080,16 @@ $root.PreloadsResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.configPreload = $root.PreloadsResponse.Preload.decode(reader, reader.uint32());
-                break;
-            case 2:
-                if (!(message.appPreload && message.appPreload.length))
-                    message.appPreload = [];
-                message.appPreload.push($root.PreloadsResponse.Preload.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.configPreload = $root.PreloadsResponse.Preload.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    if (!(message.appPreload && message.appPreload.length))
+                        message.appPreload = [];
+                    message.appPreload.push($root.PreloadsResponse.Preload.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -65851,6 +70208,21 @@ $root.PreloadsResponse = (function() {
      */
     PreloadsResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PreloadsResponse
+     * @function getTypeUrl
+     * @memberof PreloadsResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PreloadsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PreloadsResponse";
     };
 
     PreloadsResponse.Preload = (function() {
@@ -66011,27 +70383,34 @@ $root.PreloadsResponse = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.DocId = $root.DocId.decode(reader, reader.uint32());
-                    break;
-                case 2:
-                    message.versionCode = reader.int32();
-                    break;
-                case 3:
-                    message.title = reader.string();
-                    break;
-                case 4:
-                    message.icon = $root.Image.decode(reader, reader.uint32());
-                    break;
-                case 5:
-                    message.deliveryToken = reader.string();
-                    break;
-                case 6:
-                    message.installLocation = reader.int32();
-                    break;
-                case 7:
-                    message.size = reader.int64();
-                    break;
+                case 1: {
+                        message.DocId = $root.DocId.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 2: {
+                        message.versionCode = reader.int32();
+                        break;
+                    }
+                case 3: {
+                        message.title = reader.string();
+                        break;
+                    }
+                case 4: {
+                        message.icon = $root.Image.decode(reader, reader.uint32());
+                        break;
+                    }
+                case 5: {
+                        message.deliveryToken = reader.string();
+                        break;
+                    }
+                case 6: {
+                        message.installLocation = reader.int32();
+                        break;
+                    }
+                case 7: {
+                        message.size = reader.int64();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -66192,6 +70571,21 @@ $root.PreloadsResponse = (function() {
          */
         Preload.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for Preload
+         * @function getTypeUrl
+         * @memberof PreloadsResponse.Preload
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        Preload.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/PreloadsResponse.Preload";
         };
 
         return Preload;
@@ -66357,6 +70751,21 @@ $root.MyAccountsResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for MyAccountsResponse
+     * @function getTypeUrl
+     * @memberof MyAccountsResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    MyAccountsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/MyAccountsResponse";
+    };
+
     return MyAccountsResponse;
 })();
 
@@ -66515,6 +70924,21 @@ $root.ContentFilterResponse = (function() {
      */
     ContentFilterResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ContentFilterResponse
+     * @function getTypeUrl
+     * @memberof ContentFilterResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ContentFilterResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ContentFilterResponse";
     };
 
     return ContentFilterResponse;
@@ -66677,6 +71101,21 @@ $root.ExperimentsResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for ExperimentsResponse
+     * @function getTypeUrl
+     * @memberof ExperimentsResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ExperimentsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ExperimentsResponse";
+    };
+
     return ExperimentsResponse;
 })();
 
@@ -66835,6 +71274,21 @@ $root.SurveyResponse = (function() {
      */
     SurveyResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for SurveyResponse
+     * @function getTypeUrl
+     * @memberof SurveyResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SurveyResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SurveyResponse";
     };
 
     return SurveyResponse;
@@ -66997,6 +71451,21 @@ $root.PingResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for PingResponse
+     * @function getTypeUrl
+     * @memberof PingResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PingResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PingResponse";
+    };
+
     return PingResponse;
 })();
 
@@ -67155,6 +71624,21 @@ $root.UpdateUserSettingResponse = (function() {
      */
     UpdateUserSettingResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for UpdateUserSettingResponse
+     * @function getTypeUrl
+     * @memberof UpdateUserSettingResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    UpdateUserSettingResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/UpdateUserSettingResponse";
     };
 
     return UpdateUserSettingResponse;
@@ -67317,6 +71801,21 @@ $root.GetUserSettingsResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for GetUserSettingsResponse
+     * @function getTypeUrl
+     * @memberof GetUserSettingsResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    GetUserSettingsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/GetUserSettingsResponse";
+    };
+
     return GetUserSettingsResponse;
 })();
 
@@ -67475,6 +71974,21 @@ $root.GetSharingSettingsResponse = (function() {
      */
     GetSharingSettingsResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for GetSharingSettingsResponse
+     * @function getTypeUrl
+     * @memberof GetSharingSettingsResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    GetSharingSettingsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/GetSharingSettingsResponse";
     };
 
     return GetSharingSettingsResponse;
@@ -67637,6 +72151,21 @@ $root.UpdateSharingSettingsResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for UpdateSharingSettingsResponse
+     * @function getTypeUrl
+     * @memberof UpdateSharingSettingsResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    UpdateSharingSettingsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/UpdateSharingSettingsResponse";
+    };
+
     return UpdateSharingSettingsResponse;
 })();
 
@@ -67795,6 +72324,21 @@ $root.ReviewSnippetsResponse = (function() {
      */
     ReviewSnippetsResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ReviewSnippetsResponse
+     * @function getTypeUrl
+     * @memberof ReviewSnippetsResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReviewSnippetsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReviewSnippetsResponse";
     };
 
     return ReviewSnippetsResponse;
@@ -67957,6 +72501,21 @@ $root.DocumentSharingStateResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for DocumentSharingStateResponse
+     * @function getTypeUrl
+     * @memberof DocumentSharingStateResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DocumentSharingStateResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DocumentSharingStateResponse";
+    };
+
     return DocumentSharingStateResponse;
 })();
 
@@ -68117,6 +72676,21 @@ $root.ModuleDeliveryResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for ModuleDeliveryResponse
+     * @function getTypeUrl
+     * @memberof ModuleDeliveryResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ModuleDeliveryResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ModuleDeliveryResponse";
+    };
+
     return ModuleDeliveryResponse;
 })();
 
@@ -68256,21 +72830,26 @@ $root.PreFetch = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.url = reader.string();
-                break;
-            case 2:
-                message.response = $root.ResponseWrapper.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.etag = reader.string();
-                break;
-            case 4:
-                message.ttl = reader.int64();
-                break;
-            case 5:
-                message.softTtl = reader.int64();
-                break;
+            case 1: {
+                    message.url = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.response = $root.ResponseWrapper.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.etag = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.ttl = reader.int64();
+                    break;
+                }
+            case 5: {
+                    message.softTtl = reader.int64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -68426,6 +73005,21 @@ $root.PreFetch = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for PreFetch
+     * @function getTypeUrl
+     * @memberof PreFetch
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PreFetch.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PreFetch";
+    };
+
     return PreFetch;
 })();
 
@@ -68521,9 +73115,10 @@ $root.ServerMetadata = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.latencyMillis = reader.int64();
-                break;
+            case 1: {
+                    message.latencyMillis = reader.int64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -68625,6 +73220,21 @@ $root.ServerMetadata = (function() {
      */
     ServerMetadata.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ServerMetadata
+     * @function getTypeUrl
+     * @memberof ServerMetadata
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ServerMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ServerMetadata";
     };
 
     return ServerMetadata;
@@ -68735,19 +73345,21 @@ $root.Targets = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.targetId && message.targetId.length))
-                    message.targetId = [];
-                if ((tag & 7) === 2) {
-                    var end2 = reader.uint32() + reader.pos;
-                    while (reader.pos < end2)
+            case 1: {
+                    if (!(message.targetId && message.targetId.length))
+                        message.targetId = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.targetId.push(reader.int64());
+                    } else
                         message.targetId.push(reader.int64());
-                } else
-                    message.targetId.push(reader.int64());
-                break;
-            case 2:
-                message.signature = reader.bytes();
-                break;
+                    break;
+                }
+            case 2: {
+                    message.signature = reader.bytes();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -68825,7 +73437,7 @@ $root.Targets = (function() {
         if (object.signature != null)
             if (typeof object.signature === "string")
                 $util.base64.decode(object.signature, message.signature = $util.newBuffer($util.base64.length(object.signature)), 0);
-            else if (object.signature.length)
+            else if (object.signature.length >= 0)
                 message.signature = object.signature;
         return message;
     };
@@ -68875,6 +73487,21 @@ $root.Targets = (function() {
      */
     Targets.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for Targets
+     * @function getTypeUrl
+     * @memberof Targets
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Targets.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Targets";
     };
 
     return Targets;
@@ -68983,12 +73610,14 @@ $root.ServerCookie = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.type = reader.int32();
-                break;
-            case 2:
-                message.token = reader.bytes();
-                break;
+            case 1: {
+                    message.type = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.token = reader.bytes();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -69050,7 +73679,7 @@ $root.ServerCookie = (function() {
         if (object.token != null)
             if (typeof object.token === "string")
                 $util.base64.decode(object.token, message.token = $util.newBuffer($util.base64.length(object.token)), 0);
-            else if (object.token.length)
+            else if (object.token.length >= 0)
                 message.token = object.token;
         return message;
     };
@@ -69094,6 +73723,21 @@ $root.ServerCookie = (function() {
      */
     ServerCookie.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ServerCookie
+     * @function getTypeUrl
+     * @memberof ServerCookie
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ServerCookie.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ServerCookie";
     };
 
     return ServerCookie;
@@ -69193,11 +73837,12 @@ $root.ServerCookies = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.serverCookie && message.serverCookie.length))
-                    message.serverCookie = [];
-                message.serverCookie.push($root.ServerCookie.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    if (!(message.serverCookie && message.serverCookie.length))
+                        message.serverCookie = [];
+                    message.serverCookie.push($root.ServerCookie.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -69302,6 +73947,21 @@ $root.ServerCookies = (function() {
      */
     ServerCookies.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ServerCookies
+     * @function getTypeUrl
+     * @memberof ServerCookies
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ServerCookies.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ServerCookies";
     };
 
     return ServerCookies;
@@ -69480,34 +74140,42 @@ $root.ResponseWrapper = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.payload = $root.Payload.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.commands = $root.ServerCommands.decode(reader, reader.uint32());
-                break;
-            case 3:
-                if (!(message.preFetch && message.preFetch.length))
-                    message.preFetch = [];
-                message.preFetch.push($root.PreFetch.decode(reader, reader.uint32()));
-                break;
-            case 4:
-                if (!(message.notification && message.notification.length))
-                    message.notification = [];
-                message.notification.push($root.Notification.decode(reader, reader.uint32()));
-                break;
-            case 5:
-                message.serverMetadata = $root.ServerMetadata.decode(reader, reader.uint32());
-                break;
-            case 6:
-                message.targets = $root.Targets.decode(reader, reader.uint32());
-                break;
-            case 7:
-                message.serverCookies = $root.ServerCookies.decode(reader, reader.uint32());
-                break;
-            case 9:
-                message.serverLogsCookie = reader.bytes();
-                break;
+            case 1: {
+                    message.payload = $root.Payload.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.commands = $root.ServerCommands.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    if (!(message.preFetch && message.preFetch.length))
+                        message.preFetch = [];
+                    message.preFetch.push($root.PreFetch.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 4: {
+                    if (!(message.notification && message.notification.length))
+                        message.notification = [];
+                    message.notification.push($root.Notification.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 5: {
+                    message.serverMetadata = $root.ServerMetadata.decode(reader, reader.uint32());
+                    break;
+                }
+            case 6: {
+                    message.targets = $root.Targets.decode(reader, reader.uint32());
+                    break;
+                }
+            case 7: {
+                    message.serverCookies = $root.ServerCookies.decode(reader, reader.uint32());
+                    break;
+                }
+            case 9: {
+                    message.serverLogsCookie = reader.bytes();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -69652,7 +74320,7 @@ $root.ResponseWrapper = (function() {
         if (object.serverLogsCookie != null)
             if (typeof object.serverLogsCookie === "string")
                 $util.base64.decode(object.serverLogsCookie, message.serverLogsCookie = $util.newBuffer($util.base64.length(object.serverLogsCookie)), 0);
-            else if (object.serverLogsCookie.length)
+            else if (object.serverLogsCookie.length >= 0)
                 message.serverLogsCookie = object.serverLogsCookie;
         return message;
     };
@@ -69722,6 +74390,21 @@ $root.ResponseWrapper = (function() {
      */
     ResponseWrapper.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ResponseWrapper
+     * @function getTypeUrl
+     * @memberof ResponseWrapper
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ResponseWrapper.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ResponseWrapper";
     };
 
     return ResponseWrapper;
@@ -69819,9 +74502,10 @@ $root.ResponseWrapperApi = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.payload = $root.PayloadApi.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.payload = $root.PayloadApi.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -69914,6 +74598,21 @@ $root.ResponseWrapperApi = (function() {
      */
     ResponseWrapperApi.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ResponseWrapperApi
+     * @function getTypeUrl
+     * @memberof ResponseWrapperApi
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ResponseWrapperApi.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ResponseWrapperApi";
     };
 
     return ResponseWrapperApi;
@@ -70011,9 +74710,10 @@ $root.PayloadApi = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 5:
-                message.userProfileResponse = $root.UserProfileResponse.decode(reader, reader.uint32());
-                break;
+            case 5: {
+                    message.userProfileResponse = $root.UserProfileResponse.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -70106,6 +74806,21 @@ $root.PayloadApi = (function() {
      */
     PayloadApi.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PayloadApi
+     * @function getTypeUrl
+     * @memberof PayloadApi
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PayloadApi.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PayloadApi";
     };
 
     return PayloadApi;
@@ -70203,9 +74918,10 @@ $root.UserProfileResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.userProfile = $root.UserProfile.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.userProfile = $root.UserProfile.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -70298,6 +75014,21 @@ $root.UserProfileResponse = (function() {
      */
     UserProfileResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for UserProfileResponse
+     * @function getTypeUrl
+     * @memberof UserProfileResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    UserProfileResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/UserProfileResponse";
     };
 
     return UserProfileResponse;
@@ -70417,15 +75148,18 @@ $root.ServerCommands = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.clearCache = reader.bool();
-                break;
-            case 2:
-                message.displayErrorMessage = reader.string();
-                break;
-            case 3:
-                message.logErrorStacktrace = reader.string();
-                break;
+            case 1: {
+                    message.clearCache = reader.bool();
+                    break;
+                }
+            case 2: {
+                    message.displayErrorMessage = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.logErrorStacktrace = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -70530,6 +75264,21 @@ $root.ServerCommands = (function() {
      */
     ServerCommands.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ServerCommands
+     * @function getTypeUrl
+     * @memberof ServerCommands
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ServerCommands.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ServerCommands";
     };
 
     return ServerCommands;
@@ -70640,14 +75389,16 @@ $root.GetReviewsResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.review && message.review.length))
-                    message.review = [];
-                message.review.push($root.Review.decode(reader, reader.uint32()));
-                break;
-            case 2:
-                message.matchingCount = reader.int64();
-                break;
+            case 1: {
+                    if (!(message.review && message.review.length))
+                        message.review = [];
+                    message.review.push($root.Review.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 2: {
+                    message.matchingCount = reader.int64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -70775,6 +75526,21 @@ $root.GetReviewsResponse = (function() {
      */
     GetReviewsResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for GetReviewsResponse
+     * @function getTypeUrl
+     * @memberof GetReviewsResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    GetReviewsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/GetReviewsResponse";
     };
 
     return GetReviewsResponse;
@@ -71048,57 +75814,74 @@ $root.Review = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.authorName = reader.string();
-                break;
-            case 2:
-                message.url = reader.string();
-                break;
-            case 3:
-                message.source = reader.string();
-                break;
-            case 4:
-                message.version = reader.string();
-                break;
-            case 5:
-                message.timestamp = reader.int64();
-                break;
-            case 6:
-                message.starRating = reader.int32();
-                break;
-            case 7:
-                message.title = reader.string();
-                break;
-            case 8:
-                message.comment = reader.string();
-                break;
-            case 9:
-                message.commentId = reader.string();
-                break;
-            case 19:
-                message.deviceName = reader.string();
-                break;
-            case 29:
-                message.replyText = reader.string();
-                break;
-            case 30:
-                message.replyTimeStamp = reader.int64();
-                break;
-            case 31:
-                message.author = $root.ReviewAuthor.decode(reader, reader.uint32());
-                break;
-            case 33:
-                message.userProfile = $root.UserProfile.decode(reader, reader.uint32());
-                break;
-            case 34:
-                message.sentiment = $root.Image.decode(reader, reader.uint32());
-                break;
-            case 35:
-                message.helpfulCount = reader.int32();
-                break;
-            case 38:
-                message.thumbsUpCount = reader.int64();
-                break;
+            case 1: {
+                    message.authorName = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.url = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.source = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.version = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.timestamp = reader.int64();
+                    break;
+                }
+            case 6: {
+                    message.starRating = reader.int32();
+                    break;
+                }
+            case 7: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.comment = reader.string();
+                    break;
+                }
+            case 9: {
+                    message.commentId = reader.string();
+                    break;
+                }
+            case 19: {
+                    message.deviceName = reader.string();
+                    break;
+                }
+            case 29: {
+                    message.replyText = reader.string();
+                    break;
+                }
+            case 30: {
+                    message.replyTimeStamp = reader.int64();
+                    break;
+                }
+            case 31: {
+                    message.author = $root.ReviewAuthor.decode(reader, reader.uint32());
+                    break;
+                }
+            case 33: {
+                    message.userProfile = $root.UserProfile.decode(reader, reader.uint32());
+                    break;
+                }
+            case 34: {
+                    message.sentiment = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
+            case 35: {
+                    message.helpfulCount = reader.int32();
+                    break;
+                }
+            case 38: {
+                    message.thumbsUpCount = reader.int64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -71374,6 +76157,21 @@ $root.Review = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for Review
+     * @function getTypeUrl
+     * @memberof Review
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    Review.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/Review";
+    };
+
     return Review;
 })();
 
@@ -71537,29 +76335,36 @@ $root.CriticReviewsResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.title = reader.string();
-                break;
-            case 2:
-                message.image = $root.Image.decode(reader, reader.uint32());
-                break;
-            case 3:
-                message.totalNumReviews = reader.uint32();
-                break;
-            case 4:
-                message.percentFavorable = reader.uint32();
-                break;
-            case 5:
-                message.sourceText = reader.string();
-                break;
-            case 6:
-                message.source = $root.Link.decode(reader, reader.uint32());
-                break;
-            case 7:
-                if (!(message.review && message.review.length))
-                    message.review = [];
-                message.review.push($root.Review.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.image = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.totalNumReviews = reader.uint32();
+                    break;
+                }
+            case 4: {
+                    message.percentFavorable = reader.uint32();
+                    break;
+                }
+            case 5: {
+                    message.sourceText = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.source = $root.Link.decode(reader, reader.uint32());
+                    break;
+                }
+            case 7: {
+                    if (!(message.review && message.review.length))
+                        message.review = [];
+                    message.review.push($root.Review.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -71726,6 +76531,21 @@ $root.CriticReviewsResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for CriticReviewsResponse
+     * @function getTypeUrl
+     * @memberof CriticReviewsResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CriticReviewsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CriticReviewsResponse";
+    };
+
     return CriticReviewsResponse;
 })();
 
@@ -71832,12 +76652,14 @@ $root.ReviewAuthor = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 2:
-                message.name = reader.string();
-                break;
-            case 5:
-                message.avatar = $root.Image.decode(reader, reader.uint32());
-                break;
+            case 2: {
+                    message.name = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.avatar = $root.Image.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -71939,6 +76761,21 @@ $root.ReviewAuthor = (function() {
      */
     ReviewAuthor.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ReviewAuthor
+     * @function getTypeUrl
+     * @memberof ReviewAuthor
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReviewAuthor.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReviewAuthor";
     };
 
     return ReviewAuthor;
@@ -72115,32 +76952,40 @@ $root.UserProfile = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.profileId = reader.string();
-                break;
-            case 2:
-                message.personId = reader.string();
-                break;
-            case 3:
-                message.profileType = reader.int32();
-                break;
-            case 4:
-                message.personType = reader.int32();
-                break;
-            case 5:
-                message.name = reader.string();
-                break;
-            case 10:
-                if (!(message.image && message.image.length))
-                    message.image = [];
-                message.image.push($root.Image.decode(reader, reader.uint32()));
-                break;
-            case 19:
-                message.profileUrl = reader.string();
-                break;
-            case 22:
-                message.profileDescription = reader.string();
-                break;
+            case 1: {
+                    message.profileId = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.personId = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.profileType = reader.int32();
+                    break;
+                }
+            case 4: {
+                    message.personType = reader.int32();
+                    break;
+                }
+            case 5: {
+                    message.name = reader.string();
+                    break;
+                }
+            case 10: {
+                    if (!(message.image && message.image.length))
+                        message.image = [];
+                    message.image.push($root.Image.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 19: {
+                    message.profileUrl = reader.string();
+                    break;
+                }
+            case 22: {
+                    message.profileDescription = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -72305,6 +77150,21 @@ $root.UserProfile = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for UserProfile
+     * @function getTypeUrl
+     * @memberof UserProfile
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    UserProfile.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/UserProfile";
+    };
+
     return UserProfile;
 })();
 
@@ -72444,21 +77304,26 @@ $root.ReviewResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.userReviewsResponse = $root.GetReviewsResponse.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.nextPageUrl = reader.string();
-                break;
-            case 3:
-                message.userReview = $root.Review.decode(reader, reader.uint32());
-                break;
-            case 4:
-                message.suggestionsListUrl = reader.string();
-                break;
-            case 5:
-                message.criticReviewsResponse = $root.CriticReviewsResponse.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.userReviewsResponse = $root.GetReviewsResponse.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.nextPageUrl = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.userReview = $root.Review.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    message.suggestionsListUrl = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.criticReviewsResponse = $root.CriticReviewsResponse.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -72594,6 +77459,21 @@ $root.ReviewResponse = (function() {
      */
     ReviewResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ReviewResponse
+     * @function getTypeUrl
+     * @memberof ReviewResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReviewResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReviewResponse";
     };
 
     return ReviewResponse;
@@ -72735,21 +77615,26 @@ $root.RelatedSearch = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.searchUrl = reader.string();
-                break;
-            case 2:
-                message.header = reader.string();
-                break;
-            case 3:
-                message.backendId = reader.int32();
-                break;
-            case 4:
-                message.docType = reader.int32();
-                break;
-            case 5:
-                message.current = reader.bool();
-                break;
+            case 1: {
+                    message.searchUrl = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.header = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.backendId = reader.int32();
+                    break;
+                }
+            case 4: {
+                    message.docType = reader.int32();
+                    break;
+                }
+            case 5: {
+                    message.current = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -72870,6 +77755,21 @@ $root.RelatedSearch = (function() {
      */
     RelatedSearch.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for RelatedSearch
+     * @function getTypeUrl
+     * @memberof RelatedSearch
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    RelatedSearch.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/RelatedSearch";
     };
 
     return RelatedSearch;
@@ -73072,42 +77972,52 @@ $root.SearchResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.originalQuery = reader.string();
-                break;
-            case 2:
-                message.suggestedQuery = reader.string();
-                break;
-            case 3:
-                message.aggregateQuery = reader.bool();
-                break;
-            case 4:
-                if (!(message.bucket && message.bucket.length))
-                    message.bucket = [];
-                message.bucket.push($root.Bucket.decode(reader, reader.uint32()));
-                break;
-            case 5:
-                if (!(message.item && message.item.length))
-                    message.item = [];
-                message.item.push($root.Item.decode(reader, reader.uint32()));
-                break;
-            case 6:
-                if (!(message.relatedSearch && message.relatedSearch.length))
-                    message.relatedSearch = [];
-                message.relatedSearch.push($root.RelatedSearch.decode(reader, reader.uint32()));
-                break;
-            case 7:
-                message.serverLogsCookie = reader.bytes();
-                break;
-            case 8:
-                message.fullPageReplaced = reader.bool();
-                break;
-            case 9:
-                message.containsSnow = reader.bool();
-                break;
-            case 10:
-                message.nextPageUrl = reader.string();
-                break;
+            case 1: {
+                    message.originalQuery = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.suggestedQuery = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.aggregateQuery = reader.bool();
+                    break;
+                }
+            case 4: {
+                    if (!(message.bucket && message.bucket.length))
+                        message.bucket = [];
+                    message.bucket.push($root.Bucket.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 5: {
+                    if (!(message.item && message.item.length))
+                        message.item = [];
+                    message.item.push($root.Item.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 6: {
+                    if (!(message.relatedSearch && message.relatedSearch.length))
+                        message.relatedSearch = [];
+                    message.relatedSearch.push($root.RelatedSearch.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 7: {
+                    message.serverLogsCookie = reader.bytes();
+                    break;
+                }
+            case 8: {
+                    message.fullPageReplaced = reader.bool();
+                    break;
+                }
+            case 9: {
+                    message.containsSnow = reader.bool();
+                    break;
+                }
+            case 10: {
+                    message.nextPageUrl = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -73245,7 +78155,7 @@ $root.SearchResponse = (function() {
         if (object.serverLogsCookie != null)
             if (typeof object.serverLogsCookie === "string")
                 $util.base64.decode(object.serverLogsCookie, message.serverLogsCookie = $util.newBuffer($util.base64.length(object.serverLogsCookie)), 0);
-            else if (object.serverLogsCookie.length)
+            else if (object.serverLogsCookie.length >= 0)
                 message.serverLogsCookie = object.serverLogsCookie;
         if (object.fullPageReplaced != null)
             message.fullPageReplaced = Boolean(object.fullPageReplaced);
@@ -73330,6 +78240,21 @@ $root.SearchResponse = (function() {
      */
     SearchResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for SearchResponse
+     * @function getTypeUrl
+     * @memberof SearchResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SearchResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SearchResponse";
     };
 
     return SearchResponse;
@@ -73429,11 +78354,12 @@ $root.SearchSuggestResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                if (!(message.entry && message.entry.length))
-                    message.entry = [];
-                message.entry.push($root.SearchSuggestEntry.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    if (!(message.entry && message.entry.length))
+                        message.entry = [];
+                    message.entry.push($root.SearchSuggestEntry.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -73538,6 +78464,21 @@ $root.SearchSuggestResponse = (function() {
      */
     SearchSuggestResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for SearchSuggestResponse
+     * @function getTypeUrl
+     * @memberof SearchSuggestResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SearchSuggestResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SearchSuggestResponse";
     };
 
     return SearchSuggestResponse;
@@ -73679,21 +78620,26 @@ $root.SearchSuggestEntry = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.type = reader.int32();
-                break;
-            case 2:
-                message.suggestedQuery = reader.string();
-                break;
-            case 5:
-                message.imageContainer = $root.SearchSuggestEntry.ImageContainer.decode(reader, reader.uint32());
-                break;
-            case 6:
-                message.title = reader.string();
-                break;
-            case 8:
-                message.packageNameContainer = $root.SearchSuggestEntry.PackageNameContainer.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.type = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.suggestedQuery = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.imageContainer = $root.SearchSuggestEntry.ImageContainer.decode(reader, reader.uint32());
+                    break;
+                }
+            case 6: {
+                    message.title = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.packageNameContainer = $root.SearchSuggestEntry.PackageNameContainer.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -73826,6 +78772,21 @@ $root.SearchSuggestEntry = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for SearchSuggestEntry
+     * @function getTypeUrl
+     * @memberof SearchSuggestEntry
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    SearchSuggestEntry.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/SearchSuggestEntry";
+    };
+
     SearchSuggestEntry.ImageContainer = (function() {
 
         /**
@@ -73918,9 +78879,10 @@ $root.SearchSuggestEntry = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 5:
-                    message.imageUrl = reader.string();
-                    break;
+                case 5: {
+                        message.imageUrl = reader.string();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -74008,6 +78970,21 @@ $root.SearchSuggestEntry = (function() {
          */
         ImageContainer.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for ImageContainer
+         * @function getTypeUrl
+         * @memberof SearchSuggestEntry.ImageContainer
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        ImageContainer.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/SearchSuggestEntry.ImageContainer";
         };
 
         return ImageContainer;
@@ -74105,9 +79082,10 @@ $root.SearchSuggestEntry = (function() {
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 1:
-                    message.packageName = reader.string();
-                    break;
+                case 1: {
+                        message.packageName = reader.string();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -74195,6 +79173,21 @@ $root.SearchSuggestEntry = (function() {
          */
         PackageNameContainer.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for PackageNameContainer
+         * @function getTypeUrl
+         * @memberof SearchSuggestEntry.PackageNameContainer
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        PackageNameContainer.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/SearchSuggestEntry.PackageNameContainer";
         };
 
         return PackageNameContainer;
@@ -74295,9 +79288,10 @@ $root.TestingProgramResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 2:
-                message.result = $root.TestingProgramResult.decode(reader, reader.uint32());
-                break;
+            case 2: {
+                    message.result = $root.TestingProgramResult.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -74390,6 +79384,21 @@ $root.TestingProgramResponse = (function() {
      */
     TestingProgramResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for TestingProgramResponse
+     * @function getTypeUrl
+     * @memberof TestingProgramResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    TestingProgramResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/TestingProgramResponse";
     };
 
     return TestingProgramResponse;
@@ -74487,9 +79496,10 @@ $root.TestingProgramResult = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 4:
-                message.details = $root.TestingProgramDetails.decode(reader, reader.uint32());
-                break;
+            case 4: {
+                    message.details = $root.TestingProgramDetails.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -74582,6 +79592,21 @@ $root.TestingProgramResult = (function() {
      */
     TestingProgramResult.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for TestingProgramResult
+     * @function getTypeUrl
+     * @memberof TestingProgramResult
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    TestingProgramResult.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/TestingProgramResult";
     };
 
     return TestingProgramResult;
@@ -74701,15 +79726,18 @@ $root.TestingProgramDetails = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 2:
-                message.subscribed = reader.bool();
-                break;
-            case 3:
-                message.id = reader.int64();
-                break;
-            case 4:
-                message.unsubscribed = reader.bool();
-                break;
+            case 2: {
+                    message.subscribed = reader.bool();
+                    break;
+                }
+            case 3: {
+                    message.id = reader.int64();
+                    break;
+                }
+            case 4: {
+                    message.unsubscribed = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -74830,6 +79858,21 @@ $root.TestingProgramDetails = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for TestingProgramDetails
+     * @function getTypeUrl
+     * @memberof TestingProgramDetails
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    TestingProgramDetails.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/TestingProgramDetails";
+    };
+
     return TestingProgramDetails;
 })();
 
@@ -74936,12 +79979,14 @@ $root.LogRequest = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.timestamp = reader.int64();
-                break;
-            case 2:
-                message.downloadConfirmationQuery = reader.string();
-                break;
+            case 1: {
+                    message.timestamp = reader.int64();
+                    break;
+                }
+            case 2: {
+                    message.downloadConfirmationQuery = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -75054,6 +80099,21 @@ $root.LogRequest = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for LogRequest
+     * @function getTypeUrl
+     * @memberof LogRequest
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    LogRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/LogRequest";
+    };
+
     return LogRequest;
 })();
 
@@ -75160,12 +80220,14 @@ $root.TestingProgramRequest = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.packageName = reader.string();
-                break;
-            case 2:
-                message.subscribe = reader.bool();
-                break;
+            case 1: {
+                    message.packageName = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.subscribe = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -75262,6 +80324,21 @@ $root.TestingProgramRequest = (function() {
      */
     TestingProgramRequest.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for TestingProgramRequest
+     * @function getTypeUrl
+     * @memberof TestingProgramRequest
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    TestingProgramRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/TestingProgramRequest";
     };
 
     return TestingProgramRequest;
@@ -75381,15 +80458,18 @@ $root.UploadDeviceConfigRequest = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.deviceConfiguration = $root.DeviceConfigurationProto.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.manufacturer = reader.string();
-                break;
-            case 3:
-                message.gcmRegistrationId = reader.string();
-                break;
+            case 1: {
+                    message.deviceConfiguration = $root.DeviceConfigurationProto.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.manufacturer = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.gcmRegistrationId = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -75501,6 +80581,21 @@ $root.UploadDeviceConfigRequest = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for UploadDeviceConfigRequest
+     * @function getTypeUrl
+     * @memberof UploadDeviceConfigRequest
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    UploadDeviceConfigRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/UploadDeviceConfigRequest";
+    };
+
     return UploadDeviceConfigRequest;
 })();
 
@@ -75596,9 +80691,10 @@ $root.UploadDeviceConfigResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.uploadDeviceConfigToken = reader.string();
-                break;
+            case 1: {
+                    message.uploadDeviceConfigToken = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -75686,6 +80782,21 @@ $root.UploadDeviceConfigResponse = (function() {
      */
     UploadDeviceConfigResponse.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for UploadDeviceConfigResponse
+     * @function getTypeUrl
+     * @memberof UploadDeviceConfigResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    UploadDeviceConfigResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/UploadDeviceConfigResponse";
     };
 
     return UploadDeviceConfigResponse;
@@ -76022,80 +81133,102 @@ $root.AndroidCheckinRequest = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.imei = reader.string();
-                break;
-            case 2:
-                message.id = reader.int64();
-                break;
-            case 3:
-                message.digest = reader.string();
-                break;
-            case 4:
-                message.checkin = $root.AndroidCheckinProto.decode(reader, reader.uint32());
-                break;
-            case 5:
-                message.desiredBuild = reader.string();
-                break;
-            case 6:
-                message.locale = reader.string();
-                break;
-            case 7:
-                message.loggingId = reader.int64();
-                break;
-            case 8:
-                message.marketCheckin = reader.string();
-                break;
-            case 9:
-                if (!(message.macAddr && message.macAddr.length))
-                    message.macAddr = [];
-                message.macAddr.push(reader.string());
-                break;
-            case 10:
-                message.meid = reader.string();
-                break;
-            case 11:
-                if (!(message.accountCookie && message.accountCookie.length))
-                    message.accountCookie = [];
-                message.accountCookie.push(reader.string());
-                break;
-            case 12:
-                message.timeZone = reader.string();
-                break;
-            case 13:
-                message.securityToken = reader.fixed64();
-                break;
-            case 14:
-                message.version = reader.int32();
-                break;
-            case 15:
-                if (!(message.otaCert && message.otaCert.length))
-                    message.otaCert = [];
-                message.otaCert.push(reader.string());
-                break;
-            case 16:
-                message.serialNumber = reader.string();
-                break;
-            case 17:
-                message.esn = reader.string();
-                break;
-            case 18:
-                message.deviceConfiguration = $root.DeviceConfigurationProto.decode(reader, reader.uint32());
-                break;
-            case 19:
-                if (!(message.macAddrType && message.macAddrType.length))
-                    message.macAddrType = [];
-                message.macAddrType.push(reader.string());
-                break;
-            case 20:
-                message.fragment = reader.int32();
-                break;
-            case 21:
-                message.userName = reader.string();
-                break;
-            case 22:
-                message.userSerialNumber = reader.int32();
-                break;
+            case 1: {
+                    message.imei = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.id = reader.int64();
+                    break;
+                }
+            case 3: {
+                    message.digest = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.checkin = $root.AndroidCheckinProto.decode(reader, reader.uint32());
+                    break;
+                }
+            case 5: {
+                    message.desiredBuild = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.locale = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.loggingId = reader.int64();
+                    break;
+                }
+            case 8: {
+                    message.marketCheckin = reader.string();
+                    break;
+                }
+            case 9: {
+                    if (!(message.macAddr && message.macAddr.length))
+                        message.macAddr = [];
+                    message.macAddr.push(reader.string());
+                    break;
+                }
+            case 10: {
+                    message.meid = reader.string();
+                    break;
+                }
+            case 11: {
+                    if (!(message.accountCookie && message.accountCookie.length))
+                        message.accountCookie = [];
+                    message.accountCookie.push(reader.string());
+                    break;
+                }
+            case 12: {
+                    message.timeZone = reader.string();
+                    break;
+                }
+            case 13: {
+                    message.securityToken = reader.fixed64();
+                    break;
+                }
+            case 14: {
+                    message.version = reader.int32();
+                    break;
+                }
+            case 15: {
+                    if (!(message.otaCert && message.otaCert.length))
+                        message.otaCert = [];
+                    message.otaCert.push(reader.string());
+                    break;
+                }
+            case 16: {
+                    message.serialNumber = reader.string();
+                    break;
+                }
+            case 17: {
+                    message.esn = reader.string();
+                    break;
+                }
+            case 18: {
+                    message.deviceConfiguration = $root.DeviceConfigurationProto.decode(reader, reader.uint32());
+                    break;
+                }
+            case 19: {
+                    if (!(message.macAddrType && message.macAddrType.length))
+                        message.macAddrType = [];
+                    message.macAddrType.push(reader.string());
+                    break;
+                }
+            case 20: {
+                    message.fragment = reader.int32();
+                    break;
+                }
+            case 21: {
+                    message.userName = reader.string();
+                    break;
+                }
+            case 22: {
+                    message.userSerialNumber = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -76456,6 +81589,21 @@ $root.AndroidCheckinRequest = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AndroidCheckinRequest
+     * @function getTypeUrl
+     * @memberof AndroidCheckinRequest
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AndroidCheckinRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AndroidCheckinRequest";
+    };
+
     return AndroidCheckinRequest;
 })();
 
@@ -76667,45 +81815,56 @@ $root.AndroidCheckinResponse = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.statsOk = reader.bool();
-                break;
-            case 2:
-                if (!(message.intent && message.intent.length))
-                    message.intent = [];
-                message.intent.push($root.AndroidIntentProto.decode(reader, reader.uint32()));
-                break;
-            case 3:
-                message.timeMsec = reader.int64();
-                break;
-            case 4:
-                message.digest = reader.string();
-                break;
-            case 5:
-                if (!(message.setting && message.setting.length))
-                    message.setting = [];
-                message.setting.push($root.GservicesSetting.decode(reader, reader.uint32()));
-                break;
-            case 6:
-                message.marketOk = reader.bool();
-                break;
-            case 7:
-                message.androidId = reader.fixed64();
-                break;
-            case 8:
-                message.securityToken = reader.fixed64();
-                break;
-            case 9:
-                message.settingsDiff = reader.bool();
-                break;
-            case 10:
-                if (!(message.deleteSetting && message.deleteSetting.length))
-                    message.deleteSetting = [];
-                message.deleteSetting.push(reader.string());
-                break;
-            case 12:
-                message.deviceCheckinConsistencyToken = reader.string();
-                break;
+            case 1: {
+                    message.statsOk = reader.bool();
+                    break;
+                }
+            case 2: {
+                    if (!(message.intent && message.intent.length))
+                        message.intent = [];
+                    message.intent.push($root.AndroidIntentProto.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 3: {
+                    message.timeMsec = reader.int64();
+                    break;
+                }
+            case 4: {
+                    message.digest = reader.string();
+                    break;
+                }
+            case 5: {
+                    if (!(message.setting && message.setting.length))
+                        message.setting = [];
+                    message.setting.push($root.GservicesSetting.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 6: {
+                    message.marketOk = reader.bool();
+                    break;
+                }
+            case 7: {
+                    message.androidId = reader.fixed64();
+                    break;
+                }
+            case 8: {
+                    message.securityToken = reader.fixed64();
+                    break;
+                }
+            case 9: {
+                    message.settingsDiff = reader.bool();
+                    break;
+                }
+            case 10: {
+                    if (!(message.deleteSetting && message.deleteSetting.length))
+                        message.deleteSetting = [];
+                    message.deleteSetting.push(reader.string());
+                    break;
+                }
+            case 12: {
+                    message.deviceCheckinConsistencyToken = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -76966,6 +82125,21 @@ $root.AndroidCheckinResponse = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AndroidCheckinResponse
+     * @function getTypeUrl
+     * @memberof AndroidCheckinResponse
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AndroidCheckinResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AndroidCheckinResponse";
+    };
+
     return AndroidCheckinResponse;
 })();
 
@@ -77072,12 +82246,14 @@ $root.GservicesSetting = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.name = reader.bytes();
-                break;
-            case 2:
-                message.value = reader.bytes();
-                break;
+            case 1: {
+                    message.name = reader.bytes();
+                    break;
+                }
+            case 2: {
+                    message.value = reader.bytes();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -77137,12 +82313,12 @@ $root.GservicesSetting = (function() {
         if (object.name != null)
             if (typeof object.name === "string")
                 $util.base64.decode(object.name, message.name = $util.newBuffer($util.base64.length(object.name)), 0);
-            else if (object.name.length)
+            else if (object.name.length >= 0)
                 message.name = object.name;
         if (object.value != null)
             if (typeof object.value === "string")
                 $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
-            else if (object.value.length)
+            else if (object.value.length >= 0)
                 message.value = object.value;
         return message;
     };
@@ -77192,6 +82368,21 @@ $root.GservicesSetting = (function() {
      */
     GservicesSetting.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for GservicesSetting
+     * @function getTypeUrl
+     * @memberof GservicesSetting
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    GservicesSetting.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/GservicesSetting";
     };
 
     return GservicesSetting;
@@ -77432,48 +82623,62 @@ $root.AndroidBuildProto = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.id = reader.string();
-                break;
-            case 2:
-                message.product = reader.string();
-                break;
-            case 3:
-                message.carrier = reader.string();
-                break;
-            case 4:
-                message.radio = reader.string();
-                break;
-            case 5:
-                message.bootloader = reader.string();
-                break;
-            case 6:
-                message.client = reader.string();
-                break;
-            case 7:
-                message.timestamp = reader.int64();
-                break;
-            case 8:
-                message.googleServices = reader.int32();
-                break;
-            case 9:
-                message.device = reader.string();
-                break;
-            case 10:
-                message.sdkVersion = reader.int32();
-                break;
-            case 11:
-                message.model = reader.string();
-                break;
-            case 12:
-                message.manufacturer = reader.string();
-                break;
-            case 13:
-                message.buildProduct = reader.string();
-                break;
-            case 14:
-                message.otaInstalled = reader.bool();
-                break;
+            case 1: {
+                    message.id = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.product = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.carrier = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.radio = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.bootloader = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.client = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.timestamp = reader.int64();
+                    break;
+                }
+            case 8: {
+                    message.googleServices = reader.int32();
+                    break;
+                }
+            case 9: {
+                    message.device = reader.string();
+                    break;
+                }
+            case 10: {
+                    message.sdkVersion = reader.int32();
+                    break;
+                }
+            case 11: {
+                    message.model = reader.string();
+                    break;
+                }
+            case 12: {
+                    message.manufacturer = reader.string();
+                    break;
+                }
+            case 13: {
+                    message.buildProduct = reader.string();
+                    break;
+                }
+            case 14: {
+                    message.otaInstalled = reader.bool();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -77682,6 +82887,21 @@ $root.AndroidBuildProto = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AndroidBuildProto
+     * @function getTypeUrl
+     * @memberof AndroidBuildProto
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AndroidBuildProto.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AndroidBuildProto";
+    };
+
     return AndroidBuildProto;
 })();
 
@@ -77871,39 +83091,48 @@ $root.AndroidCheckinProto = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.build = $root.AndroidBuildProto.decode(reader, reader.uint32());
-                break;
-            case 2:
-                message.lastCheckinMsec = reader.int64();
-                break;
-            case 3:
-                if (!(message.event && message.event.length))
-                    message.event = [];
-                message.event.push($root.AndroidEventProto.decode(reader, reader.uint32()));
-                break;
-            case 4:
-                if (!(message.stat && message.stat.length))
-                    message.stat = [];
-                message.stat.push($root.AndroidStatisticProto.decode(reader, reader.uint32()));
-                break;
-            case 5:
-                if (!(message.requestedGroup && message.requestedGroup.length))
-                    message.requestedGroup = [];
-                message.requestedGroup.push(reader.string());
-                break;
-            case 6:
-                message.cellOperator = reader.string();
-                break;
-            case 7:
-                message.simOperator = reader.string();
-                break;
-            case 8:
-                message.roaming = reader.string();
-                break;
-            case 9:
-                message.userNumber = reader.int32();
-                break;
+            case 1: {
+                    message.build = $root.AndroidBuildProto.decode(reader, reader.uint32());
+                    break;
+                }
+            case 2: {
+                    message.lastCheckinMsec = reader.int64();
+                    break;
+                }
+            case 3: {
+                    if (!(message.event && message.event.length))
+                        message.event = [];
+                    message.event.push($root.AndroidEventProto.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 4: {
+                    if (!(message.stat && message.stat.length))
+                        message.stat = [];
+                    message.stat.push($root.AndroidStatisticProto.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 5: {
+                    if (!(message.requestedGroup && message.requestedGroup.length))
+                        message.requestedGroup = [];
+                    message.requestedGroup.push(reader.string());
+                    break;
+                }
+            case 6: {
+                    message.cellOperator = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.simOperator = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.roaming = reader.string();
+                    break;
+                }
+            case 9: {
+                    message.userNumber = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -78125,6 +83354,21 @@ $root.AndroidCheckinProto = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AndroidCheckinProto
+     * @function getTypeUrl
+     * @memberof AndroidCheckinProto
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AndroidCheckinProto.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AndroidCheckinProto";
+    };
+
     return AndroidCheckinProto;
 })();
 
@@ -78242,15 +83486,18 @@ $root.AndroidEventProto = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.tag = reader.string();
-                break;
-            case 2:
-                message.value = reader.string();
-                break;
-            case 3:
-                message.timeMsec = reader.int64();
-                break;
+            case 1: {
+                    message.tag = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.value = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.timeMsec = reader.int64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -78369,6 +83616,21 @@ $root.AndroidEventProto = (function() {
      */
     AndroidEventProto.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for AndroidEventProto
+     * @function getTypeUrl
+     * @memberof AndroidEventProto
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AndroidEventProto.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AndroidEventProto";
     };
 
     return AndroidEventProto;
@@ -78512,23 +83774,28 @@ $root.AndroidIntentProto = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.action = reader.string();
-                break;
-            case 2:
-                message.dataUri = reader.string();
-                break;
-            case 3:
-                message.mimeType = reader.string();
-                break;
-            case 4:
-                message.javaClass = reader.string();
-                break;
-            case 5:
-                if (!(message.extra && message.extra.length))
-                    message.extra = [];
-                message.extra.push($root.AndroidIntentProto.Extra.decode(reader));
-                break;
+            case 1: {
+                    message.action = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.dataUri = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.mimeType = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.javaClass = reader.string();
+                    break;
+                }
+            case 5: {
+                    if (!(message.extra && message.extra.length))
+                        message.extra = [];
+                    message.extra.push($root.AndroidIntentProto.Extra.decode(reader));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -78669,6 +83936,21 @@ $root.AndroidIntentProto = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AndroidIntentProto
+     * @function getTypeUrl
+     * @memberof AndroidIntentProto
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AndroidIntentProto.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AndroidIntentProto";
+    };
+
     AndroidIntentProto.Extra = (function() {
 
         /**
@@ -78774,12 +84056,14 @@ $root.AndroidIntentProto = (function() {
                 if ((tag & 7) === 4)
                     break;
                 switch (tag >>> 3) {
-                case 6:
-                    message.name = reader.string();
-                    break;
-                case 7:
-                    message.value = reader.string();
-                    break;
+                case 6: {
+                        message.name = reader.string();
+                        break;
+                    }
+                case 7: {
+                        message.value = reader.string();
+                        break;
+                    }
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -78876,6 +84160,21 @@ $root.AndroidIntentProto = (function() {
          */
         Extra.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Gets the default type url for Extra
+         * @function getTypeUrl
+         * @memberof AndroidIntentProto.Extra
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        Extra.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/AndroidIntentProto.Extra";
         };
 
         return Extra;
@@ -78998,15 +84297,18 @@ $root.AndroidStatisticProto = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.tag = reader.string();
-                break;
-            case 2:
-                message.count = reader.int32();
-                break;
-            case 3:
-                message.sum = reader.float();
-                break;
+            case 1: {
+                    message.tag = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.count = reader.int32();
+                    break;
+                }
+            case 3: {
+                    message.sum = reader.float();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -79111,6 +84413,21 @@ $root.AndroidStatisticProto = (function() {
      */
     AndroidStatisticProto.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for AndroidStatisticProto
+     * @function getTypeUrl
+     * @memberof AndroidStatisticProto
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AndroidStatisticProto.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AndroidStatisticProto";
     };
 
     return AndroidStatisticProto;
@@ -79252,21 +84569,26 @@ $root.ClientLibraryState = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.corpus = reader.int32();
-                break;
-            case 2:
-                message.serverToken = reader.bytes();
-                break;
-            case 3:
-                message.hashCodeSum = reader.int64();
-                break;
-            case 4:
-                message.librarySize = reader.int32();
-                break;
-            case 5:
-                message.libraryId = reader.string();
-                break;
+            case 1: {
+                    message.corpus = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.serverToken = reader.bytes();
+                    break;
+                }
+            case 3: {
+                    message.hashCodeSum = reader.int64();
+                    break;
+                }
+            case 4: {
+                    message.librarySize = reader.int32();
+                    break;
+                }
+            case 5: {
+                    message.libraryId = reader.string();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -79337,7 +84659,7 @@ $root.ClientLibraryState = (function() {
         if (object.serverToken != null)
             if (typeof object.serverToken === "string")
                 $util.base64.decode(object.serverToken, message.serverToken = $util.newBuffer($util.base64.length(object.serverToken)), 0);
-            else if (object.serverToken.length)
+            else if (object.serverToken.length >= 0)
                 message.serverToken = object.serverToken;
         if (object.hashCodeSum != null)
             if ($util.Long)
@@ -79410,6 +84732,21 @@ $root.ClientLibraryState = (function() {
      */
     ClientLibraryState.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ClientLibraryState
+     * @function getTypeUrl
+     * @memberof ClientLibraryState
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ClientLibraryState.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ClientLibraryState";
     };
 
     return ClientLibraryState;
@@ -79557,27 +84894,32 @@ $root.AndroidDataUsageProto = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.version = reader.int32();
-                break;
-            case 2:
-                message.currentReportMsec = reader.int64();
-                break;
-            case 3:
-                if (!(message.keyToPackageNameMapping && message.keyToPackageNameMapping.length))
-                    message.keyToPackageNameMapping = [];
-                message.keyToPackageNameMapping.push($root.KeyToPackageNameMapping.decode(reader, reader.uint32()));
-                break;
-            case 4:
-                if (!(message.payloadLevelAppStat && message.payloadLevelAppStat.length))
-                    message.payloadLevelAppStat = [];
-                message.payloadLevelAppStat.push($root.PayloadLevelAppStat.decode(reader, reader.uint32()));
-                break;
-            case 5:
-                if (!(message.ipLayerNetworkStat && message.ipLayerNetworkStat.length))
-                    message.ipLayerNetworkStat = [];
-                message.ipLayerNetworkStat.push($root.IpLayerNetworkStat.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.version = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.currentReportMsec = reader.int64();
+                    break;
+                }
+            case 3: {
+                    if (!(message.keyToPackageNameMapping && message.keyToPackageNameMapping.length))
+                        message.keyToPackageNameMapping = [];
+                    message.keyToPackageNameMapping.push($root.KeyToPackageNameMapping.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 4: {
+                    if (!(message.payloadLevelAppStat && message.payloadLevelAppStat.length))
+                        message.payloadLevelAppStat = [];
+                    message.payloadLevelAppStat.push($root.PayloadLevelAppStat.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 5: {
+                    if (!(message.ipLayerNetworkStat && message.ipLayerNetworkStat.length))
+                        message.ipLayerNetworkStat = [];
+                    message.ipLayerNetworkStat.push($root.IpLayerNetworkStat.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -79767,6 +85109,21 @@ $root.AndroidDataUsageProto = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AndroidDataUsageProto
+     * @function getTypeUrl
+     * @memberof AndroidDataUsageProto
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AndroidDataUsageProto.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AndroidDataUsageProto";
+    };
+
     return AndroidDataUsageProto;
 })();
 
@@ -79884,15 +85241,18 @@ $root.AndroidUsageStatsReport = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.androidId = reader.int64();
-                break;
-            case 2:
-                message.loggingId = reader.int64();
-                break;
-            case 3:
-                message.usageStats = $root.UsageStatsExtensionProto.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.androidId = reader.int64();
+                    break;
+                }
+            case 2: {
+                    message.loggingId = reader.int64();
+                    break;
+                }
+            case 3: {
+                    message.usageStats = $root.UsageStatsExtensionProto.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -80032,6 +85392,21 @@ $root.AndroidUsageStatsReport = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AndroidUsageStatsReport
+     * @function getTypeUrl
+     * @memberof AndroidUsageStatsReport
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AndroidUsageStatsReport.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AndroidUsageStatsReport";
+    };
+
     return AndroidUsageStatsReport;
 })();
 
@@ -80162,20 +85537,24 @@ $root.AppBucket = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.bucketStartMsec = reader.int64();
-                break;
-            case 2:
-                message.bucketDurationMsec = reader.int64();
-                break;
-            case 3:
-                if (!(message.statCounters && message.statCounters.length))
-                    message.statCounters = [];
-                message.statCounters.push($root.StatCounters.decode(reader, reader.uint32()));
-                break;
-            case 4:
-                message.operationCount = reader.int64();
-                break;
+            case 1: {
+                    message.bucketStartMsec = reader.int64();
+                    break;
+                }
+            case 2: {
+                    message.bucketDurationMsec = reader.int64();
+                    break;
+                }
+            case 3: {
+                    if (!(message.statCounters && message.statCounters.length))
+                        message.statCounters = [];
+                    message.statCounters.push($root.StatCounters.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 4: {
+                    message.operationCount = reader.int64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -80350,6 +85729,21 @@ $root.AppBucket = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for AppBucket
+     * @function getTypeUrl
+     * @memberof AppBucket
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    AppBucket.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/AppBucket";
+    };
+
     return AppBucket;
 })();
 
@@ -80456,12 +85850,14 @@ $root.CounterData = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.bytes = reader.int64();
-                break;
-            case 2:
-                message.packets = reader.int64();
-                break;
+            case 1: {
+                    message.bytes = reader.int64();
+                    break;
+                }
+            case 2: {
+                    message.packets = reader.int64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -80588,6 +85984,21 @@ $root.CounterData = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for CounterData
+     * @function getTypeUrl
+     * @memberof CounterData
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CounterData.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CounterData";
+    };
+
     return CounterData;
 })();
 
@@ -80707,17 +86118,20 @@ $root.IpLayerAppStat = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.packageKey = reader.int32();
-                break;
-            case 2:
-                message.applicationTag = reader.int32();
-                break;
-            case 3:
-                if (!(message.ipLayerAppBucket && message.ipLayerAppBucket.length))
-                    message.ipLayerAppBucket = [];
-                message.ipLayerAppBucket.push($root.AppBucket.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.packageKey = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.applicationTag = reader.int32();
+                    break;
+                }
+            case 3: {
+                    if (!(message.ipLayerAppBucket && message.ipLayerAppBucket.length))
+                        message.ipLayerAppBucket = [];
+                    message.ipLayerAppBucket.push($root.AppBucket.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -80840,6 +86254,21 @@ $root.IpLayerAppStat = (function() {
      */
     IpLayerAppStat.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for IpLayerAppStat
+     * @function getTypeUrl
+     * @memberof IpLayerAppStat
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    IpLayerAppStat.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/IpLayerAppStat";
     };
 
     return IpLayerAppStat;
@@ -80972,20 +86401,24 @@ $root.IpLayerNetworkBucket = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.bucketStartMsec = reader.int64();
-                break;
-            case 2:
-                message.bucketDurationMsec = reader.int64();
-                break;
-            case 3:
-                if (!(message.statCounters && message.statCounters.length))
-                    message.statCounters = [];
-                message.statCounters.push($root.StatCounters.decode(reader, reader.uint32()));
-                break;
-            case 4:
-                message.networkActiveDuration = reader.int64();
-                break;
+            case 1: {
+                    message.bucketStartMsec = reader.int64();
+                    break;
+                }
+            case 2: {
+                    message.bucketDurationMsec = reader.int64();
+                    break;
+                }
+            case 3: {
+                    if (!(message.statCounters && message.statCounters.length))
+                        message.statCounters = [];
+                    message.statCounters.push($root.StatCounters.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 4: {
+                    message.networkActiveDuration = reader.int64();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -81160,6 +86593,21 @@ $root.IpLayerNetworkBucket = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for IpLayerNetworkBucket
+     * @function getTypeUrl
+     * @memberof IpLayerNetworkBucket
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    IpLayerNetworkBucket.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/IpLayerNetworkBucket";
+    };
+
     return IpLayerNetworkBucket;
 })();
 
@@ -81292,22 +86740,26 @@ $root.IpLayerNetworkStat = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.networkDetails = reader.string();
-                break;
-            case 2:
-                message.type = reader.int32();
-                break;
-            case 3:
-                if (!(message.ipLayerNetworkBucket && message.ipLayerNetworkBucket.length))
-                    message.ipLayerNetworkBucket = [];
-                message.ipLayerNetworkBucket.push($root.IpLayerNetworkBucket.decode(reader, reader.uint32()));
-                break;
-            case 4:
-                if (!(message.ipLayerAppStat && message.ipLayerAppStat.length))
-                    message.ipLayerAppStat = [];
-                message.ipLayerAppStat.push($root.IpLayerAppStat.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.networkDetails = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.type = reader.int32();
+                    break;
+                }
+            case 3: {
+                    if (!(message.ipLayerNetworkBucket && message.ipLayerNetworkBucket.length))
+                        message.ipLayerNetworkBucket = [];
+                    message.ipLayerNetworkBucket.push($root.IpLayerNetworkBucket.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 4: {
+                    if (!(message.ipLayerAppStat && message.ipLayerAppStat.length))
+                        message.ipLayerAppStat = [];
+                    message.ipLayerAppStat.push($root.IpLayerAppStat.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -81458,6 +86910,21 @@ $root.IpLayerNetworkStat = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for IpLayerNetworkStat
+     * @function getTypeUrl
+     * @memberof IpLayerNetworkStat
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    IpLayerNetworkStat.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/IpLayerNetworkStat";
+    };
+
     return IpLayerNetworkStat;
 })();
 
@@ -81577,17 +87044,20 @@ $root.KeyToPackageNameMapping = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.packageKey = reader.int32();
-                break;
-            case 2:
-                message.uidName = reader.string();
-                break;
-            case 3:
-                if (!(message.sharedPackage && message.sharedPackage.length))
-                    message.sharedPackage = [];
-                message.sharedPackage.push($root.PackageInfo.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.packageKey = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.uidName = reader.string();
+                    break;
+                }
+            case 3: {
+                    if (!(message.sharedPackage && message.sharedPackage.length))
+                        message.sharedPackage = [];
+                    message.sharedPackage.push($root.PackageInfo.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -81712,6 +87182,21 @@ $root.KeyToPackageNameMapping = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for KeyToPackageNameMapping
+     * @function getTypeUrl
+     * @memberof KeyToPackageNameMapping
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    KeyToPackageNameMapping.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/KeyToPackageNameMapping";
+    };
+
     return KeyToPackageNameMapping;
 })();
 
@@ -81818,12 +87303,14 @@ $root.PackageInfo = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.pkgName = reader.string();
-                break;
-            case 2:
-                message.versionCode = reader.int32();
-                break;
+            case 1: {
+                    message.pkgName = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.versionCode = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -81920,6 +87407,21 @@ $root.PackageInfo = (function() {
      */
     PackageInfo.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PackageInfo
+     * @function getTypeUrl
+     * @memberof PackageInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PackageInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PackageInfo";
     };
 
     return PackageInfo;
@@ -82041,17 +87543,20 @@ $root.PayloadLevelAppStat = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.packageKey = reader.int32();
-                break;
-            case 2:
-                message.applicationTag = reader.int32();
-                break;
-            case 3:
-                if (!(message.payloadLevelAppBucket && message.payloadLevelAppBucket.length))
-                    message.payloadLevelAppBucket = [];
-                message.payloadLevelAppBucket.push($root.AppBucket.decode(reader, reader.uint32()));
-                break;
+            case 1: {
+                    message.packageKey = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.applicationTag = reader.int32();
+                    break;
+                }
+            case 3: {
+                    if (!(message.payloadLevelAppBucket && message.payloadLevelAppBucket.length))
+                        message.payloadLevelAppBucket = [];
+                    message.payloadLevelAppBucket.push($root.AppBucket.decode(reader, reader.uint32()));
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -82174,6 +87679,21 @@ $root.PayloadLevelAppStat = (function() {
      */
     PayloadLevelAppStat.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PayloadLevelAppStat
+     * @function getTypeUrl
+     * @memberof PayloadLevelAppStat
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PayloadLevelAppStat.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PayloadLevelAppStat";
     };
 
     return PayloadLevelAppStat;
@@ -82304,18 +87824,22 @@ $root.StatCounters = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.networkProto = reader.int32();
-                break;
-            case 2:
-                message.direction = reader.int32();
-                break;
-            case 3:
-                message.counterData = $root.CounterData.decode(reader, reader.uint32());
-                break;
-            case 4:
-                message.fgBg = reader.int32();
-                break;
+            case 1: {
+                    message.networkProto = reader.int32();
+                    break;
+                }
+            case 2: {
+                    message.direction = reader.int32();
+                    break;
+                }
+            case 3: {
+                    message.counterData = $root.CounterData.decode(reader, reader.uint32());
+                    break;
+                }
+            case 4: {
+                    message.fgBg = reader.int32();
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -82435,6 +87959,21 @@ $root.StatCounters = (function() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
     };
 
+    /**
+     * Gets the default type url for StatCounters
+     * @function getTypeUrl
+     * @memberof StatCounters
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    StatCounters.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/StatCounters";
+    };
+
     return StatCounters;
 })();
 
@@ -82530,9 +88069,10 @@ $root.UsageStatsExtensionProto = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.dataUsage = $root.AndroidDataUsageProto.decode(reader, reader.uint32());
-                break;
+            case 1: {
+                    message.dataUsage = $root.AndroidDataUsageProto.decode(reader, reader.uint32());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -82625,6 +88165,21 @@ $root.UsageStatsExtensionProto = (function() {
      */
     UsageStatsExtensionProto.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for UsageStatsExtensionProto
+     * @function getTypeUrl
+     * @memberof UsageStatsExtensionProto
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    UsageStatsExtensionProto.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/UsageStatsExtensionProto";
     };
 
     return UsageStatsExtensionProto;
@@ -82748,19 +88303,22 @@ $root.ModifyLibraryRequest = (function() {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-            case 1:
-                message.libraryId = reader.string();
-                break;
-            case 2:
-                if (!(message.addPackageName && message.addPackageName.length))
-                    message.addPackageName = [];
-                message.addPackageName.push(reader.string());
-                break;
-            case 3:
-                if (!(message.removePackageName && message.removePackageName.length))
-                    message.removePackageName = [];
-                message.removePackageName.push(reader.string());
-                break;
+            case 1: {
+                    message.libraryId = reader.string();
+                    break;
+                }
+            case 2: {
+                    if (!(message.addPackageName && message.addPackageName.length))
+                        message.addPackageName = [];
+                    message.addPackageName.push(reader.string());
+                    break;
+                }
+            case 3: {
+                    if (!(message.removePackageName && message.removePackageName.length))
+                        message.removePackageName = [];
+                    message.removePackageName.push(reader.string());
+                    break;
+                }
             default:
                 reader.skipType(tag & 7);
                 break;
@@ -82890,6 +88448,21 @@ $root.ModifyLibraryRequest = (function() {
      */
     ModifyLibraryRequest.prototype.toJSON = function toJSON() {
         return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for ModifyLibraryRequest
+     * @function getTypeUrl
+     * @memberof ModifyLibraryRequest
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ModifyLibraryRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ModifyLibraryRequest";
     };
 
     return ModifyLibraryRequest;

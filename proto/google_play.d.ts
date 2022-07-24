@@ -195,6 +195,13 @@ export class AndroidAppDeliveryData implements IAndroidAppDeliveryData {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AndroidAppDeliveryData
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SplitDeliveryData. */
@@ -333,6 +340,13 @@ export class SplitDeliveryData implements ISplitDeliveryData {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SplitDeliveryData
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AndroidAppPatchData. */
@@ -447,6 +461,13 @@ export class AndroidAppPatchData implements IAndroidAppPatchData {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AndroidAppPatchData
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CompressedAppData. */
@@ -549,6 +570,13 @@ export class CompressedAppData implements ICompressedAppData {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CompressedAppData
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AppFileMetadata. */
@@ -681,6 +709,13 @@ export class AppFileMetadata implements IAppFileMetadata {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AppFileMetadata
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an EncryptionParams. */
@@ -783,6 +818,13 @@ export class EncryptionParams implements IEncryptionParams {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for EncryptionParams
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a HttpCookie. */
@@ -879,6 +921,13 @@ export class HttpCookie implements IHttpCookie {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for HttpCookie
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an Address. */
@@ -1053,6 +1102,13 @@ export class Address implements IAddress {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Address
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a BrowseLink. */
@@ -1161,6 +1217,13 @@ export class BrowseLink implements IBrowseLink {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for BrowseLink
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a BrowseResponse. */
@@ -1329,6 +1392,13 @@ export class BrowseResponse implements IBrowseResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for BrowseResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a DirectPurchase. */
@@ -1437,6 +1507,13 @@ export class DirectPurchase implements IDirectPurchase {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DirectPurchase
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a RedeemGiftCard. */
@@ -1533,6 +1610,13 @@ export class RedeemGiftCard implements IRedeemGiftCard {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for RedeemGiftCard
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ResolvedLink. */
@@ -1695,6 +1779,13 @@ export class ResolvedLink implements IResolvedLink {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResolvedLink
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a HelpCenter. */
@@ -1785,6 +1876,13 @@ export class HelpCenter implements IHelpCenter {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for HelpCenter
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a QuickLink. */
@@ -1911,6 +2009,13 @@ export class QuickLink implements IQuickLink {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for QuickLink
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a BrowseTab. */
@@ -2049,6 +2154,13 @@ export class BrowseTab implements IBrowseTab {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for BrowseTab
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a BuyResponse. */
@@ -2247,6 +2359,13 @@ export class BuyResponse implements IBuyResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for BuyResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 export namespace BuyResponse {
@@ -2387,6 +2506,13 @@ export namespace BuyResponse {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for CheckoutInfo
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 
     namespace CheckoutInfo {
@@ -2563,6 +2689,13 @@ export namespace BuyResponse {
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for CheckoutOption
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
         }
     }
 }
@@ -2673,6 +2806,13 @@ export class LineItem implements ILineItem {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for LineItem
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Money. */
@@ -2775,6 +2915,13 @@ export class Money implements IMoney {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Money
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PurchaseNotificationResponse. */
@@ -2883,6 +3030,13 @@ export class PurchaseNotificationResponse implements IPurchaseNotificationRespon
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PurchaseNotificationResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PurchaseStatusResponse. */
@@ -3015,6 +3169,13 @@ export class PurchaseStatusResponse implements IPurchaseStatusResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PurchaseStatusResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PurchaseHistoryDetails. */
@@ -3141,6 +3302,13 @@ export class PurchaseHistoryDetails implements IPurchaseHistoryDetails {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PurchaseHistoryDetails
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a BillingProfileResponse. */
@@ -3243,6 +3411,13 @@ export class BillingProfileResponse implements IBillingProfileResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for BillingProfileResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CheckInstrumentResponse. */
@@ -3351,6 +3526,13 @@ export class CheckInstrumentResponse implements ICheckInstrumentResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CheckInstrumentResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an InstrumentSetupInfoResponse. */
@@ -3447,6 +3629,13 @@ export class InstrumentSetupInfoResponse implements IInstrumentSetupInfoResponse
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for InstrumentSetupInfoResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a RedeemGiftCardRequest. */
@@ -3555,6 +3744,13 @@ export class RedeemGiftCardRequest implements IRedeemGiftCardRequest {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for RedeemGiftCardRequest
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a RedeemGiftCardResponse. */
@@ -3669,6 +3865,13 @@ export class RedeemGiftCardResponse implements IRedeemGiftCardResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for RedeemGiftCardResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an UpdateInstrumentRequest. */
@@ -3765,6 +3968,13 @@ export class UpdateInstrumentRequest implements IUpdateInstrumentRequest {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for UpdateInstrumentRequest
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an UpdateInstrumentResponse. */
@@ -3885,6 +4095,13 @@ export class UpdateInstrumentResponse implements IUpdateInstrumentResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for UpdateInstrumentResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an InitiateAssociationResponse. */
@@ -3975,6 +4192,13 @@ export class InitiateAssociationResponse implements IInitiateAssociationResponse
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for InitiateAssociationResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a VerifyAssociationResponse. */
@@ -4083,6 +4307,13 @@ export class VerifyAssociationResponse implements IVerifyAssociationResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for VerifyAssociationResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AddressChallenge. */
@@ -4227,6 +4458,13 @@ export class AddressChallenge implements IAddressChallenge {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AddressChallenge
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AuthenticationChallenge. */
@@ -4371,6 +4609,13 @@ export class AuthenticationChallenge implements IAuthenticationChallenge {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AuthenticationChallenge
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Challenge. */
@@ -4473,6 +4718,13 @@ export class Challenge implements IChallenge {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Challenge
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Country. */
@@ -4569,6 +4821,13 @@ export class Country implements ICountry {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Country
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a FormCheckbox. */
@@ -4677,6 +4936,13 @@ export class FormCheckbox implements IFormCheckbox {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for FormCheckbox
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an InputValidationError. */
@@ -4773,6 +5039,13 @@ export class InputValidationError implements IInputValidationError {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for InputValidationError
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a WebViewChallenge. */
@@ -4893,6 +5166,13 @@ export class WebViewChallenge implements IWebViewChallenge {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for WebViewChallenge
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AddCreditCardPromoOffer. */
@@ -5019,6 +5299,13 @@ export class AddCreditCardPromoOffer implements IAddCreditCardPromoOffer {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AddCreditCardPromoOffer
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AvailablePromoOffer. */
@@ -5109,6 +5396,13 @@ export class AvailablePromoOffer implements IAvailablePromoOffer {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AvailablePromoOffer
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CheckPromoOfferResponse. */
@@ -5211,6 +5505,13 @@ export class CheckPromoOfferResponse implements ICheckPromoOfferResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CheckPromoOfferResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a RedeemedPromoOffer. */
@@ -5313,6 +5614,13 @@ export class RedeemedPromoOffer implements IRedeemedPromoOffer {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for RedeemedPromoOffer
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a DocId. */
@@ -5415,6 +5723,13 @@ export class DocId implements IDocId {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DocId
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an Install. */
@@ -5529,6 +5844,13 @@ export class Install implements IInstall {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Install
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a GroupLicenseKey. */
@@ -5643,6 +5965,13 @@ export class GroupLicenseKey implements IGroupLicenseKey {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for GroupLicenseKey
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a LicenseTerms. */
@@ -5733,6 +6062,13 @@ export class LicenseTerms implements ILicenseTerms {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for LicenseTerms
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an Offer. */
@@ -5991,6 +6327,13 @@ export class Offer implements IOffer {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Offer
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a MonthAndDay. */
@@ -6087,6 +6430,13 @@ export class MonthAndDay implements IMonthAndDay {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for MonthAndDay
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an OfferPaymentPeriod. */
@@ -6189,6 +6539,13 @@ export class OfferPaymentPeriod implements IOfferPaymentPeriod {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for OfferPaymentPeriod
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an OfferPaymentOverride. */
@@ -6291,6 +6648,13 @@ export class OfferPaymentOverride implements IOfferPaymentOverride {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for OfferPaymentOverride
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an OfferPayment. */
@@ -6399,6 +6763,13 @@ export class OfferPayment implements IOfferPayment {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for OfferPayment
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a VoucherTerms. */
@@ -6483,6 +6854,13 @@ export class VoucherTerms implements IVoucherTerms {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for VoucherTerms
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a RentalTerms. */
@@ -6591,6 +6969,13 @@ export class RentalTerms implements IRentalTerms {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for RentalTerms
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SignedData. */
@@ -6687,6 +7072,13 @@ export class SignedData implements ISignedData {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SignedData
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SubscriptionContentTerms. */
@@ -6777,6 +7169,13 @@ export class SubscriptionContentTerms implements ISubscriptionContentTerms {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SubscriptionContentTerms
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a GroupLicenseInfo. */
@@ -6873,6 +7272,13 @@ export class GroupLicenseInfo implements IGroupLicenseInfo {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for GroupLicenseInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a LicensedDocumentInfo. */
@@ -6963,6 +7369,13 @@ export class LicensedDocumentInfo implements ILicensedDocumentInfo {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for LicensedDocumentInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an OwnershipInfo. */
@@ -7125,6 +7538,13 @@ export class OwnershipInfo implements IOwnershipInfo {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for OwnershipInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SubscriptionTerms. */
@@ -7221,6 +7641,13 @@ export class SubscriptionTerms implements ISubscriptionTerms {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SubscriptionTerms
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a TimePeriod. */
@@ -7317,6 +7744,13 @@ export class TimePeriod implements ITimePeriod {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for TimePeriod
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a BillingAddressSpec. */
@@ -7413,6 +7847,13 @@ export class BillingAddressSpec implements IBillingAddressSpec {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for BillingAddressSpec
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a BillingProfile. */
@@ -7515,6 +7956,13 @@ export class BillingProfile implements IBillingProfile {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for BillingProfile
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a BillingProfileOption. */
@@ -7629,6 +8077,13 @@ export class BillingProfileOption implements IBillingProfileOption {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for BillingProfileOption
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CarrierBillingCredentials. */
@@ -7725,6 +8180,13 @@ export class CarrierBillingCredentials implements ICarrierBillingCredentials {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CarrierBillingCredentials
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CarrierBillingInstrument. */
@@ -7857,6 +8319,13 @@ export class CarrierBillingInstrument implements ICarrierBillingInstrument {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CarrierBillingInstrument
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CarrierBillingInstrumentStatus. */
@@ -7989,6 +8458,13 @@ export class CarrierBillingInstrumentStatus implements ICarrierBillingInstrument
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CarrierBillingInstrumentStatus
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CarrierTos. */
@@ -8097,6 +8573,13 @@ export class CarrierTos implements ICarrierTos {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CarrierTos
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CarrierTosEntry. */
@@ -8193,6 +8676,13 @@ export class CarrierTosEntry implements ICarrierTosEntry {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CarrierTosEntry
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CreditCardInstrument. */
@@ -8313,6 +8803,13 @@ export class CreditCardInstrument implements ICreditCardInstrument {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CreditCardInstrument
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a DeviceAssociation. */
@@ -8409,6 +8906,13 @@ export class DeviceAssociation implements IDeviceAssociation {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DeviceAssociation
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a DisabledInfo. */
@@ -8511,6 +9015,13 @@ export class DisabledInfo implements IDisabledInfo {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DisabledInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an EfeParam. */
@@ -8607,6 +9118,13 @@ export class EfeParam implements IEfeParam {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for EfeParam
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an Instrument. */
@@ -8763,6 +9281,13 @@ export class Instrument implements IInstrument {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Instrument
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an InstrumentSetupInfo. */
@@ -8877,6 +9402,13 @@ export class InstrumentSetupInfo implements IInstrumentSetupInfo {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for InstrumentSetupInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PasswordPrompt. */
@@ -8973,6 +9505,13 @@ export class PasswordPrompt implements IPasswordPrompt {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PasswordPrompt
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a StoredValueInstrument. */
@@ -9075,6 +9614,13 @@ export class StoredValueInstrument implements IStoredValueInstrument {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for StoredValueInstrument
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a TopupInfo. */
@@ -9183,6 +9729,13 @@ export class TopupInfo implements ITopupInfo {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for TopupInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ConsumePurchaseResponse. */
@@ -9279,6 +9832,13 @@ export class ConsumePurchaseResponse implements IConsumePurchaseResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ConsumePurchaseResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ContainerMetadata. */
@@ -9411,6 +9971,13 @@ export class ContainerMetadata implements IContainerMetadata {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ContainerMetadata
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ContainerView. */
@@ -9519,6 +10086,13 @@ export class ContainerView implements IContainerView {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ContainerView
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a FlagContentResponse. */
@@ -9603,6 +10177,13 @@ export class FlagContentResponse implements IFlagContentResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for FlagContentResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ClientDownloadRequest. */
@@ -9771,6 +10352,13 @@ export class ClientDownloadRequest implements IClientDownloadRequest {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ClientDownloadRequest
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 export namespace ClientDownloadRequest {
@@ -9869,6 +10457,13 @@ export namespace ClientDownloadRequest {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for ApkInfo
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 
     /** Properties of a CertificateChain. */
@@ -9959,6 +10554,13 @@ export namespace ClientDownloadRequest {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for CertificateChain
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 
     namespace CertificateChain {
@@ -10087,6 +10689,13 @@ export namespace ClientDownloadRequest {
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for Element
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
         }
     }
 
@@ -10190,6 +10799,13 @@ export namespace ClientDownloadRequest {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for Digests
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 
     /** Properties of a Resource. */
@@ -10298,6 +10914,13 @@ export namespace ClientDownloadRequest {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for Resource
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 
     /** Properties of a SignatureInfo. */
@@ -10394,6 +11017,13 @@ export namespace ClientDownloadRequest {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for SignatureInfo
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 }
 
@@ -10497,6 +11127,13 @@ export class ClientDownloadResponse implements IClientDownloadResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ClientDownloadResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 export namespace ClientDownloadResponse {
@@ -10595,6 +11232,13 @@ export namespace ClientDownloadResponse {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for MoreInfo
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 }
 
@@ -10692,6 +11336,13 @@ export class ClientDownloadStatsRequest implements IClientDownloadStatsRequest {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ClientDownloadStatsRequest
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a DebugInfo. */
@@ -10788,6 +11439,13 @@ export class DebugInfo implements IDebugInfo {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DebugInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 export namespace DebugInfo {
@@ -10886,6 +11544,13 @@ export namespace DebugInfo {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for Timing
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 }
 
@@ -10983,6 +11648,13 @@ export class DebugSettingsResponse implements IDebugSettingsResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DebugSettingsResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a DeliveryResponse. */
@@ -11079,6 +11751,13 @@ export class DeliveryResponse implements IDeliveryResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DeliveryResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a BulkDetailsEntry. */
@@ -11169,6 +11848,13 @@ export class BulkDetailsEntry implements IBulkDetailsEntry {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for BulkDetailsEntry
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a BulkDetailsRequest. */
@@ -11283,6 +11969,13 @@ export class BulkDetailsRequest implements IBulkDetailsRequest {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for BulkDetailsRequest
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a BulkDetailsResponse. */
@@ -11373,6 +12066,13 @@ export class BulkDetailsResponse implements IBulkDetailsResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for BulkDetailsResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a DetailsResponse. */
@@ -11523,6 +12223,13 @@ export class DetailsResponse implements IDetailsResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DetailsResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a DiscoveryBadge. */
@@ -11691,6 +12398,13 @@ export class DiscoveryBadge implements IDiscoveryBadge {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DiscoveryBadge
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PlayerBadge. */
@@ -11781,6 +12495,13 @@ export class PlayerBadge implements IPlayerBadge {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PlayerBadge
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a DiscoveryBadgeLink. */
@@ -11883,6 +12604,13 @@ export class DiscoveryBadgeLink implements IDiscoveryBadgeLink {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DiscoveryBadgeLink
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Features. */
@@ -11979,6 +12707,13 @@ export class Features implements IFeatures {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Features
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Feature. */
@@ -12075,6 +12810,13 @@ export class Feature implements IFeature {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Feature
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a DeviceConfigurationProto. */
@@ -12303,6 +13045,13 @@ export class DeviceConfigurationProto implements IDeviceConfigurationProto {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DeviceConfigurationProto
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a DeviceFeature. */
@@ -12399,6 +13148,13 @@ export class DeviceFeature implements IDeviceFeature {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DeviceFeature
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Document. */
@@ -12609,6 +13365,13 @@ export class Document implements IDocument {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Document
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a DocumentVariant. */
@@ -12771,6 +13534,13 @@ export class DocumentVariant implements IDocumentVariant {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DocumentVariant
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SectionImage. */
@@ -12861,6 +13631,13 @@ export class SectionImage implements ISectionImage {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SectionImage
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an ImageContainer. */
@@ -12951,6 +13728,13 @@ export class ImageContainer implements IImageContainer {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ImageContainer
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an Image. */
@@ -13137,6 +13921,13 @@ export class Image implements IImage {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Image
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 export namespace Image {
@@ -13241,6 +14032,13 @@ export namespace Image {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for Dimension
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 
     /** Properties of a Citation. */
@@ -13337,6 +14135,13 @@ export namespace Image {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for Citation
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 }
 
@@ -13446,6 +14251,13 @@ export class Attribution implements IAttribution {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Attribution
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an ImagePalette. */
@@ -13566,6 +14378,13 @@ export class ImagePalette implements IImagePalette {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ImagePalette
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a TranslatedText. */
@@ -13668,6 +14487,13 @@ export class TranslatedText implements ITranslatedText {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for TranslatedText
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PlusOneData. */
@@ -13776,6 +14602,13 @@ export class PlusOneData implements IPlusOneData {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PlusOneData
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PlusPerson. */
@@ -13872,6 +14705,13 @@ export class PlusPerson implements IPlusPerson {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PlusPerson
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AppDetails. */
@@ -14214,6 +15054,13 @@ export class AppDetails implements IAppDetails {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AppDetails
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ModifyLibrary. */
@@ -14316,6 +15163,13 @@ export class ModifyLibrary implements IModifyLibrary {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ModifyLibrary
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Publisher. */
@@ -14406,6 +15260,13 @@ export class Publisher implements IPublisher {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Publisher
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PublisherStream. */
@@ -14502,6 +15363,13 @@ export class PublisherStream implements IPublisherStream {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PublisherStream
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an EditorChoice. */
@@ -14616,6 +15484,13 @@ export class EditorChoice implements IEditorChoice {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for EditorChoice
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CertificateSet. */
@@ -14712,6 +15587,13 @@ export class CertificateSet implements ICertificateSet {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CertificateSet
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Dependencies. */
@@ -14832,6 +15714,13 @@ export class Dependencies implements IDependencies {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Dependencies
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Dependency. */
@@ -14934,6 +15823,13 @@ export class Dependency implements IDependency {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Dependency
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a TestingProgramInfo. */
@@ -15048,6 +15944,13 @@ export class TestingProgramInfo implements ITestingProgramInfo {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for TestingProgramInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an EarlyAccessInfo. */
@@ -15138,6 +16041,13 @@ export class EarlyAccessInfo implements IEarlyAccessInfo {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for EarlyAccessInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a DocumentDetails. */
@@ -15234,6 +16144,13 @@ export class DocumentDetails implements IDocumentDetails {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DocumentDetails
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PatchDetails. */
@@ -15330,6 +16247,13 @@ export class PatchDetails implements IPatchDetails {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PatchDetails
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a FileMetadata. */
@@ -15450,6 +16374,13 @@ export class FileMetadata implements IFileMetadata {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for FileMetadata
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SubscriptionDetails. */
@@ -15540,6 +16471,13 @@ export class SubscriptionDetails implements ISubscriptionDetails {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SubscriptionDetails
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Bucket. */
@@ -15684,6 +16622,13 @@ export class Bucket implements IBucket {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Bucket
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ListResponse. */
@@ -15780,6 +16725,13 @@ export class ListResponse implements IListResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ListResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an Item. */
@@ -16068,6 +17020,13 @@ export class Item implements IItem {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Item
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AppInfo. */
@@ -16164,6 +17123,13 @@ export class AppInfo implements IAppInfo {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AppInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AppInfoSection. */
@@ -16260,6 +17226,13 @@ export class AppInfoSection implements IAppInfoSection {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AppInfoSection
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AppInfoContainer. */
@@ -16356,6 +17329,13 @@ export class AppInfoContainer implements IAppInfoContainer {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AppInfoContainer
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an Annotations. */
@@ -16710,6 +17690,13 @@ export class Annotations implements IAnnotations {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Annotations
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an EditorReason. */
@@ -16806,6 +17793,13 @@ export class EditorReason implements IEditorReason {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for EditorReason
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SectionMetaData. */
@@ -16914,6 +17908,13 @@ export class SectionMetaData implements ISectionMetaData {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SectionMetaData
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an OverlayMetaData. */
@@ -17016,6 +18017,13 @@ export class OverlayMetaData implements IOverlayMetaData {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for OverlayMetaData
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an OverlayHeader. */
@@ -17100,6 +18108,13 @@ export class OverlayHeader implements IOverlayHeader {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for OverlayHeader
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an OverlayTitle. */
@@ -17196,6 +18211,13 @@ export class OverlayTitle implements IOverlayTitle {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for OverlayTitle
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CompositeImage. */
@@ -17310,6 +18332,13 @@ export class CompositeImage implements ICompositeImage {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CompositeImage
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an OverlayDescription. */
@@ -17400,6 +18429,13 @@ export class OverlayDescription implements IOverlayDescription {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for OverlayDescription
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SuggestionReasons. */
@@ -17502,6 +18538,13 @@ export class SuggestionReasons implements ISuggestionReasons {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SuggestionReasons
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Reason. */
@@ -17616,6 +18659,13 @@ export class Reason implements IReason {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Reason
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ReasonPlusOne. */
@@ -17712,6 +18762,13 @@ export class ReasonPlusOne implements IReasonPlusOne {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReasonPlusOne
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ReasonReview. */
@@ -17802,6 +18859,13 @@ export class ReasonReview implements IReasonReview {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReasonReview
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ReasonUserAction. */
@@ -17898,6 +18962,13 @@ export class ReasonUserAction implements IReasonUserAction {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReasonUserAction
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Dismissal. */
@@ -17994,6 +19065,13 @@ export class Dismissal implements IDismissal {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Dismissal
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Snippet. */
@@ -18084,6 +19162,13 @@ export class Snippet implements ISnippet {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Snippet
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a MyRewardDetails. */
@@ -18192,6 +19277,13 @@ export class MyRewardDetails implements IMyRewardDetails {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for MyRewardDetails
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a MySubscriptionDetails. */
@@ -18330,6 +19422,13 @@ export class MySubscriptionDetails implements IMySubscriptionDetails {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for MySubscriptionDetails
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a VideoAnnotations. */
@@ -18444,6 +19543,13 @@ export class VideoAnnotations implements IVideoAnnotations {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for VideoAnnotations
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a VoucherInfo. */
@@ -18540,6 +19646,13 @@ export class VoucherInfo implements IVoucherInfo {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for VoucherInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a BadgeContainer. */
@@ -18642,6 +19755,13 @@ export class BadgeContainer implements IBadgeContainer {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for BadgeContainer
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an OverflowLink. */
@@ -18738,6 +19858,13 @@ export class OverflowLink implements IOverflowLink {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for OverflowLink
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PromotedDoc. */
@@ -18852,6 +19979,13 @@ export class PromotedDoc implements IPromotedDoc {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PromotedDoc
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Warning. */
@@ -18942,6 +20076,13 @@ export class Warning implements IWarning {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Warning
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AnnotationLink. */
@@ -19044,6 +20185,13 @@ export class AnnotationLink implements IAnnotationLink {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AnnotationLink
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Rated. */
@@ -19146,6 +20294,13 @@ export class Rated implements IRated {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Rated
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Badge. */
@@ -19278,6 +20433,13 @@ export class Badge implements IBadge {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Badge
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SubBadge. */
@@ -19380,6 +20542,13 @@ export class SubBadge implements ISubBadge {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SubBadge
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Stream. */
@@ -19482,6 +20651,13 @@ export class Stream implements IStream {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Stream
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SubStream. */
@@ -19572,6 +20748,13 @@ export class SubStream implements ISubStream {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SubStream
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Link. */
@@ -19674,6 +20857,13 @@ export class Link implements ILink {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Link
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a StreamLink. */
@@ -19788,6 +20978,13 @@ export class StreamLink implements IStreamLink {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for StreamLink
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Chip. */
@@ -19884,6 +21081,13 @@ export class Chip implements IChip {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Chip
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CategoryInfo. */
@@ -19980,6 +21184,13 @@ export class CategoryInfo implements ICategoryInfo {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CategoryInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an EncryptedSubscriberInfo. */
@@ -20100,6 +21311,13 @@ export class EncryptedSubscriberInfo implements IEncryptedSubscriberInfo {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for EncryptedSubscriberInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an Availability. */
@@ -20244,6 +21462,13 @@ export class Availability implements IAvailability {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Availability
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 export namespace Availability {
@@ -20354,6 +21579,13 @@ export namespace Availability {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for PerDeviceAvailabilityRestriction
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 }
 
@@ -20451,6 +21683,13 @@ export class AvailabilityProblem implements IAvailabilityProblem {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AvailabilityProblem
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a FilterEvaluationInfo. */
@@ -20541,6 +21780,13 @@ export class FilterEvaluationInfo implements IFilterEvaluationInfo {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for FilterEvaluationInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Rule. */
@@ -20703,6 +21949,13 @@ export class Rule implements IRule {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Rule
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a RuleEvaluation. */
@@ -20817,6 +22070,13 @@ export class RuleEvaluation implements IRuleEvaluation {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for RuleEvaluation
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a LibraryAppDetails. */
@@ -20919,6 +22179,13 @@ export class LibraryAppDetails implements ILibraryAppDetails {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for LibraryAppDetails
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a LibraryInAppDetails. */
@@ -21015,6 +22282,13 @@ export class LibraryInAppDetails implements ILibraryInAppDetails {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for LibraryInAppDetails
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a LibraryMutation. */
@@ -21141,6 +22415,13 @@ export class LibraryMutation implements ILibraryMutation {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for LibraryMutation
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a LibrarySubscriptionDetails. */
@@ -21261,6 +22542,13 @@ export class LibrarySubscriptionDetails implements ILibrarySubscriptionDetails {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for LibrarySubscriptionDetails
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a LibraryUpdate. */
@@ -21381,6 +22669,13 @@ export class LibraryUpdate implements ILibraryUpdate {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for LibraryUpdate
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AndroidAppNotificationData. */
@@ -21477,6 +22772,13 @@ export class AndroidAppNotificationData implements IAndroidAppNotificationData {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AndroidAppNotificationData
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an InAppNotificationData. */
@@ -21573,6 +22875,13 @@ export class InAppNotificationData implements IInAppNotificationData {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for InAppNotificationData
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a LibraryDirtyData. */
@@ -21669,6 +22978,13 @@ export class LibraryDirtyData implements ILibraryDirtyData {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for LibraryDirtyData
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Notification. */
@@ -21837,6 +23153,13 @@ export class Notification implements INotification {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Notification
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PurchaseDeclinedData. */
@@ -21933,6 +23256,13 @@ export class PurchaseDeclinedData implements IPurchaseDeclinedData {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PurchaseDeclinedData
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PurchaseRemovalData. */
@@ -22023,6 +23353,13 @@ export class PurchaseRemovalData implements IPurchaseRemovalData {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PurchaseRemovalData
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a UserNotificationData. */
@@ -22137,6 +23474,13 @@ export class UserNotificationData implements IUserNotificationData {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for UserNotificationData
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AggregateRating. */
@@ -22317,6 +23661,13 @@ export class AggregateRating implements IAggregateRating {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AggregateRating
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Tip. */
@@ -22437,6 +23788,13 @@ export class Tip implements ITip {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Tip
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ReviewTip. */
@@ -22545,6 +23903,13 @@ export class ReviewTip implements IReviewTip {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReviewTip
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AcceptTosResponse. */
@@ -22629,6 +23994,13 @@ export class AcceptTosResponse implements IAcceptTosResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AcceptTosResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CarrierBillingConfig. */
@@ -22761,6 +24133,13 @@ export class CarrierBillingConfig implements ICarrierBillingConfig {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CarrierBillingConfig
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a BillingConfig. */
@@ -22857,6 +24236,13 @@ export class BillingConfig implements IBillingConfig {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for BillingConfig
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CorpusMetadata. */
@@ -22977,6 +24363,13 @@ export class CorpusMetadata implements ICorpusMetadata {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CorpusMetadata
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an Experiments. */
@@ -23067,6 +24460,13 @@ export class Experiments implements IExperiments {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Experiments
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SelfUpdateConfig. */
@@ -23157,6 +24557,13 @@ export class SelfUpdateConfig implements ISelfUpdateConfig {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SelfUpdateConfig
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a TocResponse. */
@@ -23367,6 +24774,13 @@ export class TocResponse implements ITocResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for TocResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a UserSettings. */
@@ -23463,6 +24877,13 @@ export class UserSettings implements IUserSettings {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for UserSettings
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PrivacySetting. */
@@ -23565,6 +24986,13 @@ export class PrivacySetting implements IPrivacySetting {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PrivacySetting
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Payload. */
@@ -23931,6 +25359,13 @@ export class Payload implements IPayload {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Payload
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CheckIabPromoResponse. */
@@ -24015,6 +25450,13 @@ export class CheckIabPromoResponse implements ICheckIabPromoResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CheckIabPromoResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a UserActivitySettingsResponse. */
@@ -24099,6 +25541,13 @@ export class UserActivitySettingsResponse implements IUserActivitySettingsRespon
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for UserActivitySettingsResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a RecordUserActivityResponse. */
@@ -24183,6 +25632,13 @@ export class RecordUserActivityResponse implements IRecordUserActivityResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for RecordUserActivityResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a RedeemCodeResponse. */
@@ -24267,6 +25723,13 @@ export class RedeemCodeResponse implements IRedeemCodeResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for RedeemCodeResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SelfUpdateResponse. */
@@ -24351,6 +25814,13 @@ export class SelfUpdateResponse implements ISelfUpdateResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SelfUpdateResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a GetInitialInstrumentFlowStateResponse. */
@@ -24435,6 +25905,13 @@ export class GetInitialInstrumentFlowStateResponse implements IGetInitialInstrum
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for GetInitialInstrumentFlowStateResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CreateInstrumentResponse. */
@@ -24519,6 +25996,13 @@ export class CreateInstrumentResponse implements ICreateInstrumentResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CreateInstrumentResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ChallengeResponse. */
@@ -24603,6 +26087,13 @@ export class ChallengeResponse implements IChallengeResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ChallengeResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a BackDeviceChoicesResponse. */
@@ -24687,6 +26178,13 @@ export class BackDeviceChoicesResponse implements IBackDeviceChoicesResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for BackDeviceChoicesResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a BackupDocumentChoicesResponse. */
@@ -24771,6 +26269,13 @@ export class BackupDocumentChoicesResponse implements IBackupDocumentChoicesResp
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for BackupDocumentChoicesResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an EarlyUpdateResponse. */
@@ -24855,6 +26360,13 @@ export class EarlyUpdateResponse implements IEarlyUpdateResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for EarlyUpdateResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PreloadsResponse. */
@@ -24951,6 +26463,13 @@ export class PreloadsResponse implements IPreloadsResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PreloadsResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 export namespace PreloadsResponse {
@@ -25079,6 +26598,13 @@ export namespace PreloadsResponse {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for Preload
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 }
 
@@ -25164,6 +26690,13 @@ export class MyAccountsResponse implements IMyAccountsResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for MyAccountsResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ContentFilterResponse. */
@@ -25248,6 +26781,13 @@ export class ContentFilterResponse implements IContentFilterResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ContentFilterResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an ExperimentsResponse. */
@@ -25332,6 +26872,13 @@ export class ExperimentsResponse implements IExperimentsResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ExperimentsResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SurveyResponse. */
@@ -25416,6 +26963,13 @@ export class SurveyResponse implements ISurveyResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SurveyResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PingResponse. */
@@ -25500,6 +27054,13 @@ export class PingResponse implements IPingResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PingResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an UpdateUserSettingResponse. */
@@ -25584,6 +27145,13 @@ export class UpdateUserSettingResponse implements IUpdateUserSettingResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for UpdateUserSettingResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a GetUserSettingsResponse. */
@@ -25668,6 +27236,13 @@ export class GetUserSettingsResponse implements IGetUserSettingsResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for GetUserSettingsResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a GetSharingSettingsResponse. */
@@ -25752,6 +27327,13 @@ export class GetSharingSettingsResponse implements IGetSharingSettingsResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for GetSharingSettingsResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an UpdateSharingSettingsResponse. */
@@ -25836,6 +27418,13 @@ export class UpdateSharingSettingsResponse implements IUpdateSharingSettingsResp
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for UpdateSharingSettingsResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ReviewSnippetsResponse. */
@@ -25920,6 +27509,13 @@ export class ReviewSnippetsResponse implements IReviewSnippetsResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReviewSnippetsResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a DocumentSharingStateResponse. */
@@ -26004,6 +27600,13 @@ export class DocumentSharingStateResponse implements IDocumentSharingStateRespon
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DocumentSharingStateResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ModuleDeliveryResponse. */
@@ -26088,6 +27691,13 @@ export class ModuleDeliveryResponse implements IModuleDeliveryResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ModuleDeliveryResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PreFetch. */
@@ -26202,6 +27812,13 @@ export class PreFetch implements IPreFetch {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PreFetch
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ServerMetadata. */
@@ -26292,6 +27909,13 @@ export class ServerMetadata implements IServerMetadata {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ServerMetadata
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Targets. */
@@ -26388,6 +28012,13 @@ export class Targets implements ITargets {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Targets
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ServerCookie. */
@@ -26484,6 +28115,13 @@ export class ServerCookie implements IServerCookie {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ServerCookie
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ServerCookies. */
@@ -26574,6 +28212,13 @@ export class ServerCookies implements IServerCookies {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ServerCookies
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ResponseWrapper. */
@@ -26706,6 +28351,13 @@ export class ResponseWrapper implements IResponseWrapper {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResponseWrapper
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ResponseWrapperApi. */
@@ -26796,6 +28448,13 @@ export class ResponseWrapperApi implements IResponseWrapperApi {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResponseWrapperApi
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PayloadApi. */
@@ -26886,6 +28545,13 @@ export class PayloadApi implements IPayloadApi {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PayloadApi
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a UserProfileResponse. */
@@ -26976,6 +28642,13 @@ export class UserProfileResponse implements IUserProfileResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for UserProfileResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ServerCommands. */
@@ -27078,6 +28751,13 @@ export class ServerCommands implements IServerCommands {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ServerCommands
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a GetReviewsResponse. */
@@ -27174,6 +28854,13 @@ export class GetReviewsResponse implements IGetReviewsResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for GetReviewsResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a Review. */
@@ -27360,6 +29047,13 @@ export class Review implements IReview {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for Review
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CriticReviewsResponse. */
@@ -27486,6 +29180,13 @@ export class CriticReviewsResponse implements ICriticReviewsResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CriticReviewsResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ReviewAuthor. */
@@ -27582,6 +29283,13 @@ export class ReviewAuthor implements IReviewAuthor {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReviewAuthor
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a UserProfile. */
@@ -27714,6 +29422,13 @@ export class UserProfile implements IUserProfile {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for UserProfile
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ReviewResponse. */
@@ -27828,6 +29543,13 @@ export class ReviewResponse implements IReviewResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReviewResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a RelatedSearch. */
@@ -27942,6 +29664,13 @@ export class RelatedSearch implements IRelatedSearch {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for RelatedSearch
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SearchResponse. */
@@ -28086,6 +29815,13 @@ export class SearchResponse implements ISearchResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SearchResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SearchSuggestResponse. */
@@ -28176,6 +29912,13 @@ export class SearchSuggestResponse implements ISearchSuggestResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SearchSuggestResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a SearchSuggestEntry. */
@@ -28290,6 +30033,13 @@ export class SearchSuggestEntry implements ISearchSuggestEntry {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for SearchSuggestEntry
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 export namespace SearchSuggestEntry {
@@ -28382,6 +30132,13 @@ export namespace SearchSuggestEntry {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for ImageContainer
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 
     /** Properties of a PackageNameContainer. */
@@ -28472,6 +30229,13 @@ export namespace SearchSuggestEntry {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for PackageNameContainer
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 }
 
@@ -28563,6 +30327,13 @@ export class TestingProgramResponse implements ITestingProgramResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for TestingProgramResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a TestingProgramResult. */
@@ -28653,6 +30424,13 @@ export class TestingProgramResult implements ITestingProgramResult {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for TestingProgramResult
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a TestingProgramDetails. */
@@ -28755,6 +30533,13 @@ export class TestingProgramDetails implements ITestingProgramDetails {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for TestingProgramDetails
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a LogRequest. */
@@ -28851,6 +30636,13 @@ export class LogRequest implements ILogRequest {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for LogRequest
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a TestingProgramRequest. */
@@ -28947,6 +30739,13 @@ export class TestingProgramRequest implements ITestingProgramRequest {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for TestingProgramRequest
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an UploadDeviceConfigRequest. */
@@ -29049,6 +30848,13 @@ export class UploadDeviceConfigRequest implements IUploadDeviceConfigRequest {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for UploadDeviceConfigRequest
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an UploadDeviceConfigResponse. */
@@ -29139,6 +30945,13 @@ export class UploadDeviceConfigResponse implements IUploadDeviceConfigResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for UploadDeviceConfigResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AndroidCheckinRequest. */
@@ -29355,6 +31168,13 @@ export class AndroidCheckinRequest implements IAndroidCheckinRequest {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AndroidCheckinRequest
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AndroidCheckinResponse. */
@@ -29505,6 +31325,13 @@ export class AndroidCheckinResponse implements IAndroidCheckinResponse {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AndroidCheckinResponse
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a GservicesSetting. */
@@ -29601,6 +31428,13 @@ export class GservicesSetting implements IGservicesSetting {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for GservicesSetting
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AndroidBuildProto. */
@@ -29769,6 +31603,13 @@ export class AndroidBuildProto implements IAndroidBuildProto {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AndroidBuildProto
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AndroidCheckinProto. */
@@ -29907,6 +31748,13 @@ export class AndroidCheckinProto implements IAndroidCheckinProto {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AndroidCheckinProto
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AndroidEventProto. */
@@ -30009,6 +31857,13 @@ export class AndroidEventProto implements IAndroidEventProto {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AndroidEventProto
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AndroidIntentProto. */
@@ -30123,6 +31978,13 @@ export class AndroidIntentProto implements IAndroidIntentProto {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AndroidIntentProto
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 export namespace AndroidIntentProto {
@@ -30221,6 +32083,13 @@ export namespace AndroidIntentProto {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for Extra
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 }
 
@@ -30324,6 +32193,13 @@ export class AndroidStatisticProto implements IAndroidStatisticProto {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AndroidStatisticProto
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ClientLibraryState. */
@@ -30438,6 +32314,13 @@ export class ClientLibraryState implements IClientLibraryState {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ClientLibraryState
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AndroidDataUsageProto. */
@@ -30552,6 +32435,13 @@ export class AndroidDataUsageProto implements IAndroidDataUsageProto {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AndroidDataUsageProto
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AndroidUsageStatsReport. */
@@ -30654,6 +32544,13 @@ export class AndroidUsageStatsReport implements IAndroidUsageStatsReport {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AndroidUsageStatsReport
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an AppBucket. */
@@ -30762,6 +32659,13 @@ export class AppBucket implements IAppBucket {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for AppBucket
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a CounterData. */
@@ -30858,6 +32762,13 @@ export class CounterData implements ICounterData {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CounterData
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an IpLayerAppStat. */
@@ -30960,6 +32871,13 @@ export class IpLayerAppStat implements IIpLayerAppStat {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for IpLayerAppStat
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an IpLayerNetworkBucket. */
@@ -31068,6 +32986,13 @@ export class IpLayerNetworkBucket implements IIpLayerNetworkBucket {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for IpLayerNetworkBucket
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of an IpLayerNetworkStat. */
@@ -31176,6 +33101,13 @@ export class IpLayerNetworkStat implements IIpLayerNetworkStat {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for IpLayerNetworkStat
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a KeyToPackageNameMapping. */
@@ -31278,6 +33210,13 @@ export class KeyToPackageNameMapping implements IKeyToPackageNameMapping {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for KeyToPackageNameMapping
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PackageInfo. */
@@ -31374,6 +33313,13 @@ export class PackageInfo implements IPackageInfo {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PackageInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a PayloadLevelAppStat. */
@@ -31476,6 +33422,13 @@ export class PayloadLevelAppStat implements IPayloadLevelAppStat {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for PayloadLevelAppStat
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a StatCounters. */
@@ -31584,6 +33537,13 @@ export class StatCounters implements IStatCounters {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for StatCounters
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a UsageStatsExtensionProto. */
@@ -31674,6 +33634,13 @@ export class UsageStatsExtensionProto implements IUsageStatsExtensionProto {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for UsageStatsExtensionProto
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
 /** Properties of a ModifyLibraryRequest. */
@@ -31776,4 +33743,11 @@ export class ModifyLibraryRequest implements IModifyLibraryRequest {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ModifyLibraryRequest
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
 }
