@@ -42,6 +42,7 @@ export class GooglePlayAPI {
   private readonly _gsfID: string
 
   private readonly _apiEndpoint: string
+  private readonly _apiEndpointStore: string
   private readonly _authPath: string
   private readonly _playApiPath: string
 
@@ -74,10 +75,11 @@ export class GooglePlayAPI {
     this._gsfID = gsfID
 
     this._apiEndpoint = 'https://android.clients.google.com'
+    this._apiEndpointStore = 'https://play-fe.googleapis.com'
     this._authPath = '/auth'
     this._playApiPath = '/fdfe'
 
-    this._userAgent = 'Android-Finsky/20.4.13-all%20%5B0%5D%20%5BPR%5D%20313854362 (api=3,versionCode=82041300,sdk=28,device=ASUS_Z01QD_1,hardware=qcom,product=WW_Z01QD,platformVersionRelease=9,model=ASUS_Z01QD,buildId=PKQ1.190101.001,isWideScreen=0)'
+    this._userAgent = 'Android-Finsky/20.4.13-all%20%5B0%5D%20%5BPR%5D%20313854362 (api=3,versionCode=82041300,sdk=28,device=ASUS_Z01QD_1,hardware=qcom,product=WW_Z01QD,platformVersionRelease=9,model=ASUS_Z01QD,buildId=PKQ1.190101.001,isWideScreen=0,supportedAbis=arm64-v8a;armeabi-v7a;armeabi)'
     this._clientID = 'am-android-asus'
     this._googlePlayServiceVersion = '212116028'
     this._sdkVersion = '28'
@@ -244,7 +246,7 @@ export class GooglePlayAPI {
         this._axiosConfigForGooglePlay = {
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-            Host: 'android.clients.google.com',
+            Host: 'play-fe.googleapis.com',
             'User-Agent': this._userAgent,
             'Accept-Language': this._languageCode,
             Authorization: `Bearer ${auth}`,
@@ -283,7 +285,7 @@ export class GooglePlayAPI {
    */
   public async appDetails (packageName: string): Promise<IItem | null | undefined> {
     try {
-      const apiUrlAppend = new URL(`${this._apiEndpoint}${this._playApiPath}/details`)
+      const apiUrlAppend = new URL(`${this._apiEndpointStore}${this._playApiPath}/details`)
       apiUrlAppend.searchParams.append('doc', packageName.toString())
 
       const apiUrl = apiUrlAppend.href
@@ -306,7 +308,7 @@ export class GooglePlayAPI {
     try {
       const data = protoBuf.bulkDetailsRequest(...packages)
 
-      const axiosData = await axios.post(`${this._apiEndpoint}${this._playApiPath}/bulkDetails`, data, this._axiosConfigForGooglePlay_Protobuf)
+      const axiosData = await axios.post(`${this._apiEndpointStore}${this._playApiPath}/bulkDetails`, data, this._axiosConfigForGooglePlay_Protobuf)
 
       return map(protoBuf.decode(axiosData.data).payload?.bulkDetailsResponse?.entry, 'item') as IItem[] | null | undefined
     } catch (e: any) {
@@ -323,7 +325,7 @@ export class GooglePlayAPI {
    */
   public async search (keyword: string): Promise<IItem[] | null | undefined> {
     try {
-      const apiUrlAppend = new URL(`${this._apiEndpoint}${this._playApiPath}/search`)
+      const apiUrlAppend = new URL(`${this._apiEndpointStore}${this._playApiPath}/search`)
       apiUrlAppend.searchParams.append('q', keyword.toString())
       apiUrlAppend.searchParams.append('c', '3')
 
@@ -347,7 +349,7 @@ export class GooglePlayAPI {
    */
   public async appDelivery (packageName: string, offerType: number, versionCode: number): Promise<IDeliveryResponse | null | undefined> {
     try {
-      const apiUrlAppend = new URL(`${this._apiEndpoint}${this._playApiPath}/delivery`)
+      const apiUrlAppend = new URL(`${this._apiEndpointStore}${this._playApiPath}/delivery`)
       apiUrlAppend.searchParams.append('doc', packageName.toString())
       apiUrlAppend.searchParams.append('ot', offerType.toString())
       apiUrlAppend.searchParams.append('vc', versionCode.toString())
@@ -372,7 +374,7 @@ export class GooglePlayAPI {
    */
   public async purchase (packageName: string, offerType: number, versionCode: number): Promise<IBuyResponse | null | undefined> {
     try {
-      const axiosData = await axios.post(`${this._apiEndpoint}${this._playApiPath}/purchase`, qs.stringify({
+      const axiosData = await axios.post(`${this._apiEndpointStore}${this._playApiPath}/purchase`, qs.stringify({
         doc: packageName.toString(),
         ot: offerType.toString(),
         vc: versionCode.toString()
