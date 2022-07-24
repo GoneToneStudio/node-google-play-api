@@ -33,5 +33,5 @@ jobs:
         run: npm test
         env:
           GOOGLE_TEST_EMAIL: ${{ secrets.GOOGLE_TEST_EMAIL }}
-          GOOGLE_TEST_GFS_ID: ${{ secrets.GOOGLE_TEST_GFS_ID }}
+          GOOGLE_TEST_GSF_ID: ${{ secrets.GOOGLE_TEST_GSF_ID }}
           GOOGLE_TEST_AUTH_TOKEN: ${{ secrets.GOOGLE_TEST_AUTH_TOKEN }}

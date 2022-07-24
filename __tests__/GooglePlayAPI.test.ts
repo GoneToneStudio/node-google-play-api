@@ -18,7 +18,7 @@ dotenv.config()
 describe('GooglePlayAPI', () => {
   let gpAPI: GooglePlayAPI
   test('Init', () => {
-    gpAPI = new GooglePlayAPI(process.env.GOOGLE_TEST_EMAIL as string, process.env.GOOGLE_TEST_GFS_ID as string)
+    gpAPI = new GooglePlayAPI(process.env.GOOGLE_TEST_EMAIL as string, process.env.GOOGLE_TEST_GSF_ID as string)
   })
 
   test('Google Auth', async () => {
